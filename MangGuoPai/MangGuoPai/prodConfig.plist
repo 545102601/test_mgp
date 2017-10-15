@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Umeng</key>
+	<dict>
+		<key>Umeng_Key</key>
+		<string>59c4ac971c5dd01885000018</string>
+		<key>qq_id</key>
+		<string></string>
+		<key>qq_key</key>
+		<string></string>
+		<key>weibo_key</key>
+		<string></string>
+		<key>weibo_secret</key>
+		<string></string>
+		<key>weibo_redirect</key>
+		<string></string>
+		<key>wechat_key</key>
+		<string>wxea43a55c5ca9f34d</string>
+		<key>wechat_secret</key>
+		<string>98ad0ece5613c7edf35d56f53c39403b</string>
+		<key>channelId</key>
+		<string>App Store</string>
+	</dict>
+	<key>jPush</key>
+	<dict>
+		<key>apsForProduction</key>
+		<true/>
+		<key>jPush_key</key>
+		<string>45cff4eb5903e8d0b616362e</string>
+		<key>channelId</key>
+		<string>App Store</string>
+	</dict>
+	<key>BaiduMob</key>
+	<dict>
+		<key>baiduMob_Key</key>
+		<string>95e002d74e</string>
+	</dict>
+</dict>
+</plist>

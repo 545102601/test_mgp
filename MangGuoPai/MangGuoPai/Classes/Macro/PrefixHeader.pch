@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  MangGuoPai
+//
+//  Created by ZYN on 2017/6/27.
+//  Copyright © 2017年 Yongneng Zheng. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "MGMacro.h"
+
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,81 @@
+platform :ios, ‘8.0’
+
+inhibit_all_warnings!
+
+def _pods
+    
+    ############### UI ##############
+#    pod 'HYBMasonryAutoCellHeight', '~> 2.0.1'
+    
+    #键盘
+    pod 'IQKeyboardManager'
+    #下拉刷新
+    pod 'MJRefresh'
+    #自动布局
+    pod 'SDAutoLayout'
+    
+    #圆角处理
+    #pod 'HYBImageCliped'
+    
+    #UITableView无数据页面
+    pod 'DZNEmptyDataSet','~>1.7.1'
+    
+    ############## 网络 ##############
+    
+    pod 'AFNetworking'
+    
+    #图片请求库
+    pod 'SDWebImage'
+    
+    ############## 数据 ##############
+    #过滤<null>
+    pod 'NullSafe'
+    #防止数组越界崩溃
+#    pod 'XTSafeCollection'
+    #模型库
+    pod 'MJExtension'
+    
+    ############## 工具 ##############
+    #检测引用循环
+#    pod 'MLeaksFinder'
+
+    
+    #正则
+    pod 'RegexKitLite', '~> 4.0'
+    
+    ############## YY ##############
+    pod 'YYCategories'
+    pod 'YYText'
+    pod 'YYKeyboardManager', '~> 1.0.1'
+    # 
+    pod 'YYModel'
+    ############## 第三方功能组件 ##############
+    
+    
+    
+#    #友盟分析、分享
+    pod 'UMengUShare/UI'
+    pod 'UMengUShare/Social/Sina'
+    pod 'UMengUShare/Social/WeChat'
+    pod 'UMengAnalytics'
+    pod 'UMengUShare/Social/QQ'
+    pod 'UMengUShare/Social/SMS'
+    #极光
+    pod 'JPush'
+    #百度统计
+    pod 'BaiduMobStat', '~> 4.5.0'
+    
+    
+    
+    
+end
+
+target   'MangGuoPai' do
+    _pods
+end
+
+target   'MangGuoPai_Dev' do
+    _pods
+end
+
+
