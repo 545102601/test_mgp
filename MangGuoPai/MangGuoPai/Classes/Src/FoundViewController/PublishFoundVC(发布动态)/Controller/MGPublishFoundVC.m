@@ -84,9 +84,6 @@
     [self.view addSubview:_colletionView];
     
     
-    
-    
-    
 }
 
 #pragma mark - 加载数据

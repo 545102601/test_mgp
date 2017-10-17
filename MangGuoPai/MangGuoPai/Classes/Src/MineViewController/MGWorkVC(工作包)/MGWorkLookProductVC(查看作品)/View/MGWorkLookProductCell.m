@@ -12,7 +12,6 @@
 
 @interface MGWorkLookProductCell ()<SDPhotoBrowserDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
-
 @property (nonatomic, strong) UICollectionView *colletionView;
 
 @end

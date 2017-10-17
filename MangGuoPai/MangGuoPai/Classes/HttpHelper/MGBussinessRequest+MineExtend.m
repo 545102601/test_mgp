@@ -263,4 +263,18 @@
     
 }
 
+/// 课程可使用的优惠卷
++ (void)getCoupon_Promotion:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    
+    [self requestGetUrl:HTTP_PROMOTION
+                 params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+        timeoutInterval:RequestTiemOut
+              isNeedHUD:NO
+           successBlock:successBlock
+             errorBlock:errorBlock];
+    
+}
+
+
+
 @end

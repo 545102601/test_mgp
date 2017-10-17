@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) MGResProjectActorDataModel *actorDataModel;
 
-@property (nonatomic, copy) MGCommomEventBlock looOtherFileButtonBlock;
+@property (nonatomic, copy) MGCommomEventBlock lookOtherFileButtonBlock;
 
 @end

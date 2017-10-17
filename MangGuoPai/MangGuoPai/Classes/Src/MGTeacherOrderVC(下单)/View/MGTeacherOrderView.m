@@ -7,6 +7,7 @@
 //
 
 #import "MGTeacherOrderView.h"
+#import "MGResCouponPromotionModel.h"
 
 @interface MGTeacherOrderView ()
 /// 订单信息
@@ -23,7 +24,15 @@
 @property (nonatomic, strong) UITextField *discountTextField;
 @property (nonatomic, strong) UIButton *discountButton;
 @property (nonatomic, strong) UILabel *discountResultLabel;
+/// 优惠金额
+@property (nonatomic, strong) UILabel *discountMoneyLabel;
 @property (nonatomic, strong) UIView *discountLineView;
+
+/// 优惠卷
+@property (nonatomic, strong) UIView *couponBgView;
+@property (nonatomic, strong) UILabel *couponTipLabel;
+
+
 
 /// 总计
 @property (nonatomic, strong) UILabel *countLabel;
@@ -39,6 +48,57 @@
 - (void)prepareFrameViewUI:(CGRect)frame {
 
     self.backgroundColor = [UIColor whiteColor];
+    
+    [self setupOrderInfoView];
+    
+    [self setupDiscountAndCouponView];
+    
+    [self setupOrderView];
+    
+}
+
+#pragma mark - Event Response
+
+#pragma mark - --Notification Event Response
+
+#pragma mark - --Button Event Response
+
+/// 打折按钮
+- (void)discountButtonOnClick {
+    [self endEditing:YES];
+    
+    NSString *discount = [_discountTextField.text removeBlank];
+    if (discount.length == 0) {
+        [self showMBText:@"请输入派号"];
+        return;
+    }
+    
+    if (_discountBlock) {
+        _discountBlock(discount);
+    }
+    
+}
+/// 下单
+- (void)orderPayButtonOnClick {
+    
+    id model = self.dataModel ?: self.detailDataModel;
+    
+    if (_orderBlock) {
+        _orderBlock(model);
+    }
+    
+}
+#pragma mark - --Gesture Event Response
+
+#pragma mark - System Delegate
+
+#pragma mark - Custom Delegate
+
+#pragma mark - Public Function
+
+#pragma mark - Private Function
+
+- (void)setupOrderInfoView {
     
     _orederInfoBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(152))];
     /// 标题
@@ -60,13 +120,15 @@
     _priceLabel.centerY = _teacherNameLabel.centerY;
     
     
-    _orderInfoLineView = [[UIView alloc] initWithFrame:CGRectMake(SW(30), _orederInfoBgView.height - MGSepLineHeight, frame.size.width - SW(60), MGSepLineHeight)];
+    _orderInfoLineView = [[UIView alloc] initWithFrame:CGRectMake(SW(30), _orederInfoBgView.height - MGSepLineHeight, kScreenWidth - SW(60), MGSepLineHeight)];
     _orderInfoLineView.backgroundColor = MGSepColor;
     
     [_orederInfoBgView sd_addSubviews:@[_titleLabel, _numberLabel, _teacherNameLabel, _priceLabel, _orderInfoLineView]];
-    
-    _discountBgView = [[UIView alloc] initWithFrame:CGRectMake(0, _orederInfoBgView.bottom, kScreenWidth, SH(230))];
-    
+}
+
+- (void)setupDiscountAndCouponView {
+    WEAK
+    _discountBgView = [[UIView alloc] initWithFrame:CGRectMake(0, _orederInfoBgView.bottom, kScreenWidth, SH(290))];
     
     /// 使用按钮
     _discountButton = [MGUITool buttonWithBGColor:nil title:@"使用" titleColor:MGThemeBackgroundColor font:PFSC(30) target:self selector:@selector(discountButtonOnClick)];
@@ -79,7 +141,6 @@
     /// 优惠码输入框
     _discountTextField = [MGUITool textFieldWithTextColor:MGThemeColor_Common_Black font:PFSC(30) placeText:@"请输入派号" placeColor:colorHex(@"#cccccc") placeFont:PFSC(30)];
     _discountTextField.frame = CGRectMake(_discountButton.left - SW(320) - SW(20), SH(40), SW(320), SH(60));
-    
     _discountTextField.layer.borderColor = MGSepColor.CGColor;
     _discountTextField.layer.borderWidth = MGSepLineHeight;
     _discountTextField.layer.cornerRadius = MGButtonLayerCorner;
@@ -91,30 +152,64 @@
     _discountTipLabel.frame = CGRectMake(_discountTextField.left - kScreenWidth * 0.5 - SW(10), 0, kScreenWidth * 0.5, _discountTipLabel.fontLineHeight);
     _discountTipLabel.centerY = _discountButton.centerY;
     
+    _couponBgView = [[UIView alloc] initWithFrame:CGRectMake(0, _discountTextField.bottom + SH(20), kScreenWidth, SH(60))];
+    
+    _couponDataView = [[TDSelectListDataView alloc] initWithFrame:CGRectMake(_discountTextField.left, 0, _discountButton.right - _discountTextField.left, SH(60))];
+    _couponDataView.didSelectListDataViewContentViewRow = ^(NSInteger row) {
+      STRONG
+        TDSelectListDataViewContentModel *contentModel = self.couponDataView.dataArray[row];
+        [self.couponDataView setTitleLabelWithTitle:contentModel.name];
+        
+        if (self.couponDataSelectedBlock) {
+            self.couponDataSelectedBlock();
+        }
+        
+    };
+    
+    /// coupon tip
+    _couponTipLabel = [MGUITool labelWithText:@"优惠卷 : " textColor:MGThemeColor_Common_Black font:PFSC(30) textAlignment:NSTextAlignmentRight];
+    _couponTipLabel.frame = CGRectMake(_couponDataView.left - kScreenWidth * 0.5 - SW(10), 0, kScreenWidth * 0.5, _discountTipLabel.fontLineHeight);
+    _couponTipLabel.centerY = _couponDataView.centerY;
+    
+    [_couponBgView sd_addSubviews:@[_couponTipLabel, _couponDataView]];
     
     /// 结果
     _discountResultLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(30) textAlignment:NSTextAlignmentRight];
-    _discountResultLabel.frame = CGRectMake(SW(30), _discountTextField.bottom + SH(50), kScreenWidth - SW(60), _discountResultLabel.fontLineHeight);
+    _discountResultLabel.frame = CGRectMake(SW(30), _couponBgView.bottom + SH(20), kScreenWidth - SW(60), _discountResultLabel.fontLineHeight);
     
     
-    _discountLineView = [[UIView alloc] initWithFrame:CGRectMake(SW(30), _discountBgView.height - MGSepLineHeight, kScreenWidth - SW(60), MGSepLineHeight)];
+    
+    /// 结果
+    _discountMoneyLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(30) textAlignment:NSTextAlignmentRight];
+    _discountMoneyLabel.frame = CGRectMake(SW(30), _discountResultLabel.bottom + SH(20), kScreenWidth - SW(60), _discountMoneyLabel.fontLineHeight);
+    
+    
+    
+    
+    _discountLineView = [[UIView alloc] initWithFrame:CGRectMake(SW(30), _discountMoneyLabel.bottom + SH(20), kScreenWidth - SW(60), MGSepLineHeight)];
     _discountLineView.backgroundColor = MGSepColor;
     
     
-    [_discountBgView sd_addSubviews:@[_discountTipLabel, _discountTextField, _discountButton, _discountResultLabel, _discountLineView]];
+    /// 设置背景高度
+    _discountBgView.height = _discountLineView.bottom;
+    
+    [_discountBgView sd_addSubviews:@[_discountTipLabel, _discountTextField, _discountButton, _discountResultLabel, _discountMoneyLabel, _discountLineView, _couponBgView]];
+    
+}
+
+- (void)setupOrderView {
     
     /// 用 attr
     _countLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Title_Black font:PFSC(30) textAlignment:NSTextAlignmentRight];
     _countLabel.frame = CGRectMake(SW(30), _discountBgView.bottom + SH(38), kScreenWidth - SW(60), _countLabel.fontLineHeight);
     
     
-    
     _orderPayButton = [MGUITool buttonWithBGColor:nil title:@"下单支付" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(orderPayButtonOnClick)];
     [_orderPayButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_orderPayButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     
-    _orderPayButton.frame = CGRectMake(0, frame.size.height - SH(90) - SH(84), SW(600), SH(84));
-    _orderPayButton.centerX = frame.size.width * 0.5;
+    _orderPayButton.frame = CGRectMake(0, kScreenHeight - SH(90) - SH(84), SW(600), SH(84));
+    _orderPayButton.centerX = kScreenWidth * 0.5;
     _orderPayButton.layer.cornerRadius = MGButtonLayerCorner;
     _orderPayButton.layer.masksToBounds = YES;
     
@@ -122,59 +217,6 @@
     [self sd_addSubviews:@[_orederInfoBgView, _discountBgView, _countLabel, _orderPayButton]];
     
 }
-
-#pragma mark - Event Response
-
-#pragma mark - --Notification Event Response
-
-#pragma mark - --Button Event Response
-
-#pragma mark - --Gesture Event Response
-
-#pragma mark - System Delegate
-
-#pragma mark - Custom Delegate
-
-#pragma mark - Public Function
-
-/// 打折按钮
-- (void)discountButtonOnClick {
-    
-    if (_discountBlock) {
-        _discountBlock();
-    }
-    
-}
-/// 下单
-- (void)orderPayButtonOnClick {
-    
-    id model = self.dataModel ?: self.detailDataModel;
-    
-    if (_orderBlock) {
-        _orderBlock(model);
-    }
-    
-}
-#pragma mark - Private Function
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    NSString *code = @"";
-    if (self.dataModel) {
-        code = self.dataModel.servicesCode;
-    } else if (self.detailDataModel) {
-        code = self.detailDataModel.servicesCode;
-    }
-    if (code.length > 0) {
-        _discountBgView.height = SH(230);
-    } else {
-        _discountBgView.height = SH(230) - SH(50) - _discountResultLabel.fontLineHeight;
-    }
-    _discountLineView.y = _discountBgView.height - MGSepLineHeight;
-    _countLabel.y = _discountBgView.bottom + SH(38);
-}
-
 
 #pragma mark - Getter and Setter
 - (void)setDataModel:(MGResCourseListDataModel *)dataModel {
@@ -191,11 +233,6 @@
     
     _numberLabel.text = @"x1";
     
-    _priceLabel.text = [TDCommonTool formatPriceWithDoublePrice:dataModel.sale_price];
-    
-    _countLabel.text = [NSString stringWithFormat:@"总计 : %@",_priceLabel.text];
-    
-    _discountResultLabel.text = dataModel.servicesCode;
 }
 
 - (void)setDetailDataModel:(MGResCourseListDetailDataModel *)detailDataModel {
@@ -211,13 +248,97 @@
     
     _numberLabel.text = @"x1";
     
-    _priceLabel.text = [TDCommonTool formatPriceWithDoublePrice:detailDataModel.sale_price];
     
-    _countLabel.text = [NSString stringWithFormat:@"总计 : %@",_priceLabel.text];
     
-    _discountResultLabel.text = detailDataModel.servicesCode;
+}
+/// 设置价格模型
+- (void)setPriceDataModel:(MGResCalcPriceDataModel *)priceDataModel {
+    _priceDataModel = priceDataModel;
+    
+    _discountResultLabel.text = @"";
+    _discountMoneyLabel.text = @"";
+    
+    if (priceDataModel.error_discount_price_label.length > 0) {
+        if (priceDataModel.error_discount_price_label) {
+            _discountResultLabel.text = priceDataModel.error_discount_price_label;
+        }
+    } else {
+        _priceLabel.text = [TDCommonTool formatPriceWithDoublePrice:priceDataModel.total_price];
+        _countLabel.text = [NSString stringWithFormat:@"总计 : %@",[TDCommonTool formatPriceWithDoublePrice:priceDataModel.total_price]];
+        
+        if (priceDataModel.discount_price_label.length > 0) {
+            _discountResultLabel.text = priceDataModel.discount_price_label;
+        }
+        
+        if (priceDataModel.discount_price > 0) {
+            _discountMoneyLabel.text = [NSString stringWithFormat:@"优惠金额 : -%@",[TDCommonTool formatPriceWithDoublePrice:priceDataModel.discount_price]];
+        }
+    }
+    
+    CGFloat marginTop = _couponBgView.bottom;
+    
+    if (_discountResultLabel.text.length > 0) {
+        _discountResultLabel.hidden = NO;
+        marginTop = _discountResultLabel.bottom;
+    } else {
+        _discountResultLabel.hidden = YES;
+    }
+    
+    if (_discountMoneyLabel.text.length > 0) {
+        _discountMoneyLabel.hidden = NO;
+        _discountMoneyLabel.top = marginTop + SH(20);
+        marginTop = _discountMoneyLabel.bottom;
+        
+    } else {
+        _discountMoneyLabel.hidden = YES;
+    }
+    
+    _discountLineView.top = marginTop + SH(20);
+    
+    _discountBgView.height = _discountLineView.bottom;
+    
+    _countLabel.top = _discountBgView.bottom + SH(38);
     
 }
 
+
+
+/// 设置优惠卷数据
+- (void)setCouponArray:(NSArray *)couponArray {
+    
+    _couponArray = couponArray;
+    
+    NSMutableArray *arrayM = @[].mutableCopy;
+    
+    for (int i = 0; i < couponArray.count; i++) {
+        MGResCouponPromotionDataModel *dataModel = couponArray[i];
+        TDSelectListDataViewContentModel *contentModel = [TDSelectListDataViewContentModel new];
+        contentModel.name = dataModel.couponName;
+        contentModel.id = dataModel.id;
+        
+        [arrayM addObject:contentModel];
+    }
+    NSString *couponText;
+    
+    if (arrayM.count == 0) {
+        couponText = @"暂时没有可使用的优惠卷";
+    } else {
+        couponText = @"请选择优惠卷";
+    }
+    TDSelectListDataViewContentModel *contentModel = [TDSelectListDataViewContentModel new];
+    contentModel.name = couponText;
+    contentModel.id = 0;
+    contentModel.isSelected = YES;
+    [_couponDataView setTitleLabelWithTitle:contentModel.name];
+    
+    [arrayM insertObject:contentModel atIndex:0];
+    
+    _couponDataView.dataArray = arrayM;
+}
+
+
+- (NSString *)discountText {
+    return [_discountTextField.text removeBlank];
+}
 
 @end

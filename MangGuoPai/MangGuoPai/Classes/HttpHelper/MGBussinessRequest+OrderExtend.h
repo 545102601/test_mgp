@@ -16,6 +16,9 @@
 /// 支付接口
 + (void)postOrder_Pay:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
+/// 价格计算
++ (void)postOrderCalc_Price:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
+
 /// 订单列表接口
 + (void)getOrder_List:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 

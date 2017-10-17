@@ -87,7 +87,7 @@
         return cell;
     } else {
         MGWorkLookProductCommentCell *cell = (MGWorkLookProductCommentCell *)[tableView cellWithCellClass:[MGWorkLookProductCommentCell class]];
-        cell.looOtherFileButtonBlock = _looOtherFileButtonBlock;
+        cell.lookOtherFileButtonBlock = _lookOtherFileButtonBlock;
         cell.actorDataModel = _actorDataModel;
         return cell;
     }

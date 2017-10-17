@@ -181,7 +181,7 @@
         progressIndex = 2;
     }  else if (dataModel.progress >= 66.6 && dataModel.progress < 99.9) {
         progressIndex = 3;
-    } else if (dataModel.progress > 99.9){
+    } else if (dataModel.progress > 99.9) {
         progressIndex = 4;
     }
     if (progressIndex > 0) {

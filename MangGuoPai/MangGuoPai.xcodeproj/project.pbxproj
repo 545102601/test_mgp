@@ -174,6 +174,24 @@
 		2E37C9501F929F3D001BCD0A /* MGWorkLookProductColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C94E1F929F3D001BCD0A /* MGWorkLookProductColletionViewCell.m */; };
 		2E37C95D1F92A453001BCD0A /* MGWorkLookOtherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C95C1F92A453001BCD0A /* MGWorkLookOtherVC.m */; };
 		2E37C95E1F92A453001BCD0A /* MGWorkLookOtherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C95C1F92A453001BCD0A /* MGWorkLookOtherVC.m */; };
+		2E37C96B1F937254001BCD0A /* TDSelectListDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C9641F937254001BCD0A /* TDSelectListDataView.m */; };
+		2E37C96C1F937254001BCD0A /* TDSelectListDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C9641F937254001BCD0A /* TDSelectListDataView.m */; };
+		2E37C96D1F937254001BCD0A /* TDSelectListDataViewContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C9661F937254001BCD0A /* TDSelectListDataViewContentModel.m */; };
+		2E37C96E1F937254001BCD0A /* TDSelectListDataViewContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C9661F937254001BCD0A /* TDSelectListDataViewContentModel.m */; };
+		2E37C96F1F937254001BCD0A /* TDSelectListDataViewContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C9681F937254001BCD0A /* TDSelectListDataViewContentView.m */; };
+		2E37C9701F937254001BCD0A /* TDSelectListDataViewContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C9681F937254001BCD0A /* TDSelectListDataViewContentView.m */; };
+		2E37C9711F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C96A1F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.m */; };
+		2E37C9721F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37C96A1F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.m */; };
+		2E37CABB1F94A02E001BCD0A /* MGWorkProductCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CABA1F94A02E001BCD0A /* MGWorkProductCommentCell.m */; };
+		2E37CABC1F94A02E001BCD0A /* MGWorkProductCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CABA1F94A02E001BCD0A /* MGWorkProductCommentCell.m */; };
+		2E37CABF1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CABE1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m */; };
+		2E37CAC01F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CABE1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m */; };
+		2E37CAC31F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CAC21F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m */; };
+		2E37CAC41F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CAC21F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m */; };
+		2E37CB1F1F95216A001BCD0A /* MGResCouponPromotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB1E1F95216A001BCD0A /* MGResCouponPromotionModel.m */; };
+		2E37CB201F95216A001BCD0A /* MGResCouponPromotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB1E1F95216A001BCD0A /* MGResCouponPromotionModel.m */; };
+		2E37CB231F9528F3001BCD0A /* MGResCalcPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB221F9528F3001BCD0A /* MGResCalcPriceModel.m */; };
+		2E37CB241F9528F3001BCD0A /* MGResCalcPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB221F9528F3001BCD0A /* MGResCalcPriceModel.m */; };
 		2E43D97D1F32B7CE0059F13A /* MGMyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D97C1F32B7CE0059F13A /* MGMyOrderVC.m */; };
 		2E43D9801F32B7DB0059F13A /* MGMyOrderBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D97F1F32B7DB0059F13A /* MGMyOrderBaseTableView.m */; };
 		2E43D9831F32BD000059F13A /* MGResOrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D9821F32BD000059F13A /* MGResOrderListModel.m */; };
@@ -1078,6 +1096,24 @@
 		2E37C94E1F929F3D001BCD0A /* MGWorkLookProductColletionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWorkLookProductColletionViewCell.m; sourceTree = "<group>"; };
 		2E37C95B1F92A453001BCD0A /* MGWorkLookOtherVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWorkLookOtherVC.h; sourceTree = "<group>"; };
 		2E37C95C1F92A453001BCD0A /* MGWorkLookOtherVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWorkLookOtherVC.m; sourceTree = "<group>"; };
+		2E37C9631F937254001BCD0A /* TDSelectListDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSelectListDataView.h; sourceTree = "<group>"; };
+		2E37C9641F937254001BCD0A /* TDSelectListDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSelectListDataView.m; sourceTree = "<group>"; };
+		2E37C9651F937254001BCD0A /* TDSelectListDataViewContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSelectListDataViewContentModel.h; sourceTree = "<group>"; };
+		2E37C9661F937254001BCD0A /* TDSelectListDataViewContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSelectListDataViewContentModel.m; sourceTree = "<group>"; };
+		2E37C9671F937254001BCD0A /* TDSelectListDataViewContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSelectListDataViewContentView.h; sourceTree = "<group>"; };
+		2E37C9681F937254001BCD0A /* TDSelectListDataViewContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSelectListDataViewContentView.m; sourceTree = "<group>"; };
+		2E37C9691F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTDSelectListDataViewContentViewCell.h; sourceTree = "<group>"; };
+		2E37C96A1F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTDSelectListDataViewContentViewCell.m; sourceTree = "<group>"; };
+		2E37CAB91F94A02E001BCD0A /* MGWorkProductCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWorkProductCommentCell.h; sourceTree = "<group>"; };
+		2E37CABA1F94A02E001BCD0A /* MGWorkProductCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWorkProductCommentCell.m; sourceTree = "<group>"; };
+		2E37CABD1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWorkProductCommentColletionViewCell.h; sourceTree = "<group>"; };
+		2E37CABE1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWorkProductCommentColletionViewCell.m; sourceTree = "<group>"; };
+		2E37CAC11F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWorkProductCommentSectionHeader.h; sourceTree = "<group>"; };
+		2E37CAC21F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWorkProductCommentSectionHeader.m; sourceTree = "<group>"; };
+		2E37CB1D1F95216A001BCD0A /* MGResCouponPromotionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGResCouponPromotionModel.h; sourceTree = "<group>"; };
+		2E37CB1E1F95216A001BCD0A /* MGResCouponPromotionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGResCouponPromotionModel.m; sourceTree = "<group>"; };
+		2E37CB211F9528F3001BCD0A /* MGResCalcPriceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGResCalcPriceModel.h; sourceTree = "<group>"; };
+		2E37CB221F9528F3001BCD0A /* MGResCalcPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGResCalcPriceModel.m; sourceTree = "<group>"; };
 		2E43D97B1F32B7CE0059F13A /* MGMyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMyOrderVC.h; sourceTree = "<group>"; };
 		2E43D97C1F32B7CE0059F13A /* MGMyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMyOrderVC.m; sourceTree = "<group>"; };
 		2E43D97E1F32B7DB0059F13A /* MGMyOrderBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMyOrderBaseTableView.h; sourceTree = "<group>"; };
@@ -1638,6 +1674,8 @@
 			children = (
 				2E0FC50A1F2F700300540829 /* MGResOrderAddModel.h */,
 				2E0FC50B1F2F700300540829 /* MGResOrderAddModel.m */,
+				2E37CB211F9528F3001BCD0A /* MGResCalcPriceModel.h */,
+				2E37CB221F9528F3001BCD0A /* MGResCalcPriceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2004,6 +2042,8 @@
 			children = (
 				2E2129D91F8F1C2400B57420 /* MGCouponOwnsModel.h */,
 				2E2129DA1F8F1C2400B57420 /* MGCouponOwnsModel.m */,
+				2E37CB1D1F95216A001BCD0A /* MGResCouponPromotionModel.h */,
+				2E37CB1E1F95216A001BCD0A /* MGResCouponPromotionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2500,6 +2540,21 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		2E37C9621F937254001BCD0A /* TDSelectListDataView */ = {
+			isa = PBXGroup;
+			children = (
+				2E37C9631F937254001BCD0A /* TDSelectListDataView.h */,
+				2E37C9641F937254001BCD0A /* TDSelectListDataView.m */,
+				2E37C9651F937254001BCD0A /* TDSelectListDataViewContentModel.h */,
+				2E37C9661F937254001BCD0A /* TDSelectListDataViewContentModel.m */,
+				2E37C9671F937254001BCD0A /* TDSelectListDataViewContentView.h */,
+				2E37C9681F937254001BCD0A /* TDSelectListDataViewContentView.m */,
+				2E37C9691F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.h */,
+				2E37C96A1F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.m */,
+			);
+			path = TDSelectListDataView;
+			sourceTree = "<group>";
+		};
 		2E43D9771F32B7C10059F13A /* MGMyOrderVC(我的订单) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2717,6 +2772,12 @@
 				2E37C92C1F923066001BCD0A /* MGWorkDetailApplyTeamCell.m */,
 				2E37C92F1F923147001BCD0A /* MGWorkDetailApplyTeamSectionHeader.h */,
 				2E37C9301F923147001BCD0A /* MGWorkDetailApplyTeamSectionHeader.m */,
+				2E37CAB91F94A02E001BCD0A /* MGWorkProductCommentCell.h */,
+				2E37CABA1F94A02E001BCD0A /* MGWorkProductCommentCell.m */,
+				2E37CABD1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.h */,
+				2E37CABE1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m */,
+				2E37CAC11F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.h */,
+				2E37CAC21F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3570,6 +3631,7 @@
 		2EBAA1611F0296B70011DDDE /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				2E37C9621F937254001BCD0A /* TDSelectListDataView */,
 				2E2129DD1F8F3F5600B57420 /* MGHomeCouponView */,
 				2E7E3C7C1F74E9B800A3D288 /* TDUMShareAlertView */,
 				2E96CEB51F615AC000F6E71A /* MGUploadCollectionViewCell */,
@@ -4427,6 +4489,7 @@
 				2E49EA3B1F5D51EB00A260E7 /* UIView+YNCategory.m in Sources */,
 				2E49EA3C1F5D51EB00A260E7 /* MGBussinessRequest.m in Sources */,
 				2E49EA3D1F5D51EB00A260E7 /* MGBussiness.m in Sources */,
+				2E37CAC01F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m in Sources */,
 				2E49EA3E1F5D51EB00A260E7 /* BaseTableView.m in Sources */,
 				2E49EA3F1F5D51EB00A260E7 /* MGResOrderAddModel.m in Sources */,
 				2E49EA401F5D51EB00A260E7 /* BaseViewModel.m in Sources */,
@@ -4451,7 +4514,9 @@
 				2E49EA4D1F5D51EB00A260E7 /* MGContentDetailVC.m in Sources */,
 				2E49EA4E1F5D51EB00A260E7 /* UITextView+Placeholder.m in Sources */,
 				2E96CE741F5FD71E00F6E71A /* MGSelectCourseCell.m in Sources */,
+				2E37CABC1F94A02E001BCD0A /* MGWorkProductCommentCell.m in Sources */,
 				2E96CEAE1F61568900F6E71A /* MGOrderDetailAfterSaleView.m in Sources */,
+				2E37C96C1F937254001BCD0A /* TDSelectListDataView.m in Sources */,
 				2E7E3C821F74E9B800A3D288 /* TDUMengShowItem.m in Sources */,
 				2E49EA4F1F5D51EB00A260E7 /* MGHomeSimpleGraphCell.m in Sources */,
 				2E49EA501F5D51EB00A260E7 /* MGLevelUpgradeVC.m in Sources */,
@@ -4547,6 +4612,7 @@
 				2E49EA921F5D51EB00A260E7 /* UIButton+NYImageLocation.m in Sources */,
 				2E49EA931F5D51EB00A260E7 /* MD5DataSigner.m in Sources */,
 				2E49EA941F5D51EB00A260E7 /* MGBussiness+FoundExtend.m in Sources */,
+				2E37CAC41F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m in Sources */,
 				2E49EA951F5D51EB00A260E7 /* MGAccountAddBlankVC.m in Sources */,
 				2E49EA961F5D51EB00A260E7 /* MGFoundViewController.m in Sources */,
 				2E49EA971F5D51EB00A260E7 /* MGTeacherDetailHeaderView.m in Sources */,
@@ -4625,6 +4691,7 @@
 				2E49EAD01F5D51EB00A260E7 /* MGTeacherCategoryBaseDetailTableView.m in Sources */,
 				2E49EAD11F5D51EB00A260E7 /* DQAlertView+SelectTableViewExtend.m in Sources */,
 				2E49EAD21F5D51EB00A260E7 /* DQAlertView.m in Sources */,
+				2E37C96E1F937254001BCD0A /* TDSelectListDataViewContentModel.m in Sources */,
 				2E49EAD31F5D51EB00A260E7 /* MGAccountBlankListCell.m in Sources */,
 				2EADF8511F7D23FB00818F26 /* FSCalendarDelegationProxy.m in Sources */,
 				2E49EAD41F5D51EB00A260E7 /* MBProgressHUD.m in Sources */,
@@ -4658,6 +4725,7 @@
 				2E49EAE61F5D51EB00A260E7 /* GDataXMLNode.m in Sources */,
 				2E49EAE71F5D51EB00A260E7 /* MGFoundCellToolsView.m in Sources */,
 				2E49EAE81F5D51EB00A260E7 /* XMLDictionary.m in Sources */,
+				2E37C9701F937254001BCD0A /* TDSelectListDataViewContentView.m in Sources */,
 				2E49EAE91F5D51EB00A260E7 /* UIButton+countDown.m in Sources */,
 				2E7E3C841F74E9B800A3D288 /* TDUMShareAlertView.m in Sources */,
 				2E37C94C1F928878001BCD0A /* MGWorkLookProductCommentCell.m in Sources */,
@@ -4694,6 +4762,7 @@
 				2E49EB031F5D51EB00A260E7 /* MGHomeSearchBarView.m in Sources */,
 				2E49EB041F5D51EB00A260E7 /* MGSplashView.m in Sources */,
 				2E49EB051F5D51EB00A260E7 /* MGTeacherOrderVC.m in Sources */,
+				2E37CB201F95216A001BCD0A /* MGResCouponPromotionModel.m in Sources */,
 				2E49EB061F5D51EB00A260E7 /* MGAccountWithDrawVC.m in Sources */,
 				2E37C90A1F91136D001BCD0A /* MGWorkTeamVC.m in Sources */,
 				2E37C9501F929F3D001BCD0A /* MGWorkLookProductColletionViewCell.m in Sources */,
@@ -4750,6 +4819,8 @@
 				2E49EB2C1F5D51EB00A260E7 /* MGFoundCellContentView.m in Sources */,
 				2E49EB2D1F5D51EB00A260E7 /* MGBussinessRequest+FoundExtend.m in Sources */,
 				2E49EB2E1F5D51EB00A260E7 /* MGUpgradeCommunityVC.m in Sources */,
+				2E37CB241F9528F3001BCD0A /* MGResCalcPriceModel.m in Sources */,
+				2E37C9721F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.m in Sources */,
 				2E49EB2F1F5D51EB00A260E7 /* TDExpendClickImageView.m in Sources */,
 				2E49EB301F5D51EB00A260E7 /* UIImage+PlaceHolder.m in Sources */,
 				2E49EB311F5D51EB00A260E7 /* main.m in Sources */,
@@ -4774,6 +4845,7 @@
 				2EBAA21D1F029BCC0011DDDE /* UIView+YNCategory.m in Sources */,
 				2EBAA2711F0385110011DDDE /* MGBussinessRequest.m in Sources */,
 				2E98B6EA1F2981740034619D /* MGBussiness.m in Sources */,
+				2E37CABF1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m in Sources */,
 				2EBAA1B91F0299AB0011DDDE /* BaseTableView.m in Sources */,
 				2E0FC5101F2F700300540829 /* MGResOrderAddModel.m in Sources */,
 				2EBAA1BD1F0299AB0011DDDE /* BaseViewModel.m in Sources */,
@@ -4798,7 +4870,9 @@
 				2E49E6B91F5523D500A260E7 /* MGContentDetailVC.m in Sources */,
 				2EBAA18C1F02970C0011DDDE /* UITextView+Placeholder.m in Sources */,
 				2E96CE731F5FD71E00F6E71A /* MGSelectCourseCell.m in Sources */,
+				2E37CABB1F94A02E001BCD0A /* MGWorkProductCommentCell.m in Sources */,
 				2E96CEAD1F61568900F6E71A /* MGOrderDetailAfterSaleView.m in Sources */,
+				2E37C96B1F937254001BCD0A /* TDSelectListDataView.m in Sources */,
 				2E7E3C811F74E9B800A3D288 /* TDUMengShowItem.m in Sources */,
 				2EB27F2F1F151BB6006FA9A0 /* MGHomeSimpleGraphCell.m in Sources */,
 				2E50C2561F4A7875000AE31A /* MGLevelUpgradeVC.m in Sources */,
@@ -4894,6 +4968,7 @@
 				2EBAA1871F02970C0011DDDE /* UIButton+NYImageLocation.m in Sources */,
 				2E0FC5A11F307FDA00540829 /* MD5DataSigner.m in Sources */,
 				2E98B6E81F297F5C0034619D /* MGBussiness+FoundExtend.m in Sources */,
+				2E37CAC31F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m in Sources */,
 				2E2F2DDF1F5333AF0003BC3A /* MGAccountAddBlankVC.m in Sources */,
 				2EBAA2621F02A8D20011DDDE /* MGFoundViewController.m in Sources */,
 				2E98B6A41F26E3AE0034619D /* MGTeacherDetailHeaderView.m in Sources */,
@@ -4972,6 +5047,7 @@
 				2ECCB37A1F24B1B4003C7A3B /* MGTeacherCategoryBaseDetailTableView.m in Sources */,
 				2E49EA211F5D146F00A260E7 /* DQAlertView+SelectTableViewExtend.m in Sources */,
 				2EBAA21C1F029BCC0011DDDE /* DQAlertView.m in Sources */,
+				2E37C96D1F937254001BCD0A /* TDSelectListDataViewContentModel.m in Sources */,
 				2E2F2DEC1F53AF3F0003BC3A /* MGAccountBlankListCell.m in Sources */,
 				2EADF8501F7D23FB00818F26 /* FSCalendarDelegationProxy.m in Sources */,
 				2EBAA2291F029BCC0011DDDE /* MBProgressHUD.m in Sources */,
@@ -5005,6 +5081,7 @@
 				2E0FC5CC1F31707000540829 /* GDataXMLNode.m in Sources */,
 				2E43D9DC1F34244B0059F13A /* MGFoundCellToolsView.m in Sources */,
 				2E0FC5A91F307FDB00540829 /* XMLDictionary.m in Sources */,
+				2E37C96F1F937254001BCD0A /* TDSelectListDataViewContentView.m in Sources */,
 				2EBAA1861F02970C0011DDDE /* UIButton+countDown.m in Sources */,
 				2E7E3C831F74E9B800A3D288 /* TDUMShareAlertView.m in Sources */,
 				2E37C94B1F928878001BCD0A /* MGWorkLookProductCommentCell.m in Sources */,
@@ -5041,6 +5118,7 @@
 				2E850D861F17B8020050103C /* MGHomeSearchBarView.m in Sources */,
 				2EBAA23E1F02A1FA0011DDDE /* MGSplashView.m in Sources */,
 				2E0FC50F1F2F700300540829 /* MGTeacherOrderVC.m in Sources */,
+				2E37CB1F1F95216A001BCD0A /* MGResCouponPromotionModel.m in Sources */,
 				2E2F2E011F53BCF70003BC3A /* MGAccountWithDrawVC.m in Sources */,
 				2E37C9091F91136D001BCD0A /* MGWorkTeamVC.m in Sources */,
 				2E37C94F1F929F3D001BCD0A /* MGWorkLookProductColletionViewCell.m in Sources */,
@@ -5097,6 +5175,8 @@
 				2E43D9D91F3424260059F13A /* MGFoundCellContentView.m in Sources */,
 				2EB27F3B1F15B72C006FA9A0 /* MGBussinessRequest+FoundExtend.m in Sources */,
 				2E2F2D421F4C2E4F0003BC3A /* MGUpgradeCommunityVC.m in Sources */,
+				2E37CB231F9528F3001BCD0A /* MGResCalcPriceModel.m in Sources */,
+				2E37C9711F937254001BCD0A /* TDTDSelectListDataViewContentViewCell.m in Sources */,
 				2EBAA1C01F0299AB0011DDDE /* TDExpendClickImageView.m in Sources */,
 				2E49E9EA1F57FA0D00A260E7 /* UIImage+PlaceHolder.m in Sources */,
 				2EBAA1421F0294BF0011DDDE /* main.m in Sources */,

@@ -15,6 +15,7 @@
 #import "MGResCommunityTypeListModel.h"
 #import "MGResCommunityClassicListModel.h"
 #import "MGCouponOwnsModel.h"
+#import "MGResCouponPromotionModel.h"
 
 @implementation MGBussiness (MineExtend)
 
@@ -410,5 +411,21 @@
     } errorBlock:error];
 
 }
-
+/// 课程可使用的优惠卷
++ (void)loadCoupon_Promotion:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    
+    [MGBussinessRequest getCoupon_Promotion:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            
+            MGResCouponPromotionModel *model = [MGResCouponPromotionModel yy_modelWithDictionary:dic];
+            if (completion) {
+                completion(model.data);
+            }
+            
+        } else {
+            [self showMBText:message];
+        }
+    } errorBlock:error];
+    
+}
 @end

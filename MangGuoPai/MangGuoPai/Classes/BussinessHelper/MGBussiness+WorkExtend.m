@@ -123,7 +123,10 @@
 + (void)loadActor_Comment:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     [MGBussinessRequest postActor_Comment:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         if (isSuccess) {
-            
+            [self showMBText:@"评价成功"];
+            if (completion) {
+                completion(@(isSuccess));
+            }
         } else {
             [self showMBText:message];
         }

@@ -16,6 +16,9 @@
 /// 支付接口
 + (void)loadOrderPayWithParams:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
+/// 价格计算
++ (void)loadOrderCalc_PriceWithParams:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
+
 /// 订单列表接口 - 分页
 + (void)loadOrderListWithParams:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 

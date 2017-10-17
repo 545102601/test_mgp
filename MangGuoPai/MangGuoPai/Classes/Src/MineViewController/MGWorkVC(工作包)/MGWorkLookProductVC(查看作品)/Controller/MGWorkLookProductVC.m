@@ -35,7 +35,7 @@
     _tableView = [[MGWorkLookProductTableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64) style:UITableViewStyleGrouped];
     [self.view addSubview:_tableView];
     
-    _tableView.looOtherFileButtonBlock = ^{
+    _tableView.lookOtherFileButtonBlock = ^{
       STRONG
         MGWorkLookOtherVC *vc = [MGWorkLookOtherVC new];
         vc.actorModel = self.tableView.actorDataModel;
@@ -54,7 +54,9 @@
          [TDLoading hideViewInKeyWindow];
         
         _tableView.actorDataModel = actorDataModel;
-        _rightButton.hidden = NO;
+        
+        _rightButton.hidden = actorDataModel.company_comments.length == 0 ? NO : YES;
+        
         _tableView.hidden = NO;
         [_tableView reloadData];
         
@@ -72,6 +74,13 @@
     
     MGWorkWriteCommentVC *vc = [MGWorkWriteCommentVC new];
     vc.actorModel = self.tableView.actorDataModel;
+    WEAK
+    vc.completionBlock = ^(NSString *comment){
+        STRONG
+        self.rightButton.hidden = YES;
+        self.tableView.actorDataModel.company_comments = comment;
+         [self.tableView reloadData];
+    };
     PushVC(vc)
 }
 #pragma mark - --Gesture Event Response

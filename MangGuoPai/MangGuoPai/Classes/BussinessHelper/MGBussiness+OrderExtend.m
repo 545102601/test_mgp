@@ -10,6 +10,7 @@
 #import "MGResOrderAddModel.h"
 #import "MGResOrderListModel.h"
 #import "MGResOrderDetailModel.h"
+#import "MGResCalcPriceModel.h"
 
 @implementation MGBussiness (OrderExtend)
 
@@ -44,6 +45,24 @@
     
 }
 
+
+/// 价格计算
++ (void)loadOrderCalc_PriceWithParams:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    [MGBussinessRequest postOrderCalc_Price:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            MGResCalcPriceModel *model = [MGResCalcPriceModel yy_modelWithJSON:dic];
+            if (completion) {
+                completion(model.data);
+            }
+        } else {
+            if (completion) {
+                MGResCalcPriceDataModel *dataModel = [MGResCalcPriceDataModel new];
+                dataModel.error_discount_price_label = message;
+                completion(dataModel);
+            }
+        }
+    } errorBlock:error];
+}
 
 /// 订单列表接口 - 分页
 + (void)loadOrderListWithParams:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {

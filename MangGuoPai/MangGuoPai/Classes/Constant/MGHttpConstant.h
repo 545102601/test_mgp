@@ -130,6 +130,8 @@
 #define HTTP_COUPON_FETCH @"coupon_fetch"
 /// 优惠卷列表
 #define HTTP_COUPON_OWNS @"coupon_owns"
+/// 课程可使用的优惠卷
+#define HTTP_PROMOTION @"promotion"
 
 #pragma mark - 课程相关
 /// 导师课程列表接口
@@ -162,7 +164,8 @@
 #define HTTP_ORDER_CANCEL @"order_cancel"
 /// 订单详情
 #define HTTP_ORDER_GET @"order_get"
-
+/// 价格计算
+#define HTTP_CALC_PRICE @"calc_price"
 
 /// 安排课程接口
 #define HTTP_ORDER_SCHEDULE @"order_schedule"

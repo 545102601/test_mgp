@@ -65,7 +65,7 @@
 /// 状态标签
 @property (nonatomic, copy) NSString *state_label;
 
-@property (nonatomic, copy) NSArray *members;
+@property (nonatomic, strong) MGResProjectTeamDataModel *team;
 
 @end
 

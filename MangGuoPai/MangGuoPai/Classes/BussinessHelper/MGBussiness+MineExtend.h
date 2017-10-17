@@ -49,11 +49,13 @@
 /// 加载银行卡列表
 + (void)loadCardListCompletion:(BussinessCompletion)completion error:(BussinessError)error;
 
-
 /// 领取优惠卷接口
 + (void)loadCoupon_Fetch:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
 /// 优惠卷列表接口
 + (void)loadCoupon_Owns:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
+
+/// 课程可使用的优惠卷
++ (void)loadCoupon_Promotion:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
 @end

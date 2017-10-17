@@ -23,8 +23,10 @@ typedef void(^IconImageTapBlock)(MGResCourseListDataModel *model);
 /// 查看作品
 @property (nonatomic, copy) MGCommomEventBlock applyTeamProductBlock;
 
+/// 查看其他文件
+@property (nonatomic, copy) MGCommomEventBlock lookOtherFileButtonBlock;
+
 @property (nonatomic, strong) MGResProjectDetailDataModel *dataModel;
 
-@property (nonatomic, strong) MGResProjectActorDataModel *actorDataModel;
 
 @end

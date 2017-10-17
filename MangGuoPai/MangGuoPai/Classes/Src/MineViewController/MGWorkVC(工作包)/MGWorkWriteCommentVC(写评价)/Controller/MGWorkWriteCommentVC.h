@@ -11,6 +11,8 @@
 
 @interface MGWorkWriteCommentVC : BaseViewController
 
+@property (nonatomic, copy) MGCommomEventBlock completionBlock;
+
 @property (nonatomic, strong) MGResProjectActorDataModel *actorModel;
 
 @end

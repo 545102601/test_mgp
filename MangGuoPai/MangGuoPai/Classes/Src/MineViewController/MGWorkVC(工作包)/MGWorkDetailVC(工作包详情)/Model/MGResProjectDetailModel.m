@@ -185,6 +185,20 @@
     return _entryIsExpend;
 }
 
+- (BOOL)teamIsExpend {
+    if (self.hiddenExpendButton) {
+        return YES;
+    }
+    return _teamIsExpend;
+}
+
+- (BOOL)commentIsExpend {
+    if (self.hiddenExpendButton) {
+        return YES;
+    }
+    return _commentIsExpend;
+}
+
 @end
 
 @implementation MGResProjectDetailModel

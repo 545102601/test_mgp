@@ -30,6 +30,15 @@
               errorBlock:errorBlock];
 }
 
+/// 价格计算
++ (void)postOrderCalc_Price:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    [self requestPostUrl:HTTP_CALC_PRICE
+                  params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+         timeoutInterval:RequestTiemOut
+               isNeedHUD:YES
+            successBlock:successBlock
+              errorBlock:errorBlock];
+}
 
 /// 订单列表接口
 + (void)getOrder_List:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {

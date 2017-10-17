@@ -32,6 +32,7 @@
 #import "MGScheduleVC.h"
 #import "MGWorkDetailVC.h"
 #import "MGWorkVC.h"
+#import "MGTeacherOrderVC.h"
 
 @interface MGHomeViewController ()
 /// 二维码按钮

@@ -346,14 +346,14 @@
 //    [SESSION_MANAGER setSessionId:@"aa994a74-d7b4-47bf-b427-9b5e6545ebba"];
     
     /// 存 Uid
-//    [SESSION_MANAGER setCurrentUserUid:@"14"];
+    [SESSION_MANAGER setCurrentUserUid:@"14"];
     
-//    [SESSION_MANAGER setSessionId:@"a84c38c1-a57d-4587-a7a7-e1c2bac58cf5"];
+    [SESSION_MANAGER setSessionId:@"a84c38c1-a57d-4587-a7a7-e1c2bac58cf5"];
    
     /// 存 Uid
-    [SESSION_MANAGER setCurrentUserUid:@"17"];
+//    [SESSION_MANAGER setCurrentUserUid:@"17"];
     
-    [SESSION_MANAGER setSessionId:@"bab864d3-55d5-43f5-bb5d-fc7452de002a"];
+//    [SESSION_MANAGER setSessionId:@"bab864d3-55d5-43f5-bb5d-fc7452de002a"];
     
     
     [self dismissViewControllerAnimated:YES completion:nil];

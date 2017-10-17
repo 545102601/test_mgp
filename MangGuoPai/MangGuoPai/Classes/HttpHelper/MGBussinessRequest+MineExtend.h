@@ -76,4 +76,7 @@
 /// 优惠卷列表接口
 + (void)getCoupon_Owns:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
+/// 课程可使用的优惠卷
++ (void)getCoupon_Promotion:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
+
 @end

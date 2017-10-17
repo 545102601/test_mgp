@@ -11,12 +11,14 @@
 #import "MGWorkDetailExplanationCell.h"
 #import "MGWorkDetailMoneyCell.h"
 #import "MGWorkDetailIntroCell.h"
-#import "MGWorkDetailCommentCell.h"
+#import "MGWorkProductCommentCell.h"
 #import "UITableViewCell+HYBMasonryAutoCellHeight.h"
 #import "MGTeacherRecommendCell.h"
 #import "MGTeacherRecommendSectionHeader.h"
 #import "MGWorkDetailApplyTeamSectionHeader.h"
 #import "MGWorkDetailApplyTeamCell.h"
+#import "MGWorkProductCommentSectionHeader.h"
+#import "MGResProjectActorModel.h"
 
 @implementation MGWorkDetailTableView
 
@@ -26,9 +28,9 @@
     
     [self registerClass:[MGTeacherRecommendSectionHeader class] forHeaderFooterViewReuseIdentifier:@"MGTeacherRecommendSectionHeaderID"];
     
-    
     [self registerClass:[MGWorkDetailApplyTeamSectionHeader class] forHeaderFooterViewReuseIdentifier:@"MGWorkDetailApplyTeamSectionHeaderID"];
     
+    [self registerClass:[MGWorkProductCommentSectionHeader class] forHeaderFooterViewReuseIdentifier:@"MGWorkProductCommentSectionHeaderID"];
 }
 
 #pragma mark - UITableViewDelegate  UITableViewDataSource
@@ -37,14 +39,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return SH(20);
-    } else if (section == 1 || section == 2 || section == 3 || section == 4) {
+    } else if (section == 1 || section == 2 || section == 3 ) {
         return SH(4);
+    } else if (section == 4) {
+        return self.dataModel.productionAndCommentArray.count > 0 ? KMGWorkProductCommentSectionHeaderHeight : 0.0001;
     } else if (section == 5) {
-        return self.dataModel.actors.count > 0 ? kMGWorkDetailApplyTeamSectionHeaderHeight : 0.0001;
-    } else if (section == 6) {
         if (memberDataModelInstance.isCompanyID) {
-            return self.dataModel.courses.count > 0 ? SH(84) : 0.0001;
+            return self.dataModel.actors.count > 0 ? kMGWorkDetailApplyTeamSectionHeaderHeight : 0.0001;
         }
+    } else if (section == 6) {
+            return self.dataModel.courses.count > 0 ? SH(84) : 0.0001;
         return 0.0001;
         
     }
@@ -52,10 +56,27 @@
     
 }
 //header-secion
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    if (section == 5) {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 4) {
+        MGWorkProductCommentSectionHeader *recHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MGWorkProductCommentSectionHeaderID"];
+        recHeader.section = section;
+        recHeader.dataModel = self.dataModel;
+        recHeader.expendButtonBlock = ^(NSInteger section){
+            [UIView performWithoutAnimation:^{
+                [self reloadSection:section withRowAnimation:UITableViewRowAnimationNone];
+            }];
+        };
+        return recHeader;
+    }
+    else if (section == 5) {
         MGWorkDetailApplyTeamSectionHeader *recHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MGWorkDetailApplyTeamSectionHeaderID"];
+        recHeader.section = section;
+        recHeader.dataModel = self.dataModel;
+        recHeader.expendButtonBlock = ^(NSInteger section){
+            [UIView performWithoutAnimation:^{
+                [self reloadSection:section withRowAnimation:UITableViewRowAnimationNone];
+            }];
+        };
         return recHeader;
     }
     else if (section == 6) {
@@ -85,8 +106,17 @@
 }
 //rows-section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 5) {
+    if (section == 4) {
+        if (!self.dataModel.commentIsExpend) {
+            return 0;
+        }
+        return self.dataModel.productionAndCommentArray.count;
+        
+    } else if (section == 5) {
         if (memberDataModelInstance.isCompanyID) {
+            if (!self.dataModel.teamIsExpend) {
+                return 0;
+            }
             return self.dataModel.actors.count;
         }
         return 0;
@@ -115,7 +145,15 @@
         case 3:
             return self.dataModel.entryCellHeight;
         case 4:
-            return SH(168);
+        {
+           
+            CGFloat height = [MGWorkProductCommentCell hyb_heightForTableView:tableView
+                                                                       config:^(UITableViewCell *sourceCell) {
+                                                                           MGResProjectActorDataModel *actorDataModel = self.dataModel.productionAndCommentArray[indexPath.row];
+                                                                           ((MGWorkProductCommentCell *)sourceCell).actorModel = actorDataModel;
+                                                                       }] + SH(30);
+            return height;
+        }
         case 5:
             return indexPath.row == self.dataModel.actors.count - 1 ? kMGWorkDetailApplyTeamCellHeight + SH(20) : kMGWorkDetailApplyTeamCellHeight;
         case 6:
@@ -158,10 +196,10 @@
         }
         case 4:  /// 作品评论
         {
-            MGWorkDetailCommentCell *cell = (MGWorkDetailCommentCell *)[tableView cellWithCellClass:[MGWorkDetailCommentCell class]];
-            cell.expendButtonBlock = _expendButtonBlock;
+            MGWorkProductCommentCell *cell = (MGWorkProductCommentCell *)[tableView cellWithCellClass:[MGWorkProductCommentCell class]];
+            cell.lookOtherFileButtonBlock = _lookOtherFileButtonBlock;
             cell.indexPath = indexPath;
-            cell.dataModel = self.actorDataModel;
+            cell.actorModel = self.dataModel.productionAndCommentArray[indexPath.row];
             return cell;
         }
         case 5:   /// 报名团队

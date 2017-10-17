@@ -20,6 +20,7 @@
 #import "MGWorkVC.h"
 #import "MGWorkLookProductVC.h"
 #import "MGWorkWriteCommentVC.h"
+#import "MGWorkLookOtherVC.h"
 
 @interface MGWorkDetailVC ()
 
@@ -105,12 +106,24 @@
     /// 评论团队
     _tableView.applyTeamCommentBlock = ^(MGResProjectActorDataModel *actorModel){
         STRONG
+        
         MGWorkWriteCommentVC *vc = [MGWorkWriteCommentVC new];
         vc.actorModel = actorModel;
+        vc.completionBlock = ^(NSString *comment){
+            actorModel.company_comments = comment;
+            [UIView performWithoutAnimation:^{
+                [self.tableView reloadSection:5 withRowAnimation:UITableViewRowAnimationNone];
+            }];
+        };
         PushVC(vc)
     };
     
-    
+    _tableView.lookOtherFileButtonBlock = ^(MGResProjectActorDataModel *actorModel){
+        STRONG
+        MGWorkLookOtherVC *vc = [MGWorkLookOtherVC new];
+        vc.actorModel = actorModel;
+        PushVC(vc)
+    };
     
     /// 企业
     if (memberDataModelInstance.isCompanyID) {
@@ -131,8 +144,6 @@
     [TDLoading showViewInKeyWindow];
     [MGBussiness loadProject_Get:@{@"id" : @(self.id)} completion:^(MGResProjectDetailDataModel *dataModel) {
         
-        [MGBussiness loadProject_Actor_Get:@{@"id" : @(14)} completion:^(MGResProjectActorDataModel *actorDataModel) {
-            
             [TDLoading hideViewInKeyWindow];
             /// 设置 右边 按钮
             if (memberDataModelInstance.isStudentID) {
@@ -145,14 +156,14 @@
             /// 设置标题
             self.title = dataModel.project_name;
             
-            dataModel.hiddenExpendButton = YES;
-            
+            dataModel.hiddenExpendButton = dataModel.progress <= 99.9 ? YES : NO;
+        
             /// 头部
             self.tableHeader.dataModel = dataModel;
             self.tableView.tableHeaderView = self.tableHeader;
             
             self.tableView.dataModel = dataModel;
-            self.tableView.actorDataModel = actorDataModel;
+            
             [self.tableView reloadData];
             
             self.wantButton.enabled = !dataModel.is_favor;
@@ -161,11 +172,48 @@
             if (dataModel.progress >= 33.3) {
                 self.applyButton.hidden = YES;
             }
-            
+        
+            [self loadProductionAndComment];
+        
         } error:nil];
-    } error:nil];
     
 }
+/// 加载作品
+- (void)loadProductionAndComment {
+    /// 评审结束才加载
+    if (self.tableView.dataModel.progress <= 99.9) return;
+    
+    [self loadProductionAndCommentWithArray:@[].mutableCopy
+                                originArray:self.tableView.dataModel.actors
+                               currentIndex:0 currentCount:0];
+}
+
+
+- (void)loadProductionAndCommentWithArray:(NSMutableArray *)arrayM
+                              originArray:(NSArray *)originArray
+                             currentIndex:(NSInteger)currentIndex
+                             currentCount:(NSUInteger)currentCount {
+    /// 次数 3 次 前三名
+    if (currentIndex < originArray.count && currentCount < 3) {
+        MGResProjectActorDataModel *actorModel = originArray[currentIndex];
+        [MGBussiness loadProject_Actor_Get:@{@"id" : @(actorModel.id)} completion:^(MGResProjectActorDataModel *actorDataModel) {
+            NSInteger CoIndex = currentCount;
+            
+            if (actorDataModel.integrated_ranking > 0) {
+                [arrayM addObject:actorDataModel];
+                CoIndex = CoIndex + 1;
+            }
+            /// 递归
+            [self loadProductionAndCommentWithArray:arrayM originArray:originArray currentIndex:currentIndex + 1 currentCount:CoIndex];
+        } error:nil];
+    } else {
+        self.tableView.dataModel.productionAndCommentArray = arrayM;
+        [UIView performWithoutAnimation:^{
+            [self.tableView reloadSection:4 withRowAnimation:UITableViewRowAnimationNone];
+        }];
+    }
+}
+
 
 #pragma mark - Event Response
 

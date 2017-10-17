@@ -1,18 +1,17 @@
 //
-//  MGWorkDetailApplyTeamSectionHeader.h
+//  MGWorkProductCommentSectionHeader.h
 //  MangGuoPai
 //
-//  Created by ZYN on 2017/10/14.
+//  Created by ZYN on 2017/10/16.
 //  Copyright © 2017年 Yongneng Zheng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#define KMGWorkProductCommentSectionHeaderHeight SH(80)
 
-#define kMGWorkDetailApplyTeamSectionHeaderHeight SH(79)
+#import <UIKit/UIKit.h>
 #import "MGResProjectDetailModel.h"
 
-
-@interface MGWorkDetailApplyTeamSectionHeader : UITableViewHeaderFooterView
+@interface MGWorkProductCommentSectionHeader : UITableViewHeaderFooterView
 
 @property (nonatomic, assign) NSInteger section;
 

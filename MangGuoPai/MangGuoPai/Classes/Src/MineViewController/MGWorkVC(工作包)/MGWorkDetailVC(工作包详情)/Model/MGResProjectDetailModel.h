@@ -62,8 +62,11 @@
 @property (nonatomic, assign) CGFloat entryCellHeight;
 @property (nonatomic, assign) BOOL entryIsExpend;
 
+/// 团队
+@property (nonatomic, assign) BOOL teamIsExpend;
 
-
+/// 评论作品模块
+@property (nonatomic, assign) BOOL commentIsExpend;
 
 /// 评价标准
 @property (nonatomic, copy) NSString *evaluation_standard;
@@ -98,11 +101,13 @@
 @property (nonatomic, assign) BOOL is_favor;
 
 /// 所有参与者信息
-@property (nonatomic, strong) NSArray *actors;
+@property (nonatomic, copy) NSArray *actors;
 
 /// 课程推荐
-@property (nonatomic, strong) NSArray *courses;
+@property (nonatomic, copy) NSArray *courses;
 
+/// 附加 评论和模块按钮
+@property (nonatomic, copy) NSArray *productionAndCommentArray;
 
 //////////////////////////////////// 附加
 @property (nonatomic, assign) BOOL hiddenExpendButton;

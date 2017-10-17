@@ -78,8 +78,8 @@
 
 - (void)looOtherFileButtonOnClick {
     
-    if (_looOtherFileButtonBlock) {
-        _looOtherFileButtonBlock();
+    if (_lookOtherFileButtonBlock) {
+        _lookOtherFileButtonBlock();
     }
     
 }

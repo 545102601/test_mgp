@@ -43,13 +43,9 @@
     }
 }
 
-
 @end
 
 @implementation MGResProjectActorModel
 
-+ (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"members" : MGResProjectTeamDataModel.class};
-}
 
 @end
