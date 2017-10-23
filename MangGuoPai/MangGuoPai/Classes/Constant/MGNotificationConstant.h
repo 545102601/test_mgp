@@ -21,15 +21,21 @@
 /// 重新加载我的页面
 #define MineReloadReLoadRefreshView @"MineReloadReLoadRefreshView"
 
+/// 添加课程完成
+#define AddLessonCompletionReloadRefreshView @"AddLessonCompletionReloadRefreshView"
 
 /// 收藏成功/点赞成功
 #define FoundDetailPariseAndFavRefreshView @"FoundDetailPariseAndFavRefreshView"
 
+/// 订单支付完成
+#define OrderPayFinishRefreshView @"OrderPayFinishRefreshView"
 
 /// 刷新我下的订单列表
 #define OrderReloadMySendOrderRefreshView @"OrderReloadMySendOrderRefreshView"
 /// 刷新我收到的订单列表
 #define OrderReloadMyReciveOrderRefreshView @"OrderReloadMyReciveOrderRefreshView"
 
+/// 时间点 安排 订单
+#define TimeOrderScheduleRefreshView @"TimeOrderScheduleRefreshView"
 
 #endif /* MGNotificationConstant_h */

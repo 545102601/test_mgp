@@ -10,4 +10,8 @@
 
 @interface MGRegisterVC : BaseViewController
 
+@property (nonatomic, copy) NSString *open_id;
+
+@property (nonatomic, copy) NSString *union_id;
+
 @end

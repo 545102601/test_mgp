@@ -20,6 +20,7 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
@@ -96,7 +97,6 @@
     BOOL result = [[PPShareManager shareInstance] handleOpenUrl:url];
     
     if (!result) { // 其他如支付等SDK的回调
-        
         /// 支付
         [YNPay handleOpenURL:url];
         
@@ -111,6 +111,7 @@
     
     if (!result) {
         // 其他如支付等SDK的回调
+        [YNPay handleOpenURL:url];
     }
     return result;
 }

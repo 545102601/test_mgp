@@ -11,6 +11,7 @@
 #import "MGHomeSearchBarView.h"
 #import "MGTeacherCategoryDetailVC.h"
 #import "MGSearchResultVC.h"
+#import "MGMyLessonVC.h"
 
 @interface MGTeacherAllCategoryVC ()
 /// 搜索框
@@ -104,6 +105,8 @@
 /// 我的授课
 - (void)rightNavButtonOnClick {
     
+    MGMyLessonVC *vc = [MGMyLessonVC new];
+    PushVC(vc)
     
 }
 #pragma mark - --Gesture Event Response

@@ -152,6 +152,10 @@
 #define HTTP_COURSE_DEL @"course_del"
 /// 新增授课接口
 #define HTTP_COURSE_ADD @"course_add"
+/// 课程点评
+#define HTTP_COURSE_COMMENT_ADD @"course_comment_add"
+/// 导师课程回复
+#define HTTP_COURSE_COMMENT_REPLY @"course_comment_reply"
 
 #pragma mark - 订单
 /// 下单接口
@@ -166,6 +170,10 @@
 #define HTTP_ORDER_GET @"order_get"
 /// 价格计算
 #define HTTP_CALC_PRICE @"calc_price"
+/// 完成订单
+#define HTTP_ORDER_FINISH @"order_finish"
+/// 申请售后
+#define HTTP_ORDER_APPLY @"order_apply"
 
 /// 安排课程接口
 #define HTTP_ORDER_SCHEDULE @"order_schedule"

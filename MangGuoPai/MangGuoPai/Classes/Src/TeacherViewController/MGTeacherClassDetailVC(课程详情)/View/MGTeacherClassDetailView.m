@@ -70,6 +70,8 @@
     
     
     _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(750))];
+    _iconImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _iconImageView.layer.masksToBounds = YES;
     
     _titleLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Title_Black font:PFSC(30) textAlignment:NSTextAlignmentCenter];
     _titleLabel.frame = CGRectMake(0, _iconImageView.bottom, kScreenWidth, SH(80));
@@ -229,8 +231,6 @@
     
     _instrutionSubTitleLabel.attributedText = dataModel.type_explainsAttributeString;
     
-    _wantButton.selected = dataModel.is_favor == 0 ? NO : YES;
-    
     
     /// 设置位置
     _classContentSubTitleLabel.height = dataModel.contentHeight;
@@ -257,15 +257,37 @@
     
     _instrutionBgView.y = _classWayBgView.bottom;
     
-    _contentScrollView.contentSize = CGSizeMake(kScreenWidth, _instrutionBgView.bottom);
-}
-
-
-- (void)setWantButton:(BOOL)isFav {
+    CGFloat bottomHeight = 0;
     
-    _wantButton.selected = isFav;
-
+    if (dataModel.type_explainsAttributeString.length > 0) {
+        _instrutionBgView.hidden = NO;
+        bottomHeight = _instrutionBgView.bottom;
+    } else {
+        _instrutionBgView.hidden = YES;
+        bottomHeight = _classWayBgView.bottom;
+    }
+    
+    
+    _contentScrollView.contentSize = CGSizeMake(kScreenWidth, bottomHeight);
 }
 
+
+//- (void)setWantButton:(BOOL)isFav {
+//    
+//    _wantButton.selected = isFav;
+//
+//}
+
+- (void)test {
+    
+//    [MGBussiness loadWantCountWithParams:@{@"entity_id" : @(dataModel.id) , @"entity_type_id" : @(MGGlobalEntityTypeFriend)} completion:^(id results) {
+//        
+//        if ([results boolValue]) {
+//            [self showMBText:@"收藏成功"];
+//            [cell.cellInfoView setFavIsCollection:YES];
+//        }
+//        
+//    } error:nil];
+}
 
 @end

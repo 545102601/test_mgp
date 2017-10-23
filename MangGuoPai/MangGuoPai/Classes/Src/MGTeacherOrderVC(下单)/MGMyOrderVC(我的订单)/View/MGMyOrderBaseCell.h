@@ -17,8 +17,8 @@
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 
-/// 1 是 send  2 是 receive
-@property (nonatomic, assign) NSInteger viewControllerType;
+
+@property (nonatomic, assign) MGGlobaMenuTag menuTag;
 
 @property (nonatomic, strong) MGResOrderListDataModel *dataModel;
 

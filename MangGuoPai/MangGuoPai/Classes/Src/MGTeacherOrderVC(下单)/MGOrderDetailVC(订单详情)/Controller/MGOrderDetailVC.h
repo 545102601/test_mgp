@@ -11,8 +11,8 @@
 
 @interface MGOrderDetailVC : BaseViewController
 
-/// 1 : 倒是昵称  2 : 学生昵称
-@property (nonatomic, assign) NSInteger type;
+
+@property (nonatomic, assign) MGGlobaMenuTag menuTag;
 
 /// 订单模型
 @property (nonatomic, strong) MGResOrderListDataModel *dataModel;

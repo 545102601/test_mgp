@@ -225,7 +225,7 @@
     [ATTRS setYy_alignment:NSTextAlignmentCenter];
     _bottomTipLabel.attributedText = ATTRS;
     
-    _saveButton = [MGUITool buttonWithBGColor:nil title:@"保存" titleColor:MGThemeColor_Black font:MGThemeFont_28 target:self selector:@selector(saveButtonOnClick)];
+    _saveButton = [MGUITool buttonWithBGColor:nil title:@"保存" titleColor:MGThemeColor_Title_Black font:MGThemeFont_28 target:self selector:@selector(saveButtonOnClick)];
     
     _saveButton.frame = CGRectMake(0, _bottomTipLabel.bottom + SH(50), SW(140), SH(60));
     _saveButton.centerX = kScreenWidth * 0.5;
@@ -391,10 +391,15 @@
         
         [MGBussiness loadCourseAddWithParams:params completion:^(id results) {
             if ([results boolValue]) {
+                
                 MGTeacherDetailVC *vc = [MGTeacherDetailVC new];
                 /// 传递了会员 id  会员是导师才能发布课程
                 vc.id = memberDataModelInstance.id;
                 PushVC(vc)
+                
+                /// 发送通知
+                [[NSNotificationCenter defaultCenter] postNotificationName:AddLessonCompletionReloadRefreshView object:nil];
+                
             }
         } error:nil];
         
@@ -544,13 +549,13 @@
             
             if (type == SelectPhotoViewTypeTakePhoto) {
                 
-                [PPPhotoTaker getPictureFromCemeraNeedEditing:YES needSaveInLibrary:YES finishBlock:^(UIImage *image) {
+                [PPPhotoTaker getPictureFromCemeraNeedEditing:NO needSaveInLibrary:YES finishBlock:^(UIImage *image) {
                     STRONG
                     [self uploadIconImageWithImage:image];
                 }];
                 
             } else if (type == SelectPhotoViewTypeSelectPhoto) {
-                [PPPhotoTaker getPictureFromLibraryNeedEditing:YES finishBlock:^(UIImage *image) {
+                [PPPhotoTaker getPictureFromLibraryNeedEditing:NO finishBlock:^(UIImage *image) {
                     STRONG
                     [self uploadIconImageWithImage:image];
                 }];

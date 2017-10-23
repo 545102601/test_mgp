@@ -8,6 +8,20 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, MGScheduleVCSourceType) {
+    MGScheduleVCSourceTypeAdd = 0,
+    MGScheduleVCSourceTypeLook = 1,
+};
+
 @interface MGScheduleVC : BaseViewController
+
+@property (nonatomic, copy) MGCommomEventBlock completionSchedule;
+
+/// 订单Id
+@property (nonatomic, assign) long orderId;
+
+/// 来源
+@property (nonatomic, assign) MGScheduleVCSourceType sourceType;
+
 
 @end

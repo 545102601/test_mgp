@@ -23,7 +23,8 @@
     if (self) {
         
         _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SW(180), SW(296))];
-        
+        _iconImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _iconImageView.layer.masksToBounds = YES;
         [self.contentView sd_addSubviews:@[_iconImageView]];
         
     }

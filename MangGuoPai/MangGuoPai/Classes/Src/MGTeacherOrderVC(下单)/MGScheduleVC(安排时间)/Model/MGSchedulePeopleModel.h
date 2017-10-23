@@ -10,10 +10,13 @@
 
 @interface MGSchedulePeopleModel : BaseModel
 
+@property (nonatomic, assign) int id;
+
 @property (nonatomic, copy) NSString *time;
 
-@property (nonatomic, assign) NSInteger people;
+@property (nonatomic, assign) NSInteger count;
 
 @property (nonatomic, assign) BOOL isSelected;
+
 
 @end

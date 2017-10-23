@@ -15,7 +15,7 @@
 #import "MGUpdateInfoVC.h"
 #import "TDSelectDatePickerView.h"
 #import "DQAlertView+SelectTableViewExtend.h"
-
+#import "MGEResumeVC.h"
 @interface MGMineInfoVC () <SDPhotoBrowserDelegate, TDSelectDatePickerViewDelegate>
 
 /// 个人信息模型
@@ -426,7 +426,9 @@
             break;
         case MineInfoTagTypeJianLi :
         {
-            
+            MGEResumeVC *vc = [MGEResumeVC new];
+            vc.resumeUrl = memberDataModelInstance.resume_rsurl;
+            PushVC(vc)
         }
             break;
         case MineInfoTagTypeComment :
@@ -513,14 +515,13 @@
 - (void)updateVCWithType:(NSInteger)type {
     MGMineSettingView *settingView = [self.view viewWithTag:type];
     
-    WEAK
     MGUpdateInfoVC *vc = [MGUpdateInfoVC new];
     vc.type = type;
     vc.contentString = settingView.subTitlelabel.text;
     
     
     vc.completionBlock = ^(NSString *key, NSString *value){
-        STRONG
+        
         /// 是否是nick_name
         BOOL isnick_name = [key isEqualToString:@"nick_name"];
         

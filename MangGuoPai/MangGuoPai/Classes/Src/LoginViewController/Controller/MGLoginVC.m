@@ -9,11 +9,10 @@
 #import "MGLoginVC.h"
 #import <YYText.h>
 #import "MGRegisterVC.h"
-#import "MGLoginModel.h"
 #import "UIButton+countDown.h"
-#import "MGResLoginModel.h"
 #import "MGCommonWKWebViewVC.h"
 #import "MGRegisterInfoVC.h"
+#import "MGResLoginModel.h"
 
 @interface MGLoginVC ()
 /// 顶部背景图
@@ -101,7 +100,7 @@
     _msgLineView.backgroundColor = MGSepColor;
     
     
-    _loginButton = [MGUITool buttonWithBGColor:nil title:@"登录" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(loginButtonOnClick)];
+    _loginButton = [MGUITool buttonWithBGColor:nil title:@"登录" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(loginButtonOnClick)];
     [_loginButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_loginButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     
@@ -335,66 +334,42 @@
 
 #pragma mark - Private Function
 
-- (void)requestLoginWithModal:(MGLoginModel *)loginModel {
-    
+- (void)requestLoginWithModal:(MGLoginModel *)loginModel
+                 sendMsgBlock:(MGCommomEventBlock)msgBlock {
     /// 设置已经登录
-    [SESSION_MANAGER setLogin:YES];
+        [SESSION_MANAGER setLogin:YES];
     
     /// 存 Uid
-//    [SESSION_MANAGER setCurrentUserUid:@"16"];
+        [SESSION_MANAGER setCurrentUserUid:@"16"];
     
-//    [SESSION_MANAGER setSessionId:@"aa994a74-d7b4-47bf-b427-9b5e6545ebba"];
+        [SESSION_MANAGER setSessionId:@"aa994a74-d7b4-47bf-b427-9b5e6545ebba"];
     
     /// 存 Uid
-    [SESSION_MANAGER setCurrentUserUid:@"14"];
+//        [SESSION_MANAGER setCurrentUserUid:@"14"];
+    //
+//        [SESSION_MANAGER setSessionId:@"a84c38c1-a57d-4587-a7a7-e1c2bac58cf5"];
     
-    [SESSION_MANAGER setSessionId:@"a84c38c1-a57d-4587-a7a7-e1c2bac58cf5"];
-   
     /// 存 Uid
-//    [SESSION_MANAGER setCurrentUserUid:@"17"];
+//        [SESSION_MANAGER setCurrentUserUid:@"17"];
     
-//    [SESSION_MANAGER setSessionId:@"bab864d3-55d5-43f5-bb5d-fc7452de002a"];
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    /// 发送登录成功通知
-    [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessRefreshTable object:nil];
-
-    [SESSION_MANAGER setUpgradeView:NO];
+//        [SESSION_MANAGER setSessionId:@"bab864d3-55d5-43f5-bb5d-fc7452de002a"];
     
     
-    return;
+        [self dismissViewControllerAnimated:YES completion:nil];
+    
+        /// 发送登录成功通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessRefreshTable object:nil];
+    
+        [SESSION_MANAGER setUpgradeView:NO];
+    
+    
+        return;
     WEAK
     [MGBussinessRequest postUserQuickLogin:loginModel successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         STRONG
         if (isSuccess) { /// 登录成功
-//            [self showMBText:@"登录成功"];
-            MGResLoginModel *resLoginModel = [MGResLoginModel mj_objectWithKeyValues:dic];
-          
-            /// 设置已经登录
-            [SESSION_MANAGER setLogin:YES];
             
-            /// 存 Uid
-            [SESSION_MANAGER setCurrentUserUid:[NSString stringWithFormat:@"%ld",resLoginModel.data.member.id]];
-          
-            /// 存 session_id
-            if (resLoginModel.data.lst_sessid.length > 0) {
-                [SESSION_MANAGER setSessionId:resLoginModel.data.lst_sessid];
-            }
-            
-            /// 去设置昵称
-            if (resLoginModel.data.member.nick_name.length == 0) {
-                MGRegisterInfoVC *vc = [MGRegisterInfoVC new];
-                PushVC(vc);
-            } else {
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
-                /// 发送登录成功通知
-                [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessRefreshTable object:nil];
-            }
-            [SESSION_MANAGER setUpgradeView:NO];
-            
+            [self loginSuccessWithDic:dic];
             
         } else {
             if(![MGLoginModel loginShowErrorCode:code]) {
@@ -402,7 +377,12 @@
             };
             /// 发送短信成功 开启倒计时
             if ([code isEqualToString:BIZ_ERR_LOGIN_SMSCODE_SEND]) {
-                [self.msgButton startWithTime:60 title:@"获取验证码" countDownTitle:@"s" mainColor:nil countColor:nil];
+                if (msgBlock) {
+                    msgBlock();
+                } else {
+                    [self.msgButton startWithTime:60 title:@"获取验证码" countDownTitle:@"s" mainColor:nil countColor:nil];
+                }
+                
                 NSDictionary *dict = dic[@"data"];
                 /// 存 session_id
                 NSString *session_id = dict[@"lst_sessid"];
@@ -412,6 +392,11 @@
             }
         }
     } errorBlock:nil];
+
+    
+}
+- (void)requestLoginWithModal:(MGLoginModel *)loginModel {
+    [self requestLoginWithModal:loginModel sendMsgBlock:nil];
 }
 
 
@@ -556,9 +541,18 @@
                 [TDLoading hideViewInKeyWindow];
                 
                 if (isSuccess) {
-                    [self showMBText:@"登录成功"];
+                    [self loginSuccessWithDic:dic];
                 } else {
-                    [self showMBText:message];
+                    
+                    if ([code isEqualToString:@"BIZ_ERR_MEMBER_NONEXISTENT"]) {
+                        MGRegisterVC *vc = [MGRegisterVC new];
+                        vc.open_id = openId;
+                        vc.union_id = unionid;
+                        PushVC(vc)
+                    } else {
+                        [self showMBText:message];
+                    }
+                    
                 }
             } errorBlock:nil];
         } else {
@@ -567,6 +561,37 @@
         
     } errorBlock:nil];
 
+}
+
+/// 登录成功~
+- (void)loginSuccessWithDic:(NSDictionary *)dic {
+    
+    MGResLoginModel *resLoginModel = [MGResLoginModel mj_objectWithKeyValues:dic];
+  
+    /// 存 Uid
+    [SESSION_MANAGER setCurrentUserUid:[NSString stringWithFormat:@"%ld",resLoginModel.data.member.id]];
+    
+    /// 存 session_id
+    if (resLoginModel.data.lst_sessid.length > 0) {
+        [SESSION_MANAGER setSessionId:resLoginModel.data.lst_sessid];
+    }
+    
+    /// 去设置昵称
+    if (resLoginModel.data.member.nick_name.length == 0) {
+        MGRegisterInfoVC *vc = [MGRegisterInfoVC new];
+        PushVC(vc);
+    } else {
+        
+        /// 设置已经登录
+        [SESSION_MANAGER setLogin:YES];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        /// 发送登录成功通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessRefreshTable object:nil];
+    }
+    [SESSION_MANAGER setUpgradeView:NO];
+    
 }
 
 #pragma mark - Getter and Setter

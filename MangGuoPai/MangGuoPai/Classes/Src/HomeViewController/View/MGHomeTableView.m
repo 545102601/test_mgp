@@ -115,6 +115,9 @@
             case 2:
                 return SH(279);
             case 3:
+                if (dataModel.id == 14) { /// 导师风采
+                    return SH(279);
+                }
                 return SH(435);
             case 4:
                 return SH(140) * dataModel.details.count + SH(133);
@@ -194,6 +197,14 @@
             }
             case 3:
             {
+                
+                if (dataModel.id == 14) {
+                    MGHomeColletionViewTableViewCell *cell = (MGHomeColletionViewTableViewCell *)[tableView cellWithCellClass:[MGHomeColletionViewTableViewCell class]];
+                    cell.dataModel = self.ReResults[section - 2];
+                    cell.didCellItem = _didCellItem;
+                    return cell;
+                }
+                
                 MGHomeColletionViewVVTableViewCell *cell = (MGHomeColletionViewVVTableViewCell *)[tableView cellWithCellClass:[MGHomeColletionViewVVTableViewCell class]];
                 cell.dataModel = self.ReResults[section - 2];
                 cell.didCellItem = _didCellItem;

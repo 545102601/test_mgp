@@ -7,12 +7,10 @@
 //
 
 #import "BaseViewController.h"
-#import "MGResOrderAddModel.h"
 #import "MGResOrderListModel.h"
 
 @interface MGPayOrderWayVC : BaseViewController
-/// 添加订单的 data数据
-@property (nonatomic, strong) MGResOrderAddDataModel *dataModel;
+
 /// 订单列表 data数据
 @property (nonatomic, strong) MGResOrderListDataModel *listDataModel;
 

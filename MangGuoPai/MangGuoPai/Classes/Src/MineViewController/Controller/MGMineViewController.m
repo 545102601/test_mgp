@@ -23,6 +23,7 @@
 #import "MGMyFoundVC.h"
 #import "MGMyLessonVC.h"
 #import "MGMyCouponVC.h"
+#import "MGScheduleVC.h"
 
 @interface MGMineViewController () <MGMineTableHeaderViewDelegate>
 
@@ -94,6 +95,13 @@
             case TableViewModelTypeClass:   /// 我的授课
             {
                 MGMyLessonVC *vc = [MGMyLessonVC new];
+                PushVC(vc)
+            }
+                break;
+            case TableViewModelTypeClassSchedule: /// 我的授课安排
+            {
+                MGScheduleVC *vc = [MGScheduleVC new];
+                vc.sourceType = MGScheduleVCSourceTypeLook;
                 PushVC(vc)
             }
                 break;

@@ -8,7 +8,6 @@
 
 #import "MGTeacherOrderVC.h"
 #import "MGTeacherOrderView.h"
-#import "MGResOrderAddModel.h"
 #import "MGPayOrderWayVC.h"
 #import "MGResCalcPriceModel.h"
 
@@ -51,7 +50,10 @@
     /// 下单
     _orderView.orderBlock = ^(id model){
         STRONG
+        
         [self.view endEditing:YES];
+        
+        InterceptLoginShowAlert
         
         long id = 0;
         if ([model isKindOfClass:[MGResCourseListDataModel class]]) {
@@ -63,11 +65,19 @@
         }
         
 //        promotion_code 优惠码
-        [MGBussiness loadOrderAddWithParams:@{@"id" : @(id), @"order_count" : @(1)} completion:^(MGResOrderAddDataModel *dataModel) {
-            NSLog(@"%@",dataModel);
+        NSMutableDictionary *params = @{@"id" : @(id), @"order_count" : @(1)}.mutableCopy;
+        long couponId = [self getCouponId];
+        if (couponId > 0) {
+            [params setObject:@(couponId) forKey:@"member_coupon_id"];
+        }
+        if (self.orderView.discountText.length > 0) {
+            [params setObject:self.orderView.discountText forKey:@"promotion_code"];
+        }
+        
+        [MGBussiness loadOrderAddWithParams:params completion:^(MGResOrderListDataModel *dataModel) {
             
             MGPayOrderWayVC * vc = [MGPayOrderWayVC new];
-            vc.dataModel = dataModel;
+            vc.listDataModel = dataModel;
             PushVC(vc)
             
         } error:nil];

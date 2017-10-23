@@ -11,7 +11,7 @@
 @interface MGMyOrderBaseTableView : YNBaseTableView
 
 /// 1 是 send  2 是 receive
-@property (nonatomic, assign) NSInteger viewControllerType;
+@property (nonatomic, assign) MGGlobaMenuTag menuTag;
 
 @property (nonatomic, copy) MGCommomEventBlock rightOneButtonBlock;
 

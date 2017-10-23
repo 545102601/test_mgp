@@ -90,16 +90,16 @@
 #pragma mark - Private Function
 
 #pragma mark - Getter and Setter
-- (void)setDataModel:(MGResCourseTutorDataModel *)dataModel {
-    _dataModel = dataModel;
-    
-    self.wantButton.selected = dataModel.is_favor;
-    
-    
-}
-
-- (void)setWantButton:(BOOL)isWant {
-
-    self.wantButton.selected = isWant;
-}
+//- (void)setDataModel:(MGResCourseTutorDataModel *)dataModel {
+//    _dataModel = dataModel;
+//    
+//    self.wantButton.selected = dataModel.is_favor;
+//    
+//    
+//}
+//
+//- (void)setWantButton:(BOOL)isWant {
+//
+//    self.wantButton.selected = isWant;
+//}
 @end

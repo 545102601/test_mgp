@@ -108,4 +108,27 @@
               errorBlock:errorBlock];
 }
 
+
+/// 课程点评
++ (void)postCourse_Comment_Add:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    [self requestPostUrl:HTTP_COURSE_COMMENT_ADD
+                  params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+         timeoutInterval:RequestTiemOut
+               isNeedHUD:YES
+            successBlock:successBlock
+              errorBlock:errorBlock];
+}
+
+/// 导师课程回复
++ (void)postCourse_Comment_Reply:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    
+    [self requestPostUrl:HTTP_COURSE_COMMENT_REPLY
+                  params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+         timeoutInterval:RequestTiemOut
+               isNeedHUD:YES
+            successBlock:successBlock
+              errorBlock:errorBlock];
+}
+
+
 @end

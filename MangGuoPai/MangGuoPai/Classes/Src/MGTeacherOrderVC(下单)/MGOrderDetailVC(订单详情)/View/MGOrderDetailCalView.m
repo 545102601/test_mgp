@@ -66,7 +66,7 @@
 - (void)setDetailDataModel:(MGResOrderDetailDataModel *)detailDataModel {
     _detailDataModel = detailDataModel;
     
-    NSString *orginStr = [NSString stringWithFormat:@"小计 :    %@",[TDCommonTool formatPriceWithDoublePrice:detailDataModel.sale_price]];
+    NSString *orginStr = [NSString stringWithFormat:@"小计 :    %@",[TDCommonTool formatPriceWithDoublePrice:detailDataModel.total_price]];
     NSMutableAttributedString *originText = [[NSMutableAttributedString alloc] initWithString:orginStr];
     [originText addAttributes:@{NSFontAttributeName : PFSC(30), NSForegroundColorAttributeName : MGThemeColor_Common_Black} range:NSMakeRange(0, 5)];
     [originText addAttributes:@{NSFontAttributeName : PFSC(36), NSForegroundColorAttributeName : MGThemeColor_Title_Black} range:NSMakeRange(5, orginStr.length - 5)];
@@ -82,10 +82,10 @@
     
     
     
-    NSString *allStr = [NSString stringWithFormat:@"总计 : %@",[TDCommonTool formatPriceWithDoublePrice:detailDataModel.total_price]];
+    NSString *allStr = [NSString stringWithFormat:@"总计 : %@",[TDCommonTool formatPriceWithDoublePrice:detailDataModel.pay_price]];
     NSMutableAttributedString *allText = [[NSMutableAttributedString alloc] initWithString:allStr];
     [allText addAttributes:@{NSFontAttributeName : PFSC(30), NSForegroundColorAttributeName : MGThemeColor_Common_Black} range:NSMakeRange(0, 5)];
-    [allText addAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:getScaleWidth(36)], NSForegroundColorAttributeName : MGThemeColor_Black} range:NSMakeRange(5, allStr.length - 5)];
+    [allText addAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:getScaleWidth(36)], NSForegroundColorAttributeName : MGThemeColor_Black, NSBaselineOffsetAttributeName : @(2)} range:NSMakeRange(5, allStr.length - 5)];
     self.allPriceLabel.attributedText = allText;
     
     

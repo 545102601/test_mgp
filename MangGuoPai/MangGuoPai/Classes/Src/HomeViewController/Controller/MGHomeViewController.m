@@ -33,6 +33,8 @@
 #import "MGWorkDetailVC.h"
 #import "MGWorkVC.h"
 #import "MGTeacherOrderVC.h"
+#import "MGOrderPayResultVC.h"
+#import "MGTimeOrderVC.h"
 
 @interface MGHomeViewController ()
 /// 二维码按钮
@@ -71,7 +73,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     
     /// 加载个人信息
     [self loadUserInfo];
@@ -126,7 +127,7 @@
         STRONG
        MGResSettingDataDetailModel *dataModel = self.tableView.adverArray[index];
         
-        [self routerWithPrarms:[dataModel yy_modelToJSONObject]];
+        [self routerWithParams:[dataModel yy_modelToJSONObject]];
         
     };
     
@@ -155,7 +156,7 @@
     
     _tableView.didCellItem = ^(MGResSettingDataDetailModel *detailModel) { /// 列表
       STRONG
-        [self routerWithPrarms:[detailModel yy_modelToJSONObject]];
+        [self routerWithParams:[detailModel yy_modelToJSONObject]];
     };
     
     
@@ -295,12 +296,22 @@
 /// 点击二维码
 - (void)leftNavButtonOnClick {
     
-//    MGScheduleVC *vc = [MGScheduleVC new];
+//    MGOrderPayResultVC *vc = [MGOrderPayResultVC new];
 //    PushVC(vc)
 //    return;
-    MGWorkVC *vc = [MGWorkVC new];
-    PushVC(vc)
-    return;
+    
+//    MGTimeOrderVC *vc4 = [MGTimeOrderVC new];
+//    PushVC(vc4)
+//    return;
+//    
+//    MGScheduleVC *vc1 = [MGScheduleVC new];
+//    vc1.orderId = 86;
+//    PushVC(vc1)
+//    return;
+//
+//    MGWorkVC *vc2 = [MGWorkVC new];
+//    PushVC(vc2)
+//    return;
     
     [YNQRcodeViewController showQRCodeVieControllerWithCompletion:^(NSString *result, NSString *type) {
         TDLog(@"qrcode -> %@",result);
@@ -316,11 +327,12 @@
 /// 点击消息
 - (void)rightNavButtonOnClick {
     
-    MGWorkDetailVC *vc2 = [MGWorkDetailVC new];
-    vc2.id = 3;
-    PushVC(vc2)
-    return;
+//    MGWorkDetailVC *vc2 = [MGWorkDetailVC new];
+//    vc2.id = 3;
+//    PushVC(vc2)
+//    return;
     
+    InterceptLoginShowAlert
     
     self.rightNavButton.selected = NO;
     
@@ -389,7 +401,7 @@
         _couponView.iconImageViewBlock = ^(MGResSettingDataDetailModel *detailModel){
             STRONG
             [self.couponView dismissCouponViewWithAnimated:YES];
-            [self routerWithPrarms:[detailModel yy_modelToJSONObject]];
+            [self routerWithParams:[detailModel yy_modelToJSONObject]];
         };
     }
     return _couponView;

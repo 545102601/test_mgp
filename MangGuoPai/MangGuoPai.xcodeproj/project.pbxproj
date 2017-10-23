@@ -15,7 +15,6 @@
 		2E05F9A91F146B04005A2C63 /* MGBussinessRequest+HomeExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E05F9A81F146B04005A2C63 /* MGBussinessRequest+HomeExtend.m */; };
 		2E05F9AE1F1472B1005A2C63 /* MGResContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E05F9AD1F1472B1005A2C63 /* MGResContentModel.m */; };
 		2E0FC50F1F2F700300540829 /* MGTeacherOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5081F2F700300540829 /* MGTeacherOrderVC.m */; };
-		2E0FC5101F2F700300540829 /* MGResOrderAddModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC50B1F2F700300540829 /* MGResOrderAddModel.m */; };
 		2E0FC5111F2F700300540829 /* MGTeacherOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC50E1F2F700300540829 /* MGTeacherOrderView.m */; };
 		2E0FC5181F2F715100540829 /* MGPayOrderWayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5171F2F715100540829 /* MGPayOrderWayVC.m */; };
 		2E0FC51B1F301A0F00540829 /* MGPayOrderWayTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC51A1F301A0F00540829 /* MGPayOrderWayTableView.m */; };
@@ -192,6 +191,14 @@
 		2E37CB201F95216A001BCD0A /* MGResCouponPromotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB1E1F95216A001BCD0A /* MGResCouponPromotionModel.m */; };
 		2E37CB231F9528F3001BCD0A /* MGResCalcPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB221F9528F3001BCD0A /* MGResCalcPriceModel.m */; };
 		2E37CB241F9528F3001BCD0A /* MGResCalcPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB221F9528F3001BCD0A /* MGResCalcPriceModel.m */; };
+		2E37CB291F9633AB001BCD0A /* MGOrderPayResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB281F9633AB001BCD0A /* MGOrderPayResultVC.m */; };
+		2E37CB2A1F9633AB001BCD0A /* MGOrderPayResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB281F9633AB001BCD0A /* MGOrderPayResultVC.m */; };
+		2E37CB2E1F964D10001BCD0A /* MGOrderPayResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */; };
+		2E37CB2F1F964D10001BCD0A /* MGOrderPayResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */; };
+		2E3ECB641F98397B00017F1B /* MGEResumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECB631F98397B00017F1B /* MGEResumeVC.m */; };
+		2E3ECB651F98397B00017F1B /* MGEResumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECB631F98397B00017F1B /* MGEResumeVC.m */; };
+		2E3ECBF31F98ECF000017F1B /* MGAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECBF21F98ECF000017F1B /* MGAboutVC.m */; };
+		2E3ECBF41F98ECF000017F1B /* MGAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECBF21F98ECF000017F1B /* MGAboutVC.m */; };
 		2E43D97D1F32B7CE0059F13A /* MGMyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D97C1F32B7CE0059F13A /* MGMyOrderVC.m */; };
 		2E43D9801F32B7DB0059F13A /* MGMyOrderBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D97F1F32B7DB0059F13A /* MGMyOrderBaseTableView.m */; };
 		2E43D9831F32BD000059F13A /* MGResOrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D9821F32BD000059F13A /* MGResOrderListModel.m */; };
@@ -207,6 +214,14 @@
 		2E43D9D91F3424260059F13A /* MGFoundCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D9D81F3424260059F13A /* MGFoundCellContentView.m */; };
 		2E43D9DC1F34244B0059F13A /* MGFoundCellToolsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D9DB1F34244B0059F13A /* MGFoundCellToolsView.m */; };
 		2E43D9DF1F3449450059F13A /* MGFoundCellPhotosCotainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D9DE1F3449450059F13A /* MGFoundCellPhotosCotainerView.m */; };
+		2E43EBCE1F97104C00D29EEF /* MGOrderCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43EBCD1F97104C00D29EEF /* MGOrderCommentVC.m */; };
+		2E43EBCF1F97104C00D29EEF /* MGOrderCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43EBCD1F97104C00D29EEF /* MGOrderCommentVC.m */; };
+		2E43EBD21F972B6C00D29EEF /* MGOrderDetailPriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43EBD11F972B6C00D29EEF /* MGOrderDetailPriceView.m */; };
+		2E43EBD31F972B6C00D29EEF /* MGOrderDetailPriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43EBD11F972B6C00D29EEF /* MGOrderDetailPriceView.m */; };
+		2E43EBD81F97B1E100D29EEF /* MGTimeOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43EBD71F97B1E100D29EEF /* MGTimeOrderVC.m */; };
+		2E43EBD91F97B1E100D29EEF /* MGTimeOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43EBD71F97B1E100D29EEF /* MGTimeOrderVC.m */; };
+		2E43EBDD1F97B24A00D29EEF /* MGTimeOrderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43EBDC1F97B24A00D29EEF /* MGTimeOrderTableView.m */; };
+		2E43EBDE1F97B24A00D29EEF /* MGTimeOrderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43EBDC1F97B24A00D29EEF /* MGTimeOrderTableView.m */; };
 		2E49E6A81F550A2A00A260E7 /* NSObject+RouterExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E6A71F550A2A00A260E7 /* NSObject+RouterExtend.m */; };
 		2E49E6AB1F550C1700A260E7 /* MGCommonWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E6AA1F550C1700A260E7 /* MGCommonWebViewVC.m */; };
 		2E49E6B21F55102F00A260E7 /* YHWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E6AE1F55102F00A260E7 /* YHWebViewProgress.m */; };
@@ -241,7 +256,6 @@
 		2E49EA3C1F5D51EB00A260E7 /* MGBussinessRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA2701F0385110011DDDE /* MGBussinessRequest.m */; };
 		2E49EA3D1F5D51EB00A260E7 /* MGBussiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E98B6E91F2981740034619D /* MGBussiness.m */; };
 		2E49EA3E1F5D51EB00A260E7 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1A21F0299AB0011DDDE /* BaseTableView.m */; };
-		2E49EA3F1F5D51EB00A260E7 /* MGResOrderAddModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC50B1F2F700300540829 /* MGResOrderAddModel.m */; };
 		2E49EA401F5D51EB00A260E7 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1AA1F0299AB0011DDDE /* BaseViewModel.m */; };
 		2E49EA411F5D51EB00A260E7 /* DQAlertView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1FC1F029BCC0011DDDE /* DQAlertView+Extend.m */; };
 		2E49EA421F5D51EB00A260E7 /* UILabel+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA17A1F02970C0011DDDE /* UILabel+Extend.m */; };
@@ -779,8 +793,6 @@
 		2E05F9AD1F1472B1005A2C63 /* MGResContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGResContentModel.m; sourceTree = "<group>"; };
 		2E0FC5071F2F700300540829 /* MGTeacherOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTeacherOrderVC.h; sourceTree = "<group>"; };
 		2E0FC5081F2F700300540829 /* MGTeacherOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTeacherOrderVC.m; sourceTree = "<group>"; };
-		2E0FC50A1F2F700300540829 /* MGResOrderAddModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGResOrderAddModel.h; sourceTree = "<group>"; };
-		2E0FC50B1F2F700300540829 /* MGResOrderAddModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGResOrderAddModel.m; sourceTree = "<group>"; };
 		2E0FC50D1F2F700300540829 /* MGTeacherOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTeacherOrderView.h; sourceTree = "<group>"; };
 		2E0FC50E1F2F700300540829 /* MGTeacherOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTeacherOrderView.m; sourceTree = "<group>"; };
 		2E0FC5161F2F715100540829 /* MGPayOrderWayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPayOrderWayVC.h; sourceTree = "<group>"; };
@@ -1114,6 +1126,14 @@
 		2E37CB1E1F95216A001BCD0A /* MGResCouponPromotionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGResCouponPromotionModel.m; sourceTree = "<group>"; };
 		2E37CB211F9528F3001BCD0A /* MGResCalcPriceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGResCalcPriceModel.h; sourceTree = "<group>"; };
 		2E37CB221F9528F3001BCD0A /* MGResCalcPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGResCalcPriceModel.m; sourceTree = "<group>"; };
+		2E37CB271F9633AB001BCD0A /* MGOrderPayResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGOrderPayResultVC.h; sourceTree = "<group>"; };
+		2E37CB281F9633AB001BCD0A /* MGOrderPayResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGOrderPayResultVC.m; sourceTree = "<group>"; };
+		2E37CB2C1F964D10001BCD0A /* MGOrderPayResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGOrderPayResultView.h; sourceTree = "<group>"; };
+		2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGOrderPayResultView.m; sourceTree = "<group>"; };
+		2E3ECB621F98397B00017F1B /* MGEResumeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEResumeVC.h; sourceTree = "<group>"; };
+		2E3ECB631F98397B00017F1B /* MGEResumeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEResumeVC.m; sourceTree = "<group>"; };
+		2E3ECBF11F98ECF000017F1B /* MGAboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGAboutVC.h; sourceTree = "<group>"; };
+		2E3ECBF21F98ECF000017F1B /* MGAboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGAboutVC.m; sourceTree = "<group>"; };
 		2E43D97B1F32B7CE0059F13A /* MGMyOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMyOrderVC.h; sourceTree = "<group>"; };
 		2E43D97C1F32B7CE0059F13A /* MGMyOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMyOrderVC.m; sourceTree = "<group>"; };
 		2E43D97E1F32B7DB0059F13A /* MGMyOrderBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMyOrderBaseTableView.h; sourceTree = "<group>"; };
@@ -1144,6 +1164,14 @@
 		2E43D9DB1F34244B0059F13A /* MGFoundCellToolsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGFoundCellToolsView.m; sourceTree = "<group>"; };
 		2E43D9DD1F3449450059F13A /* MGFoundCellPhotosCotainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGFoundCellPhotosCotainerView.h; sourceTree = "<group>"; };
 		2E43D9DE1F3449450059F13A /* MGFoundCellPhotosCotainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGFoundCellPhotosCotainerView.m; sourceTree = "<group>"; };
+		2E43EBCC1F97104C00D29EEF /* MGOrderCommentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGOrderCommentVC.h; sourceTree = "<group>"; };
+		2E43EBCD1F97104C00D29EEF /* MGOrderCommentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGOrderCommentVC.m; sourceTree = "<group>"; };
+		2E43EBD01F972B6C00D29EEF /* MGOrderDetailPriceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGOrderDetailPriceView.h; sourceTree = "<group>"; };
+		2E43EBD11F972B6C00D29EEF /* MGOrderDetailPriceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGOrderDetailPriceView.m; sourceTree = "<group>"; };
+		2E43EBD61F97B1E100D29EEF /* MGTimeOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTimeOrderVC.h; sourceTree = "<group>"; };
+		2E43EBD71F97B1E100D29EEF /* MGTimeOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTimeOrderVC.m; sourceTree = "<group>"; };
+		2E43EBDB1F97B24A00D29EEF /* MGTimeOrderTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTimeOrderTableView.h; sourceTree = "<group>"; };
+		2E43EBDC1F97B24A00D29EEF /* MGTimeOrderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTimeOrderTableView.m; sourceTree = "<group>"; };
 		2E49E6A61F550A2A00A260E7 /* NSObject+RouterExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RouterExtend.h"; sourceTree = "<group>"; };
 		2E49E6A71F550A2A00A260E7 /* NSObject+RouterExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RouterExtend.m"; sourceTree = "<group>"; };
 		2E49E6A91F550C1700A260E7 /* MGCommonWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCommonWebViewVC.h; sourceTree = "<group>"; };
@@ -1649,6 +1677,9 @@
 		2E0FC5051F2F700300540829 /* MGTeacherOrderVC(下单) */ = {
 			isa = PBXGroup;
 			children = (
+				2E43EBD41F97B1D500D29EEF /* MGTimeOrderVC(时间点订单) */,
+				2E43EBCA1F97104C00D29EEF /* MGOrderCommentVC(订单评论) */,
+				2E37CB251F963399001BCD0A /* MGOrderPayResultVC(支付结果) */,
 				2E7E3CEB1F7CB2DA00A3D288 /* MGScheduleVC(安排时间) */,
 				2E43D99E1F3333640059F13A /* MGOrderDetailVC(订单详情) */,
 				2E43D9771F32B7C10059F13A /* MGMyOrderVC(我的订单) */,
@@ -1672,8 +1703,6 @@
 		2E0FC5091F2F700300540829 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2E0FC50A1F2F700300540829 /* MGResOrderAddModel.h */,
-				2E0FC50B1F2F700300540829 /* MGResOrderAddModel.m */,
 				2E37CB211F9528F3001BCD0A /* MGResCalcPriceModel.h */,
 				2E37CB221F9528F3001BCD0A /* MGResCalcPriceModel.m */,
 			);
@@ -2555,6 +2584,67 @@
 			path = TDSelectListDataView;
 			sourceTree = "<group>";
 		};
+		2E37CB251F963399001BCD0A /* MGOrderPayResultVC(支付结果) */ = {
+			isa = PBXGroup;
+			children = (
+				2E37CB2B1F964CFF001BCD0A /* View */,
+				2E37CB261F963399001BCD0A /* Controller */,
+			);
+			path = "MGOrderPayResultVC(支付结果)";
+			sourceTree = "<group>";
+		};
+		2E37CB261F963399001BCD0A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E37CB271F9633AB001BCD0A /* MGOrderPayResultVC.h */,
+				2E37CB281F9633AB001BCD0A /* MGOrderPayResultVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2E37CB2B1F964CFF001BCD0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2E37CB2C1F964D10001BCD0A /* MGOrderPayResultView.h */,
+				2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2E3ECB601F98396800017F1B /* MGEResumeVC(电子简历) */ = {
+			isa = PBXGroup;
+			children = (
+				2E3ECB611F98396800017F1B /* Controller */,
+			);
+			path = "MGEResumeVC(电子简历)";
+			sourceTree = "<group>";
+		};
+		2E3ECB611F98396800017F1B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E3ECB621F98397B00017F1B /* MGEResumeVC.h */,
+				2E3ECB631F98397B00017F1B /* MGEResumeVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2E3ECBEF1F98ECE100017F1B /* AboutVC(关于我们) */ = {
+			isa = PBXGroup;
+			children = (
+				2E3ECBF01F98ECE100017F1B /* Controller */,
+			);
+			path = "AboutVC(关于我们)";
+			sourceTree = "<group>";
+		};
+		2E3ECBF01F98ECE100017F1B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E3ECBF11F98ECF000017F1B /* MGAboutVC.h */,
+				2E3ECBF21F98ECF000017F1B /* MGAboutVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2E43D9771F32B7C10059F13A /* MGMyOrderVC(我的订单) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2641,6 +2731,53 @@
 				2E96CEB01F6157D700F6E71A /* MGOrderDetailCommentView.m */,
 				2E7E3CA81F7797E700A3D288 /* MGOrderDetailBottomView.h */,
 				2E7E3CA91F7797E700A3D288 /* MGOrderDetailBottomView.m */,
+				2E43EBD01F972B6C00D29EEF /* MGOrderDetailPriceView.h */,
+				2E43EBD11F972B6C00D29EEF /* MGOrderDetailPriceView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2E43EBCA1F97104C00D29EEF /* MGOrderCommentVC(订单评论) */ = {
+			isa = PBXGroup;
+			children = (
+				2E43EBCB1F97104C00D29EEF /* Controller */,
+			);
+			name = "MGOrderCommentVC(订单评论)";
+			path = "MGMyOrderVC(我的订单)/MGOrderCommentVC(订单评论)";
+			sourceTree = "<group>";
+		};
+		2E43EBCB1F97104C00D29EEF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E43EBCC1F97104C00D29EEF /* MGOrderCommentVC.h */,
+				2E43EBCD1F97104C00D29EEF /* MGOrderCommentVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2E43EBD41F97B1D500D29EEF /* MGTimeOrderVC(时间点订单) */ = {
+			isa = PBXGroup;
+			children = (
+				2E43EBDA1F97B23500D29EEF /* View */,
+				2E43EBD51F97B1D500D29EEF /* Controller */,
+			);
+			path = "MGTimeOrderVC(时间点订单)";
+			sourceTree = "<group>";
+		};
+		2E43EBD51F97B1D500D29EEF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E43EBD61F97B1E100D29EEF /* MGTimeOrderVC.h */,
+				2E43EBD71F97B1E100D29EEF /* MGTimeOrderVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2E43EBDA1F97B23500D29EEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2E43EBDB1F97B24A00D29EEF /* MGTimeOrderTableView.h */,
+				2E43EBDC1F97B24A00D29EEF /* MGTimeOrderTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3238,6 +3375,7 @@
 		2E98B68D1F25EECF0034619D /* MGInfoVC(资料) */ = {
 			isa = PBXGroup;
 			children = (
+				2E3ECB601F98396800017F1B /* MGEResumeVC(电子简历) */,
 				2E0FC5E91F3219FC00540829 /* UpdateInfoVC(修改资料) */,
 				2E98B68E1F25EECF0034619D /* Controller */,
 				2E98B68F1F25EECF0034619D /* Model */,
@@ -4196,6 +4334,7 @@
 		2ECCB37E1F24BFBA003C7A3B /* MGSettingVC(设置信息) */ = {
 			isa = PBXGroup;
 			children = (
+				2E3ECBEF1F98ECE100017F1B /* AboutVC(关于我们) */,
 				2ECCB37F1F24BFBA003C7A3B /* Controller */,
 				2ECCB3801F24BFBA003C7A3B /* View */,
 			);
@@ -4303,6 +4442,7 @@
 				TargetAttributes = {
 					2E49EA321F5D51EB00A260E7 = {
 						DevelopmentTeam = 6SYV87UFCY;
+						ProvisioningStyle = Automatic;
 					};
 					2EBAA13C1F0294BF0011DDDE = {
 						CreatedOnToolsVersion = 8.3;
@@ -4480,6 +4620,7 @@
 			files = (
 				2E2129ED1F8F5DE000B57420 /* MGMyCouponBaseTableView.m in Sources */,
 				2E7E3CD81F78100000A3D288 /* MGMyFoundVC.m in Sources */,
+				2E3ECBF41F98ECF000017F1B /* MGAboutVC.m in Sources */,
 				2E49EA351F5D51EB00A260E7 /* TDQucikSelectDateView.m in Sources */,
 				2E49EA361F5D51EB00A260E7 /* NSString+HTMLImageAdapt.m in Sources */,
 				2E49EA371F5D51EB00A260E7 /* DataVerifier.m in Sources */,
@@ -4491,7 +4632,6 @@
 				2E49EA3D1F5D51EB00A260E7 /* MGBussiness.m in Sources */,
 				2E37CAC01F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m in Sources */,
 				2E49EA3E1F5D51EB00A260E7 /* BaseTableView.m in Sources */,
-				2E49EA3F1F5D51EB00A260E7 /* MGResOrderAddModel.m in Sources */,
 				2E49EA401F5D51EB00A260E7 /* BaseViewModel.m in Sources */,
 				2EADF8571F7D23FB00818F26 /* FSCalendarScopeHandle.m in Sources */,
 				2EADF88F1F7F484D00818F26 /* MGWorkDetailProgressCell.m in Sources */,
@@ -4583,6 +4723,7 @@
 				2E49EA781F5D51EB00A260E7 /* YNPageScrollView.m in Sources */,
 				2E49EA791F5D51EB00A260E7 /* SDWaitingView.m in Sources */,
 				2E16490B1F8CB92F004D6599 /* MGWorkApplyJoinGroupViewCell.m in Sources */,
+				2E43EBCF1F97104C00D29EEF /* MGOrderCommentVC.m in Sources */,
 				2E49EA7A1F5D51EB00A260E7 /* MGMineTableHeaderView.m in Sources */,
 				2E49EA7B1F5D51EB00A260E7 /* TDSelectPhotoView.m in Sources */,
 				2E49EA7C1F5D51EB00A260E7 /* MGBussiness+MineExtend.m in Sources */,
@@ -4609,6 +4750,7 @@
 				2E49EA8F1F5D51EB00A260E7 /* MGHomeTableView.m in Sources */,
 				2E49EA901F5D51EB00A260E7 /* SDPhotoBrowser.m in Sources */,
 				2E49EA911F5D51EB00A260E7 /* MGWorkProgressView.m in Sources */,
+				2E43EBD31F972B6C00D29EEF /* MGOrderDetailPriceView.m in Sources */,
 				2E49EA921F5D51EB00A260E7 /* UIButton+NYImageLocation.m in Sources */,
 				2E49EA931F5D51EB00A260E7 /* MD5DataSigner.m in Sources */,
 				2E49EA941F5D51EB00A260E7 /* MGBussiness+FoundExtend.m in Sources */,
@@ -4704,6 +4846,7 @@
 				2E37C92E1F923066001BCD0A /* MGWorkDetailApplyTeamCell.m in Sources */,
 				2EADF85D1F7D23FB00818F26 /* FSCalendarWeekdayView.m in Sources */,
 				2EADF8181F7CCD3100818F26 /* MGScheduleCalendarCell.m in Sources */,
+				2E43EBD91F97B1E100D29EEF /* MGTimeOrderVC.m in Sources */,
 				2E49EAD81F5D51EB00A260E7 /* YNPageScrollViewController.m in Sources */,
 				2E49EAD91F5D51EB00A260E7 /* SDCollectionViewCell.m in Sources */,
 				2E49EADA1F5D51EB00A260E7 /* TDCommonTool.m in Sources */,
@@ -4725,6 +4868,7 @@
 				2E49EAE61F5D51EB00A260E7 /* GDataXMLNode.m in Sources */,
 				2E49EAE71F5D51EB00A260E7 /* MGFoundCellToolsView.m in Sources */,
 				2E49EAE81F5D51EB00A260E7 /* XMLDictionary.m in Sources */,
+				2E37CB2F1F964D10001BCD0A /* MGOrderPayResultView.m in Sources */,
 				2E37C9701F937254001BCD0A /* TDSelectListDataViewContentView.m in Sources */,
 				2E49EAE91F5D51EB00A260E7 /* UIButton+countDown.m in Sources */,
 				2E7E3C841F74E9B800A3D288 /* TDUMShareAlertView.m in Sources */,
@@ -4754,6 +4898,7 @@
 				2EADF85B1F7D23FB00818F26 /* FSCalendarTransitionCoordinator.m in Sources */,
 				2EADF8531F7D23FB00818F26 /* FSCalendarExtensions.m in Sources */,
 				2E49EAFF1F5D51EB00A260E7 /* MGTeacherFunctionCell.m in Sources */,
+				2E43EBDE1F97B24A00D29EEF /* MGTimeOrderTableView.m in Sources */,
 				2E49EB001F5D51EB00A260E7 /* Order.m in Sources */,
 				2E96CE9E1F6129C900F6E71A /* MGResOrderDetailModel.m in Sources */,
 				2E49EB011F5D51EB00A260E7 /* YNPageScrollViewMenuConfigration.m in Sources */,
@@ -4769,6 +4914,7 @@
 				2E16490F1F8CBB90004D6599 /* MGResProjectListTeamModel.m in Sources */,
 				2E49EB071F5D51EB00A260E7 /* MGResContentModel.m in Sources */,
 				2E96CEC51F62A98B00F6E71A /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
+				2E3ECB651F98397B00017F1B /* MGEResumeVC.m in Sources */,
 				2E96CEB21F6157D700F6E71A /* MGOrderDetailCommentView.m in Sources */,
 				2E49EB081F5D51EB00A260E7 /* MGNavigationController.m in Sources */,
 				2E49EB091F5D51EB00A260E7 /* MGBussinessRequest+OrderExtend.m in Sources */,
@@ -4779,6 +4925,7 @@
 				2E49EB0E1F5D51EB00A260E7 /* MGTeacherAllCategoryCell.m in Sources */,
 				2E49EB0F1F5D51EB00A260E7 /* TAAnimatedDotView.m in Sources */,
 				2E49EB101F5D51EB00A260E7 /* TAAbstractDotView.m in Sources */,
+				2E37CB2A1F9633AB001BCD0A /* MGOrderPayResultVC.m in Sources */,
 				2E49EB111F5D51EB00A260E7 /* MGMyLessonBaseTableView.m in Sources */,
 				2E49EB121F5D51EB00A260E7 /* FTPopOverMenu.m in Sources */,
 				2E49EB131F5D51EB00A260E7 /* TAPageControl.m in Sources */,
@@ -4836,6 +4983,7 @@
 			files = (
 				2E2129EC1F8F5DE000B57420 /* MGMyCouponBaseTableView.m in Sources */,
 				2E7E3CD71F78100000A3D288 /* MGMyFoundVC.m in Sources */,
+				2E3ECBF31F98ECF000017F1B /* MGAboutVC.m in Sources */,
 				2E2F2DC11F5159560003BC3A /* TDQucikSelectDateView.m in Sources */,
 				2E49E6BC1F55440D00A260E7 /* NSString+HTMLImageAdapt.m in Sources */,
 				2E0FC5A01F307FDA00540829 /* DataVerifier.m in Sources */,
@@ -4847,7 +4995,6 @@
 				2E98B6EA1F2981740034619D /* MGBussiness.m in Sources */,
 				2E37CABF1F94A080001BCD0A /* MGWorkProductCommentColletionViewCell.m in Sources */,
 				2EBAA1B91F0299AB0011DDDE /* BaseTableView.m in Sources */,
-				2E0FC5101F2F700300540829 /* MGResOrderAddModel.m in Sources */,
 				2EBAA1BD1F0299AB0011DDDE /* BaseViewModel.m in Sources */,
 				2EADF8561F7D23FB00818F26 /* FSCalendarScopeHandle.m in Sources */,
 				2EADF88E1F7F484D00818F26 /* MGWorkDetailProgressCell.m in Sources */,
@@ -4939,6 +5086,7 @@
 				2EBAA2201F029BCC0011DDDE /* YNPageScrollView.m in Sources */,
 				2E0FC5E81F31795300540829 /* SDWaitingView.m in Sources */,
 				2E16490A1F8CB92F004D6599 /* MGWorkApplyJoinGroupViewCell.m in Sources */,
+				2E43EBCE1F97104C00D29EEF /* MGOrderCommentVC.m in Sources */,
 				2E3386A11F1AC65900918D83 /* MGMineTableHeaderView.m in Sources */,
 				2E0FC5D91F31735E00540829 /* TDSelectPhotoView.m in Sources */,
 				2E98B68C1F25C79F0034619D /* MGBussiness+MineExtend.m in Sources */,
@@ -4965,6 +5113,7 @@
 				2EB27F231F150A31006FA9A0 /* MGHomeTableView.m in Sources */,
 				2E0FC5E71F31795300540829 /* SDPhotoBrowser.m in Sources */,
 				2E49E6ED1F56A35600A260E7 /* MGWorkProgressView.m in Sources */,
+				2E43EBD21F972B6C00D29EEF /* MGOrderDetailPriceView.m in Sources */,
 				2EBAA1871F02970C0011DDDE /* UIButton+NYImageLocation.m in Sources */,
 				2E0FC5A11F307FDA00540829 /* MD5DataSigner.m in Sources */,
 				2E98B6E81F297F5C0034619D /* MGBussiness+FoundExtend.m in Sources */,
@@ -5060,6 +5209,7 @@
 				2E37C92D1F923066001BCD0A /* MGWorkDetailApplyTeamCell.m in Sources */,
 				2EADF85C1F7D23FB00818F26 /* FSCalendarWeekdayView.m in Sources */,
 				2EADF8171F7CCD3100818F26 /* MGScheduleCalendarCell.m in Sources */,
+				2E43EBD81F97B1E100D29EEF /* MGTimeOrderVC.m in Sources */,
 				2EBAA2211F029BCC0011DDDE /* YNPageScrollViewController.m in Sources */,
 				2EB27F1E1F150A08006FA9A0 /* SDCollectionViewCell.m in Sources */,
 				2EBAA1EB1F029B830011DDDE /* TDCommonTool.m in Sources */,
@@ -5081,6 +5231,7 @@
 				2E0FC5CC1F31707000540829 /* GDataXMLNode.m in Sources */,
 				2E43D9DC1F34244B0059F13A /* MGFoundCellToolsView.m in Sources */,
 				2E0FC5A91F307FDB00540829 /* XMLDictionary.m in Sources */,
+				2E37CB2E1F964D10001BCD0A /* MGOrderPayResultView.m in Sources */,
 				2E37C96F1F937254001BCD0A /* TDSelectListDataViewContentView.m in Sources */,
 				2EBAA1861F02970C0011DDDE /* UIButton+countDown.m in Sources */,
 				2E7E3C831F74E9B800A3D288 /* TDUMShareAlertView.m in Sources */,
@@ -5110,6 +5261,7 @@
 				2EADF85A1F7D23FB00818F26 /* FSCalendarTransitionCoordinator.m in Sources */,
 				2EADF8521F7D23FB00818F26 /* FSCalendarExtensions.m in Sources */,
 				2E3386E81F1DA72900918D83 /* MGTeacherFunctionCell.m in Sources */,
+				2E43EBDD1F97B24A00D29EEF /* MGTimeOrderTableView.m in Sources */,
 				2E0FC59D1F307FDA00540829 /* Order.m in Sources */,
 				2E96CE9D1F6129C900F6E71A /* MGResOrderDetailModel.m in Sources */,
 				2EBAA2231F029BCC0011DDDE /* YNPageScrollViewMenuConfigration.m in Sources */,
@@ -5125,6 +5277,7 @@
 				2E16490E1F8CBB90004D6599 /* MGResProjectListTeamModel.m in Sources */,
 				2E05F9AE1F1472B1005A2C63 /* MGResContentModel.m in Sources */,
 				2E96CEC41F62A98B00F6E71A /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
+				2E3ECB641F98397B00017F1B /* MGEResumeVC.m in Sources */,
 				2E96CEB11F6157D700F6E71A /* MGOrderDetailCommentView.m in Sources */,
 				2EBAA24C1F02A4150011DDDE /* MGNavigationController.m in Sources */,
 				2EA2B6F41F2F1EC800140572 /* MGBussinessRequest+OrderExtend.m in Sources */,
@@ -5135,6 +5288,7 @@
 				2E3386FA1F1E587000918D83 /* MGTeacherAllCategoryCell.m in Sources */,
 				2EB27F1B1F150A08006FA9A0 /* TAAnimatedDotView.m in Sources */,
 				2EB27F1A1F150A08006FA9A0 /* TAAbstractDotView.m in Sources */,
+				2E37CB291F9633AB001BCD0A /* MGOrderPayResultVC.m in Sources */,
 				2E49E9FD1F58FF3200A260E7 /* MGMyLessonBaseTableView.m in Sources */,
 				2EBAA1F51F029BB50011DDDE /* FTPopOverMenu.m in Sources */,
 				2EB27F1D1F150A08006FA9A0 /* TAPageControl.m in Sources */,

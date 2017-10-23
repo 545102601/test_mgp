@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, TableViewModelType) {
     TableViewModelTypeAccount = 4,
     TableViewModelTypeSetting = 5,
     TableViewModelTypeCoupon = 6,
+    TableViewModelTypeClassSchedule = 7,
 };
 
 @interface MGMineTableViewModel : BaseLogModel

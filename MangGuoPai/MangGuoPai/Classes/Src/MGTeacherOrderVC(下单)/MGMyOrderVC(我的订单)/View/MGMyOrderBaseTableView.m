@@ -3,7 +3,7 @@
 //  MangGuoPai
 //
 //  Created by ZYN on 2017/8/3.
-//  Copyright © 2017年 Yongneng Zheng. All rights reserved.
+//  Copyright © 2017年  Zheng. All rights reserved.
 //
 
 #import "MGMyOrderBaseTableView.h"
@@ -61,8 +61,32 @@
 }
 //cell-height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MGResOrderListDataModel *dataModel = self.dataArrayM[indexPath.section];
     
-    return SH(360);
+    if (self.menuTag == MGGlobaMenuTagLeft) {
+        
+        switch (dataModel.state) {
+            case MGGlobalOrderStateWaitingPay:
+                return SH(360);
+                
+            default:
+                return SH(360);
+        }
+        
+    } else { /// 收到的订单
+        
+        switch (dataModel.state) {
+            case MGGlobalOrderStateWaitingPay:
+            case MGGlobalOrderStateAlreadyPayWaitingArrangement:
+            case MGGlobalOrderStateAlreadyPayAlreadyArrangement:
+                return SH(360);
+                
+            default:
+                return SH(360);
+        }
+    }
+    
+    return 0;
 }
 
 //cell-tableview
@@ -70,7 +94,7 @@
     
     
     MGMyOrderBaseCell *cell = (MGMyOrderBaseCell *)[tableView cellWithCellClass:[MGMyOrderBaseCell class]];
-    cell.viewControllerType = self.viewControllerType;
+    cell.menuTag = self.menuTag;
     cell.indexPath = indexPath;
     cell.dataModel = self.dataArrayM[indexPath.section];
     cell.rightOneButtonBlock = _rightOneButtonBlock;

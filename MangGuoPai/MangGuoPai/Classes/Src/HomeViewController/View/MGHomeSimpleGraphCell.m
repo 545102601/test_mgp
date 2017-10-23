@@ -110,6 +110,8 @@
         MGResSettingDataDetailModel *famousDataDetailModel = dataModel.details[i];
         
         SimpleGraphImageView * _famousContentImageView = [[SimpleGraphImageView alloc] initWithFrame:CGRectMake(SW(20), marginTop, SW(710), SH(140))];
+        _famousContentImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _famousContentImageView.layer.masksToBounds = YES;
         _famousContentImageView.userInteractionEnabled = YES;
         _famousContentImageView.tag = i + 1;
         [_famousContentImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(famousContentImageViewTap:)]];

@@ -28,6 +28,12 @@
 /// 取消订单
 + (void)postOrder_Cancel:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
+/// 完成订单
++ (void)postOrder_Finish:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
+
+/// 申请售后
++ (void)postOrder_Apply:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
+
 /// 课程安排日历接口
 + (void)getSchedule_Calendar:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 

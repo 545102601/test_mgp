@@ -17,6 +17,6 @@
 
 @property (nonatomic, strong) MGResCourseTutorDataModel *dataModel;
 
-- (void)setWantButton:(BOOL)isWant;
+//- (void)setWantButton:(BOOL)isWant;
 
 @end

@@ -15,4 +15,6 @@
 
 @property (nonatomic, assign) CGFloat headerHeight;
 
+- (void)setWantCount:(NSInteger)wantCount;
+
 @end

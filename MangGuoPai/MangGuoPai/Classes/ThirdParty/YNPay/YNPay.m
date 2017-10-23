@@ -99,7 +99,30 @@
         if(completeClosure != nil){completeClosure(errorMsg_Temp);}
     }];
     
-    
+}
+
++ (void)payWxWithPayDataDict:(NSDictionary *)dict
+             completeClosure:(CompleteBlock)completeClosure {
+
+    //发起微信支付，设置参数
+    if ([dict[@"appid"] length] == 0) {
+        [self showMBText:@"微信支付失败"];
+        return;
+    }
+    PayReq *request = [[PayReq alloc] init];
+    request.openID = dict[@"appid"];
+    request.partnerId = dict[@"partnerid"];
+    request.prepayId= dict[@"prepayid"];
+    request.package = dict[@"package"];
+    request.nonceStr= dict[@"noncestr"];
+    request.timeStamp= [dict[@"timestamp"] intValue];
+    // 签名加密
+    request.sign = dict[@"sign"];
+    // 调用微信
+    [WXApi sendReq:request];
+    //记录
+    YNPay *pay = [YNPay shareInstance];
+    pay.completeBlock = completeClosure;
 }
 
 #pragma mark - 微信支付
@@ -270,14 +293,17 @@
         switch (resp.errCode) {
             case WXSuccess:
                 
-                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                TDLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
                 //支付结果：成功
                 if(self.completeBlock != nil){self.completeBlock(nil);}
                 break;
-                
+            case WXErrCodeUserCancel:
+                //支付结果：取消支付
+                if(self.completeBlock != nil){self.completeBlock(@"取消支付");}
+                break;
             default:
                 
-                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+                TDLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
                 //支付结果：失败
                 if(self.completeBlock != nil){self.completeBlock(@"支付失败");}
                 break;

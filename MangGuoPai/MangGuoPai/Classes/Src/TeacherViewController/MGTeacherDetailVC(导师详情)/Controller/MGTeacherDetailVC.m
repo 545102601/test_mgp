@@ -25,6 +25,7 @@
 /// 选择课程
 @property (nonatomic, strong) MGSelectCourseView *selectCourseView;
 
+
 @end
 
 @implementation MGTeacherDetailVC
@@ -39,6 +40,8 @@
 
 #pragma mark - 初始化控件
 - (void)setupSubViews {
+    
+    
     WEAK
     _headerView = [[MGTeacherDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(930))];
     
@@ -51,6 +54,8 @@
     /// 立刻听
     _footerView.atOneceWantBlock = ^{
         STRONG
+        InterceptLoginShowAlert
+        
         self.selectCourseView.arrayM = self.tableView.dataArrayM;
         [KeyWindow addSubview:self.selectCourseView];
         [self.selectCourseView showSelectCourseWithAnimated:YES inView:KeyWindow];
@@ -73,6 +78,8 @@
         
     };
 }
+
+
 
 #pragma mark - 加载数据
 - (void)loadData {
@@ -123,7 +130,9 @@
     
     [MGBussiness loadWantCountWithParams:@{@"entity_id" : @(self.headerView.dataModel.id), @"entity_type_id" : @(MGGlobalEntityTypeMemeber)} completion:^(id results) {
         
-        [self.footerView setWantButton:[results boolValue]];
+        self.headerView.dataModel.want_count += 1;
+        [self.headerView setWantCount:self.headerView.dataModel.want_count];
+    
         
     } error:nil];
     

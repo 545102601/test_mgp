@@ -10,6 +10,10 @@
 #import "MGResOrderDetailModel.h"
 
 @interface MGOrderDetailBottomView : BaseView
+
+
+@property (nonatomic, assign) MGGlobaMenuTag menuTag;
+
 /// 订单详情数据
 @property (nonatomic, strong) MGResOrderDetailDataModel *detailDataModel;
 

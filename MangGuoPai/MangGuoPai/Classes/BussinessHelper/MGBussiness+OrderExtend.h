@@ -28,6 +28,12 @@
 /// 取消订单
 + (void)loadOrderCancelWithParams:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
+/// 完成订单
++ (void)loadOrder_Finish:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
+
+/// 申请售后
++ (void)loadOrder_Apply:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
+
 /// 课程安排日历接口
 + (void)loadSchedule_Calendar:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 

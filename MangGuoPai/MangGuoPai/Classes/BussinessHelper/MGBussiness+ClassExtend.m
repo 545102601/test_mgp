@@ -255,5 +255,32 @@
 
 
 
+/// 课程点评
++ (void)loadCourse_Comment_Add:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    [MGBussinessRequest postCourse_Comment_Add:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            [self showMBText:@"点评成功"];
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
+    } errorBlock:error];
+}
+
+/// 导师课程回复
++ (void)loadCourse_Comment_Reply:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    [MGBussinessRequest postCourse_Comment_Reply:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            [self showMBText:@"回复成功"];
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
+    } errorBlock:error];
+}
 
 @end

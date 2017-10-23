@@ -36,7 +36,7 @@
     _contentLabel.frame = CGRectMake(0, _iconImageView.bottom + SH(54), kScreenWidth, _contentLabel.fontLineHeight);
     
     
-    _backButton = [MGUITool buttonWithBGColor:nil title:@"返回" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(backButtonAction:)];
+    _backButton = [MGUITool buttonWithBGColor:nil title:@"返回" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(backButtonAction:)];
     _backButton.frame = CGRectMake(SW(75), kScreenHeight - 64 - SH(100), SW(600), SH(84));
     [_backButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_backButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];

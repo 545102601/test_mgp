@@ -21,6 +21,7 @@
 #import "MGWorkLookProductVC.h"
 #import "MGWorkWriteCommentVC.h"
 #import "MGWorkLookOtherVC.h"
+#import "TDUMShareAlertView.h"
 
 @interface MGWorkDetailVC ()
 
@@ -246,7 +247,11 @@
 /// 分享
 - (void)shareButtonOnClick {
     
+    TDUMShareAlertView *alertView = [TDUMShareAlertView showUMengShareViewWithTitle:@"工作包详情" shareContent:self.tableView.dataModel.project_name shareImage:[UIImage imageNamed:@"mine_manguo_fx"] imageUrl:nil shareUrl:[NSString stringWithFormat:@"https://www.mangopi.com.cn/wx/project/info/%ld.html", self.tableView.dataModel.id]];
     
+    [alertView show];
+    
+//    https://www.mangopi.com.cn/wx/project/info/3.html
 }
 
 /// 报名

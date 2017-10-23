@@ -791,6 +791,7 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 - (void)setCurrentPage:(NSDate *)currentPage
 {
     [self setCurrentPage:currentPage animated:NO];
+    
 }
 
 - (void)setCurrentPage:(NSDate *)currentPage animated:(BOOL)animated

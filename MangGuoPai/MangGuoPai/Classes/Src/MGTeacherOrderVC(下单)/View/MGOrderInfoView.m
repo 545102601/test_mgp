@@ -7,6 +7,7 @@
 //
 
 #import "MGOrderInfoView.h"
+#import "MGTeacherClassDetailVC.h"
 
 @interface MGOrderInfoView ()
 
@@ -47,8 +48,8 @@
     _orderTimeLabel.adjustsFontSizeToFitWidth = YES;
     
     
-    _orderStateLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(28) textAlignment:NSTextAlignmentRight];
-    _orderStateLabel.frame = CGRectMake(kScreenWidth - SW(160) - SW(30), 0, SW(160), _orderStateLabel.fontLineHeight);
+    _orderStateLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(24) textAlignment:NSTextAlignmentRight];
+    _orderStateLabel.frame = CGRectMake(kScreenWidth - SW(230) - SW(30), 0, SW(230), _orderStateLabel.fontLineHeight);
     _orderStateLabel.centerY = _orderTimeLabel.centerY;
     _orderStateLabel.adjustsFontSizeToFitWidth = YES;
     
@@ -60,6 +61,8 @@
     _orderNameLabel.frame = CGRectMake(SW(30), _topLineView.bottom + SH(28), SW(540), _orderNameLabel.fontLineHeight);
     _orderNameLabel.adjustsFontSizeToFitWidth = YES;
     
+
+    [_orderNameLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(orderNameLableTap)]];
     
     _orderNumberLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(24) textAlignment:NSTextAlignmentRight];
     _orderNumberLabel.frame = CGRectMake(kScreenWidth - SW(160) - SW(30), 0, SW(160), _orderNumberLabel.fontLineHeight);
@@ -70,10 +73,10 @@
     _nameLabel.frame = CGRectMake(SW(30), _orderNameLabel.bottom + SH(40), SW(540), _nameLabel.fontLineHeight);
     
     
-    _moneyLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Black font:PFSC(30) textAlignment:NSTextAlignmentRight];
+    _moneyLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Black font:PFSC(36) textAlignment:NSTextAlignmentRight];
     _moneyLabel.frame = CGRectMake(kScreenWidth - SW(30) - SW(400), 0, SW(400), _moneyLabel.fontLineHeight);
     _moneyLabel.centerY = _nameLabel.centerY;
-    
+    [_moneyLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(phoneLabelTap)]];
     
     _centerLineView = [[UIView alloc] initWithFrame:CGRectMake(SW(24),  _nameLabel.bottom + SH(30), kScreenWidth - SW(48), MGSepLineHeight)];
     _centerLineView.backgroundColor = MGSepColor;
@@ -94,6 +97,21 @@
 #pragma mark - --Notification Event Response
 
 #pragma mark - --Button Event Response
+
+- (void)orderNameLableTap {
+    if (_orderNameTapBlock) {
+        _orderNameTapBlock(self.dataModel.course_id > 0 ?
+                           self.dataModel.course_id : self.detailDataModel.course_id);
+    }
+}
+
+- (void)phoneLabelTap {
+    
+    if (_phoneTapBlock) {
+        _phoneTapBlock(self.moneyLabel.text);
+    }
+    
+}
 
 #pragma mark - --Gesture Event Response
 
@@ -119,14 +137,17 @@
     
     _orderNumberLabel.text = [NSString stringWithFormat:@"x %zd",dataModel.order_count];
     
-    if (self.type == 1) {
+    if (self.menuTag == MGGlobaMenuTagLeft) {
         _nameLabel.text = dataModel.tutor_name;
     } else {
         _nameLabel.text = dataModel.member_name;
     }
-    
-    _moneyLabel.text = [TDCommonTool formatPriceWithDoublePrice:dataModel.pay_price];
-    
+    /// 导师 + 详情
+    if (self.sourceType == MGOrderInfoViewSourceTypeOrderDetail && self.menuTag == MGGlobaMenuTagRight) { /// 显示手机
+        [self setPhoneAttrWithStr:dataModel.member_mobile];
+    } else {
+        _moneyLabel.text = [TDCommonTool formatPriceWithDoublePrice:dataModel.pay_price];
+    }
 
 }
 - (void)setDetailDataModel:(MGResOrderDetailDataModel *)detailDataModel {
@@ -142,15 +163,45 @@
     
     _orderNumberLabel.text = [NSString stringWithFormat:@"x %zd",detailDataModel.order_count];
     
-    if (self.type == 1) {
+    if (self.menuTag == MGGlobaMenuTagLeft) {
         _nameLabel.text = detailDataModel.tutor_name;
     } else {
         _nameLabel.text = detailDataModel.member_name;
     }
     
-    _moneyLabel.text = [TDCommonTool formatPriceWithDoublePrice:detailDataModel.pay_price];
+    /// 导师 + 详情
+    if (self.sourceType == MGOrderInfoViewSourceTypeOrderDetail && self.menuTag == MGGlobaMenuTagRight) { /// 显示手机
+        [self setPhoneAttrWithStr:detailDataModel.member_mobile];
+        
+    } else {
+        _moneyLabel.text = [TDCommonTool formatPriceWithDoublePrice:detailDataModel.pay_price];
+    }
     
+}
+
+- (void)setOrderNameTapBlock:(MGCommomEventBlock)orderNameTapBlock {
+    _orderNameTapBlock = orderNameTapBlock;
     
+    _orderNameLabel.userInteractionEnabled = YES;
+    
+}
+- (void)setPhoneTapBlock:(MGCommomEventBlock)phoneTapBlock {
+    _phoneTapBlock = phoneTapBlock;
+    
+    _moneyLabel.userInteractionEnabled = YES;
+}
+
+- (void)setPhoneAttrWithStr:(NSString *)str {
+    
+    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
+    attr[NSFontAttributeName] = PFSC(28);
+    attr[NSForegroundColorAttributeName] = MGThemeColor_Common_Black;
+    attr[NSUnderlineStyleAttributeName] = [NSNumber numberWithInteger:NSUnderlineStyleSingle];
+    attr[NSUnderlineColorAttributeName] = MGThemeColor_Common_Black;
+    NSAttributedString *attributedStr = [[NSAttributedString alloc] initWithString:str attributes:attr];
+    self.moneyLabel.attributedText = attributedStr;
+    
+
 }
 
 @end

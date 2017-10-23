@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSMutableArray *collectionDataArrayM;
 
+@property (nonatomic, copy) MGCommomEventBlock didSelectItemBlock;
 
 @end

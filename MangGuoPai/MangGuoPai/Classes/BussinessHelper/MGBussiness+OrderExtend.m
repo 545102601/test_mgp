@@ -7,10 +7,10 @@
 //
 
 #import "MGBussiness+OrderExtend.h"
-#import "MGResOrderAddModel.h"
 #import "MGResOrderListModel.h"
 #import "MGResOrderDetailModel.h"
 #import "MGResCalcPriceModel.h"
+#import "MGResScheduleCalendarModel.h"
 
 @implementation MGBussiness (OrderExtend)
 
@@ -19,7 +19,7 @@
     
     [MGBussinessRequest postOrder_Add:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         if (isSuccess) {
-            MGResOrderAddModel *model = [MGResOrderAddModel yy_modelWithDictionary:dic];
+            MGResOrderModel *model = [MGResOrderModel yy_modelWithDictionary:dic];
             if (completion) {
                 completion(model.data);
             }
@@ -120,11 +120,47 @@
 
 }
 
+/// 完成订单
++ (void)loadOrder_Finish:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    [MGBussinessRequest postOrder_Finish:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            
+        } else {
+            [self showMBText:message];
+        }
+    } errorBlock:error];
+}
+
+/// 申请售后
++ (void)loadOrder_Apply:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    [MGBussinessRequest postOrder_Apply:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
+    } errorBlock:error];
+
+}
 
 /// 课程安排日历接口
 + (void)loadSchedule_Calendar:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     
     [MGBussinessRequest getSchedule_Calendar:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        
+        if (isSuccess) {
+
+            MGResScheduleCalendarModel *model = [MGResScheduleCalendarModel yy_modelWithDictionary:dic];
+            
+            if (completion) {
+                completion(model.data);
+            }
+        } else {
+            [self showMBText:message];
+        }
+        
         
     } errorBlock:error];
     
@@ -134,14 +170,28 @@
 + (void)loadOrder_Schedule:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     
     [MGBussinessRequest postOrder_Schedule:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
-        
+        if (isSuccess) {
+            [self showMBText:@"安排成功"];
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
     } errorBlock:error];
 }
 
 /// 取消安排课程接口
 + (void)loadOrder_Schedule_Cancel:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     [MGBussinessRequest postOrder_Schedule_Cancel:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
-        
+        if (isSuccess) {
+            [self showMBText:@"取消成功"];
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
     } errorBlock:error];
 
 }
@@ -149,7 +199,14 @@
 /// 批量取消安排课程接口
 + (void)loadBatch_Schedule_Cancel:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     [MGBussinessRequest postBatch_Schedule_Cancel:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
-        
+        if (isSuccess) {
+            [self showMBText:@"取消成功"];
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
     } errorBlock:error];
 
 }

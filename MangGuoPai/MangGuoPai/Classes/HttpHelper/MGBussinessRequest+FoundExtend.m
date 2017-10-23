@@ -41,12 +41,12 @@
 /// 检测动态
 + (void)getTrend_Update:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
     
-    [self requestGetUrl:HTTP_TREND_UPDATE
-                  params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
-         timeoutInterval:RequestTiemOut
-               isNeedHUD:NO
-            successBlock:successBlock
-              errorBlock:errorBlock];
+    [self requestGetUrlForNorError:HTTP_TREND_UPDATE
+                            params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+                   timeoutInterval:RequestTiemOut
+                         isNeedHUD:NO
+                      successBlock:successBlock
+                        errorBlock:errorBlock];
     
 }
 

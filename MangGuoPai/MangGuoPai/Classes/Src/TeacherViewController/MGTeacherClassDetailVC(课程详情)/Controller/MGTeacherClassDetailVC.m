@@ -11,11 +11,17 @@
 #import "MGResCourseListDetailModel.h"
 #import "MGTeacherOrderVC.h"
 #import "MGAddLessonVC.h"
-
+#import "TDUMShareAlertView.h"
 
 @interface MGTeacherClassDetailVC ()
 
 @property (nonatomic, strong) MGTeacherClassDetailView *detailView;
+
+@property (nonatomic, strong) UIButton *favButton;
+
+@property (nonatomic, strong) UIButton *shareButton;
+
+@property (nonatomic, strong) UIButton *rightButton;
 
 @end
 
@@ -31,6 +37,9 @@
 
 #pragma mark - 初始化控件
 - (void)setupSubViews {
+    
+    [self setupNavButton];
+    
     WEAK
     _detailView = [[MGTeacherClassDetailView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64)];
     _detailView.hidden = YES;
@@ -50,7 +59,30 @@
 
     
 }
-
+/// 创建导航条按钮
+- (void)setupNavButton {
+    
+    _shareButton = [TDExpendClickButtonNotHightLight buttonWithType:UIButtonTypeCustom];
+    [_shareButton setImage:[UIImage imageNamed:@"found_icon_share"] forState:UIControlStateNormal];
+    _shareButton.frame = CGRectMake(kScreenWidth - SW(44) - SW(20), 0, SW(44), SW(44));
+    _shareButton.centerY = self.navigationBar.titleLabel.centerY;
+    [_shareButton addTarget:self action:@selector(shareButtonOnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    _favButton = [TDExpendClickButtonNotHightLight buttonWithType:UIButtonTypeCustom];
+    [_favButton setImage:[UIImage imageNamed:@"found_icon_shoucang_nor"] forState:UIControlStateNormal];
+    [_favButton setImage:[UIImage imageNamed:@"found_icon_shoucang_pressed"] forState:UIControlStateSelected];
+    _favButton.frame = CGRectMake(_shareButton.left - SW(44) - SW(30), 0, SW(44), SW(44));
+    _favButton.centerY = self.navigationBar.titleLabel.centerY;
+    [_favButton addTarget:self action:@selector(favButtonOnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    _favButton.hidden = YES;
+    _shareButton.hidden = YES;
+    
+    [self.navigationBar sd_addSubviews:@[_shareButton, _favButton]];
+    
+}
 #pragma mark - 加载数据
 - (void)loadData {
     
@@ -59,8 +91,17 @@
         self.detailView.dataModel = dataModel;
         _detailView.hidden = NO;
         
+        _favButton.selected = dataModel.is_favor > 0 ? YES : NO;
+        
         if (memberDataModelInstance.id == dataModel.member_id && dataModel.state == MGGlobaStateNone) {
-            [self setRightButtonWithTitle:@"修改" target:self selector:@selector(rightButtonOnClick)];
+            self.rightButton = [self setRightButtonWithTitle:@"修改" target:self selector:@selector(rightButtonOnClick)];
+            self.rightButton.hidden = NO;
+            self.favButton.hidden = YES;
+            self.shareButton.hidden = YES;
+        } else {
+            self.rightButton.hidden = YES;
+            self.favButton.hidden = NO;
+            self.shareButton.hidden = NO;
         }
         
     } error:nil];
@@ -72,6 +113,29 @@
 #pragma mark - --Notification Event Response
 
 #pragma mark - --Button Event Response
+
+- (void)shareButtonOnClick {
+    
+    TDUMShareAlertView *alertView = [TDUMShareAlertView showUMengShareViewWithTitle:self.detailView.dataModel.course_title shareContent:self.detailView.dataModel.course_content shareImage:[UIImage imageNamed:@"mine_manguo_fx"] imageUrl:nil shareUrl:[NSString stringWithFormat:@"https://www.mangopi.com.cn/wx/course/%ld.html", self.detailView.dataModel.id]];
+    
+    [alertView show];
+    
+}
+- (void)favButtonOnClick {
+    NSDictionary *dict = @{@"entity_id" : @(self.detailView.dataModel.id), @"entity_type_id" : @(MGGlobalEntityTypeClass)};
+    if (_favButton.selected) {
+        [MGBussiness loadFav_Del:dict completion:^(id results) {
+            _favButton.selected = NO;
+        } error:nil];
+    } else {
+        
+        [MGBussiness loadFav_Add:dict completion:^(id results) {
+            _favButton.selected = YES;
+        } error:nil];
+    }
+    
+    
+}
 /// 右边按钮
 - (void)rightButtonOnClick {
     MGAddLessonVC *vc = [MGAddLessonVC new];
@@ -93,7 +157,7 @@
     InterceptLoginShowAlert
     
     [MGBussiness loadWantCountWithParams:@{@"entity_id" : @(self.detailView.dataModel.id), @"entity_type_id" : @(MGGlobalEntityTypeClass)} completion:^(id results) {
-        [self.detailView setWantButton:[results boolValue]];
+        
     } error:nil];
     
 }

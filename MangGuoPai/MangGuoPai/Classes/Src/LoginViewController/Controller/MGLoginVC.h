@@ -7,7 +7,13 @@
 //
 
 #import "BaseViewController.h"
+#import "MGLoginModel.h"
 
 @interface MGLoginVC : BaseViewController
+
+- (void)requestLoginWithModal:(MGLoginModel *)loginModel;
+
+- (void)requestLoginWithModal:(MGLoginModel *)loginModel
+                 sendMsgBlock:(MGCommomEventBlock)msgBlock;
 
 @end

@@ -36,6 +36,8 @@
     _recommendSubTitleLabel.hidden = YES;
     
     _recommendContentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SW(20), _recommendLineImageView.bottom + SH(15), SW(710), SH(480))];
+    _recommendContentImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _recommendContentImageView.layer.masksToBounds = YES;
     _recommendContentImageView.userInteractionEnabled = YES;
     [_recommendContentImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(recommendContentImageViewTap)]];
     

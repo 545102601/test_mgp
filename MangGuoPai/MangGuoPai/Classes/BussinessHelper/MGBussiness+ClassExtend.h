@@ -43,8 +43,11 @@
 /// 新增课程接口
 + (void)loadCourseAddWithParams:(NSDictionary *)params completion:(BussinessCompletion)completion error:(BussinessError)error;
 
+/// 课程点评
++ (void)loadCourse_Comment_Add:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
-
+/// 导师课程回复
++ (void)loadCourse_Comment_Reply:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
 
 @end

@@ -134,8 +134,9 @@
     
     if (self.prizesIsExpend) {
         height += self.prizesContentHeight;
+        height += SH(20);
     }
-    return height;
+    return height ;
 }
 
 
@@ -173,6 +174,7 @@
     
     if (self.entryIsExpend) {
         height += self.entryContentHeight;
+        height += SH(20);
     }
     return height;
 }

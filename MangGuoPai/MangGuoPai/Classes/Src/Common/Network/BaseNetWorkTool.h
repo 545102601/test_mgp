@@ -29,6 +29,17 @@ typedef void (^ErrorBlock)(NSError * error);
           successBlock:(nullable SuccessBlock)successBlock
             errorBlock:(nullable ErrorBlock)errorBlock;
 
+
+/**
+ Get请求 不弹错误提示
+ */
++ (void)requestGetUrlForNorError:(NSString * _Nonnull)apiString
+                          params:(id _Nullable)param
+                 timeoutInterval:(int)timeoutInterval
+                       isNeedHUD:(BOOL)isNeedHUD
+                    successBlock:(nullable SuccessBlock)successBlock
+                      errorBlock:(nullable ErrorBlock)errorBlock;
+
 /// GET : 单独的请求接口 完整地址
 + (void)requestGetUrlForFinishURL:(NSString * _Nonnull)apiString
                            params:(id _Nullable)param

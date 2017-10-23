@@ -36,6 +36,8 @@
     self.hidden = YES;
     
     _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(750))];
+    _iconImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _iconImageView.layer.masksToBounds = YES;
     
     _nameAndJobLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Title_Black font:PFSC(32) textAlignment:NSTextAlignmentCenter];
     _nameAndJobLabel.frame = CGRectMake(0, _iconImageView.bottom, kScreenWidth, SH(80));
@@ -130,6 +132,11 @@
     _wantedLabel.text = [NSString stringWithFormat:@"%ld听过", dataModel.wanted_count];
     
     
+}
+
+- (void)setWantCount:(NSInteger)wantCount {
+    _wantLabel.text = [NSString stringWithFormat:@"%ld人想听", wantCount];
+
 }
 
 - (CGFloat)headerHeight {

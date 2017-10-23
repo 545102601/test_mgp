@@ -76,7 +76,7 @@
 + (void)loadWantCountWithParams:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     
     [MGBussinessRequest postWant_Count:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
-        
+        [self showMBText:message];
         if (completion) {
             completion(@(isSuccess));
         }

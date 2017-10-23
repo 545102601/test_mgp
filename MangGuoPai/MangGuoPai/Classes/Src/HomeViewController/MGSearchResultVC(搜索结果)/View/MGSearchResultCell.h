@@ -6,6 +6,8 @@
 //  Copyright © 2017年 Yongneng Zheng. All rights reserved.
 //
 
+#define kMGSearchResultCellHeight SH(180)
+
 #import "BaseTableViewCell.h"
 #import "MGResEntityModel.h"
 

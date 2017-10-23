@@ -7,9 +7,12 @@
 //
 
 #import "FSCalendarCell.h"
+#import "MGResScheduleCalendarModel.h"
 
 @interface MGScheduleCalendarCell : FSCalendarCell
 
 @property (weak, nonatomic) CAShapeLayer *selectionLayer;
+
+@property (nonatomic, strong) UIImageView *keImageView;
 
 @end

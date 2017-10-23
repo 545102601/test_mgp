@@ -138,10 +138,26 @@
 }
 
 
+/// 添加收藏
++ (void)loadFav_Add:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    
+    [MGBussinessRequest postFav_Add:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            [self showMBText:@"收藏成功"];
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
+    } errorBlock:error];
+
+}
 /// 删除收藏
 + (void)loadFav_Del:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     [MGBussinessRequest postFav_Del:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         if (isSuccess) {
+            [self showMBText:@"取消成功"];
             if (completion) {
                 completion(@(isSuccess));
             }

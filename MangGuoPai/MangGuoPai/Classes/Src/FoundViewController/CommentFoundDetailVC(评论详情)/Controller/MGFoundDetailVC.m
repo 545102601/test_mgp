@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = self.dataModel.publisher_name;
     
 }
 #pragma mark - 初始化控件
@@ -119,8 +118,11 @@
 #pragma mark - 加载数据
 - (void)loadData {
     
-    [MGBussiness loadTrend_GetWithParams:@{@"id" : @(self.dataModel.id)} completion:^(MGResTrendListDataModel *dataModel) {
+    long resultId = self.id > 0 ? self.id : self.dataModel.id;
+    
+    [MGBussiness loadTrend_GetWithParams:@{@"id" : @(resultId)} completion:^(MGResTrendListDataModel *dataModel) {
         if (dataModel) {
+            self.title = dataModel.publisher_name;
             NSMutableArray *dataArrayM = @[dataModel].mutableCopy;
             
             self.tableView.dataArrayM = dataArrayM;
@@ -151,7 +153,7 @@
 /// 点赞
 - (void)praiseFoundCell:(MGFoundCell *)cell dataModel:(MGResTrendListDataModel *)dataModel {
     
-    [MGBussiness loadPraiseWithParams:@{@"entity_id" : @(dataModel.id) , @"entity_type_id" : @(MGGlobalEntityTypeFriend)} completion:^(id results) {
+    [MGBussiness loadPraiseWithParams:@{@"id" : @(dataModel.id)} completion:^(id results) {
         if ([results boolValue]) {
             
             [[NSNotificationCenter defaultCenter] postNotificationName:FoundDetailPariseAndFavRefreshView object:nil userInfo:@{@"id" : @(dataModel.id), @"type" : @"parise"}];

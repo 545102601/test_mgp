@@ -11,7 +11,7 @@
 @interface MGMyOrderBaseVC : UIViewController
 
 @property (nonatomic, strong) MGMyOrderBaseTableView *tableView;
-/// 1 是 send  2 是 receive
-@property (nonatomic, assign) NSInteger viewControllerType;
+
+@property (nonatomic, assign) MGGlobaMenuTag menuTag;
 
 @end

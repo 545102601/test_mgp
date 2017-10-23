@@ -12,6 +12,7 @@
 #import "MGMineInfoVC.h"
 #import "MGResMemberModel.h"
 #import "TDUMShareAlertView.h"
+#import "MGAboutVC.h"
 
 @interface MGMineSettingVC ()
 /// 资料
@@ -85,17 +86,19 @@
     _aboutView.titleLabel.text = @"关于我们";
     _aboutView.backgroundTapBlock = ^{
         STRONG
-        MGCommonWKWebViewVC *vc = [MGCommonWKWebViewVC new];
-        vc.titleString = @"关于我们";
-        vc.urlString = @"https://www.baidu.com";
+        MGAboutVC *vc = [MGAboutVC new];
         PushVC(vc);
+//        MGCommonWKWebViewVC *vc = [MGCommonWKWebViewVC new];
+//        vc.titleString = @"关于我们";
+//        vc.urlString = @"https://www.baidu.com";
+//        PushVC(vc);
     };
     
     _shareView = [[MGMineSettingView alloc] initWithFrame:CGRectMake(0, _aboutView.bottom, kScreenWidth, MineSettingViewHeight)];
     _shareView.titleLabel.text = @"分享给好友";
     _shareView.backgroundTapBlock = ^{
-        STRONG
-        TDUMShareAlertView *alertView = [TDUMShareAlertView showUMengShareViewWithTitle:@"乐享芒果派" shareContent:@"乐享芒果派内容" shareImage:[UIImage imageNamed:@"mine_manguo_fx"] imageUrl:nil shareUrl:@"http://www.baidu.com"];
+        
+        TDUMShareAlertView *alertView = [TDUMShareAlertView showUMengShareViewWithTitle:@"乐享芒果派" shareContent:@"π的世界，伴你创造无限可能。" shareImage:[UIImage imageNamed:@"mine_manguo_fx"] imageUrl:nil shareUrl:@"https://www.mangopi.com.cn/"];
         
         [alertView show];
     };
@@ -114,7 +117,7 @@
         }];
     };
     
-    _outButton = [MGUITool buttonWithBGColor:nil title:@"退出登录" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(outButtonOnClick)];
+    _outButton = [MGUITool buttonWithBGColor:nil title:@"退出登录" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(outButtonOnClick)];
     [_outButton setBackgroundImage:[UIImage imageWithColor:MGButtonBlankDefaultColor] forState:UIControlStateNormal];
     [_outButton setBackgroundImage:[UIImage imageWithColor:MGButtonBlankHighLightedColor] forState:UIControlStateHighlighted];
     
@@ -122,7 +125,7 @@
     _outButton.layer.cornerRadius = MGButtonLayerCorner;
     _outButton.layer.masksToBounds = YES;
     
-    [self.view sd_addSubviews:@[_infoView, _phoneView, _payPwdView, _aboutView, _shareView, _clearCacheView, _outButton]];
+    [self.view sd_addSubviews:@[_infoView, _phoneView, _aboutView, _shareView, _clearCacheView, _outButton]];
     
 }
 
@@ -139,6 +142,11 @@
     [MGBussinessRequest postLoginOut:nil successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         
         if (isSuccess) {
+            
+            [SESSION_MANAGER setLogin:NO];
+            
+            PopVC
+            
             [self showMBText:@"退出成功"];
             
             /// 清缓存

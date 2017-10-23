@@ -49,6 +49,8 @@
  * 3.QQ -> 传open_id
  */
 @property (nonatomic, copy) NSString *open_id;
+/** 微信 */
+@property (nonatomic, copy) NSString *union_id;
 
 /** 短信验证码 */
 @property (nonatomic, copy) NSString *sms_code;

@@ -52,15 +52,22 @@
 @property (nonatomic, copy) NSString *order_time_string;
 /// 支付方式
 @property (nonatomic, copy) NSString *pay_channel;
-/// 安排日期
+/// 安排日期 yyyy-MM-dd
 @property (nonatomic, strong) NSDate *sct_date;
-/// 安排日期 str
-@property (nonatomic, copy) NSString *sct_date_string;
-
-/// 安排时间
+/// 安排时间 时间点
 @property (nonatomic, assign) NSInteger sct_time;
 
+/// 安排日期 + 时间点
+@property (nonatomic, copy) NSString *sct_date_string;
+
 @end
+
+@interface MGResOrderModel : BaseResModel
+
+@property (nonatomic, strong) MGResOrderListDataModel *data;
+
+@end
+
 
 @interface MGResOrderListModel : BaseResModel
 

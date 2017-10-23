@@ -11,6 +11,8 @@
 
 @interface MGFoundDetailVC : BaseViewController
 
+@property (nonatomic, assign) long id;
+
 /// 数据源
 @property (nonatomic, strong) MGResTrendListDataModel *dataModel;
 

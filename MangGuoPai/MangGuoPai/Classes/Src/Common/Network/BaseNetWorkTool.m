@@ -91,6 +91,84 @@
 }
 
 
+/**
+ Get请求 不弹错误提示
+ */
++ (void)requestGetUrlForNorError:(NSString * _Nonnull)apiString
+                          params:(id _Nullable)param
+                 timeoutInterval:(int)timeoutInterval
+                       isNeedHUD:(BOOL)isNeedHUD
+                    successBlock:(nullable SuccessBlock)successBlock
+                      errorBlock:(nullable ErrorBlock)errorBlock {
+    // 添加网络标示
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    if (isNeedHUD) {
+        [TDLoading showViewInKeyWindow];
+    }
+    
+    
+    // 初始化manager
+    AFHTTPSessionManager *manager = [BaseNetWorkTool AFNNetworkSetting:YES
+                                                            andOutTime:timeoutInterval];
+    
+    // 组装API地址
+    NSString *requestUrl = [NSString stringWithFormat:@"%@?%@",ApiRequestUrl,apiString];
+    
+    // 请求日志打印
+    NSMutableString *logUrl = requestUrl.mutableCopy;
+    [param enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        [logUrl appendFormat:@"&%@=%@",key,obj];
+    }];
+    
+    TDDetialLog(@"请求地址 - %@\n ", logUrl);
+    
+    // 发送GET请求
+    [manager GET:requestUrl parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        // 隐藏HUD
+        if (isNeedHUD) {
+            [TDLoading hideViewInKeyWindow];
+        }
+        
+        // 隐藏网络标示
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        NSMutableDictionary *dic = responseObject;
+        TDDetialLog(@"请求地址 - %@\n 服务器返回数据 - %@", logUrl, responseObject);
+        /// 登录
+        if ([dic[@"error_code"] isEqualToString:@"BIZ_ERR_INVALID_LOGIN_STATE"]) {
+            
+            [self goLogin];
+        } else {
+            if (![dic[@"ret_flag"] boolValue]) { /// 服务器 请求 失败
+                [TDLoading hideViewInKeyWindow];
+            }
+            
+            // 成功参数返回
+            successBlock(dic,
+                         dic[@"ret_msg"],
+                         dic[@"error_code"],
+                         [dic[@"ret_flag"] boolValue]);
+            
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [TDLoading hideViewInKeyWindow];
+        // 隐藏网络标示
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        TDDetialLog(@"请求错误 - %@", error);
+//        [MBProgressHUD showError:@"当前网络阻塞，请稍后再试" toView:KeyWindow];
+        if (errorBlock) {
+            errorBlock(error);
+        }
+    }];
+    
+}
+
+
 + (void)requestPostUrl:(NSString * _Nonnull)apiString
                 params:(id _Nullable)param
        timeoutInterval:(int)timeoutInterval

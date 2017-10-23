@@ -233,13 +233,13 @@
             
             if (type == SelectPhotoViewTypeTakePhoto) {
                 
-                [PPPhotoTaker getPictureFromCemeraNeedEditing:YES needSaveInLibrary:YES finishBlock:^(UIImage *image) {
+                [PPPhotoTaker getPictureFromCemeraNeedEditing:NO needSaveInLibrary:YES finishBlock:^(UIImage *image) {
                     STRONG
                     [self uploadIconImageWithImage:image];
                 }];
                 
             } else if (type == SelectPhotoViewTypeSelectPhoto) {
-                [PPPhotoTaker getPictureFromLibraryNeedEditing:YES finishBlock:^(UIImage *image) {
+                [PPPhotoTaker getPictureFromLibraryNeedEditing:NO finishBlock:^(UIImage *image) {
                     STRONG
                     [self uploadIconImageWithImage:image];
                 }];

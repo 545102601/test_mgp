@@ -86,8 +86,6 @@
 /// 点击确定
 - (void)rightOnClick {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
     
     if (self.type == MineInfoTagTypeEMail) {
         if (_contentTextView.text.length > 0) {
@@ -98,6 +96,7 @@
         }
     }
     
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     if (_completionBlock) {
         NSDictionary *dict = [self getInfo];
@@ -201,6 +200,8 @@
             title = @"修改邮箱";
             key = @"email";
             
+            break;
+        default:
             break;
     }
     return @{@"title" : title, @"key" : key, @"limitNumber" : limitNumber};

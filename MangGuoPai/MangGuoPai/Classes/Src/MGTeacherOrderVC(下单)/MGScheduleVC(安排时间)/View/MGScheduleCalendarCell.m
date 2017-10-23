@@ -10,8 +10,6 @@
 
 @interface MGScheduleCalendarCell ()
 
-@property (nonatomic, strong) UIImageView *keImageView;
-
 @end
 
 @implementation MGScheduleCalendarCell
@@ -32,6 +30,8 @@
         _keImageView.contentMode = UIViewContentModeTopLeft;
         
         _keImageView.image = [UIImage imageNamed:@"order_icon_ke"];
+        _keImageView.hidden = YES;
+        
         [self.contentView addSubview:_keImageView];
         
         self.shapeLayer.hidden = YES;
@@ -54,17 +54,31 @@
     _keImageView.left = MGSepLineHeight;
     _keImageView.top = MGSepLineHeight;
     
-    
-    
-    
 }
+
 - (void)configureAppearance
 {
     [super configureAppearance];
-    // Override the build-in appearance configuration
-//    if (self.isPlaceholder) {
-//        self.titleLabel.textColor = [UIColor clearColor];
-//    }
-//    
+    
 }
+
+#pragma mark - Event Response
+
+#pragma mark - --Notification Event Response
+
+#pragma mark - --Button Event Response
+
+#pragma mark - --Gesture Event Response
+
+#pragma mark - System Delegate
+
+#pragma mark - Custom Delegate
+
+#pragma mark - Public Function
+
+#pragma mark - Private Function
+
+#pragma mark - Getter and Setter
+
+
 @end

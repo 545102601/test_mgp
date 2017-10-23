@@ -71,7 +71,7 @@
     [_contentView addSubview:_topBgView];
     
     
-    _sureButton = [MGUITool buttonWithBGColor:nil title:@"确定" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(sureButtonOnClick:)];
+    _sureButton = [MGUITool buttonWithBGColor:nil title:@"确定" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(sureButtonOnClick:)];
     [_sureButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_sureButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     

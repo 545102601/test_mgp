@@ -65,16 +65,7 @@
     _tableView.didSelectedRowAtIndexPath = ^(UITableView *tableView, NSIndexPath *indexPath) {
       STRONG
         MGResEntityDataModel *model = self.tableView.dataArrayM[indexPath.section];
-        
-        if (model.entity_type_id == MGGlobalEntityTypeMemeber) {
-            MGTeacherDetailVC *vc = [MGTeacherDetailVC new];
-            vc.id = model.id;
-            PushVC(vc)
-        } else if (model.entity_type_id == MGGlobalEntityTypeWork) {
-            MGWorkDetailVC *vc = [MGWorkDetailVC new];
-            vc.id = model.id;
-            PushVC(vc)
-        }
+        [self routerWithEntityType:model.entity_type_id id:model.id];
         
     };
     

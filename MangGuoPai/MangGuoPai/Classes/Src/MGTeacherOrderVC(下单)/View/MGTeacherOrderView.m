@@ -204,11 +204,11 @@
     _countLabel.frame = CGRectMake(SW(30), _discountBgView.bottom + SH(38), kScreenWidth - SW(60), _countLabel.fontLineHeight);
     
     
-    _orderPayButton = [MGUITool buttonWithBGColor:nil title:@"下单支付" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(orderPayButtonOnClick)];
+    _orderPayButton = [MGUITool buttonWithBGColor:nil title:@"下单支付" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(orderPayButtonOnClick)];
     [_orderPayButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_orderPayButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     
-    _orderPayButton.frame = CGRectMake(0, kScreenHeight - SH(90) - SH(84), SW(600), SH(84));
+    _orderPayButton.frame = CGRectMake(0, self.height - SH(90) - SH(84), SW(600), SH(84));
     _orderPayButton.centerX = kScreenWidth * 0.5;
     _orderPayButton.layer.cornerRadius = MGButtonLayerCorner;
     _orderPayButton.layer.masksToBounds = YES;
@@ -233,6 +233,7 @@
     
     _numberLabel.text = @"x1";
     
+    _priceLabel.text = [TDCommonTool formatPriceWithDoublePrice:dataModel.sale_price];
 }
 
 - (void)setDetailDataModel:(MGResCourseListDetailDataModel *)detailDataModel {
@@ -248,9 +249,11 @@
     
     _numberLabel.text = @"x1";
     
-    
-    
+    _priceLabel.text = [TDCommonTool formatPriceWithDoublePrice:detailDataModel.sale_price];
 }
+
+
+
 /// 设置价格模型
 - (void)setPriceDataModel:(MGResCalcPriceDataModel *)priceDataModel {
     _priceDataModel = priceDataModel;
@@ -258,13 +261,16 @@
     _discountResultLabel.text = @"";
     _discountMoneyLabel.text = @"";
     
+    [self setCountLabelAttrWithText:_priceLabel.text];
+    
     if (priceDataModel.error_discount_price_label.length > 0) {
         if (priceDataModel.error_discount_price_label) {
             _discountResultLabel.text = priceDataModel.error_discount_price_label;
         }
     } else {
         _priceLabel.text = [TDCommonTool formatPriceWithDoublePrice:priceDataModel.total_price];
-        _countLabel.text = [NSString stringWithFormat:@"总计 : %@",[TDCommonTool formatPriceWithDoublePrice:priceDataModel.total_price]];
+
+        [self setCountLabelAttrWithText:[TDCommonTool formatPriceWithDoublePrice:priceDataModel.pay_price]];
         
         if (priceDataModel.discount_price_label.length > 0) {
             _discountResultLabel.text = priceDataModel.discount_price_label;
@@ -293,7 +299,7 @@
         _discountMoneyLabel.hidden = YES;
     }
     
-    _discountLineView.top = marginTop + SH(20);
+    _discountLineView.top = marginTop + SH(40);
     
     _discountBgView.height = _discountLineView.bottom;
     
@@ -301,6 +307,14 @@
     
 }
 
+- (void)setCountLabelAttrWithText:(NSString *)text {
+    
+    NSString *countText = [NSString stringWithFormat:@"总计 : %@", text];
+    NSMutableAttributedString *attrM = [[NSMutableAttributedString alloc] initWithString:countText attributes:@{NSFontAttributeName : PFSC(40), NSForegroundColorAttributeName : MGThemeColor_Black}];
+    [attrM addAttributes:@{NSFontAttributeName : PFSC(34), NSForegroundColorAttributeName : MGThemeColor_Common_Black, NSBaselineOffsetAttributeName : @(2)} range:NSMakeRange(0, 5)];
+    _countLabel.attributedText = attrM;
+    
+}
 
 
 /// 设置优惠卷数据

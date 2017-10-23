@@ -43,7 +43,7 @@
         imageView.image = image;
         [_contentView addSubview:imageView];
         if (i == MGSplashNumberOfPages) { 
-            UIButton *nextButton = [MGUITool buttonWithBGColor:nil title:@"立即进入" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(nextButtonOnClick:)];
+            UIButton *nextButton = [MGUITool buttonWithBGColor:nil title:@"立即进入" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(nextButtonOnClick:)];
             [nextButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
             [nextButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
              nextButton.frame = CGRectMake(imageView.x+SW(50), Screen_Height-SH(240), SW(650), SH(88));

@@ -37,5 +37,10 @@
 /// 新增课程接口
 + (void)postCourse_Add:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
+/// 课程点评
++ (void)postCourse_Comment_Add:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
+
+/// 导师课程回复
++ (void)postCourse_Comment_Reply:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 @end

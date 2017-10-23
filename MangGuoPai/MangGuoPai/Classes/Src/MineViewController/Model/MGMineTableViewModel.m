@@ -47,12 +47,20 @@
         MGMineTableViewModel *viewModel_row_4 = [MGMineTableViewModel modelWithTitle:@"我的授课" icon:@"mine_icon_shouke" subTitle:course_count];
         viewModel_row_4.type = TableViewModelTypeClass;
 
+        [one_dataArrayM addObject:viewModel_row_4];
+
+        MGMineTableViewModel *viewModel_row_4_1 = [MGMineTableViewModel modelWithTitle:@"我的授课安排" icon:@"mine_icon_shouke" subTitle:nil];
+        viewModel_row_4_1.type = TableViewModelTypeClassSchedule;
+        [one_dataArrayM addObject:viewModel_row_4_1];
+        
+        
 //        MGMineTableViewModel *viewModel_row_5 = [MGMineTableViewModel modelWithTitle:@"我的账户" icon:@"mine_icon_zhanghu" subTitle:[NSString stringWithFormat:@"%0.2f",0.00]];
 //        viewModel_row_5.type = TableViewModelTypeAccount;
-        
-        [one_dataArrayM addObject:viewModel_row_4];
 //        [one_dataArrayM addObject:viewModel_row_5];
+//        
     }
+    
+    
     
     
     MGMineTableViewModel *viewModel_row_6 = [MGMineTableViewModel modelWithTitle:@"我的优惠卷" icon:@"mine_icon_coupon" subTitle:nil];

@@ -39,10 +39,15 @@
 
 - (NSString *)sct_date_string {
     if (_sct_date_string.length == 0) {
-        _sct_date_string = [self.sct_date dateToStringYYMMDDHHMM];
+        _sct_date_string = [NSString stringWithFormat:@"%@ %zd:00", [self.sct_date stringWithFormat:@"yyyy-MM-dd"], self.sct_time];
     }
     return _sct_date_string;
 }
+
+@end
+
+@implementation MGResOrderModel
+
 
 @end
 

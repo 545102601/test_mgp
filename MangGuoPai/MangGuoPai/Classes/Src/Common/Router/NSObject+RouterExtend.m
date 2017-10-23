@@ -13,18 +13,19 @@
 #import "MGTeacherClassDetailVC.h"
 #import "MGTeacherDetailVC.h"
 #import "MGMyCouponVC.h"
-
+#import "MGTeacherClassDetailVC.h"
+#import "MGFoundDetailVC.h"
 
 #define ROUTER_PUSH(vc) [[self getCurrentViewController].navigationController pushViewController:vc animated:YES];
 
 @implementation NSObject (RouterExtend)
 
 
-- (void)routerWithPrarms:(NSDictionary *)params {
-    [self.class routerWithPrarms:params];
+- (void)routerWithParams:(NSDictionary *)params {
+    [self.class routerWithParams:params];
 }
 
-+ (void)routerWithPrarms:(NSDictionary *)params {
++ (void)routerWithParams:(NSDictionary *)params {
     
         switch ([params[@"bind_type"] integerValue]) {
             case 4:   /// 导师详情
@@ -93,11 +94,53 @@
         }    
 }
 
++ (void)routerWithEntityType:(MGGlobalEntityType)entityType id:(long)id {
+    [self routerWithEntityType:entityType id:id];
+}
 
+- (void)routerWithEntityType:(MGGlobalEntityType)entityType id:(long)id {
+    
+    if (id == 0) return;
 
+    switch (entityType) {
+        case MGGlobalEntityTypeMemeber:
+        {
+            MGTeacherDetailVC *vc = [MGTeacherDetailVC new];
+            vc.id = id;
+            ROUTER_PUSH(vc)
+        }
+            break;
+        case MGGlobalEntityTypeWork:
+        {
+            MGWorkDetailVC *vc = [MGWorkDetailVC new];
+            vc.id = id;
+            ROUTER_PUSH(vc)
+        }
+            break;
+        case MGGlobalEntityTypeClass:
+        {
+            MGTeacherClassDetailVC *vc = [MGTeacherClassDetailVC new];
+            vc.id = id;
+            ROUTER_PUSH(vc)
+        }
+            break;
+        case MGGlobalEntityTypeFriend:
+        {
+            MGFoundDetailVC *vc = [MGFoundDetailVC new];
+            vc.id = id;
+            ROUTER_PUSH(vc)
+        }
+            break;
+        default:
+            break;
+    }
+    
+    
+}
 
 
 - (UIViewController *)getCurrentViewController {
+    
     return [self.class getCurrentViewController];
 }
 

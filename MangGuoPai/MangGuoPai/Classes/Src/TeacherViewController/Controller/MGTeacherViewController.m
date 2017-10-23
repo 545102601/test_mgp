@@ -79,9 +79,11 @@
     
     _tableView.advertCellDidSelectedBlock = ^(NSInteger index) { /// 广告
         STRONG
-        MGResSettingDataDetailModel *dataModel = self.tableView.adverArray[index];
+        MGResCourseListDataModel *dataModel = self.tableView.adverArray[index];
         
-        [self routerWithPrarms:[dataModel yy_modelToJSONObject]];
+        MGTeacherDetailVC *vc = [MGTeacherDetailVC new];
+        vc.model = dataModel;
+        PushVC(vc)
         
     };
     /// 小功能

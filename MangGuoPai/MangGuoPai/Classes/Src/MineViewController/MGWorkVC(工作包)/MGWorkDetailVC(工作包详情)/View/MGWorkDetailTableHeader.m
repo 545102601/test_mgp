@@ -23,6 +23,9 @@
     self.backgroundColor = [UIColor whiteColor];
     
     _logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(350))];
+    _logoImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _logoImageView.layer.masksToBounds = YES;
+    
     
     _titleLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Title_Black font:PFSC(30) textAlignment:NSTextAlignmentCenter];
     

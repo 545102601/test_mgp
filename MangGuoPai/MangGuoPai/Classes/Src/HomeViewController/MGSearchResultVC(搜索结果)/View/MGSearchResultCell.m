@@ -21,12 +21,13 @@
 
 - (void)preapreCellUI {
 
-    _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SW(30), SH(40), SW(80), SW(80))];
+    _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SW(30), 0, SW(80), SW(80))];
     _iconImageView.layer.cornerRadius = SW(80) * 0.5;
     _iconImageView.layer.masksToBounds = YES;
-
+    _iconImageView.centerY = kMGSearchResultCellHeight * 0.5;
+    
     _titleNameLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:MGThemeFont_28];
-    _titleNameLabel.frame = CGRectMake(_iconImageView.right + SW(30), 0, kScreenWidth - SW(46) - _iconImageView.right + SW(30), 0);
+    _titleNameLabel.frame = CGRectMake(_iconImageView.right + SW(20), 0, kScreenWidth - SW(46) - _iconImageView.right - SW(30), 0);
     
     [self.contentView addSubview:_iconImageView];
     [self.contentView addSubview:_titleNameLabel];

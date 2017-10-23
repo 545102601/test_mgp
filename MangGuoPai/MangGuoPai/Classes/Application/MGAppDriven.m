@@ -33,6 +33,15 @@
 
 @implementation MGAppDriven
 
++ (void)initialize {
+    
+    //设置UserAgent
+    UIWebView *webView2 = [[UIWebView alloc]initWithFrame:CGRectZero];
+    
+    NSString *oldAgent = [webView2 stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent" : oldAgent}];
+}
 
 /// 适配iOS11
 - (void)adateriOS11 {

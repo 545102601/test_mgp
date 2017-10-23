@@ -59,7 +59,7 @@
     _lineView.backgroundColor = MGSepColor;
     
     
-    _finishButton = [MGUITool buttonWithBGColor:nil title:@"完成" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(finishOnClick)];
+    _finishButton = [MGUITool buttonWithBGColor:nil title:@"完成" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(finishOnClick)];
     [_finishButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_finishButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     [_finishButton setBackgroundImage:[UIImage imageWithColor:colorHex(@"#f5f5f6")] forState:UIControlStateDisabled];
@@ -183,6 +183,9 @@
     
     [MGBussinessRequest postUpdate_Member:@{@"nick_name" : text, @"gender" : @(gender)} isNeedHUD:YES successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         if (isSuccess) {
+            
+            /// 设置已经登录
+            [SESSION_MANAGER setLogin:YES];
             
             /// 发送登录成功通知
             [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessRefreshTable object:nil];

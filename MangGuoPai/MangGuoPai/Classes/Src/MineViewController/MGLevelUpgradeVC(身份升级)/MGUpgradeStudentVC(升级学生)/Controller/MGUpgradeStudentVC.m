@@ -119,7 +119,7 @@
     
     _scrollView.contentSize = CGSizeMake(0, _iconView.bottom);
     
-    _submitButton = [MGUITool buttonWithBGColor:nil title:@"提交认证" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(submitButtonOnClick)];
+    _submitButton = [MGUITool buttonWithBGColor:nil title:@"提交认证" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(submitButtonOnClick)];
     _submitButton.frame = CGRectMake(SW(75), submitButtonTop, SW(600), SH(84));
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];

@@ -11,8 +11,13 @@
 @interface NSObject (RouterExtend)
 
 
-+ (void)routerWithPrarms:(NSDictionary *)params;
-- (void)routerWithPrarms:(NSDictionary *)params;
++ (void)routerWithParams:(NSDictionary *)params;
+- (void)routerWithParams:(NSDictionary *)params;
+
+
++ (void)routerWithEntityType:(MGGlobalEntityType)entityType id:(long)id;
+- (void)routerWithEntityType:(MGGlobalEntityType)entityType id:(long)id;
+
 
 + (UIViewController *)getCurrentViewController;
 - (UIViewController *)getCurrentViewController;

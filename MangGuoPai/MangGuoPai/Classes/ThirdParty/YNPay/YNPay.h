@@ -32,6 +32,9 @@ typedef void(^CompleteBlock)(NSString *errorMsg);
 + (void)payAliWithOrderStrng:(NSString *)orderString
              completeClosure:(CompleteBlock)completeClosure;
 
++ (void)payWxWithPayDataDict:(NSDictionary *)dict
+             completeClosure:(CompleteBlock)completeClosure;
+
 + (void)payWithType:(YNPayType)type
        accountModel:(YNPayModel *)accountModel
               money:(NSString *)money

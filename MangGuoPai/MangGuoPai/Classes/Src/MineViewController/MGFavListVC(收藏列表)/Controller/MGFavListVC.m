@@ -38,7 +38,9 @@
     
     _tableView.didSelectedRowAtIndexPath = ^(UITableView *tableView, NSIndexPath *indexPath) {
       STRONG
+        MGResFavListDataModel *dataModel = self.tableView.dataArrayM[indexPath.section];
         
+        [self routerWithEntityType:dataModel.entity_type_id id:dataModel.entity_id];
         
     };
     
@@ -49,7 +51,6 @@
         
         [MGBussiness loadFav_Del:@{@"entity_id" : @(dataModel.entity_id), @"entity_type_id" : @(dataModel.entity_type_id)} completion:^(id results) {
             if ([results boolValue]) {
-                [self showMBText:@"取消成功"];
                 
                 [self.tableView.dataArrayM removeObject:dataModel];
                 [self.tableView deleteSection:indexPath.section withRowAnimation:UITableViewRowAnimationLeft];

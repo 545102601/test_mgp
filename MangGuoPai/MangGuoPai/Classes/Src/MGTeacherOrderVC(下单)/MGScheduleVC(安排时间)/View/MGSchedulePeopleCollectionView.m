@@ -7,6 +7,7 @@
 //
 
 #import "MGSchedulePeopleCollectionView.h"
+#import "MGSchedulePeopleModel.h"
 
 @interface MGSchedulePeopleCollectionViewCell : UICollectionViewCell
 
@@ -17,6 +18,8 @@
 @property (nonatomic, strong) UIView *centerLineView;
 
 @property (nonatomic, strong) UILabel *peopleLabel;
+
+@property (nonatomic, strong) MGSchedulePeopleModel *peopleModel;
 
 @end
 
@@ -30,13 +33,21 @@
         _bgView = [[UIView alloc] init];
         _bgView.backgroundColor = [UIColor whiteColor];
         _bgView.layer.cornerRadius = 3;
+        _bgView.layer.borderWidth = 1;
+        _bgView.frame = CGRectInset(self.contentView.frame, 1, 1);
         
-        _timeLabel = [MGUITool labelWithText:@"11点" textColor:colorHex(@"#252525") font:MGThemeFont_30 textAlignment:NSTextAlignmentRight];
+        _timeLabel = [MGUITool labelWithText:nil textColor:colorHex(@"#252525") font:MGThemeFont_30 textAlignment:NSTextAlignmentCenter];
+        _timeLabel.frame = CGRectMake(SW(10), 0, SW(100), _timeLabel.fontLineHeight);
+        _timeLabel.centerY = self.contentView.height * 0.5;
         
-        _centerLineView = [[UIView alloc] init];
+        
+        _centerLineView = [[UIView alloc] initWithFrame:CGRectMake(0, SH(10), MGSepLineHeight, self.contentView.height - SH(20))];
+        _centerLineView.centerX = self.contentView.centerX;
         _centerLineView.backgroundColor = MGSepColor;
         
-        _peopleLabel = [MGUITool labelWithText:@"0人" textColor:colorHex(@"#bfbfbf") font:MGThemeFont_30 textAlignment:NSTextAlignmentRight];
+        _peopleLabel = [MGUITool labelWithText:nil textColor:colorHex(@"#bfbfbf") font:MGThemeFont_30 textAlignment:NSTextAlignmentRight];
+        _peopleLabel.frame = CGRectMake(self.contentView.width - SW(100) - SW(10), 0, SW(90), _peopleLabel.fontLineHeight);
+        _peopleLabel.centerY = self.contentView.height * 0.5;
         _peopleLabel.adjustsFontSizeToFitWidth = YES;
         [_bgView sd_addSubviews:@[_timeLabel, _centerLineView, _peopleLabel]];
         
@@ -46,26 +57,25 @@
     return self;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
+- (void)setPeopleModel:(MGSchedulePeopleModel *)peopleModel {
+    _peopleModel = peopleModel;
     
-    _bgView.frame = CGRectInset(self.contentView.bounds, 1, 1);
+    _timeLabel.text = [NSString stringWithFormat:@"%@", peopleModel.time];
+    _peopleLabel.text = [NSString stringWithFormat:@"%zd人", peopleModel.count];
     
-    _centerLineView.width = MGSepLineHeight;
-    _centerLineView.height = _bgView.height - SH(20);
-    _centerLineView.center  = _bgView.center;
-    
-    
-    [_timeLabel sizeToFit];
-    _timeLabel.right = _centerLineView.left - SW(20);
-    _timeLabel.centerY = _centerLineView.centerY;
-    
-    [_peopleLabel sizeToFit];
-    _peopleLabel.left = _centerLineView.right + SW(20);
-    _peopleLabel.width = _bgView.width - _peopleLabel.left - SW(10);
-    _peopleLabel.centerY = _centerLineView.centerY;
-    
-    
+    if (peopleModel.isSelected) {
+        _bgView.layer.borderColor = MGThemeShenYellowColor.CGColor;
+    } else {
+        if (peopleModel.count > 0) { /// 有人数
+            _bgView.layer.borderColor = MGThemeColor_QianYellowColor.CGColor;
+        } else {
+            _bgView.layer.borderColor = [UIColor clearColor].CGColor;
+        }
+    }
+}
+
++ (CGFloat)getCellWidth {
+    return (kScreenWidth - SW(24) * 2 - 2 * SW(10)) / 3;;
 }
 
 @end
@@ -79,7 +89,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
-    CGFloat itemWidth = (frame.size.width - SW(24) * 2 - 2 * SW(10)) / 3;
+    CGFloat itemWidth = [MGSchedulePeopleCollectionViewCell getCellWidth];
     
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.itemSize = CGSizeMake(itemWidth, SH(58));
@@ -111,16 +121,34 @@
 #pragma mark - System Delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 15;
+
     return self.collectionDataArrayM.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MGSchedulePeopleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MGSchedulePeopleCollectionViewCellID" forIndexPath:indexPath];
+    cell.peopleModel = self.collectionDataArrayM[indexPath.item];
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
+    MGSchedulePeopleModel *peopleModel = self.collectionDataArrayM[indexPath.item];
+    MGSchedulePeopleModel *selectModel = nil;
+    for (MGSchedulePeopleModel *tempModel in self.collectionDataArrayM) {
+        tempModel.isSelected = NO;
+        if (tempModel.id == peopleModel.id) {
+            tempModel.isSelected = YES;
+            selectModel = tempModel;
+        }
+    }
+    [collectionView reloadData];
+    
+    if (_didSelectItemBlock) {
+        _didSelectItemBlock(selectModel);
+    }
+    
+}
 
 #pragma mark - Custom Delegate
 

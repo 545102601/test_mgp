@@ -268,7 +268,7 @@
     
     
     
-    _submitButton = [MGUITool buttonWithBGColor:nil title:@"提交认证" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(submitButtonOnClick)];
+    _submitButton = [MGUITool buttonWithBGColor:nil title:@"提交认证" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(submitButtonOnClick)];
     _submitButton.frame = CGRectMake(SW(75), _phoneSettingView.bottom + SH(40), SW(600), SH(84));
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
@@ -544,13 +544,13 @@
             
             if (type == SelectPhotoViewTypeTakePhoto) {
                 
-                [PPPhotoTaker getPictureFromCemeraNeedEditing:YES needSaveInLibrary:YES finishBlock:^(UIImage *image) {
+                [PPPhotoTaker getPictureFromCemeraNeedEditing:NO needSaveInLibrary:YES finishBlock:^(UIImage *image) {
                     STRONG
                     [self uploadIconImageWithImage:image];
                 }];
                 
             } else if (type == SelectPhotoViewTypeSelectPhoto) {
-                [PPPhotoTaker getPictureFromLibraryNeedEditing:YES finishBlock:^(UIImage *image) {
+                [PPPhotoTaker getPictureFromLibraryNeedEditing:NO finishBlock:^(UIImage *image) {
                     STRONG
                     [self uploadIconImageWithImage:image];
                 }];

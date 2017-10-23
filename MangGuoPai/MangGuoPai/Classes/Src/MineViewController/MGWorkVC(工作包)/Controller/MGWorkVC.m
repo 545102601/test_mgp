@@ -12,6 +12,7 @@
 #import "MGWorkTeamVC.h"
 #import "MGWorkProductionVC.h"
 #import "MGWorkDetailVC.h"
+#import "TDUMShareAlertView.h"
 
 @interface MGWorkVC ()
 
@@ -46,7 +47,11 @@
         STRONG
         switch (tag) {
             case 1000: /// 邀请
+            {
+                TDUMShareAlertView *alertView = [TDUMShareAlertView showUMengShareViewWithTitle:@"工作包详情" shareContent:dataModel.project_name shareImage:[UIImage imageNamed:@"mine_manguo_fx"] imageUrl:nil shareUrl:[NSString stringWithFormat:@"https://www.mangopi.com.cn/wx/project/info/%ld.html", dataModel.id]];
                 
+                [alertView show];
+            }
                 break;
             case 1001: /// 作品
             {

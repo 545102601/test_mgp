@@ -48,6 +48,12 @@
         PushVC(vc)
         
     };
+    
+    if (self.viewControllerType == MGGlobaMenuTagLeft) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addLessonCompletionReloadRefreshView) name:AddLessonCompletionReloadRefreshView object:nil];
+    }
+    
+    
 }
 
 #pragma mark - 加载数据
@@ -137,6 +143,13 @@
         [self.view addSubview:_tableView];
     }
     return _tableView;
+    
+}
+
+/// 通知
+- (void)addLessonCompletionReloadRefreshView {
+    
+    [self.tableView.mj_header beginRefreshing];
     
 }
 

@@ -67,7 +67,7 @@
 //cell-height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return SH(180);
+    return kMGSearchResultCellHeight;
 }
 
 //cell-tableview

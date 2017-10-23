@@ -70,7 +70,7 @@
     UIView *companyBgView = [[UIView alloc] initWithFrame:CGRectMake(_companyNoSettingView.width - SW(520), 0, SW(520), MineSettingViewHeight)];
     
     
-    UIButton *_checkButton = [MGUITool buttonWithBGColor:nil title:@"验证" titleColor:MGThemeColor_Black font:MGThemeFont_28 target:self selector:@selector(checkButtonOnClick)];
+    UIButton *_checkButton = [MGUITool buttonWithBGColor:nil title:@"验证" titleColor: MGThemeColor_Title_Black font:MGThemeFont_28 target:self selector:@selector(checkButtonOnClick)];
     _checkButton.frame = CGRectMake(companyBgView.width - SW(30) - SW(120), 0, SW(120), SH(64));
     _checkButton.centerY = companyBgView.height*0.5;
     [_checkButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
@@ -149,7 +149,7 @@
     
     
     
-    _submitButton = [MGUITool buttonWithBGColor:nil title:@"提交认证" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(submitButtonOnClick)];
+    _submitButton = [MGUITool buttonWithBGColor:nil title:@"提交认证" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(submitButtonOnClick)];
     _submitButton.frame = CGRectMake(SW(75), _phoneSettingView.bottom + SH(540), SW(600), SH(84));
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];

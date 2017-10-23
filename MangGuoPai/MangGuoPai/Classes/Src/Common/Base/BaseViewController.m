@@ -31,8 +31,11 @@
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = MGBackgroundViewColor;
     
     [self configNavigationBar];
+    [self setNavigationBarGrayAndBlackBackButton];
+    /// 先调完这些方法 才会 调用 子类的 viewDidLoad
     
     [self initData];
     [self setupSubViews];
@@ -40,11 +43,7 @@
     [self loadData];
     [self registerNotification];
     
-    self.view.backgroundColor = MGBackgroundViewColor;
     
-    [self setNavigationBarGrayAndBlackBackButton];
-    
-    /// 先调完这些方法 才会 调用 子类的 viewDidLoad
     
 }
 /// 配置导航条

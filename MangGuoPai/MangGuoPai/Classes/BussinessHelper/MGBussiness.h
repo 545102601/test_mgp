@@ -57,6 +57,22 @@ typedef NS_ENUM(NSInteger, MGGlobaApproveState) {
     MGGlobaApproveStateAudit = -25, ///待审核、
 };
 
+/// 订单页面的按钮tab
+typedef NS_ENUM(NSInteger, MGGlobaOrderButtonTag) {
+    MGGlobaOrderButtonTagCancel = 1000, /// 取消
+    MGGlobaOrderButtonTagPay = 1001,    /// 立即支付
+    MGGlobaOrderButtonTagApply = 1002,  /// 申请售后
+    MGGlobaOrderButtonTagComment = 1003,        /// 点评
+    MGGlobaOrderButtonTagReplyComment = 1004,   /// 回复点评
+    MGGlobaOrderButtonTagSchedule = 1005,       /// 安排日程
+    MGGlobaOrderButtonTagCancelSchedule = 1006, /// 取消安排
+    MGGlobaOrderButtonTagResetSchedule = 1007  /// 重新安排
+};
+
+typedef NS_ENUM(NSInteger, MGGlobaMenuTag) {
+    MGGlobaMenuTagLeft = 1,
+    MGGlobaMenuTagRight = 2,
+};
 
 @interface MGBussiness : NSObject
 

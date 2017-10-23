@@ -22,7 +22,14 @@
 
 /// 支付接口
 + (void)postOrder_Pay:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
-    [self requestPostUrl:HTTP_ORDER_PAY
+
+    NSString *url = HTTP_ORDER_PAY;
+    
+    if (!(PROD_CONFIG)) {
+        url = @"order_pay_notice&serialNo=124649813441351";
+    }
+
+    [self requestPostUrl:url
                   params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
          timeoutInterval:RequestTiemOut
                isNeedHUD:YES
@@ -70,6 +77,25 @@
              errorBlock:errorBlock];
 }
 
+/// 完成订单
++ (void)postOrder_Finish:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    [self requestPostUrl:HTTP_ORDER_FINISH
+                  params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+         timeoutInterval:RequestTiemOut
+               isNeedHUD:YES
+            successBlock:successBlock
+              errorBlock:errorBlock];
+}
+
+/// 申请售后
++ (void)postOrder_Apply:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    [self requestPostUrl:HTTP_ORDER_APPLY
+                  params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+         timeoutInterval:RequestTiemOut
+               isNeedHUD:YES
+            successBlock:successBlock
+              errorBlock:errorBlock];
+}
 
 /// 课程安排日历接口
 + (void)getSchedule_Calendar:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {

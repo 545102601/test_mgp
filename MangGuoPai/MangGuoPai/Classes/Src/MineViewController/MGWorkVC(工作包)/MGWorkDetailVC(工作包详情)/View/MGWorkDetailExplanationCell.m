@@ -52,7 +52,9 @@
     
     _explanationContentLabel.attributedText = dataModel.introductionAttr;
     
-    _explanationContentLabel.height = dataModel.introductionHeight;
+    _explanationContentLabel.height = dataModel.introductionHeight + SH(20);
+    
+    
     
     
 }

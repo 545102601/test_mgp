@@ -10,6 +10,8 @@
 #import "MGPayOrderWayTableView.h"
 #import "MGPayOrderWayModel.h"
 #import "YNPay.h"
+#import "MGOrderPayResultVC.h"
+#import "WXApi.h"
 
 @interface MGPayOrderWayVC ()
 /// 列表
@@ -28,27 +30,26 @@
     self.title = @"支付订单";
     
     
-    MGPayOrderWayModel *model1 = [MGPayOrderWayModel new];
-    model1.iconName = @"order_icon_bankcard";
-    model1.titleName = @"银行卡支付";
-    model1.isSelected = YES;
-    model1.type = 0;
-    
-    MGPayOrderWayModel *model2 = [MGPayOrderWayModel new];
-    model2.iconName = @"order_icon_alipay";
-    model2.titleName = @"支付宝支付";
-    model2.isSelected = NO;
-    model2.type = 1;
+//    MGPayOrderWayModel *model1 = [MGPayOrderWayModel new];
+//    model1.iconName = @"order_icon_bankcard";
+//    model1.titleName = @"银行卡支付";
+//    model1.isSelected = YES;
+//    model1.type = 0;
+//    
+//    MGPayOrderWayModel *model2 = [MGPayOrderWayModel new];
+//    model2.iconName = @"order_icon_alipay";
+//    model2.titleName = @"支付宝支付";
+//    model2.isSelected = NO;
+//    model2.type = 1;
     
     
     MGPayOrderWayModel *model3 = [MGPayOrderWayModel new];
     model3.iconName = @"order_icon_wechat";
     model3.titleName = @"微信支付";
-    model3.isSelected = NO;
+    model3.isSelected = YES;
     model3.type = 2;
     
-    
-    self.tableView.dataArrayM = @[model1, model2, model3].mutableCopy;
+    self.tableView.dataArrayM = @[model3].mutableCopy;
     [self.tableView reloadData];
     
     self.tableView.backgroundColor = [UIColor whiteColor];
@@ -64,7 +65,7 @@
 
     _tableView = [[MGPayOrderWayTableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64) style:UITableViewStylePlain];
     
-    _payButton = [MGUITool buttonWithBGColor:nil title:@"立即支付" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(payButtonOnClick)];
+    _payButton = [MGUITool buttonWithBGColor:nil title:@"立即支付" titleColor:MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(payButtonOnClick)];
     [_payButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_payButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     _payButton.frame = CGRectMake(0, kScreenHeight - SH(90) - SH(84), SW(600), SH(84));
@@ -89,9 +90,6 @@
         }
         [self.tableView reloadData];
     };
-    
-    
-    
     
     
 }
@@ -135,8 +133,20 @@
             
     }
     
+    /// 测试环境 走直通接口
     [MGBussiness loadOrderPayWithParams:@{@"id" : @(self.payOrderId), @"channel" : channel} completion:^(NSString * payData) {
-        
+        if (!(PROD_CONFIG)) {
+            MGOrderPayResultVC *vc = [MGOrderPayResultVC new];
+            vc.listDataModel = self.listDataModel;
+            vc.payWay = model.titleName;
+            vc.isPaySuccess = YES;
+            PushVC(vc);
+            if (vc.isPaySuccess) {
+                /// 发送支付完成通知
+                [[NSNotificationCenter defaultCenter] postNotificationName:OrderPayFinishRefreshView object:nil];
+            }
+            return;
+        }
         switch (model.type) {
             case 0: /// 银联
             {
@@ -153,13 +163,46 @@
                         [self showMBText:@"支付成功！"];
                     }
                     
-                    
                 }];
             }
                 break;
             case 2: /// 微信
             {
                 
+                if(![WXApi isWXAppInstalled]) {
+                    [self showMBText:@"请先安装微信客户端"];
+                    return;
+                };
+                
+                NSData *jsonData = [payData dataUsingEncoding:NSUTF8StringEncoding];
+                NSError *err;
+                NSDictionary *payDataDict = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:&err];
+                if(err) {
+                    [self showMBText:@"后台支付数据解析异常"];
+                    return;
+                }
+                [YNPay payWxWithPayDataDict:payDataDict completeClosure:^(NSString *errorMsg) {
+                    
+                    if ([errorMsg isEqualToString:@"取消支付"]) {
+                        [self showMBText:errorMsg];
+                        return;
+                    }
+                    
+                    MGOrderPayResultVC *vc = [MGOrderPayResultVC new];
+                    vc.listDataModel = self.listDataModel;
+                    vc.payWay = model.titleName;
+                    vc.isPaySuccess = errorMsg.length == 0 ? YES : NO;
+                    PushVC(vc);
+                    
+                    if (vc.isPaySuccess) {
+                        /// 发送支付完成通知
+                        [[NSNotificationCenter defaultCenter] postNotificationName:OrderPayFinishRefreshView object:nil];
+                        
+                    }
+                    
+                }];
             
             }
                 break;
@@ -182,13 +225,6 @@
 #pragma mark - Private Function
 
 #pragma mark - Getter and Setter
-
-- (void)setDataModel:(MGResOrderAddDataModel *)dataModel {
-    _dataModel = dataModel;
-    
-    self.payOrderId = dataModel.id;
-    
-}
 
 - (void)setListDataModel:(MGResOrderListDataModel *)listDataModel {
 

@@ -198,22 +198,22 @@
 
 #pragma mark - Getter and Setter
 - (void)setDataModel:(MGResMemberDataModel *)dataModel {
-    if (!dataModel) return;
+
     
     _dataModel = dataModel;
     
-    self.nameLabel.text = dataModel.nick_name;
+    self.nameLabel.text = dataModel.nick_name.length > 0 ? dataModel.nick_name : @"用户名";
     
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl] placeholderImage: dataModel.gender == 1 ? [UIImage imageNamed:@"mine_user_man"] :[UIImage imageNamed:@"mine_user_women"]];
     
-    self.updateInfoLabel.text = @"修改个人信息";
-    self.updateInfoArrowImageView.hidden = NO;
+    self.updateInfoLabel.text = dataModel ? @"修改个人信息" : @"请登录";
+    self.updateInfoArrowImageView.hidden = dataModel ? NO : YES;
     
-    self.favCountLabel.text = [NSString stringWithFormat:@"%ld",dataModel.fav_count];
+    self.favCountLabel.text = dataModel ? [NSString stringWithFormat:@"%ld",dataModel.fav_count] : @"一";
     
-    self.msgCountLabel.text = [NSString stringWithFormat:@"%ld",dataModel.message_count];
+    self.msgCountLabel.text = dataModel ? [NSString stringWithFormat:@"%ld",dataModel.message_count] : @"一";
     
-    self.friendCountLabel.text = [NSString stringWithFormat:@"%ld",dataModel.trend_count];
+    self.friendCountLabel.text = dataModel ? [NSString stringWithFormat:@"%ld",dataModel.trend_count] : @"一";
     
     [self layoutSubviews];
     

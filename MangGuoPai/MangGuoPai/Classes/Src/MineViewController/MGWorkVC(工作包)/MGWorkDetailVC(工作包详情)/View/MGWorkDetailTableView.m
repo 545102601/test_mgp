@@ -48,9 +48,7 @@
             return self.dataModel.actors.count > 0 ? kMGWorkDetailApplyTeamSectionHeaderHeight : 0.0001;
         }
     } else if (section == 6) {
-            return self.dataModel.courses.count > 0 ? SH(84) : 0.0001;
-        return 0.0001;
-        
+        return self.dataModel.courses.count > 0 ? SH(84) : 0.0001;
     }
     return 0.0001;
     
@@ -58,30 +56,39 @@
 //header-secion
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 4) {
-        MGWorkProductCommentSectionHeader *recHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MGWorkProductCommentSectionHeaderID"];
-        recHeader.section = section;
-        recHeader.dataModel = self.dataModel;
-        recHeader.expendButtonBlock = ^(NSInteger section){
-            [UIView performWithoutAnimation:^{
-                [self reloadSection:section withRowAnimation:UITableViewRowAnimationNone];
-            }];
-        };
-        return recHeader;
+        if (self.dataModel.productionAndCommentArray.count > 0) {
+            MGWorkProductCommentSectionHeader *recHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MGWorkProductCommentSectionHeaderID"];
+            recHeader.section = section;
+            recHeader.dataModel = self.dataModel;
+            recHeader.expendButtonBlock = ^(NSInteger section){
+                [UIView performWithoutAnimation:^{
+                    [self reloadSection:section withRowAnimation:UITableViewRowAnimationNone];
+                }];
+            };
+            return recHeader;
+        }
     }
     else if (section == 5) {
-        MGWorkDetailApplyTeamSectionHeader *recHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MGWorkDetailApplyTeamSectionHeaderID"];
-        recHeader.section = section;
-        recHeader.dataModel = self.dataModel;
-        recHeader.expendButtonBlock = ^(NSInteger section){
-            [UIView performWithoutAnimation:^{
-                [self reloadSection:section withRowAnimation:UITableViewRowAnimationNone];
-            }];
-        };
-        return recHeader;
+        if (memberDataModelInstance.isCompanyID) {
+            if (self.dataModel.actors.count > 0) {
+                MGWorkDetailApplyTeamSectionHeader *recHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MGWorkDetailApplyTeamSectionHeaderID"];
+                recHeader.section = section;
+                recHeader.dataModel = self.dataModel;
+                recHeader.expendButtonBlock = ^(NSInteger section){
+                    [UIView performWithoutAnimation:^{
+                        [self reloadSection:section withRowAnimation:UITableViewRowAnimationNone];
+                    }];
+                };
+                return recHeader;
+            }
+        }
+        
     }
     else if (section == 6) {
-        MGTeacherRecommendSectionHeader *recHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MGTeacherRecommendSectionHeaderID"];
-        return recHeader;
+        if (self.dataModel.courses.count > 0) {
+            MGTeacherRecommendSectionHeader *recHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MGTeacherRecommendSectionHeaderID"];
+            return recHeader;
+        };
     }
     
     return [UIView new];

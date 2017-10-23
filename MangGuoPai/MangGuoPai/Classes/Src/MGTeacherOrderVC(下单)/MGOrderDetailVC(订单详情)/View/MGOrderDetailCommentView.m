@@ -62,7 +62,9 @@
     if (detailDataModel.comments.count > 0) {
         MGResOrderDetailCommentModel *dataModel = detailDataModel.comments[0];
         _commentLabal.text = dataModel.content;
-        _replyLabel.text = dataModel.reply;
+        if (dataModel.reply.length > 0) {
+            _replyLabel.text = [NSString stringWithFormat:@"导师回复 : %@",dataModel.reply];
+        }
         
         CGFloat commentHeight = [_commentLabal.text heightForFont:PFSC(28) width:_commentLabal.width];
 

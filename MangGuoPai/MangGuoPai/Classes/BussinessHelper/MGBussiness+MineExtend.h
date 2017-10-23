@@ -23,6 +23,8 @@
 /// 加载收藏列表 - 分页
 + (void)loadFav_ListDataWithPageNo:(NSInteger)pageNo Completion:(BussinessCompletion)completion error:(BussinessError)error;
 
+/// 添加收藏
++ (void)loadFav_Add:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
 /// 删除收藏
 + (void)loadFav_Del:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;

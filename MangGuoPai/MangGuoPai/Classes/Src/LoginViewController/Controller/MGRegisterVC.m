@@ -8,6 +8,9 @@
 
 #import "MGRegisterVC.h"
 #import "MGRegisterInfoVC.h"
+#import "MGLoginModel.h"
+#import "MGLoginVC.h"
+#import "UIButton+countDown.h"
 
 @interface MGRegisterVC ()
 /// 背景
@@ -63,7 +66,7 @@
     _msgButton.contentMode = UIViewContentModeRight;
     
     
-    _nextButton = [MGUITool buttonWithBGColor:nil title:@"下一步" titleColor:MGThemeColor_Black font:MGThemeFont_36 target:self selector:@selector(nextButtonOnClick)];
+    _nextButton = [MGUITool buttonWithBGColor:nil title:@"下一步" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(nextButtonOnClick)];
     [_nextButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_nextButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     
@@ -148,13 +151,58 @@
 /// 短信验证码
 - (void)msgButtonOnClick {
     
+    [self.view endEditing:YES];
+    
+    NSString *phone = self.phoneTextField.text;
+    
+    if (phone.length == 0) {
+        [self showMBText:@"请输入手机号码"];
+        return;
+    }
+    
+    if (![[phone removeBlank] checkPhoneNum]) {
+        [self showMBText:@"手机号码格式有误，请检查！"];
+        return ;
+    }
+    
+    MGLoginModel *loginModel = [MGLoginModel new];
+    loginModel.mobile = phone;
+    WEAK
+    [[self getLoginVC] requestLoginWithModal:loginModel sendMsgBlock:^{
+        STRONG
+        [self.msgButton startWithTime:60 title:@"获取验证码" countDownTitle:@"s" mainColor:nil countColor:nil];
+    }];
     
 }
 /// 下一步
 - (void)nextButtonOnClick {
+    [self.view endEditing:YES];
     
-    MGRegisterInfoVC *vc = [MGRegisterInfoVC new];
-    PushVC(vc)
+    NSString *phone = self.phoneTextField.text;
+    NSString *code = self.msgTextField.text;
+    if (phone.length == 0) {
+        [self showMBText:@"请输入手机号码"];
+        return;
+    }
+    
+    if (![[phone removeBlank] checkPhoneNum]) {
+        [self showMBText:@"手机号码格式有误，请检查！"];
+        return ;
+    }
+    
+    if (code.length == 0) {
+        [self showMBText:@"请输入短信验证码"];
+        return;
+    }
+    
+    
+    MGLoginModel *loginModel = [MGLoginModel new];
+    loginModel.mobile = phone;
+    loginModel.sms_code = code;
+    loginModel.lst_sessid = [SESSION_MANAGER getSessionId];
+    loginModel.open_id = self.open_id;
+    loginModel.union_id = self.union_id;
+    [[self getLoginVC] requestLoginWithModal:loginModel];
     
 }
 #pragma mark - --Gesture Event Response
@@ -167,6 +215,19 @@
 
 #pragma mark - Private Function
 
+- (MGLoginVC *)getLoginVC {
+    
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:[MGLoginVC class]]) {
+            return (MGLoginVC *)vc;
+        }
+    }
+    return nil;
+}
+
 #pragma mark - Getter and Setter
+
+
+
 
 @end

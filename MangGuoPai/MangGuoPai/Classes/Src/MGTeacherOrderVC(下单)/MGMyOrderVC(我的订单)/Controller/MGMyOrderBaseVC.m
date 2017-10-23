@@ -37,49 +37,67 @@
     
     [self.tableView.mj_header beginRefreshing];
     
-    self.tableView.viewControllerType = self.viewControllerType;
+    self.tableView.menuTag = self.menuTag;
     
     
     /// 调整 内容
-    if (self.viewControllerType == 2) {
+    if (self.menuTag == 2) {
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, SH(100), 0);
         [self.view addSubview:self.sctButton];
         
     }
     
     
-    if (self.viewControllerType == 1) {
+    if (self.menuTag == 1) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderReloadMySendOrderRefreshView) name:OrderReloadMySendOrderRefreshView object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderPayFinishRefreshView) name:OrderPayFinishRefreshView object:nil];
+        
     } else {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderReloadMyReciveOrderRefreshView) name:OrderReloadMyReciveOrderRefreshView object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeOrderScheduleRefreshView) name:TimeOrderScheduleRefreshView object:nil];
     }
     
     
-    /// 立即支付
-    self.tableView.rightOneButtonBlock = ^(MGResOrderListDataModel *dataModel, NSIndexPath *indexPath){
+    self.tableView.rightOneButtonBlock = ^(MGResOrderListDataModel *dataModel, NSIndexPath *indexPath, MGGlobaOrderButtonTag tag){
         STRONG
-        MGPayOrderWayVC *vc = [MGPayOrderWayVC new];
-        vc.listDataModel = dataModel;
-        PushVC(vc)
+        switch (tag) {
+            case MGGlobaOrderButtonTagCancel:  /// 取消订单
+            {
+                [self cancelOrderWithModel:dataModel];
+            }
+                break;
+            case MGGlobaOrderButtonTagPay:      /// 去支付
+            {
+                MGPayOrderWayVC *vc = [MGPayOrderWayVC new];
+                vc.listDataModel = dataModel;
+                PushVC(vc)
+            }
+            case MGGlobaOrderButtonTagSchedule:   /// 安排日程
+            {
+                MGScheduleVC *vc = [MGScheduleVC new];
+                vc.orderId = dataModel.id;
+                vc.sourceType = MGScheduleVCSourceTypeAdd;
+                PushVC(vc)
+            }
+                break;
+            case MGGlobaOrderButtonTagCancelSchedule: /// 取消安排
+            {
+                [self cancelScheduleOrderWithModel:dataModel];
+            }
+                
+                break;
+            default:
+                break;
+        }
     };
+    
+    
     /// 取消订单
-    self.tableView.rightTwoButtonBlock = ^(MGResOrderListDataModel *dataModel , NSIndexPath *indexPath){
+    self.tableView.rightTwoButtonBlock = ^(MGResOrderListDataModel *dataModel , NSIndexPath *indexPath, MGGlobaOrderButtonTag tag){
       STRONG
-        DQAlertView *alertView = [[DQAlertView alloc] initWithTitle:nil message:@"您确定取消该订单吗？" cancelButtonTitle:@"取消" otherButtonTitle:@"确定"];
-                [alertView setAlertThemeMessageTip_TwoButton];
-                alertView.otherButtonAction = ^{
-                    [MGBussiness loadOrderCancelWithParams:@{@"id" : @(dataModel.id)} completion:^(id results) {
-                        if ([results boolValue]) {
-                            /// 设置取消
-                            dataModel.state = MGGlobalOrderStateOrderCancelForUser;
-                            [UIView performWithoutAnimation:^{
-                                [self.tableView reloadSection:indexPath.section withRowAnimation:UITableViewRowAnimationNone];
-                            }];
-                        }
-                    } error:nil];
-                };
-        
-        [alertView show];
+        [self cancelOrderWithModel:dataModel]; /// 取消订单
         
     };
     /// 订单详情
@@ -87,7 +105,7 @@
       STRONG
         MGResOrderListDataModel *dataModel = self.tableView.dataArrayM[indexPath.section];
         MGOrderDetailVC *vc = [MGOrderDetailVC new];
-        vc.type = self.viewControllerType;
+        vc.menuTag = self.menuTag;
         vc.dataModel = dataModel;
         PushVC(vc)
         
@@ -112,7 +130,7 @@
         pageNo = self.pageNo == 0 ? 2 : self.pageNo + 1;
     }
     
-    [MGBussiness loadOrderListWithParams:@{@"page_no" : @(pageNo), @"relation" : @(self.viewControllerType)} completion:^(MGResOrderListModel *listModel) {
+    [MGBussiness loadOrderListWithParams:@{@"page_no" : @(pageNo), @"relation" : @(self.menuTag)} completion:^(MGResOrderListModel *listModel) {
         
         self.pageNo = pageNo;
         if (isHeader) {
@@ -153,11 +171,22 @@
     
 }
 
+- (void)orderPayFinishRefreshView {
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
 - (void)orderReloadMyReciveOrderRefreshView {
     
     [self.tableView.mj_header beginRefreshing];
     
 }
+
+- (void)timeOrderScheduleRefreshView {
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
 #pragma mark - Event Response
 
 #pragma mark - --Notification Event Response
@@ -167,6 +196,7 @@
 - (void)sctButtonOnClick {
     
     MGScheduleVC *vc = [MGScheduleVC new];
+    vc.sourceType = MGScheduleVCSourceTypeLook;
     PushVC(vc)
     
 }
@@ -180,6 +210,49 @@
 
 #pragma mark - Private Function
 
+/// 取消订单
+- (void)cancelOrderWithModel:(MGResOrderListDataModel *)dataModel {
+    
+    DQAlertView *alertView = [[DQAlertView alloc] initWithTitle:nil message:@"您确定取消该订单吗？" cancelButtonTitle:@"取消" otherButtonTitle:@"确定"];
+    [alertView setAlertThemeMessageTip_TwoButton];
+    alertView.otherButtonAction = ^{
+        [MGBussiness loadOrderCancelWithParams:@{@"id" : @(dataModel.id)} completion:^(id results) {
+            if ([results boolValue]) {
+                /// 设置取消
+                [self.tableView.mj_header beginRefreshing];
+            }
+        } error:nil];
+    };
+    
+    [alertView show];
+    
+}
+/// 取消安排
+- (void)cancelScheduleOrderWithModel:(MGResOrderListDataModel *)dataModel {
+    
+    DQAlertView *alertView = [[DQAlertView alloc] initWithTitle:nil message:@"您确定取消该订单的安排吗？" cancelButtonTitle:@"取消" otherButtonTitle:@"确定"];
+    [alertView setAlertThemeMessageTip_TwoButton];
+    alertView.otherButtonAction = ^{
+        [MGBussiness loadOrder_Schedule_Cancel:@{@"order_id" : @(dataModel.id)} completion:^(id results) {
+            if ([results boolValue]) {
+                /// 设置取消安排
+                [self.tableView.mj_header beginRefreshing];
+            }
+        } error:nil];
+    };
+    
+    [alertView show];
+    
+}
+
+/// 申请售后
+- (void)applyOrderWithModel:(MGResOrderListDataModel *)dataModel {
+
+    [MGBussiness loadOrder_Apply:@{@"id" : @(dataModel.id)} completion:^(id results) {
+        
+    } error:nil];
+    
+}
 #pragma mark - Getter and Setter
 
 - (void)dealloc {

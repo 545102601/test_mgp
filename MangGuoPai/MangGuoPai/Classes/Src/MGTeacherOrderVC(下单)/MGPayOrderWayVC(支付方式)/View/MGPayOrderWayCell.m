@@ -28,9 +28,12 @@
     
     _selectButton = [TDExpendClickButtonNotHightLight buttonWithType:UIButtonTypeCustom];
     
-    [_selectButton setImage:[UIImage imageWithColor:[UIColor greenColor] size:CGSizeMake(SW(44), SW(44))] forState:UIControlStateNormal];
+//    [_selectButton setImage:[UIImage imageWithColor:[UIColor greenColor] size:CGSizeMake(SW(44), SW(44))] forState:UIControlStateNormal];
     
-    [_selectButton setImage:[UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(SW(44), SW(44))] forState:UIControlStateSelected];
+    [_selectButton setImage:[UIImage imageNamed:@"mine_icon_play"] forState:UIControlStateSelected];
+    
+    
+    
     _selectButton.frame = CGRectMake(kScreenWidth - SW(27) - SW(44), 0, SW(44), SW(44));
     
     [_selectButton addTarget:self action:@selector(didOnClickSelected) forControlEvents:UIControlEventTouchUpInside];
