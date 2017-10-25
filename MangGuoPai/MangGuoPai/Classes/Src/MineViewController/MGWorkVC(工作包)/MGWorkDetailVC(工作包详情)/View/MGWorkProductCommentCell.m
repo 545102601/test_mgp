@@ -105,7 +105,7 @@
 // 返回高质量图片的url
 - (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 {
-    return [NSURL URLWithString:self.actorModel.works_phote_rsurls[index]];
+    return [NSURL URLWithString:self.actorModel.works_phote_rsurls[index] scaleWidth:kScreenWidth];
 }
 #pragma mark - Public Function
 

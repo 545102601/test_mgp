@@ -74,7 +74,7 @@
                 
             }
                 break;
-            case 20: /// 优惠卷领取
+            case 20: /// 优惠券领取
             {
                 [self dealCouponWithParams:params];
             }

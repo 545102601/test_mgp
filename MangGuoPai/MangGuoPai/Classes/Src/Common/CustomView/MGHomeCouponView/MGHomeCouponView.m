@@ -91,7 +91,7 @@
     self.hidden = NO;
     [inView addSubview:self];
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:self.detaiModel.file_path] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:self.detaiModel.file_path scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
     
     if (animated) {
         [UIView animateWithDuration:0.5 animations:^{

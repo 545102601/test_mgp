@@ -118,7 +118,7 @@
         marginTop = _famousContentImageView.bottom;
         [self.contentView addSubview:_famousContentImageView];
         
-        [_famousContentImageView sd_setImageWithURL:[NSURL URLWithString:famousDataDetailModel.file_path] placeholderImage:SDWEB_PLACEHODER_IMAGE(_famousContentImageView)];
+        [_famousContentImageView sd_setImageWithURL:[NSURL URLWithString:famousDataDetailModel.file_path scaleWidth:_famousContentImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_famousContentImageView)];
         
     }
     

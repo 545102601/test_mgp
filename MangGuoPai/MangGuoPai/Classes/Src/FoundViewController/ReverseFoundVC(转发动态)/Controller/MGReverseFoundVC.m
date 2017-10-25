@@ -90,7 +90,7 @@
     [self.view addSubview:_reverseBgView];
     
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.avatar_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
     
     _userNameLabel.text = self.dataModel.publisher_name;
     

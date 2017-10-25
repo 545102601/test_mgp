@@ -89,7 +89,7 @@
     _rightTwoButton.hidden = YES;
     
     _rightOneButton.layer.borderColor = MGButtonImportDefaultColor.CGColor;
-    _rightTwoButton.layer.borderColor = MGThemeColor_Title_Black.CGColor;
+    _rightTwoButton.layer.borderColor = MGThemeColor_subTitle_Black.CGColor;
     
     if (self.menuTag == MGGlobaMenuTagLeft) {   /// 下的订单
         [self configOrderWithModel:detailDataModel];

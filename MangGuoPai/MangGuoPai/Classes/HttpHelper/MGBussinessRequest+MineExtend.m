@@ -239,7 +239,7 @@
 
 
 
-/// 领取优惠卷接口
+/// 领取优惠券接口
 + (void)postCoupon_Fetch:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
     
     [self requestPostUrl:HTTP_COUPON_FETCH
@@ -251,7 +251,7 @@
 }
 
 
-/// 优惠卷列表接口
+/// 优惠券列表接口
 + (void)getCoupon_Owns:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
 
     [self requestGetUrl:HTTP_COUPON_OWNS
@@ -263,7 +263,7 @@
     
 }
 
-/// 课程可使用的优惠卷
+/// 课程可使用的优惠券
 + (void)getCoupon_Promotion:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
     
     [self requestGetUrl:HTTP_PROMOTION

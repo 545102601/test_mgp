@@ -71,7 +71,7 @@
                         [MGBussinessRequest postUpdate_Member:@{@"gender" : @(gender), @"nick_name" : nickName ?: @"", @"avatar_rsurl" : str} isNeedHUD:NO successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
                             if (isSuccess) {
                                 /// 保存 sd 缓存
-                                [[SDWebImageManager sharedManager] saveImageToCache:[UIImage imageWithData:_data] forURL:[NSURL URLWithString:url]];
+//                                [[SDWebImageManager sharedManager] saveImageToCache:[UIImage imageWithData:_data] forURL:[NSURL URLWithString:url]];
                                 if (completion) {
                                     completion(@{@"success" : @(isSuccess), @"url" : url});
                                 }
@@ -343,7 +343,7 @@
                     if (str.length > 0) {
                         if (completion) {
                             /// 保存 sd 缓存
-                            [[SDWebImageManager sharedManager] saveImageToCache:[UIImage imageWithData:_data] forURL:[NSURL URLWithString:url]];
+//                            [[SDWebImageManager sharedManager] saveImageToCache:[UIImage imageWithData:_data] forURL:[NSURL URLWithString:url]];
                             completion(url);
                         }
                         [TDLoading hideViewInKeyWindow];
@@ -394,7 +394,7 @@
     
 }
 
-/// 领取优惠卷接口
+/// 领取优惠券接口
 + (void)loadCoupon_Fetch:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     
     [MGBussinessRequest postCoupon_Fetch:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
@@ -410,7 +410,7 @@
     
 }
 
-/// 优惠卷列表接口
+/// 优惠券列表接口
 + (void)loadCoupon_Owns:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
 
     [MGBussinessRequest getCoupon_Owns:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
@@ -427,7 +427,7 @@
     } errorBlock:error];
 
 }
-/// 课程可使用的优惠卷
+/// 课程可使用的优惠券
 + (void)loadCoupon_Promotion:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     
     [MGBussinessRequest getCoupon_Promotion:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {

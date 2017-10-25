@@ -615,7 +615,7 @@
         _iconView.customSubView.hidden = NO;
         
         UIImageView *iconImageView = (UIImageView *)(_iconView.customSubView);
-        [iconImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
+        [iconImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.avatar_rsurl scaleWidth:iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
         
         /// 发送刷新我的页面通知
         [[NSNotificationCenter defaultCenter] postNotificationName:MineReloadRefreshView object:nil];
@@ -634,7 +634,7 @@
 // 返回高质量图片的url
 - (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 {
-    return [NSURL URLWithString:self.dataModel.avatar_rsurl];
+    return [NSURL URLWithString:self.dataModel.avatar_rsurl scaleWidth:kScreenWidth];
 }
 
 

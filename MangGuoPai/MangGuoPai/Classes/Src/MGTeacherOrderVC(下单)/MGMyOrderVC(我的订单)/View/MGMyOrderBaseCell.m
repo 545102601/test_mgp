@@ -51,7 +51,7 @@
     _rightTwoButton.layer.cornerRadius = MGButtonLayerCorner;
     _rightTwoButton.layer.masksToBounds = YES;
     _rightTwoButton.layer.borderWidth = MGSepLineHeight;
-    _rightTwoButton.layer.borderColor = MGThemeColor_Title_Black.CGColor;
+    _rightTwoButton.layer.borderColor = MGThemeColor_subTitle_Black.CGColor;
     
     [self.contentView sd_addSubviews:@[_orderInfoView, _sct_timeLabel, _rightOneButton, _rightTwoButton]];
     
@@ -99,7 +99,7 @@
     _sct_timeLabel.hidden = YES;
     
     _rightOneButton.layer.borderColor = MGButtonImportDefaultColor.CGColor;
-    _rightTwoButton.layer.borderColor = MGThemeColor_Title_Black.CGColor;
+    _rightTwoButton.layer.borderColor = MGThemeColor_subTitle_Black.CGColor;
     
     if (self.menuTag == MGGlobaMenuTagLeft) { /// 下的订单
         [self configOrderWithModel:dataModel];

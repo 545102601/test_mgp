@@ -88,7 +88,7 @@
     self.recommendSubTitleLabel.text = recommendDataModel.intro;
     if (recommendDataModel.details.count > 0) {
         MGResSettingDataDetailModel *recommendDataDetailModel = recommendDataModel.details[0];
-        [self.recommendContentImageView sd_setImageWithURL:[NSURL URLWithString:recommendDataDetailModel.file_path] placeholderImage:SDWEB_PLACEHODER_IMAGE(_recommendContentImageView)];
+        [self.recommendContentImageView sd_setImageWithURL:[NSURL URLWithString:recommendDataDetailModel.file_path scaleWidth:_recommendContentImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_recommendContentImageView)];
     }
 }
 

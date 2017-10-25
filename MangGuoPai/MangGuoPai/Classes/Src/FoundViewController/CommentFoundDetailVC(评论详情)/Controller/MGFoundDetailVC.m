@@ -140,10 +140,10 @@
     [MGBussiness loadWantCountWithParams:@{@"entity_id" : @(dataModel.id) , @"entity_type_id" : @(MGGlobalEntityTypeFriend)} completion:^(id results) {
         
         if ([results boolValue]) {
-            
+            [cell.cellInfoView setFavIsCollection:YES];
+            dataModel.currentIsFav = YES;
             [[NSNotificationCenter defaultCenter] postNotificationName:FoundDetailPariseAndFavRefreshView object:nil userInfo:@{@"id" : @(dataModel.id), @"type" : @"fav"}];
             
-            [cell.cellInfoView setFavIsCollection:YES];
         }
         
     } error:nil];
@@ -155,10 +155,10 @@
     
     [MGBussiness loadPraiseWithParams:@{@"id" : @(dataModel.id)} completion:^(id results) {
         if ([results boolValue]) {
-            
+            [cell.toolsView setLiked:YES withAnimation:YES];
+            dataModel.currentIsParise = YES;
             [[NSNotificationCenter defaultCenter] postNotificationName:FoundDetailPariseAndFavRefreshView object:nil userInfo:@{@"id" : @(dataModel.id), @"type" : @"parise"}];
             
-            [cell.toolsView setLiked:YES withAnimation:YES];
         }
     } error:nil];
     

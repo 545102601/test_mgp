@@ -39,7 +39,7 @@
       STRONG
         [self loadCalcPriceForDiscountAndCoupon];
     };
-    /// 使用优惠卷
+    /// 使用优惠券
     _orderView.couponDataSelectedBlock = ^{
       STRONG
         [self loadCalcPriceForDiscountAndCoupon];
@@ -87,7 +87,7 @@
 #pragma mark - 加载数据
 - (void)loadData {
 
-    /// 获取优惠卷列表 + 加载价格
+    /// 获取优惠券列表 + 加载价格
     [self loadCouponPromotion];
     
 }
@@ -168,7 +168,7 @@
 
 #pragma mark - Getter and Setter
 
-/// 获取当前的优惠卷Id
+/// 获取当前的优惠券Id
 - (long)getCouponId {
     long couponId = 0;
     for (TDSelectListDataViewContentModel *contentModel in _orderView.couponDataView.dataArray) {

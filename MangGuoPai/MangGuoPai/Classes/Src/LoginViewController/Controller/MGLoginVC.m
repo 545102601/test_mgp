@@ -337,12 +337,12 @@
 - (void)requestLoginWithModal:(MGLoginModel *)loginModel
                  sendMsgBlock:(MGCommomEventBlock)msgBlock {
     /// 设置已经登录
-        [SESSION_MANAGER setLogin:YES];
-    
-    /// 存 Uid
-        [SESSION_MANAGER setCurrentUserUid:@"16"];
-    
-        [SESSION_MANAGER setSessionId:@"aa994a74-d7b4-47bf-b427-9b5e6545ebba"];
+//        [SESSION_MANAGER setLogin:YES];
+//    
+//    /// 存 Uid
+//        [SESSION_MANAGER setCurrentUserUid:@"16"];
+//    
+//        [SESSION_MANAGER setSessionId:@"aa994a74-d7b4-47bf-b427-9b5e6545ebba"];
     
     /// 存 Uid
 //        [SESSION_MANAGER setCurrentUserUid:@"14"];
@@ -355,15 +355,15 @@
 //        [SESSION_MANAGER setSessionId:@"bab864d3-55d5-43f5-bb5d-fc7452de002a"];
     
     
-        [self dismissViewControllerAnimated:YES completion:nil];
-    
-        /// 发送登录成功通知
-        [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessRefreshTable object:nil];
-    
-        [SESSION_MANAGER setUpgradeView:NO];
-    
-    
-        return;
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    
+//        /// 发送登录成功通知
+//        [[NSNotificationCenter defaultCenter] postNotificationName:LoginSuccessRefreshTable object:nil];
+//    
+//        [SESSION_MANAGER setUpgradeView:NO];
+//    
+//    
+//        return;
     WEAK
     [MGBussinessRequest postUserQuickLogin:loginModel successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         STRONG

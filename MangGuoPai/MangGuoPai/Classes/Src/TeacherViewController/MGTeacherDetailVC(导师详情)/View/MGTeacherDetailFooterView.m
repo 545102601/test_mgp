@@ -98,8 +98,8 @@
 //    
 //}
 //
-//- (void)setWantButton:(BOOL)isWant {
-//
-//    self.wantButton.selected = isWant;
-//}
+- (void)setWantButton:(BOOL)isWant {
+
+    self.wantButton.selected = isWant;
+}
 @end

@@ -15,7 +15,7 @@
 
     MGCommonEmptyView *emtpyView = [[MGCommonEmptyView alloc] initWithFrame:self.bounds];
     emtpyView.iconImageView.image = [UIImage imageNamed:@"empty_page_icon_04"];
-    emtpyView.contentLabel.text = @"暂无优惠卷";
+    emtpyView.contentLabel.text = @"暂无优惠券";
     self.emptyDataView = emtpyView;
     
     self.backgroundColor = [UIColor whiteColor];

@@ -61,12 +61,11 @@
 + (void)loadPraiseWithParams:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
     
     [MGBussinessRequest postPraise_Count:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        [self showMBText:message];
         if (isSuccess) {
             if (completion) {
                 completion(@(isSuccess));
             }
-        } else {
-            [self showMBText:message];
         }
     } errorBlock:error];
     
@@ -77,9 +76,11 @@
     
     [MGBussinessRequest postWant_Count:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         [self showMBText:message];
+        
         if (completion) {
             completion(@(isSuccess));
         }
+    
     } errorBlock:error];
 
 }

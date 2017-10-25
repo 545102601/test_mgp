@@ -99,7 +99,7 @@
 - (void)setModel:(MGResCourseListDataModel *)model {
     _model = model;
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
     
     _classTitleLabel.text = model.course_title;
     

@@ -80,7 +80,7 @@
         UIImageView *imageView = [_imageViewsArray objectAtIndex:idx];
         imageView.hidden = NO;
         imageView.frame = CGRectMake(columnIndex * (itemW + margin), rowIndex * (itemH + margin), itemW, itemH);
-        [imageView sd_setImageWithURL:[NSURL URLWithString:obj] placeholderImage:SDWEB_PLACEHODER_IMAGE(imageView)];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:obj scaleWidth:imageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(imageView)];
     }];
     
     CGFloat w = perRowItemCount * itemW + (perRowItemCount - 1) * margin;
@@ -133,7 +133,7 @@
 - (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 {
     NSString *imageName = self.picPathStringsArray[index];
-    NSURL *url = [NSURL URLWithString:imageName];
+    NSURL *url = [NSURL URLWithString:imageName scaleWidth:[self itemWidthForPicPathArray:self.picPathStringsArray]];
     return url;
 }
 

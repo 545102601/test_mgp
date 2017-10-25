@@ -141,6 +141,10 @@
 }
 - (void)praiseOnClick {
     
+    if (self.dataModel.currentIsParise) {
+        return;
+    }
+    
     if (_tapButtonBlock) {
         _tapButtonBlock(2, self.dataModel, _indexPath);
     }
@@ -149,17 +153,12 @@
 }
 
 - (void)setLiked:(BOOL)liked withAnimation:(BOOL)animation {
-#warning todo 点赞控制
-//    WBStatusLayout *layout = _cell.statusView.layout;
-//    if (self.dataModel. == liked) return;
     
-//    UIImage *image = liked ? [UIImage imageNamed:@"found_icon_like_pressed"] : [UIImage imageNamed:@"found_icon_like_nor"];
+    UIImage *image = liked ? [UIImage imageNamed:@"found_icon_like_pressed"] : [UIImage imageNamed:@"found_icon_like_nor"];
     
-    UIImage *image = [UIImage imageNamed:@"found_icon_like_nor"];
     NSInteger newCount = self.dataModel.praise_count;
     newCount += 1;
     
-//    newCount = liked ? newCount + 1 : newCount - 1;
     if (newCount < 0) newCount = 0;
     if (liked && newCount < 1) newCount = 1;
     NSString *newCountDesc = newCount > 0 ? [NSString stringWithFormat:@"%zd", newCount] : @"0";
@@ -167,29 +166,28 @@
     _praiseLabel.text = newCountDesc;
     
     /// 设置 为 yes
-//    layout.status.attitudesStatus = liked;
     self.dataModel.praise_count = newCount;
     
     
-//    if (!animation) {
+    if (!animation) {
         [_praiseButton setImage:image forState:UIControlStateNormal];
-//        return;
-//    }
+        return;
+    }
     
-//    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
-//        _praiseButton.layer.transformScale = 1.7;
-//    } completion:^(BOOL finished) {
-//        [_praiseButton setImage:image forState:UIControlStateNormal];
-//        
-//        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
-//            _praiseButton.layer.transformScale = 0.9;
-//        } completion:^(BOOL finished) {
-//            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
-//                _praiseButton.layer.transformScale = 1;
-//            } completion:^(BOOL finished) {
-//            }];
-//        }];
-//    }];
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+        _praiseButton.layer.transformScale = 1.7;
+    } completion:^(BOOL finished) {
+        [_praiseButton setImage:image forState:UIControlStateNormal];
+        
+        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+            _praiseButton.layer.transformScale = 0.9;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+                _praiseButton.layer.transformScale = 1;
+            } completion:^(BOOL finished) {
+            }];
+        }];
+    }];
 }
 
 #pragma mark - --Gesture Event Response
@@ -208,9 +206,9 @@
     
     _dataModel = dataModel;
     
-#warning todo 点赞控制    
-//    UIImage *image = liked ? [UIImage imageNamed:@"found_icon_like_pressed"] : [UIImage imageNamed:@"found_icon_like_nor"];
-//    [_praiseButton setImage:image forState:UIControlStateNormal];
+
+    UIImage *image = dataModel.currentIsParise ? [UIImage imageNamed:@"found_icon_like_pressed"] : [UIImage imageNamed:@"found_icon_like_nor"];
+    [_praiseButton setImage:image forState:UIControlStateNormal];
     
     
     _shareLabel.text = [NSString stringWithFormat:@"%zd",dataModel.faword_count];

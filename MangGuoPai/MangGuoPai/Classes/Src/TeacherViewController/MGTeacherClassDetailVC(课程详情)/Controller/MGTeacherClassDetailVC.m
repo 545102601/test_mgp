@@ -52,6 +52,9 @@
     
     _detailView.orderEventBlock = ^{
         STRONG
+        
+        InterceptLoginShowAlert
+        
         MGTeacherOrderVC *vc = [MGTeacherOrderVC new];
         vc.detailDataModel = self.detailView.dataModel;
         PushVC(vc)
@@ -122,6 +125,9 @@
     
 }
 - (void)favButtonOnClick {
+    
+    InterceptLoginShowAlert
+    
     NSDictionary *dict = @{@"entity_id" : @(self.detailView.dataModel.id), @"entity_type_id" : @(MGGlobalEntityTypeClass)};
     if (_favButton.selected) {
         [MGBussiness loadFav_Del:dict completion:^(id results) {
@@ -157,6 +163,9 @@
     InterceptLoginShowAlert
     
     [MGBussiness loadWantCountWithParams:@{@"entity_id" : @(self.detailView.dataModel.id), @"entity_type_id" : @(MGGlobalEntityTypeClass)} completion:^(id results) {
+        if ([results boolValue]) {
+            [self.detailView setWantButton:YES];
+        }
         
     } error:nil];
     

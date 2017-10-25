@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"我的优惠卷";
+    self.title = @"我的优惠券";
     
 }
 

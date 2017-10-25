@@ -43,7 +43,7 @@
         self.titleLabel.text = @"全部";
     } else {
         
-        [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.logo_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+        [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.logo_rsurl scaleWidth:self.iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
         self.titleLabel.text = model.classify_name;
     }
 }

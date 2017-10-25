@@ -112,7 +112,7 @@
     } else {
         
 
-        [_resumeButton sd_setImageWithURL:[NSURL URLWithString:url] forState:UIControlStateNormal placeholderImage:SDWEB_PLACEHODER_IMAGE(_resumeButton)];
+        [_resumeButton sd_setImageWithURL:[NSURL URLWithString:url scaleWidth:_resumeButton.width] forState:UIControlStateNormal placeholderImage:SDWEB_PLACEHODER_IMAGE(_resumeButton)];
     }
     
 }

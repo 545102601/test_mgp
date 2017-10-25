@@ -14,7 +14,7 @@
 @property (nonatomic, assign) long id;
 /// 会员id
 @property (nonatomic, assign) long member_id;
-/// 优惠卷id
+/// 优惠券id
 @property (nonatomic, assign) long coupon_id;
 /// 有效结束时间
 @property (nonatomic, strong) NSDate *end_time;
@@ -33,7 +33,7 @@
 @property (nonatomic, strong) NSDate *use_time;
 /// 会员名称
 @property (nonatomic, copy) NSString *member_name;
-/// 优惠卷昵称
+/// 优惠券昵称
 @property (nonatomic, copy) NSString *coupon_name;
 /// 优惠券描述
 @property (nonatomic, copy) NSString *coupon_desc;

@@ -80,7 +80,7 @@
 // 返回高质量图片的url
 - (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 {
-    return [NSURL URLWithString:self.urlArray[index]];
+    return [NSURL URLWithString:self.urlArray[index] scaleWidth:kScreenWidth];
 }
 #pragma mark - Public Function
 

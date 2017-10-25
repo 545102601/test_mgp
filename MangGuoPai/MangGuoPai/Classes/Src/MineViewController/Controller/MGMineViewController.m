@@ -112,7 +112,7 @@
             }
                 break;
                 
-            case TableViewModelTypeCoupon: /// 我的优惠卷
+            case TableViewModelTypeCoupon: /// 我的优惠券
             {
                 MGMyCouponVC *vc = [MGMyCouponVC new];
                 PushVC(vc)

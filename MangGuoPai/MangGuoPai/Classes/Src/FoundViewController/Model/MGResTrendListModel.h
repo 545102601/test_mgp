@@ -77,6 +77,10 @@
 /// 转发
 @property (nonatomic, strong) MGResTrendListDataModel *forward_trend;
 
+/// 附加
+@property (nonatomic, assign) BOOL currentIsParise;
+/// 附加
+@property (nonatomic, assign) BOOL currentIsFav;
 
 @end
 

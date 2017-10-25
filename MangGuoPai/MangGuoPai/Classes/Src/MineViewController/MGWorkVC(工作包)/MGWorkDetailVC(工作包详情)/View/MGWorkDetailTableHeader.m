@@ -55,7 +55,7 @@
 - (void)setDataModel:(MGResProjectDetailDataModel *)dataModel {
     _dataModel = dataModel;
     
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE(_logoImageView)];
+    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_logoImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_logoImageView)];
     
     _titleLabel.text = dataModel.project_name;
     

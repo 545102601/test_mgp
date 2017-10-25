@@ -67,7 +67,7 @@
 - (void)setDataModel:(MGResProjectTeamMemberDataModel *)dataModel {
     _dataModel = dataModel;
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
     
     if (dataModel.role_name.length > 0) {
         _titleTextLabel.text = [NSString stringWithFormat:@"%@ ( %@ )",dataModel.nick_name, dataModel.role_name];

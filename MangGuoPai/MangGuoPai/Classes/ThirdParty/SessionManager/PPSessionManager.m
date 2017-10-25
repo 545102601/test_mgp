@@ -29,7 +29,7 @@
 /// 首页升级身份View
 #define HOME_UPGRADE_VIEW @"HOME_UPGRADE_VIEW"
 
-/// 首页领取优惠卷
+/// 首页领取优惠券
 #define HOME_GET_COPUON @"HOME_GET_COPUON"
 
 /// 环境
@@ -153,7 +153,7 @@ static PPSessionManager *defaultManager;
 
 
 
-/// 设置优惠卷是否领取成功
+/// 设置优惠券是否领取成功
 - (void)setCouponIsSuccess:(BOOL)isSuccess entity_id:(NSInteger)entity_id {
     [SESSION_MANAGER saveData:@(isSuccess)
                        andKey:[NSString stringWithFormat:@"%@_%@_%zd", [SESSION_MANAGER getCurrentUserUid], HOME_GET_COPUON, entity_id]];

@@ -121,7 +121,7 @@
 - (void)setDataModel:(MGResFoundDetailCommentDataModel *)dataModel {
     _dataModel = dataModel;
 
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
     
     _userNameLabel.text = dataModel.member_name;
     

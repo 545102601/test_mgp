@@ -126,11 +126,11 @@
 /// 企业详情接口
 #define HTTP_COMPANY_GET @"company_get"
 
-/// 领取优惠卷
+/// 领取优惠券
 #define HTTP_COUPON_FETCH @"coupon_fetch"
-/// 优惠卷列表
+/// 优惠券列表
 #define HTTP_COUPON_OWNS @"coupon_owns"
-/// 课程可使用的优惠卷
+/// 课程可使用的优惠券
 #define HTTP_PROMOTION @"promotion"
 
 #pragma mark - 课程相关

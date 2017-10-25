@@ -35,7 +35,7 @@
 - (void)setIconUrl:(NSString *)iconUrl {
     _iconUrl = iconUrl;
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:iconUrl] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:iconUrl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
     
 }
 

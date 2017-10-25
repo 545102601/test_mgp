@@ -109,7 +109,7 @@
     
     self.hidden = NO;
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
     
     NSMutableAttributedString *attrM = [[NSMutableAttributedString alloc] initWithString:dataModel.name attributes:@{NSFontAttributeName : PFSC(30), NSForegroundColorAttributeName : MGThemeColor_Title_Black}];
     

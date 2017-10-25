@@ -75,7 +75,6 @@
         MGTeacherClassDetailVC *vc = [MGTeacherClassDetailVC new];
         vc.dataModel = dataModel;
         PushVC(vc)
-        
     };
 }
 
@@ -95,7 +94,7 @@
         
         UIView *headerView = self.tableView.tableHeaderView;
         headerView.height = self.headerView.headerHeight;
-        
+        self.tableView.tableHeaderView = headerView;
         
         [self.tableView reloadData];
         
@@ -129,10 +128,14 @@
     InterceptLoginShowAlert
     
     [MGBussiness loadWantCountWithParams:@{@"entity_id" : @(self.headerView.dataModel.id), @"entity_type_id" : @(MGGlobalEntityTypeMemeber)} completion:^(id results) {
+       
+        if ([results boolValue]) {
+            self.headerView.dataModel.want_count += 1;
+            [self.headerView setWantCount:self.headerView.dataModel.want_count];
+            [self.footerView setWantButton:YES];
+        }
+       
         
-        self.headerView.dataModel.want_count += 1;
-        [self.headerView setWantCount:self.headerView.dataModel.want_count];
-    
         
     } error:nil];
     

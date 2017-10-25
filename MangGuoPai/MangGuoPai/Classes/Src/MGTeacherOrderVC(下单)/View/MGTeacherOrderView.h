@@ -28,12 +28,12 @@
 @property (nonatomic, copy) MGCommomEventBlock orderBlock;
 
 
-/// 优惠卷列表
+/// 优惠券列表
 @property (nonatomic, strong) TDSelectListDataView *couponDataView;
-/// 优惠卷回调
+/// 优惠券回调
 @property (nonatomic, copy) MGCommomEventBlock couponDataSelectedBlock;
 
-/// 优惠卷数据
+/// 优惠券数据
 @property (nonatomic, copy) NSArray *couponArray;
 
 @end

@@ -212,7 +212,7 @@
 - (void)setDataModel:(MGResCourseListDetailDataModel *)dataModel {
     _dataModel = dataModel;
 
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
     
     _titleLabel.text = [NSString stringWithFormat:@"%@  (%@)",dataModel.course_title, dataModel.member_name];
     
@@ -272,11 +272,11 @@
 }
 
 
-//- (void)setWantButton:(BOOL)isFav {
-//    
-//    _wantButton.selected = isFav;
-//
-//}
+- (void)setWantButton:(BOOL)isFav {
+    
+    _wantButton.selected = isFav;
+
+}
 
 - (void)test {
     

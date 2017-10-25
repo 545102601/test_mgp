@@ -18,7 +18,6 @@
     
     _cellContentView = [[MGFoundCellContentView alloc] initWithFrame:CGRectMake(0, _cellInfoView.bottom, kScreenWidth, 0)];
     
-    
     _toolsView = [[MGFoundCellToolsView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(98))];
     
     [self.contentView sd_addSubviews:@[_cellInfoView, _cellContentView, _toolsView]];

@@ -63,7 +63,7 @@
     
     
     
-    MGMineTableViewModel *viewModel_row_6 = [MGMineTableViewModel modelWithTitle:@"我的优惠卷" icon:@"mine_icon_coupon" subTitle:nil];
+    MGMineTableViewModel *viewModel_row_6 = [MGMineTableViewModel modelWithTitle:@"我的优惠券" icon:@"mine_icon_coupon" subTitle:nil];
     viewModel_row_6.type = TableViewModelTypeCoupon;
     
     [one_dataArrayM addObject:viewModel_row_6];

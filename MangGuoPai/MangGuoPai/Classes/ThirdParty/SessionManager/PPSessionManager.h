@@ -60,7 +60,7 @@
 - (void)setUpgradeView:(BOOL)isHidden;
 - (BOOL)getUpgradeView;
 
-/// 设置优惠卷是否领取成功
+/// 设置优惠券是否领取成功
 - (void)setCouponIsSuccess:(BOOL)isSuccess entity_id:(NSInteger)entity_id;
 - (BOOL)getCouponIsSuccessWithEntity_id:(NSInteger)entity_id;
 

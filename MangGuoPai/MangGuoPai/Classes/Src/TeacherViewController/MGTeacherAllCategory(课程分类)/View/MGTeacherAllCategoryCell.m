@@ -155,7 +155,7 @@
     _colletionView.hidden = NO;
     
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
     self.categoryLabel.text = dataModel.classify_name;
     
     /// 求出 colletionView 的高度

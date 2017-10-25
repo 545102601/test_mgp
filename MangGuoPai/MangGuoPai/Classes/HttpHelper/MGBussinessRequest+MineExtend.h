@@ -70,13 +70,13 @@
 /// 企业详情接口
 + (void)postCompany_Get:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
-/// 领取优惠卷接口
+/// 领取优惠券接口
 + (void)postCoupon_Fetch:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
-/// 优惠卷列表接口
+/// 优惠券列表接口
 + (void)getCoupon_Owns:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
-/// 课程可使用的优惠卷
+/// 课程可使用的优惠券
 + (void)getCoupon_Promotion:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 @end

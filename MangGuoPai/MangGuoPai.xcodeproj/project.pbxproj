@@ -195,6 +195,8 @@
 		2E37CB2A1F9633AB001BCD0A /* MGOrderPayResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB281F9633AB001BCD0A /* MGOrderPayResultVC.m */; };
 		2E37CB2E1F964D10001BCD0A /* MGOrderPayResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */; };
 		2E37CB2F1F964D10001BCD0A /* MGOrderPayResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */; };
+		2E3EA2DD1F9EDC1D00CA9A2D /* NSURL+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EA2DC1F9EDC1D00CA9A2D /* NSURL+Extend.m */; };
+		2E3EA2DE1F9EDC1D00CA9A2D /* NSURL+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EA2DC1F9EDC1D00CA9A2D /* NSURL+Extend.m */; };
 		2E3ECB641F98397B00017F1B /* MGEResumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECB631F98397B00017F1B /* MGEResumeVC.m */; };
 		2E3ECB651F98397B00017F1B /* MGEResumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECB631F98397B00017F1B /* MGEResumeVC.m */; };
 		2E3ECBF31F98ECF000017F1B /* MGAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECBF21F98ECF000017F1B /* MGAboutVC.m */; };
@@ -1130,6 +1132,8 @@
 		2E37CB281F9633AB001BCD0A /* MGOrderPayResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGOrderPayResultVC.m; sourceTree = "<group>"; };
 		2E37CB2C1F964D10001BCD0A /* MGOrderPayResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGOrderPayResultView.h; sourceTree = "<group>"; };
 		2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGOrderPayResultView.m; sourceTree = "<group>"; };
+		2E3EA2DB1F9EDC1D00CA9A2D /* NSURL+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Extend.h"; sourceTree = "<group>"; };
+		2E3EA2DC1F9EDC1D00CA9A2D /* NSURL+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Extend.m"; sourceTree = "<group>"; };
 		2E3ECB621F98397B00017F1B /* MGEResumeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEResumeVC.h; sourceTree = "<group>"; };
 		2E3ECB631F98397B00017F1B /* MGEResumeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEResumeVC.m; sourceTree = "<group>"; };
 		2E3ECBF11F98ECF000017F1B /* MGAboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGAboutVC.h; sourceTree = "<group>"; };
@@ -3677,6 +3681,8 @@
 				2E49E9E91F57FA0C00A260E7 /* UIImage+PlaceHolder.m */,
 				2E7E3CE71F7BC61500A3D288 /* UITabBar+Extend.h */,
 				2E7E3CE81F7BC61500A3D288 /* UITabBar+Extend.m */,
+				2E3EA2DB1F9EDC1D00CA9A2D /* NSURL+Extend.h */,
+				2E3EA2DC1F9EDC1D00CA9A2D /* NSURL+Extend.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -4717,6 +4723,7 @@
 				2E37C91A1F9116A7001BCD0A /* MGWorkTeamCell.m in Sources */,
 				2E49EA741F5D51EB00A260E7 /* MGAccountTableView.m in Sources */,
 				2E37C9161F9115B6001BCD0A /* MGWorkTeamSectionHeader.m in Sources */,
+				2E3EA2DE1F9EDC1D00CA9A2D /* NSURL+Extend.m in Sources */,
 				2E49EA751F5D51EB00A260E7 /* MGMyOrderVC.m in Sources */,
 				2E49EA761F5D51EB00A260E7 /* MOFSPickerView.m in Sources */,
 				2E49EA771F5D51EB00A260E7 /* MGMyOrderSendVC.m in Sources */,
@@ -5080,6 +5087,7 @@
 				2E37C9191F9116A7001BCD0A /* MGWorkTeamCell.m in Sources */,
 				2E2F2DCE1F52DA590003BC3A /* MGAccountTableView.m in Sources */,
 				2E37C9151F9115B6001BCD0A /* MGWorkTeamSectionHeader.m in Sources */,
+				2E3EA2DD1F9EDC1D00CA9A2D /* NSURL+Extend.m in Sources */,
 				2E43D97D1F32B7CE0059F13A /* MGMyOrderVC.m in Sources */,
 				2E0FC5D11F31707000540829 /* MOFSPickerView.m in Sources */,
 				2E43D9891F32C29D0059F13A /* MGMyOrderSendVC.m in Sources */,

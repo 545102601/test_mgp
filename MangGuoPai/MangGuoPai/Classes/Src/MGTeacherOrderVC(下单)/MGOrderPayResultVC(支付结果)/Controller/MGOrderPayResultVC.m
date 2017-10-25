@@ -83,7 +83,7 @@
     _resultLabel.frame = CGRectMake(0, _resultImageView.bottom + SH(16), kScreenWidth, _resultLabel.fontLineHeight);
     
     
-    NSString *money = [NSString stringWithFormat:@"%@元", [TDCommonTool formatPriceWithDoublePrice:100]];
+    NSString *money = [NSString stringWithFormat:@"%@元", [TDCommonTool formatPriceWithDoublePrice:self.listDataModel.pay_price]];
     
     _moneyLabel = [MGUITool labelWithText:money textColor:MGThemeColor_Black font:PFSC(42) textAlignment:NSTextAlignmentCenter];
     _moneyLabel.frame = CGRectMake(0, _resultLabel.bottom + SH(56), kScreenWidth, _resultLabel.fontLineHeight);

@@ -53,7 +53,7 @@
 - (void)setDataModel:(MGResFavListDataModel *)dataModel{
     _dataModel = dataModel;
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
     
     _userNameLabel.text = dataModel.entity_name;
 #warning TODO 未处理

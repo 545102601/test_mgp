@@ -28,7 +28,7 @@
 @property (nonatomic, strong) UILabel *discountMoneyLabel;
 @property (nonatomic, strong) UIView *discountLineView;
 
-/// 优惠卷
+/// 优惠券
 @property (nonatomic, strong) UIView *couponBgView;
 @property (nonatomic, strong) UILabel *couponTipLabel;
 
@@ -167,7 +167,7 @@
     };
     
     /// coupon tip
-    _couponTipLabel = [MGUITool labelWithText:@"优惠卷 : " textColor:MGThemeColor_Common_Black font:PFSC(30) textAlignment:NSTextAlignmentRight];
+    _couponTipLabel = [MGUITool labelWithText:@"优惠券 : " textColor:MGThemeColor_Common_Black font:PFSC(30) textAlignment:NSTextAlignmentRight];
     _couponTipLabel.frame = CGRectMake(_couponDataView.left - kScreenWidth * 0.5 - SW(10), 0, kScreenWidth * 0.5, _discountTipLabel.fontLineHeight);
     _couponTipLabel.centerY = _couponDataView.centerY;
     
@@ -317,7 +317,7 @@
 }
 
 
-/// 设置优惠卷数据
+/// 设置优惠券数据
 - (void)setCouponArray:(NSArray *)couponArray {
     
     _couponArray = couponArray;
@@ -335,9 +335,9 @@
     NSString *couponText;
     
     if (arrayM.count == 0) {
-        couponText = @"暂时没有可使用的优惠卷";
+        couponText = @"暂时没有可使用的优惠券";
     } else {
-        couponText = @"请选择优惠卷";
+        couponText = @"请选择优惠券";
     }
     TDSelectListDataViewContentModel *contentModel = [TDSelectListDataViewContentModel new];
     contentModel.name = couponText;

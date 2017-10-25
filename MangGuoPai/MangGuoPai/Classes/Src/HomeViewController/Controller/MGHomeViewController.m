@@ -50,7 +50,7 @@
 /// 提示升级身份View
 @property (nonatomic, strong) MGUpgradeIDView *upgradeIDView;
 
-/// 优惠卷View
+/// 优惠券View
 @property (nonatomic, strong) MGHomeCouponView *couponView;
 
 @end
@@ -208,7 +208,7 @@
                     /// 动态配图 结果
                     NSMutableArray *ReResults = @[].mutableCopy;
                     for (MGResSettingDataModel *reResultDataModel in reResults) {
-                        /// 动态配图 抽出 优惠卷
+                        /// 动态配图 抽出 优惠券
                         if ([reResultDataModel.type integerValue] == 4) {
                             if (reResultDataModel.details.count > 0) {
                                MGResSettingDataDetailModel *detailModel = reResultDataModel.details[0];
@@ -313,6 +313,8 @@
 //    PushVC(vc2)
 //    return;
     
+    [self.view endEditing:YES];
+    
     [YNQRcodeViewController showQRCodeVieControllerWithCompletion:^(NSString *result, NSString *type) {
         TDLog(@"qrcode -> %@",result);
         /// 是二维码
@@ -332,7 +334,11 @@
 //    PushVC(vc2)
 //    return;
     
+    [self.view endEditing:YES];
+    
     InterceptLoginShowAlert
+    
+    
     
     self.rightNavButton.selected = NO;
     

@@ -42,7 +42,7 @@
 - (void)setIconUrl:(NSString *)iconUrl {
     _iconUrl = iconUrl;
     if (self.id > 0 ) {
-        [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:iconUrl] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+        [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:iconUrl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
     } else {
         self.iconImageView.image = nil;
     }
@@ -228,11 +228,11 @@
     if (wordAndArray.count > 1) {
         
         MGResSettingDataDetailModel *detailModel_1 = wordAndArray[0];
-        [self.workButton sd_setImageWithURL:[NSURL URLWithString:detailModel_1.file_path] forState:UIControlStateNormal placeholderImage:SDWEB_PLACEHODER_IMAGE(self.workButton)];
+        [self.workButton sd_setImageWithURL:[NSURL URLWithString:detailModel_1.file_path scaleWidth:self.workButton.width] forState:UIControlStateNormal placeholderImage:SDWEB_PLACEHODER_IMAGE(self.workButton)];
         
         
         MGResSettingDataDetailModel *detailModel_2 = wordAndArray[1];
-        [self.classButton sd_setImageWithURL:[NSURL URLWithString:detailModel_2.file_path] forState:UIControlStateNormal placeholderImage:SDWEB_PLACEHODER_IMAGE(self.classButton)];
+        [self.classButton sd_setImageWithURL:[NSURL URLWithString:detailModel_2.file_path scaleWidth:self.classButton.width] forState:UIControlStateNormal placeholderImage:SDWEB_PLACEHODER_IMAGE(self.classButton)];
         
     }
     

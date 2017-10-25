@@ -204,7 +204,7 @@
     
     self.nameLabel.text = dataModel.nick_name.length > 0 ? dataModel.nick_name : @"用户名";
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl] placeholderImage: dataModel.gender == 1 ? [UIImage imageNamed:@"mine_user_man"] :[UIImage imageNamed:@"mine_user_women"]];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl scaleWidth:self.iconImageView.width] placeholderImage: dataModel.gender == 1 ? [UIImage imageNamed:@"mine_user_man"] :[UIImage imageNamed:@"mine_user_women"]];
     
     self.updateInfoLabel.text = dataModel ? @"修改个人信息" : @"请登录";
     self.updateInfoArrowImageView.hidden = dataModel ? NO : YES;

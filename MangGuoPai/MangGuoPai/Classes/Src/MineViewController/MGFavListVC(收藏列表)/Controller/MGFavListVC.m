@@ -52,7 +52,7 @@
         [MGBussiness loadFav_Del:@{@"entity_id" : @(dataModel.entity_id), @"entity_type_id" : @(dataModel.entity_type_id)} completion:^(id results) {
             if ([results boolValue]) {
                 
-                [self.tableView.dataArrayM removeObject:dataModel];
+                [self.tableView.dataArrayM removeObjectAtIndex:indexPath.section];
                 [self.tableView deleteSection:indexPath.section withRowAnimation:UITableViewRowAnimationLeft];
                 memberDataModelInstance.fav_count;
                 if (memberDataModelInstance.fav_count > 0) {
@@ -86,7 +86,7 @@
     if (isHeader) {
         pageNo = 1;
     } else {
-        pageNo += self.pageNo + 1;
+        pageNo = self.pageNo == 0 ? 2 : self.pageNo + 1;
     }
     
     [MGBussiness loadFav_ListDataWithPageNo:pageNo Completion:^(MGResFavListModel *listModel) {

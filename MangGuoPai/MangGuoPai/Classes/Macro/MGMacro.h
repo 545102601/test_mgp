@@ -55,6 +55,7 @@ return __singleton__; \
 #import "TDExpendClickImageView.h"
 #import "NSObject+RouterExtend.h"
 #import "UIImage+PlaceHolder.h"
+#import "NSURL+Extend.h"
 
 /// 常用类
 #import "MGResMemberModel.h"
@@ -65,7 +66,6 @@ return __singleton__; \
 #import "PPShareManager.h"
 #import "MGNavigationController.h"
 #import "MGCommonEmptyView.h"
-
 
 /// UI
 #import <SDAutoLayout.h>

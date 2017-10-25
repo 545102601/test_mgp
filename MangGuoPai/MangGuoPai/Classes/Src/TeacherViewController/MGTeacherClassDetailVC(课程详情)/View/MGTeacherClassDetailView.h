@@ -18,7 +18,7 @@
 @property (nonatomic, copy) MGCommomEventBlock orderEventBlock;
 
 
-//- (void)setWantButton:(BOOL)isFav;
+- (void)setWantButton:(BOOL)isFav;
 
 
 @end

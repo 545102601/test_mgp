@@ -118,7 +118,7 @@
 // 返回高质量图片的url
 - (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 {
-    return [NSURL URLWithString:self.dataArrayM[index]];
+    return [NSURL URLWithString:self.dataArrayM[index] scaleWidth:[MGWorkProductionColletionViewCell getItemWidth]];
 }
 #pragma mark - Public Function
 

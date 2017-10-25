@@ -92,7 +92,7 @@
         
         [_contentButton setBackgroundImage:[UIImage imageNamed:@"order_icon_pdf"] forState:UIControlStateNormal];
     } else {
-        [_contentButton sd_setBackgroundImageWithURL:[NSURL URLWithString:url] forState:UIControlStateNormal placeholderImage:SDWEB_PLACEHODER_IMAGE(_contentButton)];
+        [_contentButton sd_setBackgroundImageWithURL:[NSURL URLWithString:url scaleWidth:_contentButton.width] forState:UIControlStateNormal placeholderImage:SDWEB_PLACEHODER_IMAGE(_contentButton)];
     }
     
 }

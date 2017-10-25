@@ -224,8 +224,8 @@
     [MGBussiness loadWantCountWithParams:@{@"entity_id" : @(dataModel.id) , @"entity_type_id" : @(MGGlobalEntityTypeFriend)} completion:^(id results) {
         
         if ([results boolValue]) {
-            [self showMBText:@"收藏成功"];
             [cell.cellInfoView setFavIsCollection:YES];
+            dataModel.currentIsFav = YES;
         }
         
     } error:nil];
@@ -238,6 +238,7 @@
     [MGBussiness loadPraiseWithParams:@{@"id" : @(dataModel.id)} completion:^(id results) {
         if ([results boolValue]) {
             [cell.toolsView setLiked:YES withAnimation:YES];
+            dataModel.currentIsParise = YES;
         }
     } error:nil];
     

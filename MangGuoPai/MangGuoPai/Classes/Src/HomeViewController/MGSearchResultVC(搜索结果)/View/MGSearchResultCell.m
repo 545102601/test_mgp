@@ -55,7 +55,7 @@
 - (void)setDataModel:(MGResEntityDataModel *)dataModel {
     _dataModel = dataModel;
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
     
     
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];

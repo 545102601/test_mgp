@@ -72,7 +72,11 @@
 /// 设置是否收藏
 - (void)setFavIsCollection:(BOOL)collection {
     
-//    _favButton.selected = collection;
+    if (self.dataModel.currentIsFav) {
+        return;
+    }
+    
+    _favButton.selected = collection;
 
 }
 #pragma mark - Private Function
@@ -83,13 +87,13 @@
     _dataModel = dataModel;
     
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
     
     _userNameLabel.text = dataModel.publisher_name;
     
     _timeLabel.text = dataModel.publish_time_str;
     
-#warning todo 未处理 收藏
+    _favButton.selected = dataModel.currentIsFav;
     
 }
 
