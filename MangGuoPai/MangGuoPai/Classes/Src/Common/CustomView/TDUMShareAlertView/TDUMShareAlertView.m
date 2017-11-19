@@ -193,18 +193,18 @@
     self.containerView = containerView;
     
     
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(100))];
-    _titleLabel.text = @"分享给朋友";
-    _titleLabel.textColor = MGThemeColor_Common_Black;
-    _titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _titleLabel.bottom, kScreenWidth, MGSepLineHeight)];
-    _lineView.backgroundColor = MGSepColor;
+//    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(100))];
+//    _titleLabel.text = @"分享给朋友";
+//    _titleLabel.textColor = MGThemeColor_Common_Black;
+//    _titleLabel.textAlignment = NSTextAlignmentCenter;
+//    
+//    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _titleLabel.bottom, kScreenWidth, MGSepLineHeight)];
+//    _lineView.backgroundColor = MGSepColor;
     
     self.containerView.backgroundColor = [UIColor whiteColor];
-    [self.containerView addSubview:_titleLabel];
+//    [self.containerView addSubview:_titleLabel];
     
-    [self.containerView addSubview:_lineView];
+//    [self.containerView addSubview:_lineView];
     //图片
     NSMutableArray *imageArray = [[NSMutableArray alloc]initWithCapacity:5];
     NSMutableArray *titleArray = [[NSMutableArray alloc]initWithCapacity:5];

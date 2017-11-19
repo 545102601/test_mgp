@@ -20,21 +20,9 @@
 #import "MGTeacherCategoryDetailVC.h"
 #import "MGHomeCouponView.h"
 
-/// ----- 测试
-#import "MGLoginVC.h"
-#import "MGResMemberModel.h"
-#import "MGResClassifyModel.h"
-#import "MGResSettingModel.h"
-#import "MGAccountVC.h"
-#import "MGMyLessonVC.h"
-#import "MGAddLessonVC.h"
-#import "DQAlertView+SelectTableViewExtend.h"
-#import "MGScheduleVC.h"
-#import "MGWorkDetailVC.h"
-#import "MGWorkVC.h"
-#import "MGTeacherOrderVC.h"
-#import "MGOrderPayResultVC.h"
-#import "MGTimeOrderVC.h"
+
+
+#import "MGWorkMyIntroVC.h"
 
 @interface MGHomeViewController ()
 /// 二维码按钮
@@ -315,6 +303,13 @@
     
     [self.view endEditing:YES];
     
+    if (!(PROD_CONFIG)) {
+        MGWorkMyIntroVC *vc = [MGWorkMyIntroVC new];
+        PushVC(vc)
+        return;
+    }
+    
+    
     [YNQRcodeViewController showQRCodeVieControllerWithCompletion:^(NSString *result, NSString *type) {
         TDLog(@"qrcode -> %@",result);
         /// 是二维码
@@ -337,10 +332,6 @@
     [self.view endEditing:YES];
     
     InterceptLoginShowAlert
-    
-    
-    
-    self.rightNavButton.selected = NO;
     
     MGMessageListVC *vc = [MGMessageListVC new];
     PushVC(vc)

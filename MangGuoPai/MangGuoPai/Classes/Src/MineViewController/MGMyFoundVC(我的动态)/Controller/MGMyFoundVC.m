@@ -18,6 +18,9 @@
 
 @property (nonatomic, weak) YNPageScrollViewController *pageScrollViewVC;
 
+@property (nonatomic, strong) UIButton *rightButton;
+
+
 @end
 
 @implementation MGMyFoundVC
@@ -25,9 +28,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setRightButtonWithTitle:@"+动态" target:self selector:@selector(rightButtonOnClick)];
+    _rightButton = [self setRightButtonWithTitle:@"+动态" target:self selector:@selector(rightButtonOnClick)];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    BOOL isShow = memberDataModelInstance.isTutorID || memberDataModelInstance.isCompanyID || memberDataModelInstance.isCompanyID;
+    _rightButton.hidden = !isShow;
+}
 
 #pragma mark - 初始化控件
 - (void)setupSubViews {

@@ -33,7 +33,7 @@
     
     [self.tableView.mj_header beginRefreshing];
     
-    self.tableView.viewControllerType = self.viewControllerType;
+    self.tableView.viewControllerType = self.menuTag;
     
     self.tableView.buttonEventBlock = ^(MGResCourseListDataModel *dataModel, NSInteger tag){
         STRONG
@@ -49,7 +49,7 @@
         
     };
     
-    if (self.viewControllerType == MGGlobaMenuTagLeft) {
+    if (self.menuTag == MGGlobaMenuTagLeft) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addLessonCompletionReloadRefreshView) name:AddLessonCompletionReloadRefreshView object:nil];
     }
     
@@ -67,7 +67,7 @@
     }
     
     NSMutableDictionary *dictM = @{@"page_no" : @(pageNo), @"is_self" : @(1)}.mutableCopy;
-    if (self.viewControllerType == 1) {
+    if (self.menuTag == MGGlobaMenuTagRight) {
         [dictM setObject:@(50) forKey:@"state"];
     }
     
@@ -76,6 +76,7 @@
         self.pageNo = pageNo;
         if (isHeader) {
             self.tableView.dataArrayM = listModel.data.mutableCopy;
+            
         } else {
             NSMutableArray *oldArray = self.tableView.dataArrayM.mutableCopy;
             /// 追加

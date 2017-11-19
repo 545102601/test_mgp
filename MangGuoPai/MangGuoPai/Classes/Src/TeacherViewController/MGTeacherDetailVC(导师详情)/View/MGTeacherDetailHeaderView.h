@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) MGResCourseTutorDataModel *dataModel;
 
+@property (nonatomic, copy) MGCommomEventBlock iconImageViewLoadCompletion;
+
 @property (nonatomic, assign) CGFloat headerHeight;
 
 - (void)setWantCount:(NSInteger)wantCount;

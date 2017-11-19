@@ -70,7 +70,7 @@
     [self requestPostUrl:HTTP_MES_READ
                   params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
          timeoutInterval:RequestTiemOut
-               isNeedHUD:YES
+               isNeedHUD:NO
             successBlock:successBlock
               errorBlock:errorBlock];
 }

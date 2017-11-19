@@ -91,8 +91,7 @@
 - (void)setDataModel:(MGResOrderListDataModel *)dataModel {
     _dataModel = dataModel;
     
-    _orderInfoView.menuTag = self.menuTag;
-    _orderInfoView.dataModel = dataModel;
+    
     
     _rightOneButton.hidden = YES;
     _rightTwoButton.hidden = YES;
@@ -101,11 +100,19 @@
     _rightOneButton.layer.borderColor = MGButtonImportDefaultColor.CGColor;
     _rightTwoButton.layer.borderColor = MGThemeColor_subTitle_Black.CGColor;
     
+    _orderInfoView.hiddenBottomLine = NO;
+    _orderInfoView.menuTag = self.menuTag;
+    
+    
     if (self.menuTag == MGGlobaMenuTagLeft) { /// 下的订单
         [self configOrderWithModel:dataModel];
     } else { /// 收到的订单
         [self configReceiveOrderWithModel:dataModel];
     }
+    
+    
+    _orderInfoView.dataModel = dataModel;
+    
 }
 
 - (void)configOrderWithModel:(MGResOrderListDataModel *)dataModel {
@@ -139,11 +146,17 @@
         case MGGlobalOrderStateAlreadyPayWaitingArrangement: /// 订单已付款，待安排
         case MGGlobalOrderStateAlreadyPayAlreadyArrangement: /// 订单已付款，已安排
         {
+            
+            _orderInfoView.hiddenBottomLine = YES;
+
             _rightOneButton.hidden = YES;
             _rightTwoButton.hidden = YES;
         }
             break;
         default:
+        {
+            _orderInfoView.hiddenBottomLine = YES;
+        }
             break;
     }
 
@@ -190,16 +203,21 @@
             _rightOneButton.hidden = NO;
             
             _rightOneButton.tag = MGGlobaOrderButtonTagCancelSchedule;
+            _rightOneButton.layer.borderColor = MGThemeShenYellowColor.CGColor;
+            
             [MGUITool setButtonTheme:_rightOneButton
                                title:@"取消安排"
-                          titleColor: MGThemeColor_Title_Black
-                       bgImageNColor:MGButtonImportDefaultColor
-                       bgImageHColor:MGButtonImportDefaultColor];
+                          titleColor:MGThemeShenYellowColor
+                       bgImageNColor:[UIColor whiteColor]
+                       bgImageHColor:[UIColor whiteColor]];
             
             
         }
             break;
         default:
+        {
+            _orderInfoView.hiddenBottomLine = YES;
+        }
             break;
     }
     

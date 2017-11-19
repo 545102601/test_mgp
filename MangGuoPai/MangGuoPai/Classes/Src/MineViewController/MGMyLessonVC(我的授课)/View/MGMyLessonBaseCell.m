@@ -7,9 +7,11 @@
 //
 
 #import "MGMyLessonBaseCell.h"
+#import "MGMyLessonTriangleView.h"
 
 @interface MGMyLessonBaseCell ()
 
+@property (nonatomic, strong) MGMyLessonTriangleView *triangleView;
 /// 课程标题
 @property (nonatomic, strong) UILabel *classTitleLabel;
 /// 课程状态
@@ -22,6 +24,8 @@
 @property (nonatomic, strong) UIButton *deleteButton;
 
 @property (nonatomic, strong) UIButton *closeButton;
+
+
 
 @end
 
@@ -67,7 +71,11 @@
     _deleteButton.tag = 1004;
     [_deleteButton addTarget:self action:@selector(buttonOnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.contentView sd_addSubviews:@[_classTitleLabel, _classSubTitleLabel, _priceLabel, _centerLineView, _closeButton, _deleteButton]];
+    _triangleView = [[MGMyLessonTriangleView alloc] initWithFrame:CGRectMake(0, 0, SW(36), SW(36))];
+    _triangleView.backgroundColor = [UIColor clearColor];
+    
+    
+    [self.contentView sd_addSubviews:@[_classTitleLabel, _classSubTitleLabel, _priceLabel, _centerLineView, _closeButton, _deleteButton, _triangleView]];
     
 }
 #pragma mark - Event Response
@@ -105,24 +113,27 @@
     
     
     if (dataModel.state == MGGlobaStateNormal) {/// 已经上架
+        
         _closeButton.hidden = NO;
         _closeButton.tag = 1003;
            [_closeButton setTitle:@"下架" forState:UIControlStateNormal];
         _deleteButton.right = _closeButton.left - SW(20);
+        _triangleView.fillBgColor = colorHex(@"#369ff8");
         
     } else if (dataModel.state == MGGlobaStateNone){
         _closeButton.hidden = NO;
         _closeButton.tag = 1002;
         [_closeButton setTitle:@"上架" forState:UIControlStateNormal];
-        
         _deleteButton.right = _closeButton.left - SW(20);
-        
+        _triangleView.fillBgColor = colorHex(@"#ff596d");
     } else {
         _closeButton.hidden = YES;
         _deleteButton.right = kScreenWidth - SW(30);
+        _triangleView.fillBgColor = colorHex(@"#ff596d");
+        
+        
     }
-    
-    
+     [_triangleView setNeedsDisplay];
     
     
 }

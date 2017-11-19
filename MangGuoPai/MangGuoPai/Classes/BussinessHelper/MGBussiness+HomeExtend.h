@@ -28,6 +28,12 @@
 /// 检测消息
 + (void)loadHomeMessageCheckdDataWithCompletion:(BussinessCompletion)completion;
 
+/// 阅读消息接口
++ (void)loadReadMessageData:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
+
+/// 删除消息接口
++ (void)loadDeletedMessage:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
+
 /// 加载消息列表 - 分页
 + (void)loadMessage_ListDataWithPageNo:(NSInteger)pageNo Completion:(BussinessCompletion)completion error:(BussinessError)error;
 

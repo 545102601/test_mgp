@@ -8,6 +8,11 @@
 
 #import "BaseCollectionViewCell.h"
 
+typedef NS_ENUM(NSInteger, CellAddButtonType) {
+    CellAddButtonTypeDefault = 0,
+    CellAddButtonTypeGray = 1,
+};
+
 @interface MGUploadCollectionViewCell : BaseCollectionViewCell
 
 @property (nonatomic, copy) NSString *url;
@@ -15,6 +20,8 @@
 @property (nonatomic, assign) NSInteger item;
 
 @property (nonatomic, copy) MGCommomEventBlock buttonEventBlock;
+
+@property (nonatomic, assign) CellAddButtonType addButtonType;
 
 @property (nonatomic, assign) BOOL hiddenDeleteButton;
 

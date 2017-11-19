@@ -32,7 +32,7 @@
 
 - (NSString *)order_time_string {
     if (_order_time_string.length == 0) {
-        _order_time_string = [self.order_time dateToStringYYMMDDHHMM];
+        _order_time_string = [self.order_time formattedStringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
     }
     return _order_time_string;
 }

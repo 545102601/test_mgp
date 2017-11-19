@@ -36,7 +36,13 @@
     [MGBussinessRequest postOrder_Pay:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
         if (isSuccess) {
             if (completion) {
-                completion(dic[@"data"][@"payData"]);
+                
+                if ([dict[@"channel"] isEqualToString:@"alipay"]) {
+                    completion([dic[@"data"][@"payData"] mj_JSONString]);
+                } else {
+                    completion(dic[@"data"][@"payData"]);
+                }
+                
             }
         } else {
             [self showMBText:message];

@@ -581,7 +581,8 @@ NSString * const ID = @"SDCycleScrollViewCell";
     
     if (!self.onlyDisplayText && [imagePath isKindOfClass:[NSString class]]) {
         if ([imagePath hasPrefix:@"http"]) {
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imagePath scaleWidth:cell.imageView.width] placeholderImage:self.placeholderImage];
+            NSURL *nsurl = [NSURL URLWithString:imagePath scaleWidth:self.bounds.size.width];
+            [cell.imageView sd_setImageWithURL:nsurl placeholderImage:self.placeholderImage];
         } else {
             UIImage *image = [UIImage imageNamed:imagePath];
             if (!image) {

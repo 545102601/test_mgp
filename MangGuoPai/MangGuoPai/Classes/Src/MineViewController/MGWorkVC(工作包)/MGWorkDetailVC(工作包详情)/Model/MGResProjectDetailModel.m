@@ -98,8 +98,9 @@
         [paragraphStyle setLineSpacing:SH(10)];
         UIColor *color = MGThemeColor_Common_Black;
         
+        /// 解析html到富文本中
         NSMutableAttributedString *string = [[NSAttributedString alloc]initWithData:[introduction dataUsingEncoding:NSUnicodeStringEncoding] options:@{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType} documentAttributes:nil error:nil].mutableCopy;
-        
+        /// 设置字体大小
         [string addAttributes:@{NSForegroundColorAttributeName : color, NSParagraphStyleAttributeName: paragraphStyle} range:NSMakeRange(0, string.length)];
         
         self.introductionAttr = string;

@@ -83,11 +83,19 @@
     
 }
 
+// 接收到内存警告的时候调用
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    // 停止所有的下载
+    [[SDWebImageManager sharedManager] cancelAll];
+    // 删除缓存
+    [[SDWebImageManager sharedManager].imageCache clearMemory];
+    
+}
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     [JPUSHService handleRemoteNotification:userInfo];
-    
     
     completionHandler(UIBackgroundFetchResultNewData);
     

@@ -105,6 +105,8 @@
     [_calendar selectDate:[NSDate date]];
     [_calendar reloadData];
     
+    [_calendar selectDate:[NSDate date]];
+    
     [self didCalenderWithSelectDate:_calendar.selectedDate];
 }
 

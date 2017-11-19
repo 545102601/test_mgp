@@ -13,5 +13,8 @@
 
 @property (nonatomic, strong) MGResProjectDetailDataModel *dataModel;
 
+@property (nonatomic, copy) MGCommomEventBlock iconImageViewLoadCompletion;
+
+- (CGFloat)headerHeight;
 
 @end

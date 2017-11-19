@@ -74,6 +74,7 @@
                 vc.listDataModel = dataModel;
                 PushVC(vc)
             }
+                break;
             case MGGlobaOrderButtonTagSchedule:   /// 安排日程
             {
                 MGScheduleVC *vc = [MGScheduleVC new];

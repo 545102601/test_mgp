@@ -29,5 +29,6 @@ typedef NS_ENUM(NSInteger, MGOrderInfoViewSourceType) {
 
 @property (nonatomic, copy) MGCommomEventBlock orderNameTapBlock;
 
+@property (nonatomic, assign) BOOL hiddenBottomLine;
 
 @end

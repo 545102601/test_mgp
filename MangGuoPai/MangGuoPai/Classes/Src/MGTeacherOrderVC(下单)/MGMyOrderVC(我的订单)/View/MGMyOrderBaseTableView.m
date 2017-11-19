@@ -70,7 +70,7 @@
                 return SH(360);
                 
             default:
-                return SH(360);
+                return SH(260);
         }
         
     } else { /// 收到的订单
@@ -82,7 +82,7 @@
                 return SH(360);
                 
             default:
-                return SH(360);
+                return SH(260);
         }
     }
     

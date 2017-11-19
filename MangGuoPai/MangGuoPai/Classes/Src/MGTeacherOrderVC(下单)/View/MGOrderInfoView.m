@@ -37,21 +37,21 @@
 
 - (void)prepareFrameViewUI:(CGRect)frame {
 
-    _orderNoLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(24)];
+    _orderNoLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(20)];
     _orderNoLabel.frame = CGRectMake(SW(30), SH(30), SW(220), _orderNoLabel.fontLineHeight);
-    _orderNoLabel.adjustsFontSizeToFitWidth = YES;
+//    _orderNoLabel.adjustsFontSizeToFitWidth = YES;
     
     
-    _orderTimeLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(24) textAlignment:NSTextAlignmentCenter];
+    _orderTimeLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(20) textAlignment:NSTextAlignmentCenter];
     _orderTimeLabel.frame = CGRectMake(0, SH(30), SW(254), _orderTimeLabel.fontLineHeight);
     _orderTimeLabel.centerX = kScreenWidth * 0.5;
-    _orderTimeLabel.adjustsFontSizeToFitWidth = YES;
+//    _orderTimeLabel.adjustsFontSizeToFitWidth = YES;
     
     
     _orderStateLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Common_Black font:PFSC(24) textAlignment:NSTextAlignmentRight];
     _orderStateLabel.frame = CGRectMake(kScreenWidth - SW(230) - SW(30), 0, SW(230), _orderStateLabel.fontLineHeight);
     _orderStateLabel.centerY = _orderTimeLabel.centerY;
-    _orderStateLabel.adjustsFontSizeToFitWidth = YES;
+//    _orderStateLabel.adjustsFontSizeToFitWidth = YES;
     
     _topLineView = [[UIView alloc] initWithFrame:CGRectMake(SW(24), _orderNoLabel.bottom + SH(30),kScreenWidth - SW(48), MGSepLineHeight)];
     _topLineView.backgroundColor = MGSepColor;
@@ -146,9 +146,15 @@
     if (self.sourceType == MGOrderInfoViewSourceTypeOrderDetail && self.menuTag == MGGlobaMenuTagRight) { /// 显示手机
         [self setPhoneAttrWithStr:dataModel.member_mobile];
     } else {
-        _moneyLabel.text = [TDCommonTool formatPriceWithDoublePrice:dataModel.pay_price];
+        if (self.sourceType == MGOrderInfoViewSourceTypeOrderDetail) {
+            _moneyLabel.text = dataModel.sale_price == 0 ? @"" : [TDCommonTool formatPriceWithDoublePrice:dataModel.sale_price];
+        } else {
+            _moneyLabel.text = [TDCommonTool formatPriceWithDoublePrice:dataModel.pay_price];
+        }
     }
 
+    _centerLineView.hidden = self.hiddenBottomLine;
+    
 }
 - (void)setDetailDataModel:(MGResOrderDetailDataModel *)detailDataModel {
     _detailDataModel = detailDataModel;
@@ -174,9 +180,16 @@
         [self setPhoneAttrWithStr:detailDataModel.member_mobile];
         
     } else {
-        _moneyLabel.text = [TDCommonTool formatPriceWithDoublePrice:detailDataModel.pay_price];
+        
+        if (self.sourceType == MGOrderInfoViewSourceTypeOrderDetail) {
+            _moneyLabel.text = detailDataModel.sale_price == 0 ? @"" : [TDCommonTool formatPriceWithDoublePrice:detailDataModel.sale_price];
+        } else {
+            _moneyLabel.text = [TDCommonTool formatPriceWithDoublePrice:detailDataModel.pay_price];
+        }
+        
     }
     
+    _centerLineView.hidden = self.hiddenBottomLine;
 }
 
 - (void)setOrderNameTapBlock:(MGCommomEventBlock)orderNameTapBlock {

@@ -84,10 +84,10 @@
 - (NSArray *)getViewController {
     
     MGMyLessonAllVC *sendVC = [MGMyLessonAllVC new];
-    sendVC.viewControllerType = 0;
+    sendVC.menuTag = MGGlobaMenuTagLeft;
     
     MGMyLessonPublishVC *receiveVC = [MGMyLessonPublishVC new];
-    receiveVC.viewControllerType = 1;
+    receiveVC.menuTag = MGGlobaMenuTagRight;
     return @[sendVC, receiveVC];
     
 }

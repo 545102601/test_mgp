@@ -127,7 +127,7 @@
     _submitButton.layer.cornerRadius = MGButtonLayerCorner;
     
     
-    _bottomTipLabel = [MGUITool labelWithText:@"所有信息讲受平台加密保存" textColor:MGThemeColor_Common_Black font:PFSC(28)];
+    _bottomTipLabel = [MGUITool labelWithText:@"所有信息将受平台加密保存 , 严密监管" textColor:MGThemeColor_Common_Black font:PFSC(28)];
     _bottomTipLabel.textAlignment = NSTextAlignmentCenter;
     _bottomTipLabel.frame = CGRectMake(0, kScreenHeight - PFSC(28).lineHeight - SH(26), kScreenWidth, PFSC(28).lineHeight);
     

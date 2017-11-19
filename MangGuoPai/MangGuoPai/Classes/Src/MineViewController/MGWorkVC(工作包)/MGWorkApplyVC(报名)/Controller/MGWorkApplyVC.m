@@ -13,6 +13,7 @@
 #import <YYText.h>
 #import "MGCommonWebViewVC.h"
 #import "MGResProjectListTeamModel.h"
+#import "MGWorkJoinTeamVC.h"
 
 @interface MGWorkApplyVC ()
 /// 标题
@@ -311,36 +312,39 @@
 }
 /// 加入团队
 - (void)joinTeamWithDataModel:(MGResProjectListTeamDataModel *)dataModel {
+  
+    MGWorkJoinTeamVC *vc = [MGWorkJoinTeamVC new];
+    PushVC(vc)
     
-    WEAK
-    DQAlertView *alert = [[DQAlertView alloc] initWithTitle:@"" message:@"" cancelButtonTitle:@"取消" otherButtonTitle:@"确定"];
-    [alert setAlertThemeMessageTip_TwoButton];
-    [alert setAlertThemeWithTextFieldForApplyWork];
-    __weak typeof(DQAlertView *)weakAlert = alert;
-    alert.otherButtonAction = ^{
-        STRONG
-        UITextField *filed = [weakAlert.contentView viewWithTag:100001];
-        
-        if (filed.text.length == 0) {
-            [self showMBText:@"请输入集结暗号"];
-            return;
-        }
-
-        [self.view endEditing:YES];
-        
-        [weakAlert dismiss];
-        
-        [MGBussiness loadProject_Join:@{@"id" : @(self.dataModel.id), @"type" : @(2), @"team_id" : @(dataModel.id), @"cipher" : filed.text} completion:^(id results) {
-            if ([results boolValue]) {
-                [self showMBText:@"报名成功"];
-                if (self.applyCompletion) {
-                    self.applyCompletion();
-                }
-            }
-        } error:nil];
-        
-    };
-    [alert showInView:self.view];
+//    WEAK
+//    DQAlertView *alert = [[DQAlertView alloc] initWithTitle:@"" message:@"" cancelButtonTitle:@"取消" otherButtonTitle:@"确定"];
+//    [alert setAlertThemeMessageTip_TwoButton];
+//    [alert setAlertThemeWithTextFieldForApplyWork];
+//    __weak typeof(DQAlertView *)weakAlert = alert;
+//    alert.otherButtonAction = ^{
+//        STRONG
+//        UITextField *filed = [weakAlert.contentView viewWithTag:100001];
+//        
+//        if (filed.text.length == 0) {
+//            [self showMBText:@"请输入集结暗号"];
+//            return;
+//        }
+//
+//        [self.view endEditing:YES];
+//        
+//        [weakAlert dismiss];
+//        
+//        [MGBussiness loadProject_Join:@{@"id" : @(self.dataModel.id), @"type" : @(2), @"team_id" : @(dataModel.id), @"cipher" : filed.text} completion:^(id results) {
+//            if ([results boolValue]) {
+//                [self showMBText:@"报名成功"];
+//                if (self.applyCompletion) {
+//                    self.applyCompletion();
+//                }
+//            }
+//        } error:nil];
+//        
+//    };
+//    [alert showInView:self.view];
     
     
     

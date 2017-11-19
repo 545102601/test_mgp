@@ -137,6 +137,9 @@
     
     _phoneSettingView = [[MGMineSettingView alloc] initWithFrame:CGRectMake(0, _jobSettingView.bottom, kScreenWidth, MineSettingViewHeight)];
     _phoneSettingView.titleLabel.attributedText = [MGTool lastRedColorWithString:@"联系手机 * : " attr:@{NSFontAttributeName : _phoneSettingView.titleLabel.font, NSForegroundColorAttributeName : _phoneSettingView.titleLabel.textColor}];
+    _phoneSettingView.hidden = YES;
+    
+    
     
     _phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWidth - SW(30) - kScreenWidth * 0.5, 0, kScreenWidth * 0.5, MineSettingViewHeight)];
     _phoneTextField.delegate = self;
@@ -150,14 +153,14 @@
     
     
     _submitButton = [MGUITool buttonWithBGColor:nil title:@"提交认证" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(submitButtonOnClick)];
-    _submitButton.frame = CGRectMake(SW(75), _phoneSettingView.bottom + SH(540), SW(600), SH(84));
+    _submitButton.frame = CGRectMake(SW(75), _jobSettingView.bottom + SH(540), SW(600), SH(84));
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     _submitButton.layer.masksToBounds = YES;
     _submitButton.layer.cornerRadius = MGButtonLayerCorner;
     
     
-    _bottomTipLabel = [MGUITool labelWithText:@"所有信息讲受平台加密保存" textColor:MGThemeColor_Common_Black font:PFSC(28)];
+    _bottomTipLabel = [MGUITool labelWithText:@"所有信息将受平台加密保存 , 严密监管" textColor:MGThemeColor_Common_Black font:PFSC(28)];
     _bottomTipLabel.textAlignment = NSTextAlignmentCenter;
     _bottomTipLabel.frame = CGRectMake(0, _submitButton.bottom + SH(30), kScreenWidth, PFSC(28).lineHeight);
     
@@ -230,7 +233,7 @@
         
         NSString *name = _nameTextField.text;
         NSString *job = _jobTextField.text;
-        NSString *phone = _phoneTextField.text;
+//        NSString *phone = _phoneTextField.text;
         
         
         NSMutableString *resultString = @"".mutableCopy;
@@ -248,13 +251,13 @@
         if (job.length == 0) {
             [resultString appendString:@"请输入职业、"];
         }
-        if (phone.length == 0) {
-            [resultString appendString:@"请输入联系手机、"];
-        } else {
-            if (![phone checkPhoneNum]) {
-                [resultString appendString:@"请输入正确的手机号码、"];
-            }
-        }
+//        if (phone.length == 0) {
+//            [resultString appendString:@"请输入联系手机、"];
+//        } else {
+//            if (![phone checkPhoneNum]) {
+//                [resultString appendString:@"请输入正确的手机号码、"];
+//            }
+//        }
         
         if (resultString.length > 0) {
             NSString *alertStr = [resultString substringToIndex:resultString.length - 1];
@@ -264,7 +267,7 @@
             return;
         } else { /// 提交数据
             
-            [MGBussiness loadUpgradeWithType:2 params:@{@"company_no" : no, @"company_name" : comName, @"name" : name,  @"job" : job, @"phone" : phone} completion:^(id results) {
+            [MGBussiness loadUpgradeWithType:2 params:@{@"company_no" : no, @"company_name" : comName, @"name" : name,  @"job" : job} completion:^(id results) {
                 
                 if ([results boolValue]) {
                     MGLevelUpgradeSuccessVC *vc = [MGLevelUpgradeSuccessVC new];

@@ -554,6 +554,8 @@
     if (!_datePickerView) {
         _datePickerView = [[TDSelectDatePickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         _datePickerView.delegate = self;
+        /// 最大时间为当前时间
+        _datePickerView.maxDate = [NSDate date];
         [KeyWindow addSubview:_datePickerView];
     }
     return _datePickerView;

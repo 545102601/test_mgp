@@ -16,7 +16,7 @@
     
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:SH(10)];
-    UIColor *color = MGThemeColor_subTitle_Black;
+    UIColor *color = MGThemeColor_Common_Black;
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:course_content attributes:@{NSFontAttributeName : MGThemeFont_24,NSForegroundColorAttributeName : color, NSParagraphStyleAttributeName: paragraphStyle}];
     _contentAttributeString = string;
     
@@ -31,9 +31,11 @@
     
     NSMutableAttributedString * _attr_str = [[NSAttributedString alloc]initWithData:[type_explains dataUsingEncoding:NSUnicodeStringEncoding] options:@{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType} documentAttributes:nil error:nil].mutableCopy;
     
+    
+    
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:SH(10)];
-    UIColor *color = MGThemeColor_subTitle_Black;
+    UIColor *color = MGThemeColor_Common_Black;
     [_attr_str addAttributes:@{NSFontAttributeName : MGThemeFont_24,NSForegroundColorAttributeName : color, NSParagraphStyleAttributeName: paragraphStyle} range:NSMakeRange(0, _attr_str.length)];
     
     

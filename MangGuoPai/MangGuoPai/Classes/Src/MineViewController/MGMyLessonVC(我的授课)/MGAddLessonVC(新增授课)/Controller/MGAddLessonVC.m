@@ -20,6 +20,8 @@
 #import "MGTeacherDetailVC.h"
 #import "MGUploadCollectionViewCell.h"
 #import "MGCommonWKWebViewVC.h"
+#import "MGMyLessonVC.h"
+
 
 @interface MGAddLessonVC () <UITextFieldDelegate, UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, SDPhotoBrowserDelegate, DQAlertViewDelegate>
 
@@ -386,19 +388,36 @@
         NSMutableDictionary *params = @{@"urls" : strm, @"course_title" : course_title, @"type_id" : @(type_id), @"service_time" : service_time, @"each_time" : each_time, @"course_content" : course_content, @"class_id" : @(class_id), @"city" : city}.mutableCopy;
         
         if (self.dataModel) {
-            [params setObject:@(self.dataModel.id) forKey:@"id"];
+            [params setObject:@(self.dataModel.id) forKey:@"course_id"];
         }
         
         [MGBussiness loadCourseAddWithParams:params completion:^(id results) {
             if ([results boolValue]) {
-                
-                MGTeacherDetailVC *vc = [MGTeacherDetailVC new];
-                /// 传递了会员 id  会员是导师才能发布课程
-                vc.id = memberDataModelInstance.id;
-                PushVC(vc)
-                
-                /// 发送通知
-                [[NSNotificationCenter defaultCenter] postNotificationName:AddLessonCompletionReloadRefreshView object:nil];
+                if (self.dataModel) {
+                    UIViewController *tempVC = nil;
+                    for (UIViewController *vc in self.navigationController.viewControllers) {
+                        if([vc isKindOfClass:[MGMyLessonVC class]]) {
+                            tempVC = vc;
+                            break;
+                        };
+                    }
+                    if (tempVC) {
+                        [self.navigationController popToViewController:tempVC animated:YES];
+                    } else {
+                        PopVC
+                    }
+                    
+                } else {
+                    MGTeacherDetailVC *vc = [MGTeacherDetailVC new];
+                    /// 传递了会员 id  会员是导师才能发布课程
+                    vc.id = memberDataModelInstance.id;
+                    PushVC(vc)
+                }
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    
+                    /// 发送通知
+                    [[NSNotificationCenter defaultCenter] postNotificationName:AddLessonCompletionReloadRefreshView object:nil];
+                });
                 
             }
         } error:nil];
@@ -483,10 +502,12 @@
 #pragma mark - UIColletionView
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MGUploadCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MGUploadCollectionViewCellID" forIndexPath:indexPath];
+    
     cell.item = indexPath.item;
     if (indexPath.item < self.dataArrayM.count) {
         cell.url = self.dataArrayM[indexPath.item];
     } else {
+        cell.addButtonType = CellAddButtonTypeGray;
         cell.url = @"addButton";
     }
     WEAK

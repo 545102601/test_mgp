@@ -29,7 +29,7 @@
     
     _titleLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Title_Black font:PFSC(30) textAlignment:NSTextAlignmentCenter];
     
-    _titleLabel.frame = CGRectMake(SW(100), _logoImageView.bottom + SH(20), kScreenWidth - SW(200), 0);
+    _titleLabel.frame = CGRectMake(SW(60), _logoImageView.bottom + SH(20), kScreenWidth - SW(120), 0);
     
     [self sd_addSubviews:@[_logoImageView, _titleLabel]];
     
@@ -51,19 +51,39 @@
 
 #pragma mark - Private Function
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _titleLabel.top = _logoImageView.bottom + SH(20);
+    self.height = _titleLabel.bottom + SH(20);
+}
+
 #pragma mark - Getter and Setter
 - (void)setDataModel:(MGResProjectDetailDataModel *)dataModel {
     _dataModel = dataModel;
     
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_logoImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_logoImageView)];
-    
+    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_logoImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_logoImageView) completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+
+        CGSize iamgeSize = image.size;
+        if (iamgeSize.width > 0 && iamgeSize.height > 0) {
+            self.logoImageView.height = kScreenWidth * iamgeSize.height / iamgeSize.width;
+            if (self.iconImageViewLoadCompletion) {
+                self.iconImageViewLoadCompletion();
+            }
+        }
+    }];
     _titleLabel.text = dataModel.project_name;
     
     _titleLabel.height = [_titleLabel.text heightForFont:_titleLabel.font width:_titleLabel.width];
     
+    _titleLabel.top = _logoImageView.bottom + SH(20);
+    
     self.height = _titleLabel.bottom + SH(20);
     
-    
+}
+
+- (CGFloat)headerHeight {
+    return _titleLabel.bottom + SH(20);
 }
 
 @end

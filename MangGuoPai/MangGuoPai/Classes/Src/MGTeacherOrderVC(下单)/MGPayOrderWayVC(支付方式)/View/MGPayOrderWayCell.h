@@ -9,14 +9,12 @@
 #import "BaseTableViewCell.h"
 #import "MGPayOrderWayModel.h"
 
-typedef void(^DidOnClickSelectedBlock)(NSIndexPath *indexPath);
-
 @interface MGPayOrderWayCell : BaseTableViewCell
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 
 @property (nonatomic, strong) MGPayOrderWayModel *model;
 
-@property (nonatomic, copy) DidOnClickSelectedBlock didOnClickSelectedBlock;
+
 
 @end

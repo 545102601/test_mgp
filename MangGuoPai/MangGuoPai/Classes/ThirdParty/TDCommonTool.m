@@ -529,6 +529,7 @@ UIView* getSepLine(float y)
 }
 #pragma mark - 价格处理
 + (NSString *)formatPriceWithDoublePrice:(double)price {
+    
     NSString *result = [NSString stringWithFormat:@"¥%0.2f",price];
     return result;
 }

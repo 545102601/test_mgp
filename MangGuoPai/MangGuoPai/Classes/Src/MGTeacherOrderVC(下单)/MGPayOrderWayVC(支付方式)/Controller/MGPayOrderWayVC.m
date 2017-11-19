@@ -29,6 +29,7 @@
 
     self.title = @"支付订单";
     
+    NSMutableArray *dataArrayM = @[].mutableCopy;
     
 //    MGPayOrderWayModel *model1 = [MGPayOrderWayModel new];
 //    model1.iconName = @"order_icon_bankcard";
@@ -36,20 +37,32 @@
 //    model1.isSelected = YES;
 //    model1.type = 0;
 //    
-//    MGPayOrderWayModel *model2 = [MGPayOrderWayModel new];
-//    model2.iconName = @"order_icon_alipay";
-//    model2.titleName = @"支付宝支付";
-//    model2.isSelected = NO;
-//    model2.type = 1;
+    MGPayOrderWayModel *model2 = [MGPayOrderWayModel new];
+    model2.iconName = @"order_icon_alipay";
+    model2.titleName = @"支付宝支付";
+    model2.type = 1;
     
     
-    MGPayOrderWayModel *model3 = [MGPayOrderWayModel new];
-    model3.iconName = @"order_icon_wechat";
-    model3.titleName = @"微信支付";
-    model3.isSelected = YES;
-    model3.type = 2;
+    if ([PPShareManager isWXAppInstalled]) {
+        
+        MGPayOrderWayModel *model3 = [MGPayOrderWayModel new];
+        model3.iconName = @"order_icon_wechat";
+        model3.titleName = @"微信支付";
+        model3.isSelected = YES;
+        model3.type = 2;
+        
+        [dataArrayM addObject:model3];
+        
+    } else {
+        /// 选中支付宝
+        model2.isSelected = YES;
+
+    }
     
-    self.tableView.dataArrayM = @[model3].mutableCopy;
+    [dataArrayM addObject:model2];
+    
+    
+    self.tableView.dataArrayM = dataArrayM;
     [self.tableView reloadData];
     
     self.tableView.backgroundColor = [UIColor whiteColor];
@@ -77,8 +90,8 @@
     [self.view sd_addSubviews:@[_tableView, _payButton]];
     
     WEAK
-    _tableView.didOnClickSelectedBlock = ^(NSIndexPath *indexPath) {
-      STRONG
+    _tableView.didSelectedRowAtIndexPath = ^(UITableView *tableView, NSIndexPath *indexPath) {
+        STRONG
         MGPayOrderWayModel *model = self.tableView.dataArrayM[indexPath.row];
         
         for (MGPayOrderWayModel *tempModel in self.tableView.dataArrayM) {
@@ -89,7 +102,9 @@
             }
         }
         [self.tableView reloadData];
+        
     };
+    
     
     
 }
@@ -125,7 +140,7 @@
         
             break;
         case 1:
-            
+            channel = @"alipay";
             break;
         case 2:
             channel = @"wechatpay";
@@ -135,18 +150,7 @@
     
     /// 测试环境 走直通接口
     [MGBussiness loadOrderPayWithParams:@{@"id" : @(self.payOrderId), @"channel" : channel} completion:^(NSString * payData) {
-        if (!(PROD_CONFIG)) {
-            MGOrderPayResultVC *vc = [MGOrderPayResultVC new];
-            vc.listDataModel = self.listDataModel;
-            vc.payWay = model.titleName;
-            vc.isPaySuccess = YES;
-            PushVC(vc);
-            if (vc.isPaySuccess) {
-                /// 发送支付完成通知
-                [[NSNotificationCenter defaultCenter] postNotificationName:OrderPayFinishRefreshView object:nil];
-            }
-            return;
-        }
+        
         switch (model.type) {
             case 0: /// 银联
             {
@@ -155,30 +159,51 @@
                 break;
             case 1: /// 支付宝
             {
+                
                 [YNPay payAliWithOrderStrng:payData completeClosure:^(NSString *errorMsg) {
-                    if (errorMsg.length > 0) {
-                        [self showMBText:@"支付失败"];
-                    } else {
-                        
-                        [self showMBText:@"支付成功！"];
+                    if ([errorMsg isEqualToString:@"用户中途取消"]) {
+                        [self showMBText:@"取消支付"];
+                        return;
                     }
                     
+                    MGOrderPayResultVC *vc = [MGOrderPayResultVC new];
+                    vc.listDataModel = self.listDataModel;
+                    vc.payWay = model.titleName;
+                    vc.isPaySuccess = errorMsg.length == 0 ? YES : NO;
+                    PushVC(vc);
+                    
+                    if (vc.isPaySuccess) {
+                        /// 发送支付完成通知
+                        [[NSNotificationCenter defaultCenter] postNotificationName:OrderPayFinishRefreshView object:nil];
+                    }
                 }];
             }
                 break;
             case 2: /// 微信
             {
+                if (!(PROD_CONFIG)) {
+                    MGOrderPayResultVC *vc = [MGOrderPayResultVC new];
+                    vc.listDataModel = self.listDataModel;
+                    vc.payWay = model.titleName;
+                    vc.isPaySuccess = YES;
+                    PushVC(vc);
+                    if (vc.isPaySuccess) {
+                        /// 发送支付完成通知
+                        [[NSNotificationCenter defaultCenter] postNotificationName:OrderPayFinishRefreshView object:nil];
+                    }
+                    return;
+                }
                 
                 if(![WXApi isWXAppInstalled]) {
                     [self showMBText:@"请先安装微信客户端"];
                     return;
                 };
-                
                 NSData *jsonData = [payData dataUsingEncoding:NSUTF8StringEncoding];
                 NSError *err;
                 NSDictionary *payDataDict = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:&err];
+                                                                            options:NSJSONReadingMutableContainers
+                                                                              error:&err];
+                
                 if(err) {
                     [self showMBText:@"后台支付数据解析异常"];
                     return;

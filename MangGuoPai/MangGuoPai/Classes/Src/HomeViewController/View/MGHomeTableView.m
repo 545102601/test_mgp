@@ -230,7 +230,7 @@
         return cell;
     }
     
-    return nil;
+    return [tableView cellWithCellClass:[BaseTableViewCell class]];
     
 }
 

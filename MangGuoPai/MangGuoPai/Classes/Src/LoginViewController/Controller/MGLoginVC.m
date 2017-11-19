@@ -111,6 +111,13 @@
     /// 微信登录
     _thirdWeChatButton = [MGUITool buttonWithNorBgImage:nil selBgImage:nil norImage:[UIImage imageNamed:@"login_wechat"] selImage:nil target:self selector:@selector(weChatButtonOnClick:)];
     _thirdWeChatButton.tag = 1001;
+    
+    if (![PPShareManager isWXAppInstalled]) {
+        _thirdLabel.hidden = YES;
+        _thirdWeChatButton.hidden = YES;
+    }
+    
+    
     /// 协议
     _serviceLabel = [[YYLabel alloc] init];
     _serviceLabel.userInteractionEnabled = YES;
@@ -518,7 +525,8 @@
         STRONG
         MGCommonWKWebViewVC *vc = [MGCommonWKWebViewVC new];
         vc.titleString = @"用户服务协议";
-        vc.urlString = @"https://www.baidu.com";
+        NSString *str = [[NSBundle mainBundle] pathForResource:@"UserProtocol" ofType:@"html"];
+        vc.htmlString = [[NSString alloc] initWithContentsOfFile:str encoding:NSUTF8StringEncoding error:nil];;
         PushVC(vc);
     };
     
@@ -550,7 +558,9 @@
                         vc.union_id = unionid;
                         PushVC(vc)
                     } else {
-                        [self showMBText:message];
+                        if(![MGLoginModel loginShowErrorCode:code]) {
+                            [self showMBText:message];
+                        };
                     }
                     
                 }

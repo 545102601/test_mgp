@@ -9,7 +9,7 @@
 #ifndef MGHttpConstant_h
 #define MGHttpConstant_h
 
-#define RequestTiemOut 30
+#define RequestTiemOut 15
 
 #if !(PROD_CONFIG)
 #define ApiRequestUrl  @"https://demo.lvshetong.cn/mangotree-portal/outer/router"

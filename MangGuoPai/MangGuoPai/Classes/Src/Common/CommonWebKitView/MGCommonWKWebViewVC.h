@@ -14,4 +14,6 @@
 
 @property (nonatomic, copy) NSString *titleString;
 
+@property (nonatomic, copy) NSString *htmlString;
+
 @end

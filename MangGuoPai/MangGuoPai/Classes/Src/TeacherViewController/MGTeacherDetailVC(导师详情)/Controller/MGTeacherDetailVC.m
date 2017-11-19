@@ -14,8 +14,12 @@
 #import "MGTeacherClassDetailVC.h"
 #import "MGSelectCourseView.h"
 #import "MGTeacherOrderVC.h"
+#import "MGAddLessonVC.h"
 
 @interface MGTeacherDetailVC ()
+
+@property (nonatomic, strong) UIButton *rightNavButton;
+
 /// 头部view
 @property (nonatomic, strong) MGTeacherDetailHeaderView *headerView;
 /// 列表
@@ -37,15 +41,40 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    BOOL isShow = memberDataModelInstance.isTutorID;
+    _rightNavButton.hidden = !isShow;
+    
+}
 
 #pragma mark - 初始化控件
 - (void)setupSubViews {
     
+    _rightNavButton = [MGUITool buttonWithNorBgImage:nil selBgImage:nil norImage:nil selImage:nil target:self selector:@selector(rightNavButtonOnClick)];
+    _rightNavButton.titleLabel.font = PFSC(28);
+    [_rightNavButton setTitle:@"+授课" forState:UIControlStateNormal];
+    [_rightNavButton setTitleColor:MGThemeColor_Title_Black forState:UIControlStateNormal];
+    [_rightNavButton sizeToFit];
+    _rightNavButton.left = kScreenWidth - _rightNavButton.width - SW(20);
+    _rightNavButton.centerY = self.navigationBar.titleLabel.centerY;
+    [self.navigationBar addSubview:_rightNavButton];
+    
     
     WEAK
     _headerView = [[MGTeacherDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SH(930))];
+    _headerView.iconImageViewLoadCompletion = ^{
+        STRONG
+        
+        UIView *headerView = self.tableView.tableHeaderView;
+        [headerView layoutSubviews];
+        self.tableView.tableHeaderView = headerView;
+    };
+    
     
     _footerView = [[MGTeacherDetailFooterView alloc] initWithFrame:CGRectMake(0, kScreenHeight - SH(140), kScreenWidth, SH(140))];
+    
     /// 想听
     _footerView.wantBlock = ^{
         STRONG
@@ -104,15 +133,18 @@
         
     } error:nil];
     
-    
-    
 }
 #pragma mark - Event Response
 
 #pragma mark - --Notification Event Response
 
 #pragma mark - --Button Event Response
-
+/// 右边按钮
+- (void)rightNavButtonOnClick {
+    
+    MGAddLessonVC *vc = [MGAddLessonVC new];
+    PushVC(vc)
+}
 #pragma mark - --Gesture Event Response
 
 #pragma mark - System Delegate
@@ -134,8 +166,6 @@
             [self.headerView setWantCount:self.headerView.dataModel.want_count];
             [self.footerView setWantButton:YES];
         }
-       
-        
         
     } error:nil];
     

@@ -45,9 +45,6 @@
         [self showMBText:@"注册失败"];
         
         return YES;
-    } else {
-        [self showMBText:@"系统繁忙"];
-        return YES;
     }
     return NO;
 }

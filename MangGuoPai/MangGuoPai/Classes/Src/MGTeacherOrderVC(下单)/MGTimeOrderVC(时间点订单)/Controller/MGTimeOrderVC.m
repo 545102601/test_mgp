@@ -165,6 +165,8 @@
     _sendMsgButton.centerY = _bottomBgView.height * 0.5;
     [_sendMsgButton addTarget:self action:@selector(sendMsgButtonOnClick) forControlEvents:UIControlEventTouchUpInside];
     
+    _sendMsgButton.hidden = YES;
+    
     [_bottomBgView sd_addSubviews:@[_orderNumLabel, _sendMsgButton]];
     [self.view addSubview:_bottomBgView];
     

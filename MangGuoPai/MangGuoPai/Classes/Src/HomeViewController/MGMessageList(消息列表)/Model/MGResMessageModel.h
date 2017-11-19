@@ -27,11 +27,15 @@
 /// 备注
 @property (nonatomic, copy) NSString *remark;
 /// 状态
-@property (nonatomic, assign) NSInteger *state;
+@property (nonatomic, assign) NSInteger state;
+/// 是否已读
+@property (nonatomic, assign) BOOL isRead;
 /// 状态标签
 @property (nonatomic, copy) NSString *state_label;
 /// 超链接URL
 @property (nonatomic, copy) NSString *url;
+
+
 
 
 //@property (nonatomic, assign) long create_time;

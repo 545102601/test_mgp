@@ -63,7 +63,7 @@
 
 - (void)bgTapOnClick {
     
-    [self dismissCouponViewWithAnimated:YES];
+//    [self dismissCouponViewWithAnimated:YES];
 }
 
 - (void)iconTapOnClick {

@@ -43,6 +43,12 @@
     WEAK
     _detailView = [[MGTeacherClassDetailView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64)];
     _detailView.hidden = YES;
+    
+    _detailView.iconImageViewLoadCompletion = ^{
+        STRONG
+        [self.detailView layoutSubviews];
+    };
+    
     [self.view addSubview:_detailView];
 
     _detailView.wantEventBlock = ^{
@@ -106,6 +112,7 @@
             self.favButton.hidden = NO;
             self.shareButton.hidden = NO;
         }
+        
         
     } error:nil];
 

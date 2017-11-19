@@ -19,4 +19,6 @@
 
 - (void)setWantButton:(BOOL)isWant;
 
+- (void)setAtOneceButtonHidden;
+
 @end

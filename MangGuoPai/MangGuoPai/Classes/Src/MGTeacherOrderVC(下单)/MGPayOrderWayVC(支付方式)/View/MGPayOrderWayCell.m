@@ -65,11 +65,5 @@
     
 }
 
-- (void)didOnClickSelected {
-    if (_didOnClickSelectedBlock) {
-        _didOnClickSelectedBlock(self.indexPath);
-    }
-    
-}
 
 @end

@@ -26,7 +26,12 @@
     NSString *url = HTTP_ORDER_PAY;
     
     if (!(PROD_CONFIG)) {
-        url = @"order_pay_notice&serialNo=124649813441351";
+        if ([dict[@"channel"] isEqualToString:@"alipay"]) {
+            
+        } else {
+            url = @"order_pay_notice&serialNo=124649813441351";
+        }
+        
     }
 
     [self requestPostUrl:url

@@ -61,11 +61,15 @@
 - (void)setupSubViews {
     WEAK
     _tableHeader = [[MGWorkDetailTableHeader alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
-    
+    _tableHeader.iconImageViewLoadCompletion = ^{
+        STRONG
+        UIView *headerView = self.tableView.tableHeaderView;
+        [headerView layoutSubviews];
+        self.tableView.tableHeaderView = headerView;
+    };
     _tableView = [[MGWorkDetailTableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64 - SH(100)) style:UITableViewStyleGrouped];
     
     [self.view addSubview:_tableView];
-    
     
     _tableView.expendButtonBlock = ^(NSIndexPath *indexPath){
         STRONG
@@ -155,8 +159,10 @@
             _bottomBgView.hidden = NO;
             
             /// 设置标题
-            self.title = dataModel.project_name;
-            
+//            self.title = dataModel.project_name;
+        
+            self.title = @"工作包详情";
+        
             dataModel.hiddenExpendButton = dataModel.progress <= 99.9 ? YES : NO;
         
             /// 头部
@@ -241,7 +247,16 @@
     
     InterceptLoginShowAlert
     
-    [MGBussiness loadProject_Want:@{@"id" : @(self.tableView.dataModel.id)} completion:nil error:nil];
+    [MGBussiness loadProject_Want:@{@"id" : @(self.tableView.dataModel.id)} completion:^(id results) {
+      
+        if ([results boolValue]) {
+            self.wantButton.enabled = NO;
+            self.tableView.dataModel.is_favor = YES;
+            self.tableView.dataModel.want_count += 1;
+            [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+        }
+        
+    } error:nil];
     
 }
 /// 分享

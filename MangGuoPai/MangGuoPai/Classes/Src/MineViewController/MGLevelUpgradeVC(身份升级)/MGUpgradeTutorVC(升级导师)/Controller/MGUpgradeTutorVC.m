@@ -116,6 +116,9 @@
     
     _phoneSettingView = [[MGMineSettingView alloc] initWithFrame:CGRectMake(0, _nameSettingView.bottom, kScreenWidth, MineSettingViewHeight)];
     _phoneSettingView.titleLabel.text = @"联系手机 : ";
+    
+    _phoneSettingView.hidden = YES;
+    
     _phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWidth - SW(30) - kScreenWidth * 0.5, 0, kScreenWidth * 0.5, MineSettingViewHeight)];
     _phoneTextField.delegate = self;
     _phoneTextField.textColor = MGThemeColor_Common_Black;
@@ -127,7 +130,7 @@
     
     
     
-    _citySettingView = [[MGMineSettingView alloc] initWithFrame:CGRectMake(0, _phoneSettingView.bottom, kScreenWidth, MineSettingViewHeight)];
+    _citySettingView = [[MGMineSettingView alloc] initWithFrame:CGRectMake(0, _nameSettingView.bottom, kScreenWidth, MineSettingViewHeight)];
     _citySettingView.titleLabel.attributedText = [MGTool lastRedColorWithString:@"城市* : " attr:@{NSFontAttributeName : _citySettingView.titleLabel.font, NSForegroundColorAttributeName : _citySettingView.titleLabel.textColor}];
     
     _cityTextField = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWidth - SW(30) - kScreenWidth * 0.5, 0, kScreenWidth * 0.5, MineSettingViewHeight)];
@@ -201,7 +204,7 @@
     UILabel *socialTipLabel = [MGUITool labelWithText:@"社交链接 : " textColor:MGThemeColor_Title_Black font:PFSC(28)];
     socialTipLabel.frame = CGRectMake(SW(30), SH(30), kScreenWidth * 0.5, socialTipLabel.fontLineHeight);
     [_socialBgView sd_addSubviews:@[socialTipLabel]];
-    
+    _socialBgView.hidden = YES;
     
     NSArray *images = @[@"mine_weibo", @"mine_linkedin", @"mine_zhihu", @"mine_qita"];
     NSArray *titles = @[@"微博", @"Linkedin", @"知乎", @"其他"];
@@ -233,23 +236,26 @@
     
     _preShowButton = [MGUITool buttonWithBGColor:nil title:@"预览我的导师首页>" titleColor:MGThemeShenYellowColor font:MGThemeFont_28 target:self selector:@selector(preShowButtonOnClick)];
     _preShowButton.frame = CGRectMake(SW(60), _socialBgView.bottom + SH(100), SW(280), SH(44));
-    
+    _preShowButton.hidden = YES;
     
     _lookButton = [MGUITool buttonWithBGColor:nil title:@"查看优秀案例>" titleColor:MGThemeShenYellowColor font:MGThemeFont_28 target:self selector:@selector(lookButtonOnClick)];
     _lookButton.frame = CGRectMake(kScreenWidth - SW(200) - SW(60), _socialBgView.bottom + SH(100), SW(200), SH(44));
     _lookButton.titleLabel.textAlignment = NSTextAlignmentRight;
-    
+    _lookButton.hidden = YES;
     
     
     _submitButton = [MGUITool buttonWithBGColor:nil title:@"提交认证" titleColor: MGThemeColor_Title_Black font:MGThemeFont_36 target:self selector:@selector(submitButtonOnClick)];
     _submitButton.frame = CGRectMake(SW(75), _lookButton.bottom + SH(52), SW(600), SH(84));
+    /// 减多50
+    _submitButton.top = _submitButton.top - SH(200);
+    
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportDefaultColor] forState:UIControlStateNormal];
     [_submitButton setBackgroundImage:[UIImage imageWithColor:MGButtonImportHighLightedColor] forState:UIControlStateHighlighted];
     _submitButton.layer.masksToBounds = YES;
     _submitButton.layer.cornerRadius = MGButtonLayerCorner;
     
     
-    _bottomTipLabel = [MGUITool labelWithText:@"所有信息讲受平台加密保存" textColor:MGThemeColor_Common_Black font:PFSC(28)];
+    _bottomTipLabel = [MGUITool labelWithText:@"所有信息将受平台加密保存 , 严密监管" textColor:MGThemeColor_Common_Black font:PFSC(28)];
     _bottomTipLabel.textAlignment = NSTextAlignmentCenter;
     _bottomTipLabel.frame = CGRectMake(0, _submitButton.bottom + SH(30), kScreenWidth, PFSC(28).lineHeight);
     
@@ -505,7 +511,7 @@
         [self.iconButton setImage:nil forState:UIControlStateNormal];
         [self.iconButton setTitle:@"" forState:UIControlStateNormal];
         
-        [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:self.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE_ICON];
+        [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:self.avatar_rsurl] placeholderImage:SDWEB_PLACEHODER_IMAGE(self.iconImageView)];
         
     }
 }

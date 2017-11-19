@@ -102,4 +102,8 @@
 
     self.wantButton.selected = isWant;
 }
+
+- (void)setAtOneceButtonHidden {
+    _atOneceWantButton.hidden = YES;
+}
 @end

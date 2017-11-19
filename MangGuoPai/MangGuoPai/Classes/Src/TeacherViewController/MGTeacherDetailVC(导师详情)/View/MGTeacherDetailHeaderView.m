@@ -109,7 +109,16 @@
     
     self.hidden = NO;
     
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView) completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+        CGSize iamgeSize = image.size;
+        if (iamgeSize.width > 0 && iamgeSize.height > 0) {
+            self.iconImageView.height = kScreenWidth * iamgeSize.height / iamgeSize.width;
+            if (self.iconImageViewLoadCompletion) {
+                self.iconImageViewLoadCompletion();
+            }
+        }
+    }];
     
     NSMutableAttributedString *attrM = [[NSMutableAttributedString alloc] initWithString:dataModel.name attributes:@{NSFontAttributeName : PFSC(30), NSForegroundColorAttributeName : MGThemeColor_Title_Black}];
     
@@ -121,6 +130,7 @@
     
     _introLabel.attributedText = dataModel.introAttributeString;
     _introLabel.height = dataModel.introHeight + SH(40);
+    
     _introLineView.top = _introLabel.bottom;
     
     _bomttomView.top = _introLineView.bottom;
@@ -131,7 +141,27 @@
     
     _wantedLabel.text = [NSString stringWithFormat:@"%ld听过", dataModel.wanted_count];
     
+    self.height = _bomttomView.bottom;
     
+}
+
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _nameAndJobLabel.top = _iconImageView.bottom;
+    
+    _introTipLabel.top = _nameAndJobLabel.bottom + SH(20);
+    
+    _introLabel.top = _introTipLabel.bottom;
+    
+    _introLabel.height = self.dataModel.introHeight + SH(40);
+    
+    _introLineView.top = _introLabel.bottom;
+    
+    _bomttomView.top = _introLineView.bottom;
+    
+    self.height = _bomttomView.bottom;
 }
 
 - (void)setWantCount:(NSInteger)wantCount {

@@ -34,14 +34,42 @@
     [self.view addSubview:_tableView];
     
     
-    
-    
     _tableView.headerAndFooterRefreshBlock = ^(BOOL isHeader) {
         STRONG
         [self loadDataWithIsHeader:isHeader];
     };
     
     [_tableView.mj_header beginRefreshing];
+    
+    _tableView.didSelectedRowAtIndexPath = ^(UITableView *tableView, NSIndexPath *indexPath) {
+        STRONG
+        MGResMessageDataModel *dataModel = self.tableView.dataArrayM[indexPath.section];
+        
+        [self loadReadMessageWithDataModel:dataModel indexPath:indexPath];
+        
+        NSMutableString *strM = [NSString stringWithFormat:@"%@", dataModel.result].mutableCopy;
+        
+        if (dataModel.remark.length > 0) {
+            [strM appendFormat:@",%@",dataModel.remark];
+        }
+        
+        DQAlertView *alertView = [[DQAlertView alloc] initWithTitle:dataModel.title message:strM cancelButtonTitle:@"我知道了" otherButtonTitle:nil];
+        [alertView setAlertThemeMessageTip_OneButton];
+        [alertView show];
+    };
+    
+}
+/// 阅读消息
+- (void)loadReadMessageWithDataModel:(MGResMessageDataModel *)dataModel
+                           indexPath:(NSIndexPath *)indexPath{
+    
+    [MGBussiness loadReadMessageData:@{@"id" : @(dataModel.id)} completion:^(id results) {
+        if ([results boolValue]) {
+            dataModel.state = 1;
+            [self.tableView reloadSection:indexPath.section withRowAnimation:UITableViewRowAnimationNone];
+        }
+    } error:nil];
+    
 }
 
 #pragma mark - 加载数据

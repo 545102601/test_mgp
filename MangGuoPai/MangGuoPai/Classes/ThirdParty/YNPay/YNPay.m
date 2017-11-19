@@ -9,7 +9,6 @@
 #import "YNPay.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "Order.h"
-#import "RSADataSigner.h"
 #import "WXApi.h"
 #import "NSString+YNPay.h"
 #import "DataMD5.h"
@@ -90,12 +89,19 @@
     
     YNPay *pay = [YNPay shareInstance];
     pay.completeBlock = completeClosure;
-   
+    
     // NOTE: 调用支付结果开始支付
     [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"MangGuoPaiAliPay" callback:^(NSDictionary *resultDic) {
-        NSString *resStr = resultDic[@"memo"];
         NSInteger resCode = [resultDic[@"resultStatus"] integerValue];
-        NSString *errorMsg_Temp = resCode != 9000 ? resStr : nil;
+        NSString *errorMsg_Temp;
+        if (resCode == 6001) { /// 用户中途取消
+            errorMsg_Temp = @"用户中途取消";
+        } else if (resCode == 9000) {
+            errorMsg_Temp = @"";
+        } else {
+            errorMsg_Temp = @"支付失败";
+        }
+        
         if(completeClosure != nil){completeClosure(errorMsg_Temp);}
     }];
     

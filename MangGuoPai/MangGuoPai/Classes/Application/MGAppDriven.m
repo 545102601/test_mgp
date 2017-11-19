@@ -26,6 +26,7 @@
 #import "MGSplashView.h"
 #import <MJRefresh.h>
 #import "UITabBar+Extend.h"
+#import <Bugly/Bugly.h>
 
 @interface MGAppDriven () <JPUSHRegisterDelegate>
 
@@ -73,6 +74,8 @@
     // 初始化百度统计
     [self startBaiduMobileStat];
     
+    /// 初始化bugly
+    [self setupBugly];
     
     /// 开启背景点击收回
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
@@ -108,6 +111,15 @@
 - (void)startBaiduMobileStat{
     BaiduMobStat* statTracker = [BaiduMobStat defaultStat];
     [statTracker startWithAppId:[CONFIG_MANAGER baiduMob_Key]]; // 设置您在mtj网站上添加的app的appkey,此处AppId即为应用的appKey
+}
+
+- (void)setupBugly {
+    
+    if ((PROD_CONFIG)) {
+        NSLog(@"---------- start bugly");
+        [Bugly startWithAppId:@"a8dd2600a0"];
+    }
+    
 }
 - (void)setupJPush:(NSDictionary *)launchOptions {
     NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];

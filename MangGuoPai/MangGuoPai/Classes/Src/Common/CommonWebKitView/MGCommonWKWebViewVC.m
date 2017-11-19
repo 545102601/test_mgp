@@ -33,13 +33,23 @@
     self.contentWebview.allowsBackForwardNavigationGestures = YES;
     [self.view addSubview:self.contentWebview];
     
+    
+    
     // HUD
     [TDLoading showViewInView:self.view];
+    
+    if (self.htmlString.length > 0) {
+        [self.contentWebview loadHTMLString:self.htmlString baseURL:nil];
+        
+        return;
+    }
     
     // 加载地址
     NSURL *url          = [NSURL URLWithString:self.urlString];
     NSURLRequest *req   = [NSURLRequest requestWithURL:url];
     [self.contentWebview loadRequest:req];
+    
+    
 }
 
 #pragma mark - Event Response

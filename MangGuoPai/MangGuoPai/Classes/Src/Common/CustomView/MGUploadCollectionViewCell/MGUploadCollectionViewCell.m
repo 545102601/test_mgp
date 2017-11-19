@@ -61,7 +61,13 @@
         _deleteButton.hidden = self.hiddenDeleteButton;
     } else {
         _deleteButton.hidden = YES;
-        [_contentButton setBackgroundImage:[UIImage imageNamed:@"found_add_pic"] forState:UIControlStateNormal];
+        
+        NSString *addButtonImageStr = @"found_add_pic";
+        if (_addButtonType == CellAddButtonTypeGray) {
+            addButtonImageStr = @"mine_icon_add";
+        }
+    
+        [_contentButton setBackgroundImage:[UIImage imageNamed:addButtonImageStr] forState:UIControlStateNormal];
     }
     
     

@@ -153,6 +153,21 @@
 }
 
 
+- (NSNumber *)placeCenterY
+{
+    NSNumber *centerY = objc_getAssociatedObject(self, _cmd);
+    if (!centerY) {
+        centerY = @(0);
+        objc_setAssociatedObject(self, _cmd, centerY, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return centerY;
+}
+
+- (void)setPlaceCenterY:(NSNumber *)placeCenterY {
+    objc_setAssociatedObject(self, @selector(placeCenterY), placeCenterY, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+
 #pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -205,6 +220,11 @@
     CGFloat width = CGRectGetWidth(self.bounds) - x - lineFragmentPadding - textContainerInset.right;
     CGFloat height = [self.placeholderLabel sizeThatFits:CGSizeMake(width, 0)].height;
     self.placeholderLabel.frame = CGRectMake(x, y, width, height);
+    
+    if ([self.placeCenterY floatValue] > 0) {
+        self.placeholderLabel.center = CGPointMake(self.placeholderLabel.center.x, [self.placeCenterY floatValue]);
+    }
+    
 }
 
 @end

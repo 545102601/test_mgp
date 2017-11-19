@@ -20,19 +20,7 @@
 		2E0FC51B1F301A0F00540829 /* MGPayOrderWayTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC51A1F301A0F00540829 /* MGPayOrderWayTableView.m */; };
 		2E0FC51E1F301D7200540829 /* MGPayOrderWayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC51D1F301D7200540829 /* MGPayOrderWayCell.m */; };
 		2E0FC5211F30527A00540829 /* MGPayOrderWayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5201F30527A00540829 /* MGPayOrderWayModel.m */; };
-		2E0FC5991F307FDA00540829 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E0FC5251F307FDA00540829 /* AlipaySDK.bundle */; };
-		2E0FC59A1F307FDA00540829 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5261F307FDA00540829 /* AlipaySDK.framework */; };
-		2E0FC59B1F307FDA00540829 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5271F307FDA00540829 /* libcrypto.a */; };
-		2E0FC59C1F307FDA00540829 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5281F307FDA00540829 /* libssl.a */; };
 		2E0FC59D1F307FDA00540829 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5761F307FDA00540829 /* Order.m */; };
-		2E0FC59E1F307FDA00540829 /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5791F307FDA00540829 /* base64.m */; };
-		2E0FC59F1F307FDA00540829 /* DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC57C1F307FDA00540829 /* DataSigner.m */; };
-		2E0FC5A01F307FDA00540829 /* DataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC57E1F307FDA00540829 /* DataVerifier.m */; };
-		2E0FC5A11F307FDA00540829 /* MD5DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5801F307FDA00540829 /* MD5DataSigner.m */; };
-		2E0FC5A21F307FDA00540829 /* NSDataEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5821F307FDA00540829 /* NSDataEx.m */; };
-		2E0FC5A31F307FDA00540829 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5841F307FDA00540829 /* openssl_wrapper.m */; };
-		2E0FC5A41F307FDA00540829 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5861F307FDA00540829 /* RSADataSigner.m */; };
-		2E0FC5A51F307FDA00540829 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5881F307FDA00540829 /* RSADataVerifier.m */; };
 		2E0FC5A61F307FDB00540829 /* DataMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC58A1F307FDA00540829 /* DataMD5.m */; };
 		2E0FC5A71F307FDB00540829 /* NSString+YNPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC58C1F307FDA00540829 /* NSString+YNPay.m */; };
 		2E0FC5A81F307FDB00540829 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC58E1F307FDA00540829 /* libWeChatSDK.a */; };
@@ -197,6 +185,8 @@
 		2E37CB2F1F964D10001BCD0A /* MGOrderPayResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */; };
 		2E3EA2DD1F9EDC1D00CA9A2D /* NSURL+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EA2DC1F9EDC1D00CA9A2D /* NSURL+Extend.m */; };
 		2E3EA2DE1F9EDC1D00CA9A2D /* NSURL+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EA2DC1F9EDC1D00CA9A2D /* NSURL+Extend.m */; };
+		2E3EA2F21FA08B6100CA9A2D /* MGMyLessonTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EA2F11FA08B6100CA9A2D /* MGMyLessonTriangleView.m */; };
+		2E3EA2F31FA08B6100CA9A2D /* MGMyLessonTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EA2F11FA08B6100CA9A2D /* MGMyLessonTriangleView.m */; };
 		2E3ECB641F98397B00017F1B /* MGEResumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECB631F98397B00017F1B /* MGEResumeVC.m */; };
 		2E3ECB651F98397B00017F1B /* MGEResumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECB631F98397B00017F1B /* MGEResumeVC.m */; };
 		2E3ECBF31F98ECF000017F1B /* MGAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECBF21F98ECF000017F1B /* MGAboutVC.m */; };
@@ -251,7 +241,6 @@
 		2E49EA211F5D146F00A260E7 /* DQAlertView+SelectTableViewExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E49EA201F5D146F00A260E7 /* DQAlertView+SelectTableViewExtend.m */; };
 		2E49EA351F5D51EB00A260E7 /* TDQucikSelectDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2DC01F5159560003BC3A /* TDQucikSelectDateView.m */; };
 		2E49EA361F5D51EB00A260E7 /* NSString+HTMLImageAdapt.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E6BB1F55440D00A260E7 /* NSString+HTMLImageAdapt.m */; };
-		2E49EA371F5D51EB00A260E7 /* DataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC57E1F307FDA00540829 /* DataVerifier.m */; };
 		2E49EA391F5D51EB00A260E7 /* MGTeacherCateogryDetailConditionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCB37C1F24B34A003C7A3B /* MGTeacherCateogryDetailConditionView.m */; };
 		2E49EA3A1F5D51EB00A260E7 /* MGResFavListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E50C2431F46D86F000AE31A /* MGResFavListModel.m */; };
 		2E49EA3B1F5D51EB00A260E7 /* UIView+YNCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA2011F029BCC0011DDDE /* UIView+YNCategory.m */; };
@@ -290,7 +279,6 @@
 		2E49EA5D1F5D51EB00A260E7 /* MGAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2DCA1F52D9F10003BC3A /* MGAccountVC.m */; };
 		2E49EA5E1F5D51EB00A260E7 /* CMInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1F81F029BBA0011DDDE /* CMInputView.m */; };
 		2E49EA5F1F5D51EB00A260E7 /* MGPayOrderWayTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC51A1F301A0F00540829 /* MGPayOrderWayTableView.m */; };
-		2E49EA601F5D51EB00A260E7 /* DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC57C1F307FDA00540829 /* DataSigner.m */; };
 		2E49EA611F5D51EB00A260E7 /* MGOrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D9A31F3333760059F13A /* MGOrderDetailVC.m */; };
 		2E49EA621F5D51EB00A260E7 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1801F02970C0011DDDE /* UIView+Frame.m */; };
 		2E49EA631F5D51EB00A260E7 /* MGBussiness+OrderExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA2B6F61F2F1F4500140572 /* MGBussiness+OrderExtend.m */; };
@@ -329,19 +317,16 @@
 		2E49EA841F5D51EB00A260E7 /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1941F0299AB0011DDDE /* BaseCollectionViewCell.m */; };
 		2E49EA851F5D51EB00A260E7 /* MGAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2DD61F52DEE30003BC3A /* MGAccountModel.m */; };
 		2E49EA861F5D51EB00A260E7 /* MGResOrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43D9821F32BD000059F13A /* MGResOrderListModel.m */; };
-		2E49EA871F5D51EB00A260E7 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5881F307FDA00540829 /* RSADataVerifier.m */; };
 		2E49EA881F5D51EB00A260E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1441F0294BF0011DDDE /* AppDelegate.m */; };
 		2E49EA891F5D51EB00A260E7 /* MGMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA2641F02A8F00011DDDE /* MGMineViewController.m */; };
 		2E49EA8A1F5D51EB00A260E7 /* TDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA2481F02A3AE0011DDDE /* TDNavigationBar.m */; };
 		2E49EA8B1F5D51EB00A260E7 /* UIViewController+YNCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA2031F029BCC0011DDDE /* UIViewController+YNCategory.m */; };
 		2E49EA8C1F5D51EB00A260E7 /* DataMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC58A1F307FDA00540829 /* DataMD5.m */; };
 		2E49EA8D1F5D51EB00A260E7 /* MGSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2E0F1F5419AC0003BC3A /* MGSearchResultCell.m */; };
-		2E49EA8E1F5D51EB00A260E7 /* NSDataEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5821F307FDA00540829 /* NSDataEx.m */; };
 		2E49EA8F1F5D51EB00A260E7 /* MGHomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB27F221F150A31006FA9A0 /* MGHomeTableView.m */; };
 		2E49EA901F5D51EB00A260E7 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5E21F31795300540829 /* SDPhotoBrowser.m */; };
 		2E49EA911F5D51EB00A260E7 /* MGWorkProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E6EC1F56A35600A260E7 /* MGWorkProgressView.m */; };
 		2E49EA921F5D51EB00A260E7 /* UIButton+NYImageLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1741F02970C0011DDDE /* UIButton+NYImageLocation.m */; };
-		2E49EA931F5D51EB00A260E7 /* MD5DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5801F307FDA00540829 /* MD5DataSigner.m */; };
 		2E49EA941F5D51EB00A260E7 /* MGBussiness+FoundExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E98B6E71F297F5C0034619D /* MGBussiness+FoundExtend.m */; };
 		2E49EA951F5D51EB00A260E7 /* MGAccountAddBlankVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2DDE1F5333AF0003BC3A /* MGAccountAddBlankVC.m */; };
 		2E49EA961F5D51EB00A260E7 /* MGFoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA2611F02A8D20011DDDE /* MGFoundViewController.m */; };
@@ -370,7 +355,6 @@
 		2E49EAAD1F5D51EB00A260E7 /* MGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2D9D1F4DC53E0003BC3A /* MGTool.m */; };
 		2E49EAAE1F5D51EB00A260E7 /* MOFSToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5CA1F31706F00540829 /* MOFSToolbar.m */; };
 		2E49EAAF1F5D51EB00A260E7 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1A41F0299AB0011DDDE /* BaseTableViewCell.m */; };
-		2E49EAB01F5D51EB00A260E7 /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5791F307FDA00540829 /* base64.m */; };
 		2E49EAB11F5D51EB00A260E7 /* MGHomeColletionViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2E031F53C9BE0003BC3A /* MGHomeColletionViewTableViewCell.m */; };
 		2E49EAB21F5D51EB00A260E7 /* MGTeacherRecommendSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3386ED1F1DE84700918D83 /* MGTeacherRecommendSectionHeader.m */; };
 		2E49EAB31F5D51EB00A260E7 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5E01F31795300540829 /* SDBrowserImageView.m */; };
@@ -389,7 +373,6 @@
 		2E49EAC01F5D51EB00A260E7 /* MGLevelUpgradeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E50C25B1F4A7987000AE31A /* MGLevelUpgradeCell.m */; };
 		2E49EAC11F5D51EB00A260E7 /* MGUpdateInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5EC1F321A0F00540829 /* MGUpdateInfoVC.m */; };
 		2E49EAC21F5D51EB00A260E7 /* MGTeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA2671F02A9020011DDDE /* MGTeacherViewController.m */; };
-		2E49EAC31F5D51EB00A260E7 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5841F307FDA00540829 /* openssl_wrapper.m */; };
 		2E49EAC41F5D51EB00A260E7 /* MGPayOrderWayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5171F2F715100540829 /* MGPayOrderWayVC.m */; };
 		2E49EAC51F5D51EB00A260E7 /* MGTeacherAllCategoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3386F31F1E49C700918D83 /* MGTeacherAllCategoryVC.m */; };
 		2E49EAC61F5D51EB00A260E7 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA19C1F0299AB0011DDDE /* BaseScrollView.m */; };
@@ -437,7 +420,6 @@
 		2E49EAF01F5D51EB00A260E7 /* TDEncrytAndDecrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1C61F029B200011DDDE /* TDEncrytAndDecrypt.m */; };
 		2E49EAF11F5D51EB00A260E7 /* MGCommonWKWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E05F9A51F146406005A2C63 /* MGCommonWKWebViewVC.m */; };
 		2E49EAF21F5D51EB00A260E7 /* MGMineInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E98B6921F25EEDF0034619D /* MGMineInfoVC.m */; };
-		2E49EAF31F5D51EB00A260E7 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5861F307FDA00540829 /* RSADataSigner.m */; };
 		2E49EAF41F5D51EB00A260E7 /* MGCommonEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E50C24E1F46EEB5000AE31A /* MGCommonEmptyView.m */; };
 		2E49EAF51F5D51EB00A260E7 /* TDExpendClickButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1AC1F0299AB0011DDDE /* TDExpendClickButton.m */; };
 		2E49EAF61F5D51EB00A260E7 /* MGMessageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2DB61F4FFA390003BC3A /* MGMessageListCell.m */; };
@@ -508,13 +490,9 @@
 		2E49EB391F5D51EB00A260E7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5B01F3081B100540829 /* SystemConfiguration.framework */; };
 		2E49EB3A1F5D51EB00A260E7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5AE1F30819E00540829 /* CoreLocation.framework */; };
 		2E49EB3B1F5D51EB00A260E7 /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5AC1F30818900540829 /* libz.1.tbd */; };
-		2E49EB3C1F5D51EB00A260E7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5281F307FDA00540829 /* libssl.a */; };
-		2E49EB3E1F5D51EB00A260E7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5261F307FDA00540829 /* AlipaySDK.framework */; };
-		2E49EB3F1F5D51EB00A260E7 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC5271F307FDA00540829 /* libcrypto.a */; };
 		2E49EB401F5D51EB00A260E7 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0FC58E1F307FDA00540829 /* libWeChatSDK.a */; };
 		2E49EB421F5D51EB00A260E7 /* UmengStatistics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EBAA1D71F029B6A0011DDDE /* UmengStatistics.plist */; };
 		2E49EB431F5D51EB00A260E7 /* province_data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2E0FC5CB1F31706F00540829 /* province_data.xml */; };
-		2E49EB441F5D51EB00A260E7 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E0FC5251F307FDA00540829 /* AlipaySDK.bundle */; };
 		2E49EB451F5D51EB00A260E7 /* prodConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EBAA1EF1F029BA00011DDDE /* prodConfig.plist */; };
 		2E49EB461F5D51EB00A260E7 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2EBAA2181F029BCC0011DDDE /* MBProgressHUD.bundle */; };
 		2E49EB471F5D51EB00A260E7 /* devConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EBAA1EE1F029BA00011DDDE /* devConfig.plist */; };
@@ -692,6 +670,10 @@
 		2EB27F351F152CAB006FA9A0 /* MGResEntityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB27F341F152CAB006FA9A0 /* MGResEntityModel.m */; };
 		2EB27F381F15B62B006FA9A0 /* MGBussinessRequest+MineExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB27F371F15B62B006FA9A0 /* MGBussinessRequest+MineExtend.m */; };
 		2EB27F3B1F15B72C006FA9A0 /* MGBussinessRequest+FoundExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB27F3A1F15B72C006FA9A0 /* MGBussinessRequest+FoundExtend.m */; };
+		2EB9367B1FBC164100808731 /* MGWorkJoinTeamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9367A1FBC164100808731 /* MGWorkJoinTeamVC.m */; };
+		2EB9367C1FBC164100808731 /* MGWorkJoinTeamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9367A1FBC164100808731 /* MGWorkJoinTeamVC.m */; };
+		2EB936831FBC2CB800808731 /* MGWorkMyIntroVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB936821FBC2CB800808731 /* MGWorkMyIntroVC.m */; };
+		2EB936841FBC2CB800808731 /* MGWorkMyIntroVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB936821FBC2CB800808731 /* MGWorkMyIntroVC.m */; };
 		2EBAA1421F0294BF0011DDDE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1411F0294BF0011DDDE /* main.m */; };
 		2EBAA1451F0294BF0011DDDE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAA1441F0294BF0011DDDE /* AppDelegate.m */; };
 		2EBAA14D1F0294BF0011DDDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EBAA14C1F0294BF0011DDDE /* Assets.xcassets */; };
@@ -773,6 +755,20 @@
 		2ECCB37D1F24B34A003C7A3B /* MGTeacherCateogryDetailConditionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCB37C1F24B34A003C7A3B /* MGTeacherCateogryDetailConditionView.m */; };
 		2ECCB3831F24BFCB003C7A3B /* MGMineSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCB3821F24BFCB003C7A3B /* MGMineSettingVC.m */; };
 		2ECCB3861F24C92D003C7A3B /* MGMineSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCB3851F24C92D003C7A3B /* MGMineSettingView.m */; };
+		2EDB21E71FBACDC80004F051 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2EDB21E51FBACDC80004F051 /* AlipaySDK.bundle */; };
+		2EDB21E81FBACDC80004F051 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2EDB21E51FBACDC80004F051 /* AlipaySDK.bundle */; };
+		2EDB21E91FBACDC80004F051 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDB21E61FBACDC80004F051 /* AlipaySDK.framework */; };
+		2EDB21EA1FBACDC80004F051 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDB21E61FBACDC80004F051 /* AlipaySDK.framework */; };
+		2EDB21ED1FBACDD30004F051 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDB21EB1FBACDD30004F051 /* libcrypto.a */; };
+		2EDB21EE1FBACDD30004F051 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDB21EB1FBACDD30004F051 /* libcrypto.a */; };
+		2EDB21EF1FBACDD30004F051 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDB21EC1FBACDD30004F051 /* libssl.a */; };
+		2EDB21F01FBACDD30004F051 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDB21EC1FBACDD30004F051 /* libssl.a */; };
+		2EDB21F61FBACDE90004F051 /* APRSASigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB21F31FBACDE90004F051 /* APRSASigner.m */; };
+		2EDB21F71FBACDE90004F051 /* APRSASigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB21F31FBACDE90004F051 /* APRSASigner.m */; };
+		2EDB21F81FBACDE90004F051 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB21F51FBACDE90004F051 /* openssl_wrapper.m */; };
+		2EDB21F91FBACDE90004F051 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB21F51FBACDE90004F051 /* openssl_wrapper.m */; };
+		2EF304591FAC79630063EF52 /* UserProtocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 2EF304581FAC79630063EF52 /* UserProtocol.html */; };
+		2EF3045A1FAC79630063EF52 /* UserProtocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 2EF304581FAC79630063EF52 /* UserProtocol.html */; };
 		3553B04D38FCE7CF0D5E88E8 /* libPods-MangGuoPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE11B2145204770A78B3E05F /* libPods-MangGuoPai.a */; };
 		B05341C20E6A91B0523BB4E6 /* libPods-MangGuoPai_Dev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3143A7E57154288F9250D0F6 /* libPods-MangGuoPai_Dev.a */; };
 		C0F85D4B021EFC38ACEE9B20 /* libPods-MangGuoPai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE11B2145204770A78B3E05F /* libPods-MangGuoPai.a */; };
@@ -805,10 +801,6 @@
 		2E0FC51D1F301D7200540829 /* MGPayOrderWayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPayOrderWayCell.m; sourceTree = "<group>"; };
 		2E0FC51F1F30527A00540829 /* MGPayOrderWayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPayOrderWayModel.h; sourceTree = "<group>"; };
 		2E0FC5201F30527A00540829 /* MGPayOrderWayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPayOrderWayModel.m; sourceTree = "<group>"; };
-		2E0FC5251F307FDA00540829 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
-		2E0FC5261F307FDA00540829 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
-		2E0FC5271F307FDA00540829 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		2E0FC5281F307FDA00540829 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		2E0FC52A1F307FDA00540829 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		2E0FC52B1F307FDA00540829 /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
 		2E0FC52C1F307FDA00540829 /* asn1_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
@@ -886,23 +878,6 @@
 		2E0FC5741F307FDA00540829 /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
 		2E0FC5751F307FDA00540829 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		2E0FC5761F307FDA00540829 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
-		2E0FC5781F307FDA00540829 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
-		2E0FC5791F307FDA00540829 /* base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = base64.m; sourceTree = "<group>"; };
-		2E0FC57A1F307FDA00540829 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		2E0FC57B1F307FDA00540829 /* DataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSigner.h; sourceTree = "<group>"; };
-		2E0FC57C1F307FDA00540829 /* DataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSigner.m; sourceTree = "<group>"; };
-		2E0FC57D1F307FDA00540829 /* DataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataVerifier.h; sourceTree = "<group>"; };
-		2E0FC57E1F307FDA00540829 /* DataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataVerifier.m; sourceTree = "<group>"; };
-		2E0FC57F1F307FDA00540829 /* MD5DataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5DataSigner.h; sourceTree = "<group>"; };
-		2E0FC5801F307FDA00540829 /* MD5DataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5DataSigner.m; sourceTree = "<group>"; };
-		2E0FC5811F307FDA00540829 /* NSDataEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataEx.h; sourceTree = "<group>"; };
-		2E0FC5821F307FDA00540829 /* NSDataEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataEx.m; sourceTree = "<group>"; };
-		2E0FC5831F307FDA00540829 /* openssl_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_wrapper.h; sourceTree = "<group>"; };
-		2E0FC5841F307FDA00540829 /* openssl_wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openssl_wrapper.m; sourceTree = "<group>"; };
-		2E0FC5851F307FDA00540829 /* RSADataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataSigner.h; sourceTree = "<group>"; };
-		2E0FC5861F307FDA00540829 /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
-		2E0FC5871F307FDA00540829 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
-		2E0FC5881F307FDA00540829 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		2E0FC5891F307FDA00540829 /* DataMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataMD5.h; sourceTree = "<group>"; };
 		2E0FC58A1F307FDA00540829 /* DataMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataMD5.m; sourceTree = "<group>"; };
 		2E0FC58B1F307FDA00540829 /* NSString+YNPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YNPay.h"; sourceTree = "<group>"; };
@@ -1134,6 +1109,8 @@
 		2E37CB2D1F964D10001BCD0A /* MGOrderPayResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGOrderPayResultView.m; sourceTree = "<group>"; };
 		2E3EA2DB1F9EDC1D00CA9A2D /* NSURL+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Extend.h"; sourceTree = "<group>"; };
 		2E3EA2DC1F9EDC1D00CA9A2D /* NSURL+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Extend.m"; sourceTree = "<group>"; };
+		2E3EA2F01FA08B6100CA9A2D /* MGMyLessonTriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMyLessonTriangleView.h; sourceTree = "<group>"; };
+		2E3EA2F11FA08B6100CA9A2D /* MGMyLessonTriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMyLessonTriangleView.m; sourceTree = "<group>"; };
 		2E3ECB621F98397B00017F1B /* MGEResumeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEResumeVC.h; sourceTree = "<group>"; };
 		2E3ECB631F98397B00017F1B /* MGEResumeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEResumeVC.m; sourceTree = "<group>"; };
 		2E3ECBF11F98ECF000017F1B /* MGAboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGAboutVC.h; sourceTree = "<group>"; };
@@ -1450,6 +1427,10 @@
 		2EB27F371F15B62B006FA9A0 /* MGBussinessRequest+MineExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MGBussinessRequest+MineExtend.m"; sourceTree = "<group>"; };
 		2EB27F391F15B72C006FA9A0 /* MGBussinessRequest+FoundExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MGBussinessRequest+FoundExtend.h"; sourceTree = "<group>"; };
 		2EB27F3A1F15B72C006FA9A0 /* MGBussinessRequest+FoundExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MGBussinessRequest+FoundExtend.m"; sourceTree = "<group>"; };
+		2EB936791FBC164100808731 /* MGWorkJoinTeamVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWorkJoinTeamVC.h; sourceTree = "<group>"; };
+		2EB9367A1FBC164100808731 /* MGWorkJoinTeamVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWorkJoinTeamVC.m; sourceTree = "<group>"; };
+		2EB936811FBC2CB800808731 /* MGWorkMyIntroVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWorkMyIntroVC.h; sourceTree = "<group>"; };
+		2EB936821FBC2CB800808731 /* MGWorkMyIntroVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWorkMyIntroVC.m; sourceTree = "<group>"; };
 		2EBAA13D1F0294BF0011DDDE /* MangGuoPai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangGuoPai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EBAA1411F0294BF0011DDDE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2EBAA1431F0294BF0011DDDE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -1613,6 +1594,15 @@
 		2ECCB3821F24BFCB003C7A3B /* MGMineSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMineSettingVC.m; sourceTree = "<group>"; };
 		2ECCB3841F24C92D003C7A3B /* MGMineSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMineSettingView.h; sourceTree = "<group>"; };
 		2ECCB3851F24C92D003C7A3B /* MGMineSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMineSettingView.m; sourceTree = "<group>"; };
+		2EDB21E51FBACDC80004F051 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		2EDB21E61FBACDC80004F051 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		2EDB21EB1FBACDD30004F051 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		2EDB21EC1FBACDD30004F051 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		2EDB21F21FBACDE90004F051 /* APRSASigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APRSASigner.h; sourceTree = "<group>"; };
+		2EDB21F31FBACDE90004F051 /* APRSASigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APRSASigner.m; sourceTree = "<group>"; };
+		2EDB21F41FBACDE90004F051 /* openssl_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_wrapper.h; sourceTree = "<group>"; };
+		2EDB21F51FBACDE90004F051 /* openssl_wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openssl_wrapper.m; sourceTree = "<group>"; };
+		2EF304581FAC79630063EF52 /* UserProtocol.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UserProtocol.html; sourceTree = "<group>"; };
 		3143A7E57154288F9250D0F6 /* libPods-MangGuoPai_Dev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MangGuoPai_Dev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2291A928258DB031F01EF8 /* Pods-MangGuoPai_Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangGuoPai_Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MangGuoPai_Dev/Pods-MangGuoPai_Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		A50B69031E6402F2EA9B3961 /* Pods-MangGuoPai_Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangGuoPai_Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-MangGuoPai_Dev/Pods-MangGuoPai_Dev.release.xcconfig"; sourceTree = "<group>"; };
@@ -1628,16 +1618,16 @@
 			files = (
 				2E49EB341F5D51EB00A260E7 /* libxml2.2.tbd in Frameworks */,
 				2E49EB351F5D51EB00A260E7 /* CoreMotion.framework in Frameworks */,
+				2EDB21EE1FBACDD30004F051 /* libcrypto.a in Frameworks */,
 				2E49EB361F5D51EB00A260E7 /* AVFoundation.framework in Frameworks */,
 				2E49EB371F5D51EB00A260E7 /* AddressBook.framework in Frameworks */,
 				2E49EB381F5D51EB00A260E7 /* CoreTelephony.framework in Frameworks */,
 				2E49EB391F5D51EB00A260E7 /* SystemConfiguration.framework in Frameworks */,
+				2EDB21EA1FBACDC80004F051 /* AlipaySDK.framework in Frameworks */,
 				2E49EB3A1F5D51EB00A260E7 /* CoreLocation.framework in Frameworks */,
 				2E49EB3B1F5D51EB00A260E7 /* libz.1.tbd in Frameworks */,
-				2E49EB3C1F5D51EB00A260E7 /* libssl.a in Frameworks */,
-				2E49EB3E1F5D51EB00A260E7 /* AlipaySDK.framework in Frameworks */,
-				2E49EB3F1F5D51EB00A260E7 /* libcrypto.a in Frameworks */,
 				2E49EB401F5D51EB00A260E7 /* libWeChatSDK.a in Frameworks */,
+				2EDB21F01FBACDD30004F051 /* libssl.a in Frameworks */,
 				B05341C20E6A91B0523BB4E6 /* libPods-MangGuoPai_Dev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1648,16 +1638,16 @@
 			files = (
 				2E0FC5D51F3170BC00540829 /* libxml2.2.tbd in Frameworks */,
 				2E0FC5B91F30820B00540829 /* CoreMotion.framework in Frameworks */,
+				2EDB21EF1FBACDD30004F051 /* libssl.a in Frameworks */,
 				2E0FC5B71F30820000540829 /* AVFoundation.framework in Frameworks */,
 				2E0FC5B51F3081D000540829 /* AddressBook.framework in Frameworks */,
 				2E0FC5B31F3081BD00540829 /* CoreTelephony.framework in Frameworks */,
+				2EDB21E91FBACDC80004F051 /* AlipaySDK.framework in Frameworks */,
 				2E0FC5B11F3081B100540829 /* SystemConfiguration.framework in Frameworks */,
 				2E0FC5AF1F30819E00540829 /* CoreLocation.framework in Frameworks */,
 				2E0FC5AD1F30818900540829 /* libz.1.tbd in Frameworks */,
-				2E0FC59C1F307FDA00540829 /* libssl.a in Frameworks */,
 				C0F85D4B021EFC38ACEE9B20 /* libPods-MangGuoPai.a in Frameworks */,
-				2E0FC59A1F307FDA00540829 /* AlipaySDK.framework in Frameworks */,
-				2E0FC59B1F307FDA00540829 /* libcrypto.a in Frameworks */,
+				2EDB21ED1FBACDD30004F051 /* libcrypto.a in Frameworks */,
 				2E0FC5A81F307FDB00540829 /* libWeChatSDK.a in Frameworks */,
 				3553B04D38FCE7CF0D5E88E8 /* libPods-MangGuoPai.a in Frameworks */,
 			);
@@ -1794,14 +1784,14 @@
 		2E0FC5241F307FDA00540829 /* AliSDKLibs15.2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				2E0FC5251F307FDA00540829 /* AlipaySDK.bundle */,
-				2E0FC5261F307FDA00540829 /* AlipaySDK.framework */,
-				2E0FC5271F307FDA00540829 /* libcrypto.a */,
-				2E0FC5281F307FDA00540829 /* libssl.a */,
+				2EDB21EB1FBACDD30004F051 /* libcrypto.a */,
+				2EDB21EC1FBACDD30004F051 /* libssl.a */,
+				2EDB21E51FBACDC80004F051 /* AlipaySDK.bundle */,
+				2EDB21E61FBACDC80004F051 /* AlipaySDK.framework */,
+				2EDB21F11FBACDE90004F051 /* Utils */,
 				2E0FC5291F307FDA00540829 /* openssl */,
 				2E0FC5751F307FDA00540829 /* Order.h */,
 				2E0FC5761F307FDA00540829 /* Order.m */,
-				2E0FC5771F307FDA00540829 /* Util */,
 			);
 			path = AliSDKLibs15.2.0;
 			sourceTree = "<group>";
@@ -1886,30 +1876,6 @@
 				2E0FC5741F307FDA00540829 /* x509v3.h */,
 			);
 			path = openssl;
-			sourceTree = "<group>";
-		};
-		2E0FC5771F307FDA00540829 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				2E0FC5781F307FDA00540829 /* base64.h */,
-				2E0FC5791F307FDA00540829 /* base64.m */,
-				2E0FC57A1F307FDA00540829 /* config.h */,
-				2E0FC57B1F307FDA00540829 /* DataSigner.h */,
-				2E0FC57C1F307FDA00540829 /* DataSigner.m */,
-				2E0FC57D1F307FDA00540829 /* DataVerifier.h */,
-				2E0FC57E1F307FDA00540829 /* DataVerifier.m */,
-				2E0FC57F1F307FDA00540829 /* MD5DataSigner.h */,
-				2E0FC5801F307FDA00540829 /* MD5DataSigner.m */,
-				2E0FC5811F307FDA00540829 /* NSDataEx.h */,
-				2E0FC5821F307FDA00540829 /* NSDataEx.m */,
-				2E0FC5831F307FDA00540829 /* openssl_wrapper.h */,
-				2E0FC5841F307FDA00540829 /* openssl_wrapper.m */,
-				2E0FC5851F307FDA00540829 /* RSADataSigner.h */,
-				2E0FC5861F307FDA00540829 /* RSADataSigner.m */,
-				2E0FC5871F307FDA00540829 /* RSADataVerifier.h */,
-				2E0FC5881F307FDA00540829 /* RSADataVerifier.m */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		2E0FC58D1F307FDA00540829 /* WeiXinSDK1.7.4 */ = {
@@ -2835,6 +2801,8 @@
 		2E49E6CB1F5661F700A260E7 /* MGWorkVC(工作包) */ = {
 			isa = PBXGroup;
 			children = (
+				2EB9367D1FBC2CAC00808731 /* MGWorkMyIntroVC(自我介绍) */,
+				2EB936761FBC163000808731 /* MGWorkJoinTeam(加入团队) */,
 				2E37C9581F92A447001BCD0A /* MGWorkLookOtherVC(查看其它) */,
 				2E37C93A1F92853A001BCD0A /* MGWorkWriteCommentVC(写评价) */,
 				2E37C9331F9282A4001BCD0A /* MGWorkLookProductVC(查看作品) */,
@@ -2985,6 +2953,8 @@
 				2E49E9FC1F58FF3200A260E7 /* MGMyLessonBaseTableView.m */,
 				2E49E9FE1F58FF4600A260E7 /* MGMyLessonBaseCell.h */,
 				2E49E9FF1F58FF4600A260E7 /* MGMyLessonBaseCell.m */,
+				2E3EA2F01FA08B6100CA9A2D /* MGMyLessonTriangleView.h */,
+				2E3EA2F11FA08B6100CA9A2D /* MGMyLessonTriangleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3568,6 +3538,64 @@
 			path = PageControl;
 			sourceTree = "<group>";
 		};
+		2EB936761FBC163000808731 /* MGWorkJoinTeam(加入团队) */ = {
+			isa = PBXGroup;
+			children = (
+				2EB936771FBC163000808731 /* Controller */,
+				2EB936781FBC163000808731 /* View */,
+			);
+			path = "MGWorkJoinTeam(加入团队)";
+			sourceTree = "<group>";
+		};
+		2EB936771FBC163000808731 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2EB936791FBC164100808731 /* MGWorkJoinTeamVC.h */,
+				2EB9367A1FBC164100808731 /* MGWorkJoinTeamVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2EB936781FBC163000808731 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EB9367D1FBC2CAC00808731 /* MGWorkMyIntroVC(自我介绍) */ = {
+			isa = PBXGroup;
+			children = (
+				2EB9367E1FBC2CAC00808731 /* Controller */,
+				2EB9367F1FBC2CAC00808731 /* Model */,
+				2EB936801FBC2CAC00808731 /* View */,
+			);
+			path = "MGWorkMyIntroVC(自我介绍)";
+			sourceTree = "<group>";
+		};
+		2EB9367E1FBC2CAC00808731 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2EB936811FBC2CB800808731 /* MGWorkMyIntroVC.h */,
+				2EB936821FBC2CB800808731 /* MGWorkMyIntroVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2EB9367F1FBC2CAC00808731 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2EB936801FBC2CAC00808731 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2EBAA1341F0294BF0011DDDE = {
 			isa = PBXGroup;
 			children = (
@@ -3613,6 +3641,7 @@
 		2EBAA1571F0295290011DDDE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2EF304581FAC79630063EF52 /* UserProtocol.html */,
 				2E05F97F1F1128DF005A2C63 /* ReadMe.txt */,
 				2EBAA14C1F0294BF0011DDDE /* Assets.xcassets */,
 			);
@@ -4365,6 +4394,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2EDB21F11FBACDE90004F051 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2EDB21F21FBACDE90004F051 /* APRSASigner.h */,
+				2EDB21F31FBACDE90004F051 /* APRSASigner.m */,
+				2EDB21F41FBACDE90004F051 /* openssl_wrapper.h */,
+				2EDB21F51FBACDE90004F051 /* openssl_wrapper.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		44C94383302400EB856F6A3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -4426,6 +4466,7 @@
 				2EBAA13B1F0294BF0011DDDE /* Resources */,
 				CE90AEBFD0F0ECAC9C136DC6 /* [CP] Embed Pods Frameworks */,
 				98A6FC7A65FA75C8604F6112 /* [CP] Copy Pods Resources */,
+				2EAE70061FBB21E2008F1042 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -4486,11 +4527,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDB21E81FBACDC80004F051 /* AlipaySDK.bundle in Resources */,
 				2E49EB421F5D51EB00A260E7 /* UmengStatistics.plist in Resources */,
 				2E49EB431F5D51EB00A260E7 /* province_data.xml in Resources */,
-				2E49EB441F5D51EB00A260E7 /* AlipaySDK.bundle in Resources */,
 				2E2129F31F8F5E6200B57420 /* qrcode_border@2x.png in Resources */,
 				2E7E3C931F751E2D00A3D288 /* qrcode_back@2x.png in Resources */,
+				2EF3045A1FAC79630063EF52 /* UserProtocol.html in Resources */,
 				2E49EB451F5D51EB00A260E7 /* prodConfig.plist in Resources */,
 				2E49EB461F5D51EB00A260E7 /* MBProgressHUD.bundle in Resources */,
 				2E2129F71F8F5E6200B57420 /* qrcode_line@2x.png in Resources */,
@@ -4507,11 +4549,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDB21E71FBACDC80004F051 /* AlipaySDK.bundle in Resources */,
 				2EBAA1D91F029B6A0011DDDE /* UmengStatistics.plist in Resources */,
 				2E0FC5D31F31707000540829 /* province_data.xml in Resources */,
-				2E0FC5991F307FDA00540829 /* AlipaySDK.bundle in Resources */,
 				2E2129F21F8F5E6200B57420 /* qrcode_border@2x.png in Resources */,
 				2E7E3C921F751E2D00A3D288 /* qrcode_back@2x.png in Resources */,
+				2EF304591FAC79630063EF52 /* UserProtocol.html in Resources */,
 				2EBAA1F11F029BA00011DDDE /* prodConfig.plist in Resources */,
 				2EBAA2281F029BCC0011DDDE /* MBProgressHUD.bundle in Resources */,
 				2E2129F61F8F5E6200B57420 /* qrcode_line@2x.png in Resources */,
@@ -4541,6 +4584,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MangGuoPai_Dev/Pods-MangGuoPai_Dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		2EAE70061FBB21E2008F1042 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n#\n# Copyright 2016 Bugly, Tencent. All rights reserved.\n#\n# V1.4.0\n#\n# 2016.08.03\n#\n#\n#\n######################################################\n# 1. 脚本集成到Xcode工程的Target\n######################################################\n#\n# --- Copy the SCRIPT to the Run Script of Build Phases in the Xcode project ---\n#\n# #\nBUGLY_APP_ID=\"a8dd2600a0\"\n# #\nBUGLY_APP_KEY=\"e43b4b12-993d-414f-a267-52f5be8a7341\"\n# #\nBUNDLE_IDENTIFIER=\"cn.com.mangopi.ios\"\n# #\nUPLOAD_DSYM_ONLY=0\n#\n# # 脚本默认配置的版本格式为CFBundleShortVersionString(CFBundleVersion),  如果你修改默认的版本格式, 请设置此变量, 如果不想修改, 请忽略此设置\n# CUSTOMIZED_APP_VERSION=\"\"\n#\n# # Debug模式编译是否上传，1＝上传 0＝不上传，默认不上传\nUPLOAD_DEBUG_SYMBOLS=0\n#\n# # 模拟器编译是否上传，1=上传 0=不上传，默认不上传\nUPLOAD_SIMULATOR_SYMBOLS=0\n#\n# #只有Archive操作时上传, 1=支持Archive上传 0=所有Release模式编译都上传\nUPLOAD_ARCHIVE_ONLY=0\n#\n# #\n# source dSYMUpload.sh\n#\n# --- END OF SCRIPT ---\n#\n#\n#\n#\n#######################################################\n# 2. 脚本根据输入参数处理\n#######################################################\n#\n# #命令行下输入应用基本信息, .dSYM文件的父目录路径, 输出文件目录即可\n#\n# sh dSYMUpload.sh <bugly_app_id> <bugly_app_key> <app_bundle_identifier> <app_version> <dSYM_src_dir> <bSYMBOL_dest_dir>\n#\n# #\n#\n# #注意:\n# # 1. dSYMUpload.sh会调用buglySymboliOS.jar进行.dSYM解析，所以依赖Java运行时环境\n# # 2. dSYMUpload.sh和buglySymboliOS.jar的文件路径需一致\n#\n#\n\n#\n# --- CONTENT OF SCRIPT ---\n#\n\n# Bugly服务域名\nBUGLY_DSYM_UPLOAD_DOMAIN=\"api.bugly.qq.com\"\n\n# 注意jar工具的路径跟dSYMUpload.sh脚本路径一致, 请务必保证jar路径的正确性\nBUGLY_SYMBOL_JAR_PATH=\"dsymtool/buglySymboliOS.jar\"\n# 查找添加到系统目录的jar工具\nif [ ! -f \"${BUGLY_SYMBOL_JAR_PATH}\" ]; then\nBUGLY_SYMBOL_JAR_PATH=\"$HOME/bin/buglySymboliOS.jar\"\nfi\n\n# 打印错误信息\nfunction exitWithMessage(){\n    echo \"--------------------------------\"\n    echo \"${1}\"\n    echo \"--------------------------------\"\n    exit ${2}\n}\n\n# 上传bSYMBOL文件\nfunction dSYMUpload() {\n    P_APP_ID=\"$1\"\n    P_APP_KEY=\"$2\"\n    P_APP_BUNDLE_ID=\"$3\"\n    P_APP_VERSION=\"$4\"\n    P_BSYMBOL_ZIP_FILE=\"$5\"\n    \n    #\n    P_BSYMBOL_ZIP_FILE_NAME=${P_BSYMBOL_ZIP_FILE##*/}\n        P_BSYMBOL_ZIP_FILE_NAME=${P_BSYMBOL_ZIP_FILE_NAME//&/_}\n            P_BSYMBOL_ZIP_FILE_NAME=\"${P_BSYMBOL_ZIP_FILE_NAME// /_}\"\n            \n            DSYM_UPLOAD_URL=\"https://${BUGLY_DSYM_UPLOAD_DOMAIN}/openapi/file/upload/symbol?app_id=${P_APP_ID}&app_key=${P_APP_KEY}\"\n            echo \"dSYM upload url: ${DSYM_UPLOAD_URL}\"\n            \n            echo \"-----------------------------\"\n            STATUS=$(/usr/bin/curl -k \"${DSYM_UPLOAD_URL}\" --form \"api_version=1\" --form \"app_id=${P_APP_ID}\" --form \"app_key=${P_APP_KEY}\" --form \"symbolType=2\"  --form \"bundleId=${BUNDLE_IDENTIFIER}\" --form \"productVersion=${BUGLY_APP_VERSION}\" --form \"fileName=${P_BSYMBOL_ZIP_FILE_NAME}\" --form \"file=@${P_BSYMBOL_ZIP_FILE}\" --verbose)\n            echo \"-----------------------------\"\n            \n            UPLOAD_RESULT=\"FAILTURE\"\n            echo \"Bugly server response: ${STATUS}\"\n            if [ ! \"${STATUS}\" ]; then\n            echo \"Error: Failed to upload the zip archive file.\"\n            elif [[ \"${STATUS}\" == *\"{\\\"reponseCode\\\":\\\"0\\\"}\"* ]]; then\n            echo \"Success to upload the dSYM for the app [${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION}]\"\n            UPLOAD_RESULT=\"SUCCESS\"\n            else\n            echo \"Error: Failed to upload the zip archive file to Bugly.\"\n            fi\n            \n            #Remove temp dSYM archive\n            #echo \"Remove temporary zip archive: ${DSYM_ZIP_FPATH}\"\n            #/bin/rm -f \"${DSYM_ZIP_FPATH}\"\n            \n            if [ \"$?\" -ne 0 ]; then\n            exitWithMessage \"Error: Failed to remove temporary zip archive.\" 0\n            fi\n            \n            echo \"--------------------------------\"\n            echo \"${UPLOAD_RESULT} - dSYM upload complete.\"\n            \n            if [[ \"${UPLOAD_RESULT}\" == \"FAILTURE\" ]]; then\n            echo \"--------------------------------\"\n            echo \"Failed to upload the dSYM\"\n            echo \"Please check the script and try it again.\"\n            fi\n        }\n        \n        # .dSYM解析为bSYMBOL文件\n        function dSYMParse() {\n            DSYM_FILE=\"$1\"\n            DSYM_SYMBOL_FILE=\"$2\"\n            \n            echo \"--------------------------------\"\n            echo \"Extract symbol info from .dSYM file. to ${DSYM_SYMBOL_FILE}\"\n            (/usr/bin/java -Xms512m -Xmx1024m -Dfile.encoding=UTF8 -jar \"${BUGLY_SYMBOL_JAR_PATH}\" -i \"${DSYM_FILE}\" -o \"${DSYM_SYMBOL_FILE}\" ) || exitWithMessage \"Error: Failed to extract symbols.\" 1\n            echo \"--------------------------------\"\n            \n        }\n        \n        # 执行\n        function run() {\n            \n            CONFIG_BUGLY_APP_ID=\"$1\"\n            CONFIG_BUGLY_APP_KEY=\"$2\"\n            \n            CONFIG_BUGLY_APP_BUNDLE_IDENTIFIER=\"$3\"\n            CONFIG_BUGLY_APP_VERSION=\"$4\"\n            CONFIG_DSYM_SOURCE_DIR=\"$5\"\n            CONFIG_DSYM_DEST_DIR=\"$6\"\n            CONFIG_UPLOAD_DSYM_ONLY=\"$7\"\n            \n            # 检查必须参数是否设置\n            if [ ! \"${CONFIG_BUGLY_APP_ID}\" ]; then\n            exitWithMessage \"Error: Bugly App ID not defined. Please set 'BUGLY_APP_ID' \" 0\n            fi\n            \n            if [[ \"${CONFIG_BUGLY_APP_ID}\" == *\"App ID\"* ]]; then\n            exitWithMessage \"Error: Bugly App ID not defined.\" 0\n            fi\n            \n            if [ ! \"${CONFIG_BUGLY_APP_KEY}\" ]; then\n            exitWithMessage \"Error: Bugly App Key not defined.\" 0\n            fi\n            \n            if [ ! \"${CONFIG_BUGLY_APP_BUNDLE_IDENTIFIER}\" ]; then\n            exitWithMessage \"Error: Bundle Identifier not defined.\" 0\n            fi\n            \n            if [ ! \"${CONFIG_BUGLY_APP_VERSION}\" ]; then\n            exitWithMessage \"Error: App Version not defined.\" 0\n            fi\n            \n            if [ ! -e \"${CONFIG_DSYM_SOURCE_DIR}\" ]; then\n            exitWithMessage \"Error: Invalid dir ${CONFIG_DSYM_SOURCE_DIR}\" 0\n            fi\n            \n            if [ ! \"${CONFIG_DSYM_DEST_DIR}\" ]; then\n            exitWithMessage \"Error: Invalid dir ${CONFIG_DSYM_DEST_DIR}\" 0\n            fi\n            \n            if [ ! -e \"${CONFIG_DSYM_DEST_DIR}\" ]; then\n            mkdir ${CONFIG_DSYM_DEST_DIR}\n            fi\n            \n            DSYM_FOLDER=\"${CONFIG_DSYM_SOURCE_DIR}\"\n            IFS=$'\\n'\n            \n            echo \"Scaning dSYM FOLDER: ${DSYM_FOLDER} ...\"\n            RET=\"F\"\n            \n            #\n            for dsymFile in $(find \"$DSYM_FOLDER\" -name '*.dSYM'); do\n            RET=\"T\"\n            echo \"Found dSYM file: $dsymFile\"\n            \n            DSYM_FILE_NAME=${dsymFile##*/}\n                DSYM_SYMBOL_ZIP_FILE_NAME=\"${DSYM_FILE_NAME}.zip\"\n                DSYM_SYMBOL_ZIP_FILE_NAME=\"${DSYM_SYMBOL_ZIP_FILE_NAME// /_}\"\n                DSYM_SYMBOL_ZIP_FILE=${CONFIG_DSYM_DEST_DIR}/${DSYM_SYMBOL_ZIP_FILE_NAME}\n                \n                if [ $CONFIG_UPLOAD_DSYM_ONLY -eq 1 ]; then\n                if [ -e $DSYM_SYMBOL_ZIP_FILE ]; then\n                rm -f $DSYM_SYMBOL_ZIP_FILE\n                fi\n                # 如果只上传dSYM，直接压缩dSYM目录\n                zip -r -j $DSYM_SYMBOL_ZIP_FILE $dsymFile -x *.plist\n                else\n                # 使用符号表工具来生成Symbol文件\n                dSYMParse $dsymFile $DSYM_SYMBOL_ZIP_FILE\n                fi\n                \n                # 上传\n                dSYMUpload $CONFIG_BUGLY_APP_ID $CONFIG_BUGLY_APP_KEY $CONFIG_BUGLY_APP_BUNDLE_IDENTIFIER $CONFIG_BUGLY_APP_VERSION $DSYM_SYMBOL_ZIP_FILE\n                done\n                \n                if [ $RET = \"F\" ]; then\n                exitWithMessage \"No .dSYM found in ${DSYM_FOLDER}\" 0\n                fi\n            }\n            \n            # 在Xcode工程中执行\n            function runInXcode(){\n                echo \"Uploading dSYM to Bugly in Xcode ...\"\n                \n                echo \"Info.Plist : ${INFOPLIST_FILE}\"\n                \n                BUNDLE_VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' \"${INFOPLIST_FILE}\")\n                BUNDLE_SHORT_VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' \"${INFOPLIST_FILE}\")\n                \n                # 组装Bugly默认识别的版本信息(格式为CFBundleShortVersionString(CFBundleVersion), 例如: 1.0(1))\n                if [ ! \"${CUSTOMIZED_APP_VERSION}\" ]; then\n                BUGLY_APP_VERSION=\"${BUNDLE_SHORT_VERSION}(${BUNDLE_VERSION})\"\n                else\n                BUGLY_APP_VERSION=\"${CUSTOMIZED_APP_VERSION}\"\n                fi\n                \n                echo \"--------------------------------\"\n                echo \"Prepare application information.\"\n                echo \"--------------------------------\"\n                \n                echo \"Product Name: ${PRODUCT_NAME}\"\n                echo \"Bundle Identifier: ${BUNDLE_IDENTIFIER}\"\n                echo \"Version: ${BUNDLE_SHORT_VERSION}\"\n                echo \"Build: ${BUNDLE_VERSION}\"\n                \n                echo \"Bugly App ID: ${BUGLY_APP_ID}\"\n                echo \"Bugly App key: ${BUGLY_APP_KEY}\"\n                echo \"Bugly App Version: ${BUGLY_APP_VERSION}\"\n                \n                echo \"--------------------------------\"\n                echo \"Check the arguments ...\"\n                \n                ##检查模拟器编译是否允许上传符号\n                if [ \"$EFFECTIVE_PLATFORM_NAME\" == \"-iphonesimulator\" ]; then\n                if [ $UPLOAD_SIMULATOR_SYMBOLS -eq 0 ]; then\n                exitWithMessage \"Warning: Build for simulator and skipping to upload. \\nYou can modify 'UPLOAD_SIMULATOR_SYMBOLS' to 1 in the script.\" 0\n                fi\n                fi\n                \n                ##检查是否是Release模式编译\n                if [ \"${CONFIGURATION=}\" == \"Debug\" ]; then\n                if [ $UPLOAD_DEBUG_SYMBOLS -eq 0 ]; then\n                exitWithMessage \"Warning: Build for debug mode and skipping to upload. \\nYou can modify 'UPLOAD_DEBUG_SYMBOLS' to 1 in the script.\" 0\n                fi\n                fi\n                \n                ##检查是否Archive操作\n                if [ $UPLOAD_ARCHIVE_ONLY -eq 1 ]; then\n                if [[ \"$TARGET_BUILD_DIR\" == *\"/Archive\"* ]]; then\n                echo \"Archive the package\"\n                else\n                exitWithMessage \"Warning: Build for NOT Archive mode and skipping to upload. \\nYou can modify 'UPLOAD_ARCHIVE_ONLY' to 0 in the script.\" 0\n                fi\n                fi\n                \n                #\n                run ${BUGLY_APP_ID} ${BUGLY_APP_KEY} ${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION} ${DWARF_DSYM_FOLDER_PATH} ${BUILD_DIR}/BuglySymbolTemp ${UPLOAD_DSYM_ONLY}\n            }\n            \n            # 根据Xcode的环境变量判断是否处于Xcode环境\n            INFO_PLIST_FILE=\"${INFOPLIST_FILE}\"\n            \n            BuildInXcode=\"F\"\n            if [ -f \"${INFO_PLIST_FILE}\" ]; then\n            BuildInXcode=\"T\"\n            fi\n            \n            if [ $BuildInXcode = \"T\" ]; then\n            runInXcode\n            else\n            echo \"\\nUsage: dSYMUpload.sh <bugly_app_id> <bugly_app_key> <app_bundle_identifier> <app_version> <dSYM_src_dir> <bSYMBOL_dest_dir> [upload_dsym_only]\\n\"\n            # 你可以在此处直接设置BuglyAppID和BuglyAppKey，排除不常变参数的输入\n            BUGLY_APP_ID=\"$1\"\n            BUGLY_APP_KEY=\"$2\"\n            BUNDLE_IDENTIFIER=\"$3\"\n            BUGLY_APP_VERSION=\"$4\"\n            DWARF_DSYM_FOLDER_PATH=\"$5\"\n            SYMBOL_OUTPUT_PATH=\"$6\"\n            UPLOAD_DSYM_ONLY=$7\n            run ${BUGLY_APP_ID} ${BUGLY_APP_KEY} ${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION} ${DWARF_DSYM_FOLDER_PATH} ${SYMBOL_OUTPUT_PATH} ${UPLOAD_DSYM_ONLY}\n            fi\n";
 		};
 		4C2FEC06960E1B7126E5F7BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4624,12 +4680,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDB21F71FBACDE90004F051 /* APRSASigner.m in Sources */,
 				2E2129ED1F8F5DE000B57420 /* MGMyCouponBaseTableView.m in Sources */,
 				2E7E3CD81F78100000A3D288 /* MGMyFoundVC.m in Sources */,
 				2E3ECBF41F98ECF000017F1B /* MGAboutVC.m in Sources */,
 				2E49EA351F5D51EB00A260E7 /* TDQucikSelectDateView.m in Sources */,
 				2E49EA361F5D51EB00A260E7 /* NSString+HTMLImageAdapt.m in Sources */,
-				2E49EA371F5D51EB00A260E7 /* DataVerifier.m in Sources */,
 				2E49EA391F5D51EB00A260E7 /* MGTeacherCateogryDetailConditionView.m in Sources */,
 				2E49EA3A1F5D51EB00A260E7 /* MGResFavListModel.m in Sources */,
 				2EADF8451F7D23FB00818F26 /* FSCalendarCalculator.m in Sources */,
@@ -4688,7 +4744,6 @@
 				2E49EA5E1F5D51EB00A260E7 /* CMInputView.m in Sources */,
 				2E37C9321F923147001BCD0A /* MGWorkDetailApplyTeamSectionHeader.m in Sources */,
 				2E49EA5F1F5D51EB00A260E7 /* MGPayOrderWayTableView.m in Sources */,
-				2E49EA601F5D51EB00A260E7 /* DataSigner.m in Sources */,
 				2E49EA611F5D51EB00A260E7 /* MGOrderDetailVC.m in Sources */,
 				2E49EA621F5D51EB00A260E7 /* UIView+Frame.m in Sources */,
 				2E2129E91F8F5DC400B57420 /* MGMyCouponBaseVC.m in Sources */,
@@ -4745,21 +4800,19 @@
 				2EADF8471F7D23FB00818F26 /* FSCalendarCell.m in Sources */,
 				2E49EA841F5D51EB00A260E7 /* BaseCollectionViewCell.m in Sources */,
 				2E49EA851F5D51EB00A260E7 /* MGAccountModel.m in Sources */,
+				2EB936841FBC2CB800808731 /* MGWorkMyIntroVC.m in Sources */,
 				2E49EA861F5D51EB00A260E7 /* MGResOrderListModel.m in Sources */,
-				2E49EA871F5D51EB00A260E7 /* RSADataVerifier.m in Sources */,
 				2E49EA881F5D51EB00A260E7 /* AppDelegate.m in Sources */,
 				2E49EA891F5D51EB00A260E7 /* MGMineViewController.m in Sources */,
 				2E49EA8A1F5D51EB00A260E7 /* TDNavigationBar.m in Sources */,
 				2E49EA8B1F5D51EB00A260E7 /* UIViewController+YNCategory.m in Sources */,
 				2E49EA8C1F5D51EB00A260E7 /* DataMD5.m in Sources */,
 				2E49EA8D1F5D51EB00A260E7 /* MGSearchResultCell.m in Sources */,
-				2E49EA8E1F5D51EB00A260E7 /* NSDataEx.m in Sources */,
 				2E49EA8F1F5D51EB00A260E7 /* MGHomeTableView.m in Sources */,
 				2E49EA901F5D51EB00A260E7 /* SDPhotoBrowser.m in Sources */,
 				2E49EA911F5D51EB00A260E7 /* MGWorkProgressView.m in Sources */,
 				2E43EBD31F972B6C00D29EEF /* MGOrderDetailPriceView.m in Sources */,
 				2E49EA921F5D51EB00A260E7 /* UIButton+NYImageLocation.m in Sources */,
-				2E49EA931F5D51EB00A260E7 /* MD5DataSigner.m in Sources */,
 				2E49EA941F5D51EB00A260E7 /* MGBussiness+FoundExtend.m in Sources */,
 				2E37CAC41F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m in Sources */,
 				2E49EA951F5D51EB00A260E7 /* MGAccountAddBlankVC.m in Sources */,
@@ -4770,6 +4823,7 @@
 				2E49EA991F5D51EB00A260E7 /* MGCommonWebViewVC.m in Sources */,
 				2E49EA9A1F5D51EB00A260E7 /* MGLevelUpgradeSuccessVC.m in Sources */,
 				2E96CEA21F61497700F6E71A /* MGOrderInfoView.m in Sources */,
+				2E3EA2F31FA08B6100CA9A2D /* MGMyLessonTriangleView.m in Sources */,
 				2E49EA9B1F5D51EB00A260E7 /* WLCardNoFormatter.m in Sources */,
 				2E49EA9C1F5D51EB00A260E7 /* NSDictionary+Extension.m in Sources */,
 				2E49EA9D1F5D51EB00A260E7 /* MGLoginModel.m in Sources */,
@@ -4797,13 +4851,13 @@
 				2E49EAAD1F5D51EB00A260E7 /* MGTool.m in Sources */,
 				2E49EAAE1F5D51EB00A260E7 /* MOFSToolbar.m in Sources */,
 				2E49EAAF1F5D51EB00A260E7 /* BaseTableViewCell.m in Sources */,
-				2E49EAB01F5D51EB00A260E7 /* base64.m in Sources */,
 				2E49EAB11F5D51EB00A260E7 /* MGHomeColletionViewTableViewCell.m in Sources */,
 				2E1649071F8CB672004D6599 /* MGWorkApplyJoinGroupView.m in Sources */,
 				2E49EAB21F5D51EB00A260E7 /* MGTeacherRecommendSectionHeader.m in Sources */,
 				2E49EAB31F5D51EB00A260E7 /* SDBrowserImageView.m in Sources */,
 				2E49EAB41F5D51EB00A260E7 /* NSObject+Extend.m in Sources */,
 				2E49EAB51F5D51EB00A260E7 /* MGUpgradeStudentVC.m in Sources */,
+				2EDB21F91FBACDE90004F051 /* openssl_wrapper.m in Sources */,
 				2E1649031F8CB65D004D6599 /* MGWorkApplyNewGroupView.m in Sources */,
 				2E49EAB61F5D51EB00A260E7 /* MGAccountBlankListTableView.m in Sources */,
 				2E49EAB71F5D51EB00A260E7 /* YNPageScrollViewMenu.m in Sources */,
@@ -4822,7 +4876,6 @@
 				2E49EAC21F5D51EB00A260E7 /* MGTeacherViewController.m in Sources */,
 				2E49EB601F5D6CAD00A260E7 /* MGResClassifyModel.m in Sources */,
 				2EADF8B31F82B68B00818F26 /* MGFoundDetailTableView.m in Sources */,
-				2E49EAC31F5D51EB00A260E7 /* openssl_wrapper.m in Sources */,
 				2E49EAC41F5D51EB00A260E7 /* MGPayOrderWayVC.m in Sources */,
 				2E49EAC51F5D51EB00A260E7 /* MGTeacherAllCategoryVC.m in Sources */,
 				2E49EAC61F5D51EB00A260E7 /* BaseScrollView.m in Sources */,
@@ -4890,7 +4943,6 @@
 				2E49EAF01F5D51EB00A260E7 /* TDEncrytAndDecrypt.m in Sources */,
 				2E49EAF11F5D51EB00A260E7 /* MGCommonWKWebViewVC.m in Sources */,
 				2E49EAF21F5D51EB00A260E7 /* MGMineInfoVC.m in Sources */,
-				2E49EAF31F5D51EB00A260E7 /* RSADataSigner.m in Sources */,
 				2E49EAF41F5D51EB00A260E7 /* MGCommonEmptyView.m in Sources */,
 				2E96CE701F5FD54100F6E71A /* MGSelectCourseView.m in Sources */,
 				2E49EAF51F5D51EB00A260E7 /* TDExpendClickButton.m in Sources */,
@@ -4949,6 +5001,7 @@
 				2E49EB1B1F5D51EB00A260E7 /* BaseModel.m in Sources */,
 				2E49EB1C1F5D51EB00A260E7 /* MGBussiness+ClassExtend.m in Sources */,
 				2E37C9261F91D195001BCD0A /* MGWorkProductionView.m in Sources */,
+				2EB9367C1FBC164100808731 /* MGWorkJoinTeamVC.m in Sources */,
 				2E37C9121F911539001BCD0A /* MGWorkTeamTableView.m in Sources */,
 				2E49EB1D1F5D51EB00A260E7 /* YNPay.m in Sources */,
 				2E49EB1E1F5D51EB00A260E7 /* MGPublishFoundVC.m in Sources */,
@@ -4988,12 +5041,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDB21F61FBACDE90004F051 /* APRSASigner.m in Sources */,
 				2E2129EC1F8F5DE000B57420 /* MGMyCouponBaseTableView.m in Sources */,
 				2E7E3CD71F78100000A3D288 /* MGMyFoundVC.m in Sources */,
 				2E3ECBF31F98ECF000017F1B /* MGAboutVC.m in Sources */,
 				2E2F2DC11F5159560003BC3A /* TDQucikSelectDateView.m in Sources */,
 				2E49E6BC1F55440D00A260E7 /* NSString+HTMLImageAdapt.m in Sources */,
-				2E0FC5A01F307FDA00540829 /* DataVerifier.m in Sources */,
 				2ECCB37D1F24B34A003C7A3B /* MGTeacherCateogryDetailConditionView.m in Sources */,
 				2E50C2481F46D86F000AE31A /* MGResFavListModel.m in Sources */,
 				2EADF8441F7D23FB00818F26 /* FSCalendarCalculator.m in Sources */,
@@ -5052,7 +5105,6 @@
 				2EBAA1F91F029BBA0011DDDE /* CMInputView.m in Sources */,
 				2E37C9311F923147001BCD0A /* MGWorkDetailApplyTeamSectionHeader.m in Sources */,
 				2E0FC51B1F301A0F00540829 /* MGPayOrderWayTableView.m in Sources */,
-				2E0FC59F1F307FDA00540829 /* DataSigner.m in Sources */,
 				2E43D9A41F3333760059F13A /* MGOrderDetailVC.m in Sources */,
 				2EBAA18D1F02970C0011DDDE /* UIView+Frame.m in Sources */,
 				2E2129E81F8F5DC400B57420 /* MGMyCouponBaseVC.m in Sources */,
@@ -5109,21 +5161,19 @@
 				2EADF8461F7D23FB00818F26 /* FSCalendarCell.m in Sources */,
 				2EBAA1B21F0299AB0011DDDE /* BaseCollectionViewCell.m in Sources */,
 				2E2F2DD71F52DEE30003BC3A /* MGAccountModel.m in Sources */,
+				2EB936831FBC2CB800808731 /* MGWorkMyIntroVC.m in Sources */,
 				2E43D9831F32BD000059F13A /* MGResOrderListModel.m in Sources */,
-				2E0FC5A51F307FDA00540829 /* RSADataVerifier.m in Sources */,
 				2EBAA1451F0294BF0011DDDE /* AppDelegate.m in Sources */,
 				2EBAA2651F02A8F00011DDDE /* MGMineViewController.m in Sources */,
 				2EBAA2491F02A3AE0011DDDE /* TDNavigationBar.m in Sources */,
 				2EBAA21E1F029BCC0011DDDE /* UIViewController+YNCategory.m in Sources */,
 				2E0FC5A61F307FDB00540829 /* DataMD5.m in Sources */,
 				2E2F2E101F5419AC0003BC3A /* MGSearchResultCell.m in Sources */,
-				2E0FC5A21F307FDA00540829 /* NSDataEx.m in Sources */,
 				2EB27F231F150A31006FA9A0 /* MGHomeTableView.m in Sources */,
 				2E0FC5E71F31795300540829 /* SDPhotoBrowser.m in Sources */,
 				2E49E6ED1F56A35600A260E7 /* MGWorkProgressView.m in Sources */,
 				2E43EBD21F972B6C00D29EEF /* MGOrderDetailPriceView.m in Sources */,
 				2EBAA1871F02970C0011DDDE /* UIButton+NYImageLocation.m in Sources */,
-				2E0FC5A11F307FDA00540829 /* MD5DataSigner.m in Sources */,
 				2E98B6E81F297F5C0034619D /* MGBussiness+FoundExtend.m in Sources */,
 				2E37CAC31F94BC7A001BCD0A /* MGWorkProductCommentSectionHeader.m in Sources */,
 				2E2F2DDF1F5333AF0003BC3A /* MGAccountAddBlankVC.m in Sources */,
@@ -5134,6 +5184,7 @@
 				2E49E6AB1F550C1700A260E7 /* MGCommonWebViewVC.m in Sources */,
 				2E2F2D9B1F4D6AAC0003BC3A /* MGLevelUpgradeSuccessVC.m in Sources */,
 				2E96CEA11F61497700F6E71A /* MGOrderInfoView.m in Sources */,
+				2E3EA2F21FA08B6100CA9A2D /* MGMyLessonTriangleView.m in Sources */,
 				2E2F2DF31F53B7110003BC3A /* WLCardNoFormatter.m in Sources */,
 				2EBAA1821F02970C0011DDDE /* NSDictionary+Extension.m in Sources */,
 				2E30841D1F0D2DF900CB3B7A /* MGLoginModel.m in Sources */,
@@ -5161,13 +5212,13 @@
 				2E2F2D9E1F4DC53E0003BC3A /* MGTool.m in Sources */,
 				2E0FC5D21F31707000540829 /* MOFSToolbar.m in Sources */,
 				2EBAA1BA1F0299AB0011DDDE /* BaseTableViewCell.m in Sources */,
-				2E0FC59E1F307FDA00540829 /* base64.m in Sources */,
 				2E2F2E041F53C9BE0003BC3A /* MGHomeColletionViewTableViewCell.m in Sources */,
 				2E1649061F8CB672004D6599 /* MGWorkApplyJoinGroupView.m in Sources */,
 				2E3386EE1F1DE84700918D83 /* MGTeacherRecommendSectionHeader.m in Sources */,
 				2E0FC5E61F31795300540829 /* SDBrowserImageView.m in Sources */,
 				2EBAA1841F02970C0011DDDE /* NSObject+Extend.m in Sources */,
 				2E50C2651F4AB566000AE31A /* MGUpgradeStudentVC.m in Sources */,
+				2EDB21F81FBACDE90004F051 /* openssl_wrapper.m in Sources */,
 				2E1649021F8CB65D004D6599 /* MGWorkApplyNewGroupView.m in Sources */,
 				2E2F2DE91F5334F70003BC3A /* MGAccountBlankListTableView.m in Sources */,
 				2EBAA2221F029BCC0011DDDE /* YNPageScrollViewMenu.m in Sources */,
@@ -5186,7 +5237,6 @@
 				2EBAA2681F02A9020011DDDE /* MGTeacherViewController.m in Sources */,
 				2E49EB5F1F5D6CAD00A260E7 /* MGResClassifyModel.m in Sources */,
 				2EADF8B21F82B68B00818F26 /* MGFoundDetailTableView.m in Sources */,
-				2E0FC5A31F307FDA00540829 /* openssl_wrapper.m in Sources */,
 				2E0FC5181F2F715100540829 /* MGPayOrderWayVC.m in Sources */,
 				2E3386F41F1E49C700918D83 /* MGTeacherAllCategoryVC.m in Sources */,
 				2EBAA1B61F0299AB0011DDDE /* BaseScrollView.m in Sources */,
@@ -5254,7 +5304,6 @@
 				2EBAA1C71F029B200011DDDE /* TDEncrytAndDecrypt.m in Sources */,
 				2E05F9A61F146406005A2C63 /* MGCommonWKWebViewVC.m in Sources */,
 				2E98B6931F25EEDF0034619D /* MGMineInfoVC.m in Sources */,
-				2E0FC5A41F307FDA00540829 /* RSADataSigner.m in Sources */,
 				2E50C24F1F46EEB5000AE31A /* MGCommonEmptyView.m in Sources */,
 				2E96CE6F1F5FD54100F6E71A /* MGSelectCourseView.m in Sources */,
 				2EBAA1BE1F0299AB0011DDDE /* TDExpendClickButton.m in Sources */,
@@ -5313,6 +5362,7 @@
 				2EBAA1B41F0299AB0011DDDE /* BaseModel.m in Sources */,
 				2E3386DC1F1CF8B700918D83 /* MGBussiness+ClassExtend.m in Sources */,
 				2E37C9251F91D195001BCD0A /* MGWorkProductionView.m in Sources */,
+				2EB9367B1FBC164100808731 /* MGWorkJoinTeamVC.m in Sources */,
 				2E37C9111F911539001BCD0A /* MGWorkTeamTableView.m in Sources */,
 				2E0FC5AA1F307FDB00540829 /* YNPay.m in Sources */,
 				2E2F2D361F4C03580003BC3A /* MGPublishFoundVC.m in Sources */,
@@ -5360,6 +5410,7 @@
 				CODE_SIGN_ENTITLEMENTS = MangGuoPai/MangGuoPai.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6SYV87UFCY;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MangGuoPai/Classes/ThirdParty/YNPay/Libs/AliSDKLibs15.2.0",
@@ -5420,6 +5471,7 @@
 				CODE_SIGN_ENTITLEMENTS = MangGuoPai/MangGuoPai.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6SYV87UFCY;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MangGuoPai/Classes/ThirdParty/YNPay/Libs/AliSDKLibs15.2.0",
@@ -5576,6 +5628,7 @@
 				CODE_SIGN_ENTITLEMENTS = MangGuoPai/MangGuoPai.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6SYV87UFCY;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MangGuoPai/Classes/ThirdParty/YNPay/Libs/AliSDKLibs15.2.0",
@@ -5635,6 +5688,7 @@
 				CODE_SIGN_ENTITLEMENTS = MangGuoPai/MangGuoPai.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6SYV87UFCY;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MangGuoPai/Classes/ThirdParty/YNPay/Libs/AliSDKLibs15.2.0",

@@ -19,6 +19,8 @@
 /// content
 @property (nonatomic, strong) UILabel *contentLabel;
 
+@property (nonatomic, strong) UIImageView *isReadImageView;
+
 @end
 
 @implementation MGMessageListCell
@@ -31,6 +33,8 @@
     _iconImageView.layer.masksToBounds = YES;
     _iconImageView.layer.cornerRadius = SW(86) * 0.5;
     _iconImageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    
     
     
     _userNameLabel = [MGUITool labelWithText:nil textColor:MGThemeColor_Title_Black font:PFSC(30)];
@@ -46,8 +50,12 @@
     
     _contentLabel.frame = CGRectMake(_userNameLabel.left, _userNameLabel.bottom + SH(12), SW(560), _contentLabel.fontLineHeight);
     
+    _isReadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    _isReadImageView.image = [UIImage imageNamed:@"message_unread"];
+    _isReadImageView.centerY = _contentLabel.centerY;
+    _isReadImageView.right = _timeLabel.right;
     
-    [self.contentView sd_addSubviews:@[_iconImageView, _userNameLabel, _timeLabel, _contentLabel]];
+    [self.contentView sd_addSubviews:@[_iconImageView, _userNameLabel, _timeLabel, _contentLabel, _isReadImageView]];
     
 }
 
@@ -85,13 +93,7 @@
     
     self.contentLabel.text = strM;
     
-    
-    
-    
-    
-    
-    
-    
+    self.isReadImageView.hidden = dataModel.isRead;
 }
 
 @end

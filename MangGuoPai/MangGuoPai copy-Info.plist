@@ -27,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>qianxiaoerDev</string>
+				<string>MangGuoPai</string>
 			</array>
 		</dict>
 		<dict>
@@ -45,8 +45,8 @@
 			<array>
 				<string>wb4083465901</string>
 				<string>wxea43a55c5ca9f34d</string>
-				<string>tencent101389277</string>
-				<string>QQ101389277</string>
+				<string>tencent101434425</string>
+				<string>QQ101434425</string>
 			</array>
 		</dict>
 		<dict>

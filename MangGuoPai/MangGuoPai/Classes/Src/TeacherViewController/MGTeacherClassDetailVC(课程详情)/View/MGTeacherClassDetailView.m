@@ -212,7 +212,16 @@
 - (void)setDataModel:(MGResCourseListDetailDataModel *)dataModel {
     _dataModel = dataModel;
 
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView)];
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:dataModel.avatar_rsurl scaleWidth:_iconImageView.width] placeholderImage:SDWEB_PLACEHODER_IMAGE(_iconImageView) completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        CGSize iamgeSize = image.size;
+        if (iamgeSize.width > 0 && iamgeSize.height > 0) {
+            self.iconImageView.height = kScreenWidth * iamgeSize.height / iamgeSize.width;
+            if (self.iconImageViewLoadCompletion) {
+                self.iconImageViewLoadCompletion();
+            }
+        }
+        
+    }];
     
     _titleLabel.text = [NSString stringWithFormat:@"%@  (%@)",dataModel.course_title, dataModel.member_name];
     
@@ -231,9 +240,19 @@
     
     _instrutionSubTitleLabel.attributedText = dataModel.type_explainsAttributeString;
     
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _titleLabel.top = _iconImageView.bottom;
+    
+    _classTagBgView.top = _titleLabel.bottom;
+    
+    _classContentBgView.top = _classTagBgView.bottom;
     
     /// 设置位置
-    _classContentSubTitleLabel.height = dataModel.contentHeight;
+    _classContentSubTitleLabel.height = self.dataModel.contentHeight;
     
     _classContentBottomLineView.y = _classContentSubTitleLabel.bottom + SH(30);
     
@@ -249,7 +268,7 @@
     _classWayBgView.y = _classContentBgView.bottom;
     
     
-    _instrutionSubTitleLabel.height = dataModel.type_explainsHeight;
+    _instrutionSubTitleLabel.height = self.dataModel.type_explainsHeight;
     
     _instrutionBottomLineView.y = _instrutionSubTitleLabel.bottom + SH(30);
     
@@ -259,7 +278,7 @@
     
     CGFloat bottomHeight = 0;
     
-    if (dataModel.type_explainsAttributeString.length > 0) {
+    if (self.dataModel.type_explainsAttributeString.length > 0) {
         _instrutionBgView.hidden = NO;
         bottomHeight = _instrutionBgView.bottom;
     } else {
@@ -270,7 +289,6 @@
     
     _contentScrollView.contentSize = CGSizeMake(kScreenWidth, bottomHeight);
 }
-
 
 - (void)setWantButton:(BOOL)isFav {
     
@@ -288,6 +306,11 @@
 //        }
 //        
 //    } error:nil];
+}
+
+- (void)setOrderButtonHidden {
+    
+    _orderButton.hidden = YES;
 }
 
 @end

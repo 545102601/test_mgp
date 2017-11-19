@@ -10,6 +10,13 @@
 
 @implementation MGResMessageDataModel
 
+- (BOOL)isRead {
+    
+    if (_state == 1) {
+        return YES;
+    }
+    return NO;
+}
 
 @end
 

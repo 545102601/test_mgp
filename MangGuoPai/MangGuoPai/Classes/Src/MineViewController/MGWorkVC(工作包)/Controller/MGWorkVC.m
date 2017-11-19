@@ -33,7 +33,7 @@
 #pragma mark - 初始化控件
 - (void)setupSubViews {
     WEAK
-    _tableView = [[MGWorkTableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _tableView = [[MGWorkTableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64) style:UITableViewStyleGrouped];
     
     [self.view addSubview:_tableView];
     

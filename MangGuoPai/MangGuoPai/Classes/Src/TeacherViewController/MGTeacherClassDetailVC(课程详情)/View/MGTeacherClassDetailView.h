@@ -17,8 +17,10 @@
 
 @property (nonatomic, copy) MGCommomEventBlock orderEventBlock;
 
+@property (nonatomic, copy) MGCommomEventBlock iconImageViewLoadCompletion;
 
 - (void)setWantButton:(BOOL)isFav;
 
+- (void)setOrderButtonHidden;
 
 @end

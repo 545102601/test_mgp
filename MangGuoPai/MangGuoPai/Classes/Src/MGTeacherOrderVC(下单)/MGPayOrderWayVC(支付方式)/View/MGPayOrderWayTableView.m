@@ -72,7 +72,7 @@
     MGPayOrderWayCell *cell = (MGPayOrderWayCell*)[tableView cellWithCellClass:[MGPayOrderWayCell class]];
     cell.indexPath = indexPath;
     cell.model = self.dataArrayM[indexPath.row];
-    cell.didOnClickSelectedBlock = _didOnClickSelectedBlock;
+    
     return cell;
     
 }

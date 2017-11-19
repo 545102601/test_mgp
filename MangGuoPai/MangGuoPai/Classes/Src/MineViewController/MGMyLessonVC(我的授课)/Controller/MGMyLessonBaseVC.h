@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) MGMyLessonBaseTableView *tableView;
 
-@property (nonatomic, assign) NSInteger viewControllerType;
+@property (nonatomic, assign) MGGlobaMenuTag menuTag;
 
 @end
