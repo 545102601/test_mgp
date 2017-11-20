@@ -314,6 +314,8 @@
 - (void)joinTeamWithDataModel:(MGResProjectListTeamDataModel *)dataModel {
   
     MGWorkJoinTeamVC *vc = [MGWorkJoinTeamVC new];
+    vc.dataModel = self.dataModel;
+    vc.teamDataModel = dataModel;
     PushVC(vc)
     
 //    WEAK
@@ -321,7 +323,7 @@
 //    [alert setAlertThemeMessageTip_TwoButton];
 //    [alert setAlertThemeWithTextFieldForApplyWork];
 //    __weak typeof(DQAlertView *)weakAlert = alert;
-//    alert.otherButtonAction = ^{
+//    alert.otherButtonAction = ^{/Users/zyn/Documents/芒果派工作目录/App/iOS/MangGuoPai/MangGuoPai/Classes/Src/MineViewController/MGWorkVC(工作包)/MGWorkMyIntroVC(自我介绍)/Controller/MGWorkMyIntroVC.h
 //        STRONG
 //        UITextField *filed = [weakAlert.contentView viewWithTag:100001];
 //        

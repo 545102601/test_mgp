@@ -37,4 +37,10 @@
 /// 给参与者投票接口
 + (void)postActor_Vote:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
+/// 报名参加某团队，给队长发送消息
++ (void)postProject_Team_Apply:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
+
+/// 队长回复消息
++ (void)postProject_Team_Apply_Reply:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
+
 @end

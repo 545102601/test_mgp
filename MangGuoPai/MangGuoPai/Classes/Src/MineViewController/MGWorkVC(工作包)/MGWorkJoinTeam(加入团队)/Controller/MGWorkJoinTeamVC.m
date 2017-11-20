@@ -27,7 +27,8 @@
 
 @property (nonatomic, strong) UIButton *applyButton;
 @property (nonatomic, strong) UIView *bottomLineView;
-
+/// 填写的资料
+@property (nonatomic, strong) NSMutableDictionary *resultDictM;
 
 @end
 
@@ -130,12 +131,44 @@
 
 - (void)directButtonOnClick {
     
+    if (self.ciperTextField.text.length == 0) {
+        [self showMBText:@"请输入集结暗号"];
+        return;
+    }
+    
     [self.view endEditing:YES];
+    
+    [MGBussiness loadProject_Join:@{@"id" : @(self.dataModel.id), @"type" : @(2), @"team_id" : @(self.teamDataModel.id), @"cipher" : self.ciperTextField.text} completion:^(id results) {
+        if ([results boolValue]) {
+            [self showMBText:@"报名成功"];
+            PopVC
+        }
+    } error:nil];
 }
 
 - (void)applyButtonOnClick {
     
     [self.view endEditing:YES];
+    if (self.resultDictM.count == 0) {
+        [self showMBText:@"请填写自我介绍"];
+        return;
+    }
+    NSString *mobile = self.resultDictM[@"mobile"];
+    NSString *content = self.resultDictM[@"content"];
+    NSString *qq = self.resultDictM[@"qq"];
+    
+    [MGBussiness loadProject_Team_Apply:@{@"project_id" : @(self.dataModel.id), @"team_id" : @(self.teamDataModel.id), @"content" : content, @"mobile" : mobile, @"qq" : qq} completion:^(id results) {
+        if ([results boolValue]) {
+            DQAlertView *alert = [[DQAlertView alloc] initWithTitle:nil message:@"已将自我介绍发给队长" cancelButtonTitle:@"我知道了" otherButtonTitle:nil];
+            [alert setAlertThemeMessageTip_OneButton];
+            WEAK
+            alert.cancelButtonAction = ^{
+                STRONG
+                PopVC
+            };
+            [alert show];
+        }
+    } error:nil];
     
 }
 
@@ -144,7 +177,12 @@
     [self.view endEditing:YES];
     
     MGWorkMyIntroVC *vc = [MGWorkMyIntroVC new];
-    
+    vc.resultDictM = self.resultDictM;
+    WEAK
+    vc.saveCompletionBlock = ^{
+        STRONG
+        self.introTextView.text = self.resultDictM[@"content"];
+    };
     PushVC(vc)
     
 }
@@ -174,6 +212,11 @@
 #pragma mark - Private Function
 
 #pragma mark - Getter and Setter
-
+- (NSMutableDictionary *)resultDictM {
+    if (!_resultDictM) {
+        _resultDictM = @{}.mutableCopy;
+    }
+    return _resultDictM;
+}
 
 @end

@@ -34,6 +34,9 @@
 /// 删除消息接口
 + (void)loadDeletedMessage:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
+/// 消息详情接口
++ (void)loadMessageDetail:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
+
 /// 加载消息列表 - 分页
 + (void)loadMessage_ListDataWithPageNo:(NSInteger)pageNo Completion:(BussinessCompletion)completion error:(BussinessError)error;
 

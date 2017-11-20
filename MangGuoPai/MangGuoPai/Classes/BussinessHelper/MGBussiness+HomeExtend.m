@@ -13,7 +13,7 @@
 #import "MGResMessageModel.h"
 #import "MGResEntityModel.h"
 #import "MGResContentModel.h"
-
+#import "MGResMessageDetailModel.h"
 
 @implementation MGBussiness (HomeExtend)
 
@@ -173,6 +173,21 @@
 
 }
 
+/// 消息详情接口
++ (void)loadMessageDetail:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    
+    [MGBussinessRequest getMessage_Get:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            MGResMessageDetailModel *model = [MGResMessageDetailModel yy_modelWithDictionary:dic];
+            if (completion) {
+                completion(model.data);
+            }
+        } else {
+            [self showMBText:message];
+        }
+        
+    } errorBlock:nil];
+}
 
 /// 加载收藏列表 - 分页
 + (void)loadMessage_ListDataWithPageNo:(NSInteger)pageNo Completion:(BussinessCompletion)completion error:(BussinessError)error {

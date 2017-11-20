@@ -24,6 +24,8 @@
 + (void)postMessage_Delete:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 /// 消息阅读
 + (void)postMessage_Read:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
+/// 消息详情
++ (void)getMessage_Get:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 /// 全文搜索
 + (void)getFull_Search:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 /// 内容详情接口

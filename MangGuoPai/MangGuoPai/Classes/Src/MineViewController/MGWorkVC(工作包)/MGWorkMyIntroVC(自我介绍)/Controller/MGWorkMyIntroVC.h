@@ -12,4 +12,6 @@
 
 @property (nonatomic, copy) MGCommomEventBlock saveCompletionBlock;
 
+@property (nonatomic, strong) NSMutableDictionary *resultDictM;
+
 @end

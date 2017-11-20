@@ -82,6 +82,25 @@
             successBlock:successBlock
               errorBlock:errorBlock];
 }
+/// 报名参加某团队，给队长发送消息
++ (void)postProject_Team_Apply:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    [self requestPostUrl:HTTP_PROJECT_TEAM_APPLY
+                  params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+         timeoutInterval:RequestTiemOut
+               isNeedHUD:YES
+            successBlock:successBlock
+              errorBlock:errorBlock];
+}
+
+/// 队长回复消息
++ (void)postProject_Team_Apply_Reply:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    [self requestPostUrl:HTTP_PROJECT_TEAM_APPLY_REPLY
+                  params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+         timeoutInterval:RequestTiemOut
+               isNeedHUD:YES
+            successBlock:successBlock
+              errorBlock:errorBlock];
+}
 
 
 /// 工作包想参与接口

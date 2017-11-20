@@ -155,6 +155,30 @@
     } errorBlock:error];
 }
 
+/// 报名参加某团队，给队长发送消息
++ (void)loadProject_Team_Apply:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    [MGBussinessRequest postProject_Team_Apply:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
+    } errorBlock:error];
+}
 
+/// 队长回复消息
++ (void)loadProject_Team_Apply_Reply:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error {
+    [MGBussinessRequest postProject_Team_Apply_Reply:dict successBlock:^(NSDictionary *dic, NSString *message, NSString *code, BOOL isSuccess) {
+        if (isSuccess) {
+            if (completion) {
+                completion(@(isSuccess));
+            }
+        } else {
+            [self showMBText:message];
+        }
+    } errorBlock:error];
+}
 
 @end

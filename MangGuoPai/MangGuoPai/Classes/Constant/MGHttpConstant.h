@@ -41,6 +41,8 @@
 #define HTTP_MES_DEL @"mes_del"
 /// 消息阅读
 #define HTTP_MES_READ @"mes_read"
+/// 消息详情
+#define HTTP_MES_GET @"mes_get"
 
 /// 收藏列表
 #define HTTP_FAV_LIST @"fav_list"
@@ -204,6 +206,9 @@
 #define HTTP_PROJECT_WANT @"project_want"
 /// 给参与者投票接口
 #define HTTP_ACTOR_VOTE @"actor_vote"
-
+///  报名参加某团队，给队长发送消息
+#define HTTP_PROJECT_TEAM_APPLY @"project_team_apply"
+/// 队长回复消息
+#define HTTP_PROJECT_TEAM_APPLY_REPLY @"project_team_apply_reply"
 
 #endif /* MGHttpConstant_h */

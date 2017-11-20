@@ -7,7 +7,13 @@
 //
 
 #import "BaseViewController.h"
+#import "MGResProjectListTeamModel.h"
+#import "MGResProjectDetailModel.h"
 
 @interface MGWorkJoinTeamVC : BaseViewController
+
+@property (nonatomic, strong) MGResProjectDetailDataModel *dataModel;
+
+@property (nonatomic, strong) MGResProjectListTeamDataModel *teamDataModel;
 
 @end

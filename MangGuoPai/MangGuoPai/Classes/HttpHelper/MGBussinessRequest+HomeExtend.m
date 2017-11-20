@@ -75,6 +75,15 @@
               errorBlock:errorBlock];
 }
 
+/// 消息详情
++ (void)getMessage_Get:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
+    [self requestGetUrl:HTTP_MES_GET
+                 params:[[TDBaseData sharedInstance] returnDictionaryWithContent:dict]
+        timeoutInterval:RequestTiemOut
+              isNeedHUD:YES
+           successBlock:successBlock
+             errorBlock:errorBlock];
+}
 /// 全文搜索
 + (void)getFull_Search:(NSDictionary *)dict successBlock:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock {
     [self requestPostUrl:HTTP_FULL_SEARCH

@@ -79,6 +79,8 @@
 		2E2129F91F8F5E6200B57420 /* qrcode_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E2129F11F8F5E6200B57420 /* qrcode_line@3x.png */; };
 		2E2129FC1F8F61E200B57420 /* MGMyCouponBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2129FB1F8F61E200B57420 /* MGMyCouponBaseCell.m */; };
 		2E2129FD1F8F61E200B57420 /* MGMyCouponBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2129FB1F8F61E200B57420 /* MGMyCouponBaseCell.m */; };
+		2E2B161F1FC1CB9E00178E04 /* MGResMessageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2B161E1FC1CB9E00178E04 /* MGResMessageDetailModel.m */; };
+		2E2B16201FC1CB9E00178E04 /* MGResMessageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2B161E1FC1CB9E00178E04 /* MGResMessageDetailModel.m */; };
 		2E2F2D361F4C03580003BC3A /* MGPublishFoundVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2D351F4C03580003BC3A /* MGPublishFoundVC.m */; };
 		2E2F2D421F4C2E4F0003BC3A /* MGUpgradeCommunityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2D411F4C2E4F0003BC3A /* MGUpgradeCommunityVC.m */; };
 		2E2F2D451F4C2EBC0003BC3A /* MGUpgradeTutorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F2D441F4C2EBC0003BC3A /* MGUpgradeTutorVC.m */; };
@@ -955,6 +957,8 @@
 		2E2129F11F8F5E6200B57420 /* qrcode_line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_line@3x.png"; sourceTree = "<group>"; };
 		2E2129FA1F8F61E200B57420 /* MGMyCouponBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMyCouponBaseCell.h; sourceTree = "<group>"; };
 		2E2129FB1F8F61E200B57420 /* MGMyCouponBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMyCouponBaseCell.m; sourceTree = "<group>"; };
+		2E2B161D1FC1CB9E00178E04 /* MGResMessageDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGResMessageDetailModel.h; sourceTree = "<group>"; };
+		2E2B161E1FC1CB9E00178E04 /* MGResMessageDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGResMessageDetailModel.m; sourceTree = "<group>"; };
 		2E2F2D341F4C03580003BC3A /* MGPublishFoundVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPublishFoundVC.h; sourceTree = "<group>"; };
 		2E2F2D351F4C03580003BC3A /* MGPublishFoundVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPublishFoundVC.m; sourceTree = "<group>"; };
 		2E2F2D401F4C2E4F0003BC3A /* MGUpgradeCommunityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUpgradeCommunityVC.h; sourceTree = "<group>"; };
@@ -4136,6 +4140,8 @@
 		2EBAA2531F02A8970011DDDE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E2B161D1FC1CB9E00178E04 /* MGResMessageDetailModel.h */,
+				2E2B161E1FC1CB9E00178E04 /* MGResMessageDetailModel.m */,
 				2E05F9A01F13E29F005A2C63 /* MGResSettingModel.h */,
 				2E05F9A11F13E29F005A2C63 /* MGResSettingModel.m */,
 				2E05F9AC1F1472B1005A2C63 /* MGResContentModel.h */,
@@ -4729,6 +4735,7 @@
 				2E49EA551F5D51EB00A260E7 /* MGPayOrderWayCell.m in Sources */,
 				2E49EA561F5D51EB00A260E7 /* MGResCourseListDetailModel.m in Sources */,
 				2E49EA571F5D51EB00A260E7 /* UIView+SDExtension.m in Sources */,
+				2E2B16201FC1CB9E00178E04 /* MGResMessageDetailModel.m in Sources */,
 				2E49EA581F5D51EB00A260E7 /* MGMyOrderBaseVC.m in Sources */,
 				2EADF8431F7D23FB00818F26 /* FSCalendarAppearance.m in Sources */,
 				2EADF8631F7D241800818F26 /* MGScheduleBlankCell.m in Sources */,
@@ -5090,6 +5097,7 @@
 				2E0FC51E1F301D7200540829 /* MGPayOrderWayCell.m in Sources */,
 				2E98B6ED1F298E370034619D /* MGResCourseListDetailModel.m in Sources */,
 				2EB27F201F150A08006FA9A0 /* UIView+SDExtension.m in Sources */,
+				2E2B161F1FC1CB9E00178E04 /* MGResMessageDetailModel.m in Sources */,
 				2E43D9861F32C02F0059F13A /* MGMyOrderBaseVC.m in Sources */,
 				2EADF8421F7D23FB00818F26 /* FSCalendarAppearance.m in Sources */,
 				2EADF8621F7D241800818F26 /* MGScheduleBlankCell.m in Sources */,

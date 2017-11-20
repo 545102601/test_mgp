@@ -37,5 +37,10 @@
 /// 给参与者投票接口
 + (void)loadActor_Vote:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
+/// 报名参加某团队，给队长发送消息
++ (void)loadProject_Team_Apply:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
+
+/// 队长回复消息
++ (void)loadProject_Team_Apply_Reply:(NSDictionary *)dict completion:(BussinessCompletion)completion error:(BussinessError)error;
 
 @end
