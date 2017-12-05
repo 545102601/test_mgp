@@ -12,10 +12,10 @@
 
 - (BOOL)isRead {
     
-    if (_state == 1) {
-        return YES;
+    if (_state == 50) {
+        return NO;
     }
-    return NO;
+    return YES;
 }
 
 @end

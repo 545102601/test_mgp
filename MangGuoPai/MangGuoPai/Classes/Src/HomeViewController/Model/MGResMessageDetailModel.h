@@ -27,7 +27,7 @@
 /// 备注
 @property (nonatomic, copy) NSString *remark;
 // 状态
-@property (nonatomic, assign) NSInteger state;
+@property (nonatomic, assign) MGGlobaState state;
 /// 状态标签
 @property (nonatomic, copy) NSString *state_label;
 /// 链接地址
@@ -35,7 +35,7 @@
 /// 消息来源id
 @property (nonatomic, assign) long entity_id;
 /// 消息来源类型
-@property (nonatomic, assign) NSInteger entity_type;
+@property (nonatomic, assign) MGGlobalEntityType entity_type;
 /// 消息来源名称
 @property (nonatomic, copy) NSString *entity_name;
 

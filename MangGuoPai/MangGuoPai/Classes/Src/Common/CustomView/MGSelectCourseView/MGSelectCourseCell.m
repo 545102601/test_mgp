@@ -70,6 +70,8 @@
     
     _priceLabel.text = [TDCommonTool formatPriceWithDoublePrice:dataModel.sale_price];
     
+    
+    
     self.contentView.backgroundColor = dataModel.isSelected ? MGThemeColor_QianYellowColor : [UIColor whiteColor];
     
 }

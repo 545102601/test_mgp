@@ -9,10 +9,16 @@
 #import "MGMessageListVC.h"
 #import "MGMessageListTableView.h"
 #import "MGResMessageModel.h"
+#import "MGResMessageDetailModel.h"
+#import "MGMessageRejectVC.h"
 
 @interface MGMessageListVC ()
 /// 消息列表
 @property (nonatomic, strong) MGMessageListTableView *tableView;
+
+@property (nonatomic, strong) DQAlertView *workAlertView;
+
+@property (nonatomic, strong) MGResMessageDetailDataModel *detailDataModel;
 
 @end
 
@@ -47,31 +53,69 @@
         
         [self loadReadMessageWithDataModel:dataModel indexPath:indexPath];
         
-        NSMutableString *strM = [NSString stringWithFormat:@"%@", dataModel.result].mutableCopy;
-        
-        if (dataModel.remark.length > 0) {
-            [strM appendFormat:@",%@",dataModel.remark];
+        if (dataModel.entity_type == MGGlobalEntityTypeWork) {
+            [self loadMessageWorkDetailWithDataModel:dataModel];
+        } else {
+            NSMutableString *strM = [NSString stringWithFormat:@"%@", dataModel.result].mutableCopy;
+            
+            if (dataModel.remark.length > 0) {
+                [strM appendFormat:@",%@",dataModel.remark];
+            }
+            
+            DQAlertView *alertView = [[DQAlertView alloc] initWithTitle:dataModel.title message:strM cancelButtonTitle:@"我知道了" otherButtonTitle:nil];
+            [alertView setAlertThemeMessageTip_OneButton];
+            [alertView show];
+
         }
         
-        DQAlertView *alertView = [[DQAlertView alloc] initWithTitle:dataModel.title message:strM cancelButtonTitle:@"我知道了" otherButtonTitle:nil];
-        [alertView setAlertThemeMessageTip_OneButton];
-        [alertView show];
     };
     
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.workAlertView) {
+        [self.view bringSubviewToFront:self.workAlertView];
+    }
+}
+
 /// 阅读消息
 - (void)loadReadMessageWithDataModel:(MGResMessageDataModel *)dataModel
                            indexPath:(NSIndexPath *)indexPath{
-    
-    [MGBussiness loadReadMessageData:@{@"id" : @(dataModel.id)} completion:^(id results) {
-        if ([results boolValue]) {
-            dataModel.state = 1;
-            [self.tableView reloadSection:indexPath.section withRowAnimation:UITableViewRowAnimationNone];
-        }
-    } error:nil];
+    if (dataModel.state == 50) {
+        [MGBussiness loadReadMessageData:@{@"id" : @(dataModel.id)} completion:^(id results) {
+            if ([results boolValue]) {
+                dataModel.state = 1;
+                [self.tableView reloadSection:indexPath.section withRowAnimation:UITableViewRowAnimationNone];
+            }
+        } error:nil];
+    }
     
 }
 
+/// 加载是工作包的消息
+- (void)loadMessageWorkDetailWithDataModel:(MGResMessageDataModel *)dataModel {
+    
+    [MGBussiness loadMessageDetail:@{@"id" : @(dataModel.id)} completion:^(MGResMessageDetailDataModel *detailDataModel) {
+        
+        _detailDataModel = detailDataModel;
+        _workAlertView = [[DQAlertView alloc] initWithTitle:nil message:nil cancelButtonTitle:nil otherButtonTitle:nil];
+        
+        [_workAlertView setAlertThemeMessageForWorkWithTitle:detailDataModel.title
+                                                content:detailDataModel.result
+                                              workTitle:detailDataModel.entity_name
+                                                  state:dataModel.state
+                                                 target:self
+                                               agreeSel:@selector(agreeButtonOnClcik)
+                                              rejectSel:@selector(rejectOnClcik)
+                                              cancelSel:@selector(cancelSelector)];
+        [_workAlertView showInView:self.view];
+        
+    } error:nil];
+    
+    
+}
 #pragma mark - 加载数据
 - (void)loadDataWithIsHeader:(BOOL)isHeader {
     
@@ -104,5 +148,52 @@
     }];
 }
 
+#pragma mark - Event Response
+
+#pragma mark - --Notification Event Response
+
+#pragma mark - --Button Event Response
+
+- (void)agreeButtonOnClcik {
+    
+    [MGBussiness loadProject_Team_Apply_Reply:@{@"message_id" : @(self.detailDataModel.id),
+                                               @"is_reject" : @"0"} completion:^(id results) {
+                                                   if ([results boolValue]) {
+                                                       [self showMBText:@"同意成功"];
+                                                       [self.workAlertView dismiss];
+                                                   }
+                                               } error:nil];
+    
+}
+
+- (void)rejectOnClcik {
+    
+    MGMessageRejectVC *vc = [MGMessageRejectVC new];
+    vc.detailDataModel = self.detailDataModel;
+    WEAK
+    vc.completionBlock = ^{
+        STRONG
+        [self.workAlertView dismiss];
+    };
+    PushVC(vc)
+    
+}
+
+- (void)cancelSelector {
+    
+    [self.workAlertView dismiss];
+    
+}
+#pragma mark - --Gesture Event Response
+
+#pragma mark - System Delegate
+
+#pragma mark - Custom Delegate
+
+#pragma mark - Public Function
+
+#pragma mark - Private Function
+
+#pragma mark - Getter and Setter
 
 @end

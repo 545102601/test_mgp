@@ -85,6 +85,21 @@
         STRONG
         InterceptLoginShowAlert
         
+        BOOL hasNotSelected = NO;
+        for (MGResCourseListDataModel *dataModel in self.tableView.dataArrayM) {
+            if (dataModel.isSelected) {
+                hasNotSelected = YES;
+                break;
+            }
+        }
+        if (!hasNotSelected) {
+            if (self.tableView.dataArrayM.count > 0) {
+                MGResCourseListDataModel *dataModel = self.tableView.dataArrayM[0];
+                dataModel.isSelected = YES;
+            }
+        }
+        
+        
         self.selectCourseView.arrayM = self.tableView.dataArrayM;
         [KeyWindow addSubview:self.selectCourseView];
         [self.selectCourseView showSelectCourseWithAnimated:YES inView:KeyWindow];

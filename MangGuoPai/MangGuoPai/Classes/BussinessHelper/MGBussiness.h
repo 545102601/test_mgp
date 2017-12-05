@@ -45,8 +45,10 @@ typedef NS_ENUM(NSInteger, MGGlobalOrderState) {
 /// 状态
 typedef NS_ENUM(NSInteger, MGGlobaState) {
     MGGlobaStateNone = 0, /// 停用、隐藏、未发布
+    MGGlobaStateAlreadyRead = 1, /// 已阅
     MGGlobaStateNormal = 50, /// 正常、显示、已发布
     MGGlobaStateAudit = -25, ///待审核、
+    MGGlobaStateAlreadyReply = -2, /// 已回复
 };
 
 

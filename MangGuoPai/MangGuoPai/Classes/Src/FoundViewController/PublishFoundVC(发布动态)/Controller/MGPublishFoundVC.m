@@ -75,14 +75,9 @@
     _colletionView.scrollEnabled = NO;
     [_colletionView registerClass:[MGUploadCollectionViewCell class] forCellWithReuseIdentifier:@"MGUploadCollectionViewCellID"];
     
-    
-    
     [self.view addSubview:_textView];
-    
     [self.view addSubview:_inputTipLabel];
-    
     [self.view addSubview:_colletionView];
-    
     
 }
 

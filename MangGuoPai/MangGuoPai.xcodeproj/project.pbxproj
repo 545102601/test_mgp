@@ -49,6 +49,8 @@
 		2E0FC5E71F31795300540829 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5E21F31795300540829 /* SDPhotoBrowser.m */; };
 		2E0FC5E81F31795300540829 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5E51F31795300540829 /* SDWaitingView.m */; };
 		2E0FC5ED1F321A1000540829 /* MGUpdateInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0FC5EC1F321A0F00540829 /* MGUpdateInfoVC.m */; };
+		2E123F3E1FC5D94900D91AE9 /* MGMessageRejectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E123F3D1FC5D94900D91AE9 /* MGMessageRejectVC.m */; };
+		2E123F3F1FC5D94900D91AE9 /* MGMessageRejectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E123F3D1FC5D94900D91AE9 /* MGMessageRejectVC.m */; };
 		2E1648FE1F8C9EA8004D6599 /* MGWorkApplyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1648FD1F8C9EA8004D6599 /* MGWorkApplyVC.m */; };
 		2E1648FF1F8C9EA8004D6599 /* MGWorkApplyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1648FD1F8C9EA8004D6599 /* MGWorkApplyVC.m */; };
 		2E1649021F8CB65D004D6599 /* MGWorkApplyNewGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1649011F8CB65D004D6599 /* MGWorkApplyNewGroupView.m */; };
@@ -931,6 +933,8 @@
 		2E0FC5E51F31795300540829 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		2E0FC5EB1F321A0F00540829 /* MGUpdateInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUpdateInfoVC.h; sourceTree = "<group>"; };
 		2E0FC5EC1F321A0F00540829 /* MGUpdateInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUpdateInfoVC.m; sourceTree = "<group>"; };
+		2E123F3C1FC5D94900D91AE9 /* MGMessageRejectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMessageRejectVC.h; sourceTree = "<group>"; };
+		2E123F3D1FC5D94900D91AE9 /* MGMessageRejectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMessageRejectVC.m; sourceTree = "<group>"; };
 		2E1648FC1F8C9EA8004D6599 /* MGWorkApplyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWorkApplyVC.h; sourceTree = "<group>"; };
 		2E1648FD1F8C9EA8004D6599 /* MGWorkApplyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWorkApplyVC.m; sourceTree = "<group>"; };
 		2E1649001F8CB65D004D6599 /* MGWorkApplyNewGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWorkApplyNewGroupView.h; sourceTree = "<group>"; };
@@ -1976,6 +1980,23 @@
 			children = (
 				2E0FC5EB1F321A0F00540829 /* MGUpdateInfoVC.h */,
 				2E0FC5EC1F321A0F00540829 /* MGUpdateInfoVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2E123F3A1FC5D93500D91AE9 /* MGMessageRejectVC */ = {
+			isa = PBXGroup;
+			children = (
+				2E123F3B1FC5D93500D91AE9 /* Controller */,
+			);
+			path = MGMessageRejectVC;
+			sourceTree = "<group>";
+		};
+		2E123F3B1FC5D93500D91AE9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E123F3C1FC5D94900D91AE9 /* MGMessageRejectVC.h */,
+				2E123F3D1FC5D94900D91AE9 /* MGMessageRejectVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3256,6 +3277,7 @@
 		2E850D721F17B3740050103C /* MGMessageList(消息列表) */ = {
 			isa = PBXGroup;
 			children = (
+				2E123F3A1FC5D93500D91AE9 /* MGMessageRejectVC */,
 				2E850D731F17B3740050103C /* Controller */,
 				2E850D741F17B3740050103C /* Model */,
 				2E850D751F17B3740050103C /* View */,
@@ -4711,6 +4733,7 @@
 				2E49EA451F5D51EB00A260E7 /* MGTeacherCategoryDetailVC.m in Sources */,
 				2E49EA461F5D51EB00A260E7 /* BaseCollectionView.m in Sources */,
 				2E49EA471F5D51EB00A260E7 /* MGWorkDetailVC.m in Sources */,
+				2E123F3F1FC5D94900D91AE9 /* MGMessageRejectVC.m in Sources */,
 				2EADF8BD1F83584C00818F26 /* MGFoundCommentPublisherVC.m in Sources */,
 				2E49EA481F5D51EB00A260E7 /* MGBussiness+HomeExtend.m in Sources */,
 				2E49EA491F5D51EB00A260E7 /* TDConfigManager.m in Sources */,
@@ -5073,6 +5096,7 @@
 				2ECCB3741F24A5D7003C7A3B /* MGTeacherCategoryDetailVC.m in Sources */,
 				2EBAA1B11F0299AB0011DDDE /* BaseCollectionView.m in Sources */,
 				2E49E6D81F5661F700A260E7 /* MGWorkDetailVC.m in Sources */,
+				2E123F3E1FC5D94900D91AE9 /* MGMessageRejectVC.m in Sources */,
 				2EADF8BC1F83584C00818F26 /* MGFoundCommentPublisherVC.m in Sources */,
 				2E850D5B1F1688330050103C /* MGBussiness+HomeExtend.m in Sources */,
 				2EBAA1CB1F029B260011DDDE /* TDConfigManager.m in Sources */,

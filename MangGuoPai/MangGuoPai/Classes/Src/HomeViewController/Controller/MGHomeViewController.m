@@ -304,6 +304,7 @@
     [self.view endEditing:YES];
     
     if (!(PROD_CONFIG)) {
+        
         MGWorkMyIntroVC *vc = [MGWorkMyIntroVC new];
         PushVC(vc)
         return;
@@ -321,6 +322,7 @@
     }];
  
 }
+
 /// 点击消息
 - (void)rightNavButtonOnClick {
     

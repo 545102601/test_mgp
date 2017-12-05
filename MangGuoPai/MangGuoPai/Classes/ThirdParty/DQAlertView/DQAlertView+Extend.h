@@ -18,4 +18,15 @@
 /// 报名集结号
 - (void)setAlertThemeWithTextFieldForApplyWork;
 
+/// 消息队长消息回复
+- (void)setAlertThemeMessageForWorkWithTitle:(NSString *)title
+                                     content:(NSString *)content
+                                   workTitle:(NSString *)workTitle
+                                       state:(MGGlobaState)state
+                                      target:(id)target
+                                    agreeSel:(SEL)agreeSel
+                                   rejectSel:(SEL)rejectSel
+                                   cancelSel:(SEL)cancelSel;
+
+
 @end

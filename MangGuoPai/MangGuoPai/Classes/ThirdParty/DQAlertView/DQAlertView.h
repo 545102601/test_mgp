@@ -61,6 +61,8 @@ typedef void (^DQAlertViewBlock)(void);
 // The frame of alert view will be resized based on the frame of content view, so you don't have to set the custom frame. If you want the alert view not shown at center, just set the center of the Alert View
 @property (nonatomic, strong) UIView *contentView;
 
+/// dim bg view
+@property (nonatomic, strong) UIView * blackOpaqueView;
 
 // You can get buttons and labels for customizing their appearance
 @property (nonatomic, strong) UIButton * cancelButton; // Default is in blue color and system font 16

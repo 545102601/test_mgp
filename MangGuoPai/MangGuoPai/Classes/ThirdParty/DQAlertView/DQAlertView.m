@@ -12,7 +12,7 @@
 #define IS_IOS_LOWER_THAN_8 ( [ [ [ UIDevice currentDevice ] systemVersion ] floatValue ] < 8.0 )
 #define IS_IOS_8_OR_HIGHER ( [ [ [ UIDevice currentDevice ] systemVersion ] floatValue ] >= 8.0 )
 
-#define DEFAULT_ALERT_WIDTH SW(500)
+#define DEFAULT_ALERT_WIDTH SW(600)
 #define DEFAULT_ALERT_HEIGHT SH(240)
 
 @interface DQAlertView ()
@@ -33,7 +33,6 @@
 @property (nonatomic, strong) UIView * horizontalSeparator;
 @property (nonatomic, strong) UIView * verticalSeparator;
 
-@property (nonatomic, strong) UIView * blackOpaqueView;
 
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, strong) NSString * message;

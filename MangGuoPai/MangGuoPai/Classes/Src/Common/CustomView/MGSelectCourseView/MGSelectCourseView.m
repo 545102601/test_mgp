@@ -59,7 +59,7 @@
     _topBgView.backgroundColor = [UIColor clearColor];
     
     
-    _addAccountButton = [MGUITool buttonWithBGColor:nil title:@"选择购买的服务" titleColor:MGThemeColor_Title_Black font:PFSC(30) target:nil selector:nil];
+    _addAccountButton = [MGUITool buttonWithBGColor:nil title:@"选择想听的课程" titleColor:MGThemeColor_Title_Black font:PFSC(30) target:nil selector:nil];
     _addAccountButton.userInteractionEnabled = NO;
     
     _lineView = [[UIView alloc] init];
@@ -184,11 +184,6 @@
 }
 
 - (void)showSelectCourseWithAnimated:(BOOL)animated inView:(UIView *)view {
-    /// 关闭所有选中
-    for (MGResCourseListDataModel *model in self.arrayM) {
-        model.isSelected = NO;
-    }
-    [self.tableView reloadData];
     
     
     if (animated && self.hidden) {
