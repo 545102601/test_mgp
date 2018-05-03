@@ -12,7 +12,6 @@
 typedef void(^FunctionDidCellItemBlock)(NSInteger item);
 
 
-
 /// colletion view cell
 @interface MGHomeFunctionColletionViewCell : BaseCollectionViewCell
 

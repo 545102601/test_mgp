@@ -48,7 +48,10 @@
     self.dataSource = self;
     self.emptyDataSetDelegate = self;
     self.emptyDataSetSource = self;
-    
+    /// 适配ios 11
+    if (@available(iOS 11.0, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     _emptyDataSetShouldAllowScroll = YES;
     _emptyDataSetShouldDisplay = YES;
     

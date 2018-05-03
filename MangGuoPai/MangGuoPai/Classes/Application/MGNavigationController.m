@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    [self.navigationBar removeFromSuperview];
+    self.navigationBar.hidden = YES;
     
     self.interactivePopGestureRecognizer.delegate = self;
     
@@ -46,6 +46,11 @@
 
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    /// 动画时不可侧滑
+    if ([[self valueForKey:@"_isTransitioning"] boolValue]) {
+        return NO;
+    }
+    
     /// 屏蔽 控制器个数 等于1的
     if (self.viewControllers.count == 1) {
         return NO;
